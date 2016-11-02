@@ -15,6 +15,7 @@ extension Date {
     /// - Returns: String
     public func toFullDateTimeString() -> String {
         let dateFormatter = DateFormatter()
+        // TODO add dateFormatter.locale
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         return dateFormatter.string(from: self)
     }
@@ -25,6 +26,7 @@ extension Date {
     /// - Returns: String
     public func toFullDateString() -> String {
         let dateFormatter = DateFormatter()
+        // TODO add dateFormatter.locale
         dateFormatter.dateFormat = "yyyy-MM-dd"
         return dateFormatter.string(from: self)
     }

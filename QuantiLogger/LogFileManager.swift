@@ -10,9 +10,9 @@ import Foundation
 
 
 /// LogFileManager manages all necessary operations for FileLogger.
-open class LogFileManager {
+class LogFileManager {
     /// The class is used as a Singleton, thus should be accesed via instance property !!!
-    open static let instance = LogFileManager()
+    static let instance = LogFileManager()
     
     // NOTE: NSTemoporaryDirectory() should return always the same directory -> if that is not true, it might cause problems and then
     // it should be stored and restored from UserDefaults as other properties are.
