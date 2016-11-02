@@ -13,7 +13,7 @@ extension Date {
     /// Method to return String in format: "yyyy-MM-dd HH:mm:ss" from Date instance.
     ///
     /// - Returns: String
-    func toFullDateTimeString() -> String {
+    public func toFullDateTimeString() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         return dateFormatter.string(from: self)
@@ -23,7 +23,7 @@ extension Date {
     /// Method to return String in format: "yyyy-MM-dd" from Date instance.
     ///
     /// - Returns: String
-    func toFullDateString() -> String {
+    public func toFullDateString() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         return dateFormatter.string(from: self)
