@@ -7,9 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5B3641921DBFA4650034EF68 /* QuantiLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B3641881DBFA4650034EF68 /* QuantiLogger.framework */; };
+		5B27824A1DC9F1AD00525431 /* QuantiLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B3641881DBFA4650034EF68 /* QuantiLogger.framework */; };
+		5B2782521DC9F72A00525431 /* FileLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2782511DC9F72A00525431 /* FileLogger.swift */; };
+		5B35E35E1DC0C87300C7E679 /* LogFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B35E35D1DC0C87300C7E679 /* LogFileManager.swift */; };
 		5B3641971DBFA4650034EF68 /* QuantiLoggerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3641961DBFA4650034EF68 /* QuantiLoggerTests.swift */; };
 		5B3641991DBFA4650034EF68 /* QuantiLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B36418B1DBFA4650034EF68 /* QuantiLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5B3641A31DBFAC810034EF68 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3641A21DBFAC810034EF68 /* Level.swift */; };
+		5B3641A51DBFACF90034EF68 /* BaseLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3641A41DBFACF80034EF68 /* BaseLogger.swift */; };
+		5B3641A71DBFAD5D0034EF68 /* LogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3641A61DBFAD5D0034EF68 /* LogManager.swift */; };
+		5BAF4F241DC8DA35000379A4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAF4F231DC8DA35000379A4 /* Constants.swift */; };
+		5BDA79CD1DBFB6CF00930ABA /* ConsoleLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDA79CC1DBFB6CF00930ABA /* ConsoleLogger.swift */; };
+		5BEBBB191DC9EAC20055E453 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEBBB181DC9EAC20055E453 /* DateExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -23,12 +31,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5B2782511DC9F72A00525431 /* FileLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileLogger.swift; sourceTree = "<group>"; };
+		5B35E35D1DC0C87300C7E679 /* LogFileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogFileManager.swift; sourceTree = "<group>"; };
 		5B3641881DBFA4650034EF68 /* QuantiLogger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = QuantiLogger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B36418B1DBFA4650034EF68 /* QuantiLogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuantiLogger.h; sourceTree = "<group>"; };
 		5B36418C1DBFA4650034EF68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5B3641911DBFA4650034EF68 /* QuantiLoggerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuantiLoggerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B3641961DBFA4650034EF68 /* QuantiLoggerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuantiLoggerTests.swift; sourceTree = "<group>"; };
 		5B3641981DBFA4650034EF68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5B3641A21DBFAC810034EF68 /* Level.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
+		5B3641A41DBFACF80034EF68 /* BaseLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseLogger.swift; sourceTree = "<group>"; };
+		5B3641A61DBFAD5D0034EF68 /* LogManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogManager.swift; sourceTree = "<group>"; };
+		5BAF4F231DC8DA35000379A4 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		5BDA79CC1DBFB6CF00930ABA /* ConsoleLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsoleLogger.swift; sourceTree = "<group>"; };
+		5BEBBB181DC9EAC20055E453 /* DateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,13 +59,57 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B3641921DBFA4650034EF68 /* QuantiLogger.framework in Frameworks */,
+				5B27824A1DC9F1AD00525431 /* QuantiLogger.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5B35E35A1DC0A82400C7E679 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				5B36418C1DBFA4650034EF68 /* Info.plist */,
+				5B36418B1DBFA4650034EF68 /* QuantiLogger.h */,
+			);
+			name = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		5B35E35B1DC0A83900C7E679 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				5B3641961DBFA4650034EF68 /* QuantiLoggerTests.swift */,
+			);
+			name = Tests;
+			sourceTree = "<group>";
+		};
+		5B35E35C1DC0A84D00C7E679 /* Loggers */ = {
+			isa = PBXGroup;
+			children = (
+				5B3641A41DBFACF80034EF68 /* BaseLogger.swift */,
+				5BC00C981DC77C2100C3B89D /* FileLogger */,
+				5BC00C971DC77C1200C3B89D /* ConsoleLogger */,
+			);
+			name = Loggers;
+			sourceTree = "<group>";
+		};
+		5B35E35F1DC0EF0F00C7E679 /* Basic */ = {
+			isa = PBXGroup;
+			children = (
+				5B35E3601DC0EF1A00C7E679 /* Extensions */,
+			);
+			name = Basic;
+			sourceTree = "<group>";
+		};
+		5B35E3601DC0EF1A00C7E679 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5BEBBB181DC9EAC20055E453 /* DateExtension.swift */,
+				5BAF4F231DC8DA35000379A4 /* Constants.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 		5B36417E1DBFA4640034EF68 = {
 			isa = PBXGroup;
 			children = (
@@ -71,8 +131,11 @@
 		5B36418A1DBFA4650034EF68 /* QuantiLogger */ = {
 			isa = PBXGroup;
 			children = (
-				5B36418B1DBFA4650034EF68 /* QuantiLogger.h */,
-				5B36418C1DBFA4650034EF68 /* Info.plist */,
+				5B35E35F1DC0EF0F00C7E679 /* Basic */,
+				5B3641A21DBFAC810034EF68 /* Level.swift */,
+				5B3641A61DBFAD5D0034EF68 /* LogManager.swift */,
+				5B35E35C1DC0A84D00C7E679 /* Loggers */,
+				5B35E35A1DC0A82400C7E679 /* SupportingFiles */,
 			);
 			path = QuantiLogger;
 			sourceTree = "<group>";
@@ -80,10 +143,27 @@
 		5B3641951DBFA4650034EF68 /* QuantiLoggerTests */ = {
 			isa = PBXGroup;
 			children = (
-				5B3641961DBFA4650034EF68 /* QuantiLoggerTests.swift */,
 				5B3641981DBFA4650034EF68 /* Info.plist */,
+				5B35E35B1DC0A83900C7E679 /* Tests */,
 			);
 			path = QuantiLoggerTests;
+			sourceTree = "<group>";
+		};
+		5BC00C971DC77C1200C3B89D /* ConsoleLogger */ = {
+			isa = PBXGroup;
+			children = (
+				5BDA79CC1DBFB6CF00930ABA /* ConsoleLogger.swift */,
+			);
+			name = ConsoleLogger;
+			sourceTree = "<group>";
+		};
+		5BC00C981DC77C2100C3B89D /* FileLogger */ = {
+			isa = PBXGroup;
+			children = (
+				5B35E35D1DC0C87300C7E679 /* LogFileManager.swift */,
+				5B2782511DC9F72A00525431 /* FileLogger.swift */,
+			);
+			name = FileLogger;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,12 +223,13 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = quanti;
 				TargetAttributes = {
 					5B3641871DBFA4650034EF68 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 2PY9RKK8A7;
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 					};
 					5B3641901DBFA4650034EF68 = {
@@ -198,6 +279,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B3641A51DBFACF90034EF68 /* BaseLogger.swift in Sources */,
+				5BEBBB191DC9EAC20055E453 /* DateExtension.swift in Sources */,
+				5BDA79CD1DBFB6CF00930ABA /* ConsoleLogger.swift in Sources */,
+				5B2782521DC9F72A00525431 /* FileLogger.swift in Sources */,
+				5B3641A71DBFAD5D0034EF68 /* LogManager.swift in Sources */,
+				5B35E35E1DC0C87300C7E679 /* LogFileManager.swift in Sources */,
+				5B3641A31DBFAC810034EF68 /* Level.swift in Sources */,
+				5BAF4F241DC8DA35000379A4 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,6 +327,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -291,6 +381,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -322,6 +413,7 @@
 		5B36419D1DBFA4650034EF68 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 2PY9RKK8A7;
@@ -331,9 +423,11 @@
 				INFOPLIST_FILE = QuantiLogger/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.quanti.swift.QuantiLogger;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -341,6 +435,7 @@
 		5B36419E1DBFA4650034EF68 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 2PY9RKK8A7;
@@ -360,6 +455,7 @@
 		5B3641A01DBFA4650034EF68 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 2PY9RKK8A7;
 				INFOPLIST_FILE = QuantiLoggerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -372,6 +468,7 @@
 		5B3641A11DBFA4650034EF68 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 2PY9RKK8A7;
 				INFOPLIST_FILE = QuantiLoggerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -400,6 +497,7 @@
 				5B36419E1DBFA4650034EF68 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5B36419F1DBFA4650034EF68 /* Build configuration list for PBXNativeTarget "QuantiLoggerTests" */ = {
 			isa = XCConfigurationList;
@@ -408,6 +506,7 @@
 				5B3641A11DBFA4650034EF68 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
