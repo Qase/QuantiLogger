@@ -10,7 +10,7 @@ import UIKit
 
 
 /// The Base class for all Loggers. If a new logger is to be developed, it must inherit from this class.
-public class BaseLogger {
+open class BaseLogger {
     private let levels: [Level]
     
     public init(withLevels levels: [Level]) {
@@ -19,7 +19,7 @@ public class BaseLogger {
     
     
     /// This method should be overriden in the subclass if there is any configuration before the logger is set to log.
-    public func configure() {
+    open func configure() {
     }
     
     
@@ -28,7 +28,7 @@ public class BaseLogger {
     /// - Parameters:
     ///   - message: String loging message
     ///   - level: Level of the loging message
-    public func log(_ message: String, onLevel level: Level) {
+    open func log(_ message: String, onLevel level: Level) {
         preconditionFailure("Method must be implemented within a subclass of BaseLogger")
     }
     

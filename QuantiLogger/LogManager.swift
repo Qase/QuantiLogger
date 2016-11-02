@@ -22,10 +22,10 @@ public func QLog(_ message: String, onLevel level: Level) {
 /// LogManager manages different types of loggers. The class enables to register custom or pre-built loggers.
 /// Each of these logger classes must be subclassed from BaseLogger. The class handles logging to registered loggers
 /// based on levels they are set to acccept.
-open class LogManager {
+public class LogManager {
     
     // The class is used as a Singleton, thus should be accesed via instance property !!!
-    open static let instance = LogManager()
+    public static let instance = LogManager()
     
     private var loggers: [BaseLogger]
     
@@ -38,6 +38,7 @@ open class LogManager {
     ///
     /// - Parameter logger: Logger to be registered.
     public func add(_ logger: BaseLogger) {
+        logger.configure()
         loggers.append(logger)
     }
     

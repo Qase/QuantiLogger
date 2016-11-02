@@ -10,9 +10,9 @@ import Foundation
 
 
 /// LogFileManager manages all necessary operations for FileLogger.
-class LogFileManager {
+open class LogFileManager {
     /// The class is used as a Singleton, thus should be accesed via instance property !!!
-    static let instance = LogFileManager()
+    open static let instance = LogFileManager()
     
     // NOTE: NSTemoporaryDirectory() should return always the same directory -> if that is not true, it might cause problems and then
     // it should be stored and restored from UserDefaults as other properties are.
@@ -32,7 +32,7 @@ class LogFileManager {
     var numOfLogFiles: Int = 4 {
         willSet(newNumOfLogFiles) {
             if newNumOfLogFiles == 0 {
-                preconditionFailure("There must be at least 1 log file so FileLogger can be used!")
+                preconditionFailure(" There must be at least 1 log file so FileLogger can be used!")
             }
             if numOfLogFiles > newNumOfLogFiles {
                 removeAllLogFiles()
