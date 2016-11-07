@@ -15,7 +15,7 @@ import Foundation
 ///   - message: String loging message
 ///   - level: Level of the loging message
 public func QLog(_ message: String, onLevel level: Level) {
-    LogManager.instance.log(message, onLevel: level)
+    LogManager.shared.log(message, onLevel: level)
 }
 
 
@@ -25,19 +25,19 @@ public func QLog(_ message: String, onLevel level: Level) {
 public class LogManager {
     
     // The class is used as a Singleton, thus should be accesed via instance property !!!
-    public static let instance = LogManager()
+    public static let shared = LogManager()
     
-    private var loggers: [BaseLogger]
+    private var loggers: [Loging]
     
     private init() {
-        loggers = [BaseLogger]()
+        loggers = [Loging]()
     }
     
     
     /// Method to register a new custom or pre-build logger.
     ///
     /// - Parameter logger: Logger to be registered.
-    public func add(_ logger: BaseLogger) {
+    public func add(_ logger: Loging) {
         logger.configure()
         loggers.append(logger)
     }

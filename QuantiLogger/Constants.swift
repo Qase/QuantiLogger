@@ -11,8 +11,13 @@ import Foundation
 struct Constants {
     
     struct UserDefaultsKeys {
+        static let logDirPath = "logDirPath"
         static let currentLogFileNumber = "currentLogFileNumber"
         static let dateOfLastLog = "dateOfLastLog"
         static let numOfLogFiles = "numOfLogFiles"
+    }
+    
+    struct FileLogger {
+        static let logRecordSeparator = "<-- QLog -->"
     }
 }
