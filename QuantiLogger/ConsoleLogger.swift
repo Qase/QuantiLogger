@@ -9,8 +9,14 @@
 import Foundation
 
 /// Pre-built logger that logs to the console.
-public class ConsoleLogger: BaseLogger {
-    override public func log(_ message: String, onLevel level: Level) {
+public class ConsoleLogger: InternalBaseLogger, Loging {
+    public func levels() -> [Level] {
+        return levels
+    }
+    
+    public func log(_ message: String, onLevel level: Level) {
         print("[\(level.rawValue) \(Date().toFullDateTimeString())] \(message)")
     }
+    
 }
+
