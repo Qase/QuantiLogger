@@ -10,16 +10,16 @@ import Foundation
 
 
 /// LogFileManager manages all necessary operations for FileLogger.
-class LogFileManager {
+class FileLoggerManager {
     /// The class is used as a Singleton, thus should be accesed via instance property !!!
-    static let shared = LogFileManager()
+    static let shared = FileLoggerManager()
     
-    private var logDirPath = NSTemporaryDirectory() {
+    private(set) var logDirPath = NSTemporaryDirectory() {
         didSet {
             UserDefaults.standard.set(logDirPath, forKey: Constants.UserDefaultsKeys.logDirPath)
         }
     }
-    private var currentLogFileNumber: Int = 0 {
+    private(set) var currentLogFileNumber: Int = 0 {
         didSet {
             UserDefaults.standard.set(currentLogFileNumber, forKey: Constants.UserDefaultsKeys.currentLogFileNumber)
         }
@@ -143,7 +143,7 @@ class LogFileManager {
     func writeToLogFile(message: String, onLevel level: Level) {
         refreshCurrentLogFileStatus()
         
-        let contentToAppend = "\(Constants.FileLogger.logRecordSeparator)\n[\(level.rawValue) \(Date().toFullDateTimeString())]\n\(message)\n\n"
+        let contentToAppend = "\(Constants.FileLogger.logFileRecordSeparator)\n[\(level.rawValue) \(Date().toFullDateTimeString())]\n\(message)\n\n"
         
         let pathOfCurrentLogFile = "\(logDirPath)\(currentLogFileNumber).log"
         
@@ -167,7 +167,7 @@ class LogFileManager {
     /// of writeToLogFile(_, _) method.
     private func refreshCurrentLogFileStatus() {
         let currentDate = Date()
-        if currentDate.toFullDateTimeString() != dateOfLastLog.toFullDateTimeString() {
+        if currentDate.toFullDateString() != dateOfLastLog.toFullDateString() {
             currentLogFileNumber = (currentLogFileNumber + 1) % numOfLogFiles
             dateOfLastLog = currentDate
             
@@ -175,10 +175,29 @@ class LogFileManager {
         }
     }
     
-    func gettingRecordsFromLogFile(withName fileName: String) -> String? {
-        let fileContent = readingContentFromLogFile(withName: fileName)
-        // TODO finish
-        return nil
-    }
     
+    /// Method that parses a log file content into an array of LogFileRecord instances
+    ///
+    /// - Parameter fileName: fileName of a log file to parse
+    /// - Returns: array of LogFileRecord instances
+    func gettingRecordsFromLogFile(withName fileName: String) -> [LogFileRecord]? {
+        let logFileContent = readingContentFromLogFile(withName: fileName)
+        guard let _logFileContent = logFileContent else { return nil }
+        
+        var arrayOflogFileRecords = _logFileContent.components(separatedBy: Constants.FileLogger.logFileRecordSeparator)
+        arrayOflogFileRecords.remove(at: 0)
+        let logFileRecords = arrayOflogFileRecords.map { (logFileRecordInString) -> LogFileRecord in
+            let trimmedLogFileRecordInString = logFileRecordInString.trimmingCharacters(in: .newlines)
+            var arrayOfLogFileRecordLines = trimmedLogFileRecordInString.components(separatedBy: .newlines)
+            
+            let header = arrayOfLogFileRecordLines[0]
+            arrayOfLogFileRecordLines.remove(at: 0)
+            let body = arrayOfLogFileRecordLines.reduce("", { (logBody, logBodyLine) -> String in
+                "\(logBody)\(logBodyLine)\n"
+            })
+            return LogFileRecord(header: header, body: body)
+        }
+    
+        return logFileRecords
+    }
 }

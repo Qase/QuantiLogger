@@ -18,6 +18,10 @@ struct Constants {
     }
     
     struct FileLogger {
-        static let logRecordSeparator = "<-- QLog -->"
+        static let logFileRecordSeparator = "<-- QLog -->"
+    }
+    
+    public struct FileLoggerTableViewDatasource {
+        static let fileLoggerTableViewCellIdentifier = "fileLoggerTableViewCellIdentifier"
     }
 }

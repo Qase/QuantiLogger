@@ -43,6 +43,12 @@ public class LogManager {
     }
     
     
+    /// Method to remove all existing loggers registered to the Log manager.
+    public func removeAllLoggers() {
+        loggers = [Loging]()
+    }
+    
+    
     /// Method to handle logging, it is called internaly via global method QLog(_, _) and thus its not visible outside
     /// of the module.
     ///
@@ -56,4 +62,6 @@ public class LogManager {
             }
         }
     }
+    
+    
 }

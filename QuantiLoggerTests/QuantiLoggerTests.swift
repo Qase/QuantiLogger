@@ -22,7 +22,7 @@ class QuantiLoggerTests: XCTestCase {
     
     func testInicializationOfFileLogger() {
         // Set default values for all Logger properties and store them to UserDefaults
-        LogFileManager.shared.resetPropertiesToDefaultValues()
+        FileLoggerManager.shared.resetPropertiesToDefaultValues()
         
         // Check if default values were propertly stored to UserDefaults
         if let _logDirPath = UserDefaults.standard.object(forKey: Constants.UserDefaultsKeys.logDirPath) as? String {
@@ -51,16 +51,17 @@ class QuantiLoggerTests: XCTestCase {
     }
     
     func testLogger() {
-        LogFileManager.shared.resetPropertiesToDefaultValues()
+        FileLoggerManager.shared.resetPropertiesToDefaultValues()
         
         // Get the path of the first (0) log file - which is the first log file to write to after reseting properties to default values
-        let testLogFileName = "0.log"
+        let testLogFileName = "\(FileLoggerManager.shared.currentLogFileNumber).log"
         
         // Check if the file exists and if it does - remove it before its created within the test
-        LogFileManager.shared.removeLogFile(withName: testLogFileName)
+        FileLoggerManager.shared.removeLogFile(withName: testLogFileName)
         
         // Set Console logger and File logger
         let logManager = LogManager.shared
+        logManager.removeAllLoggers()
         
         let consoleLogger = ConsoleLogger()
         consoleLogger.levels = [.warn, .error]
@@ -78,7 +79,7 @@ class QuantiLoggerTests: XCTestCase {
         QLog("Info message", onLevel: .info)
         
         // Check if logs were correctly written in the log file
-        let contentOfLogFile = LogFileManager.shared.readingContentFromLogFile(withName: testLogFileName)
+        let contentOfLogFile = FileLoggerManager.shared.readingContentFromLogFile(withName: testLogFileName)
         
         guard let _contentOfLogFile = contentOfLogFile else {
             XCTFail("Log file is empty even though it should not be!")
@@ -86,17 +87,57 @@ class QuantiLoggerTests: XCTestCase {
         }
         
         let linesOfContent = _contentOfLogFile.components(separatedBy: .newlines)
-        XCTAssertEqual(Constants.FileLogger.logRecordSeparator, linesOfContent[0])
+        XCTAssertEqual(Constants.FileLogger.logFileRecordSeparator, linesOfContent[0])
         XCTAssertNotNil(linesOfContent[1].range(of: "^\\[ERROR \\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}]$", options: .regularExpression))
         XCTAssertNotNil(linesOfContent[2].range(of: "^Error message$", options: .regularExpression))
         XCTAssertEqual(linesOfContent[3], "")
-        XCTAssertEqual(Constants.FileLogger.logRecordSeparator, linesOfContent[4])
+        XCTAssertEqual(Constants.FileLogger.logFileRecordSeparator, linesOfContent[4])
         XCTAssertNotNil(linesOfContent[5].range(of: "^\\[INFO \\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}]$", options: .regularExpression))
         XCTAssertNotNil(linesOfContent[6].range(of: "^Info message$", options: .regularExpression))
     
         
         // Remove the log file
-        LogFileManager.shared.removeLogFile(withName: testLogFileName)
+        FileLoggerManager.shared.removeLogFile(withName: testLogFileName)
+    }
+    
+    func testParsingOfLogFile() {
+        FileLoggerManager.shared.resetPropertiesToDefaultValues()
+        
+        // Get the path of the first (0) log file - which is the first log file to write to after reseting properties to default values
+        let testLogFileName = "\(FileLoggerManager.shared.currentLogFileNumber).log"
+        
+        // Check if the file exists and if it does - remove it before its created within the test
+        FileLoggerManager.shared.removeLogFile(withName: testLogFileName)
+        
+        // Set Console logger and File logger
+        let logManager = LogManager.shared
+        logManager.removeAllLoggers()
+        
+        let fileLogger = FileLogger()
+        fileLogger.levels = [.error, .warn]
+        logManager.add(fileLogger)
+        
+        QLog("Error message", onLevel: .error)
+        QLog("Warning message\nThis is test!", onLevel: .warn)
+        
+        let logFileRecords = FileLoggerManager.shared.gettingRecordsFromLogFile(withName: testLogFileName)
+        
+        guard let _logFileRecords = logFileRecords else {
+            XCTFail("No log file records were parsed from the log file even though there should be 2 of them.")
+            return
+        }
+        
+        XCTAssertEqual(2, _logFileRecords.count)
+        
+        XCTAssertNotNil(_logFileRecords[0].header.range(of: "^\\[ERROR \\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}]$", options: .regularExpression))
+        XCTAssertNotNil(_logFileRecords[0].body.range(of: "^Error message\n$", options: .regularExpression))
+        
+        XCTAssertNotNil(_logFileRecords[1].header.range(of: "^\\[WARNING \\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}]$", options: .regularExpression))
+        XCTAssertNotNil(_logFileRecords[1].body.range(of: "^Warning message\nThis is test!\n$", options: .regularExpression))
+        
+        
+        // Remove the log file
+        FileLoggerManager.shared.removeLogFile(withName: testLogFileName)
     }
     
 }

@@ -9,12 +9,14 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "QuantiLogger/LogFileTableViewDatasource.swift"
-            timestampString = "500233371.940392"
+            filePath = "QuantiLogger/LogFileManager.swift"
+            timestampString = "500291079.947959"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "13"
-            endingLineNumber = "13">
+            startingLineNumber = "197"
+            endingLineNumber = "197"
+            landmarkName = "gettingRecordsFromLogFile(withName:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
