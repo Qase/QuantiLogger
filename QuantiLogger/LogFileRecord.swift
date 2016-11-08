@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct LogFileRecord {
+public struct LogFileRecord {
     let header: String
     let body: String
 }
