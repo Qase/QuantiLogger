@@ -9,5 +9,5 @@
 import Foundation
 
 public class InternalBaseLogger {
-    var levels: [Level] = [.info]
+    public var levels: [Level] = [.info]
 }
