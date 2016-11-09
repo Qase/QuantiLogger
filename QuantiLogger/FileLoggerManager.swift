@@ -10,23 +10,23 @@ import Foundation
 
 
 /// LogFileManager manages all necessary operations for FileLogger.
-public class FileLoggerManager {
+class FileLoggerManager {
     /// The class is used as a Singleton, thus should be accesed via instance property !!!
-    public static let shared = FileLoggerManager()
+    static let shared = FileLoggerManager()
     
     private(set) var logDirPath = NSTemporaryDirectory() {
         didSet {
-            UserDefaults.standard.set(logDirPath, forKey: Constants.UserDefaultsKeys.logDirPath)
+            UserDefaults.standard.set(logDirPath, forKey: QuantiLoggerConstants.UserDefaultsKeys.logDirPath)
         }
     }
     private(set) var currentLogFileNumber: Int = 0 {
         didSet {
-            UserDefaults.standard.set(currentLogFileNumber, forKey: Constants.UserDefaultsKeys.currentLogFileNumber)
+            UserDefaults.standard.set(currentLogFileNumber, forKey: QuantiLoggerConstants.UserDefaultsKeys.currentLogFileNumber)
         }
     }
     private var dateOfLastLog: Date = Date() {
         didSet {
-            UserDefaults.standard.set(dateOfLastLog, forKey: Constants.UserDefaultsKeys.dateOfLastLog)
+            UserDefaults.standard.set(dateOfLastLog, forKey: QuantiLoggerConstants.UserDefaultsKeys.dateOfLastLog)
         }
     }
     var numOfLogFiles: Int = 4 {
@@ -39,32 +39,32 @@ public class FileLoggerManager {
             }
         }
         didSet {
-            UserDefaults.standard.set(numOfLogFiles, forKey: Constants.UserDefaultsKeys.numOfLogFiles)
+            UserDefaults.standard.set(numOfLogFiles, forKey: QuantiLoggerConstants.UserDefaultsKeys.numOfLogFiles)
         }
     }
     
     private init() {
-        if let _logDirPath = UserDefaults.standard.object(forKey: Constants.UserDefaultsKeys.logDirPath) as? String {
+        if let _logDirPath = UserDefaults.standard.object(forKey: QuantiLoggerConstants.UserDefaultsKeys.logDirPath) as? String {
             logDirPath = _logDirPath
         } else {
-            UserDefaults.standard.set(logDirPath, forKey: Constants.UserDefaultsKeys.logDirPath)
+            UserDefaults.standard.set(logDirPath, forKey: QuantiLoggerConstants.UserDefaultsKeys.logDirPath)
         }
-        if let _currentLogFileNumber = UserDefaults.standard.object(forKey: Constants.UserDefaultsKeys.currentLogFileNumber) as? Int {
+        if let _currentLogFileNumber = UserDefaults.standard.object(forKey: QuantiLoggerConstants.UserDefaultsKeys.currentLogFileNumber) as? Int {
             currentLogFileNumber = _currentLogFileNumber
         } else {
-            UserDefaults.standard.set(currentLogFileNumber, forKey: Constants.UserDefaultsKeys.currentLogFileNumber)
+            UserDefaults.standard.set(currentLogFileNumber, forKey: QuantiLoggerConstants.UserDefaultsKeys.currentLogFileNumber)
         }
     
-        if let _dateOfLastLog = UserDefaults.standard.object(forKey: Constants.UserDefaultsKeys.dateOfLastLog) as? Date {
+        if let _dateOfLastLog = UserDefaults.standard.object(forKey: QuantiLoggerConstants.UserDefaultsKeys.dateOfLastLog) as? Date {
             dateOfLastLog = _dateOfLastLog
         } else {
-            UserDefaults.standard.set(dateOfLastLog, forKey: Constants.UserDefaultsKeys.dateOfLastLog)
+            UserDefaults.standard.set(dateOfLastLog, forKey: QuantiLoggerConstants.UserDefaultsKeys.dateOfLastLog)
         }
         
-        if let _numOfLogFiles = UserDefaults.standard.object(forKey: Constants.UserDefaultsKeys.numOfLogFiles) as? Int {
+        if let _numOfLogFiles = UserDefaults.standard.object(forKey: QuantiLoggerConstants.UserDefaultsKeys.numOfLogFiles) as? Int {
             numOfLogFiles = _numOfLogFiles
         } else {
-            UserDefaults.standard.set(numOfLogFiles, forKey: Constants.UserDefaultsKeys.numOfLogFiles)
+            UserDefaults.standard.set(numOfLogFiles, forKey: QuantiLoggerConstants.UserDefaultsKeys.numOfLogFiles)
         }
     
         print("File log directory:", logDirPath)
@@ -75,7 +75,7 @@ public class FileLoggerManager {
     /// - "currentLogFileNumber" represents the current loging file number
     /// - "dateTimeOfLastLog" represents the last date the logger was used
     /// - "numOfLogFiles" represents the number of files that are used for loging, can be set by a user
-    public func resetPropertiesToDefaultValues() {
+    func resetPropertiesToDefaultValues() {
         logDirPath = NSTemporaryDirectory()
         currentLogFileNumber = 0
         dateOfLastLog = Date()
@@ -143,7 +143,7 @@ public class FileLoggerManager {
     func writeToLogFile(message: String, onLevel level: Level) {
         refreshCurrentLogFileStatus()
         
-        let contentToAppend = "\(Constants.FileLogger.logFileRecordSeparator)\n[\(level.rawValue) \(Date().toFullDateTimeString())]\n\(message)\n\n"
+        let contentToAppend = "\(QuantiLoggerConstants.FileLogger.logFileRecordSeparator)\n[\(level.rawValue) \(Date().toFullDateTimeString())]\n\(message)\n\n"
         
         let pathOfCurrentLogFile = "\(logDirPath)\(currentLogFileNumber).log"
         
@@ -184,7 +184,7 @@ public class FileLoggerManager {
         let logFileContent = readingContentFromLogFile(withName: fileName)
         guard let _logFileContent = logFileContent else { return nil }
         
-        var arrayOflogFileRecords = _logFileContent.components(separatedBy: Constants.FileLogger.logFileRecordSeparator)
+        var arrayOflogFileRecords = _logFileContent.components(separatedBy: QuantiLoggerConstants.FileLogger.logFileRecordSeparator)
         arrayOflogFileRecords.remove(at: 0)
         let logFileRecords = arrayOflogFileRecords.map { (logFileRecordInString) -> LogFileRecord in
             let trimmedLogFileRecordInString = logFileRecordInString.trimmingCharacters(in: .newlines)

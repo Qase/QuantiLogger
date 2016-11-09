@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Constants {
+struct QuantiLoggerConstants {
     
     struct UserDefaultsKeys {
         static let logDirPath = "logDirPath"
