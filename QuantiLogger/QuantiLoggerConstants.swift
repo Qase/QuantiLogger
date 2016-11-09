@@ -22,6 +22,6 @@ public struct QuantiLoggerConstants {
     }
     
     public struct FileLoggerTableViewDatasource {
-        static let fileLoggerTableViewCellIdentifier = "fileLoggerTableViewCellIdentifier"
+        public static let fileLoggerTableViewCellIdentifier = "fileLoggerTableViewCellIdentifier"
     }
 }
