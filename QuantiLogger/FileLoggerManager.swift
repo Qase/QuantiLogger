@@ -10,7 +10,7 @@ import Foundation
 
 
 /// LogFileManager manages all necessary operations for FileLogger.
-class FileLoggerManager {
+public class FileLoggerManager {
     /// The class is used as a Singleton, thus should be accesed via instance property !!!
     static let shared = FileLoggerManager()
     
@@ -75,7 +75,7 @@ class FileLoggerManager {
     /// - "currentLogFileNumber" represents the current loging file number
     /// - "dateTimeOfLastLog" represents the last date the logger was used
     /// - "numOfLogFiles" represents the number of files that are used for loging, can be set by a user
-    func resetPropertiesToDefaultValues() {
+    public func resetPropertiesToDefaultValues() {
         logDirPath = NSTemporaryDirectory()
         currentLogFileNumber = 0
         dateOfLastLog = Date()
