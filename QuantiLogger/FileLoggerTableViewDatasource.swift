@@ -10,7 +10,7 @@ import UIKit
 
 open class FileLoggerTableViewDatasource: NSObject, UITableViewDataSource {
 
-    var logFilesRecords = [LogFileRecord]()
+    public var logFilesRecords = [LogFileRecord]()
     
     public override init() {
         super.init()
