@@ -114,8 +114,8 @@ class FileLoggerManager {
         if logFileToDeleteExists {
             do {
                 try FileManager.default.removeItem(atPath: pathOfLogFileToDelete)
-            } catch let error {
-                assertionFailure("Removing of \(pathOfLogFileToDelete) went wrong with error: \(error).")
+            } catch {
+                //assertionFailure("Removing of \(pathOfLogFileToDelete) went wrong with error: \(error).")
             }
         }
     }
@@ -130,7 +130,7 @@ class FileLoggerManager {
         do {
             return try String(contentsOfFile: logFilePath, encoding: .utf8)
         } catch {
-            assertionFailure("Failed to read \(fileName)!")
+            //assertionFailure("Failed to read \(fileName)!")
         }
         return nil
     }

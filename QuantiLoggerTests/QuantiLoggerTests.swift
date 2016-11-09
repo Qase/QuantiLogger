@@ -139,5 +139,4 @@ class QuantiLoggerTests: XCTestCase {
         // Remove the log file
         FileLoggerManager.shared.removeLogFile(withName: testLogFileName)
     }
-    
 }
