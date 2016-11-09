@@ -12,7 +12,7 @@ open class FileLoggerTableViewDatasource: NSObject, UITableViewDataSource {
 
     var logFilesRecords = [LogFileRecord]()
     
-    override init() {
+    public override init() {
         super.init()
         
         let manager = FileLoggerManager.shared
