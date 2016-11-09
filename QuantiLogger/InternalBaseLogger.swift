@@ -9,5 +9,7 @@
 import Foundation
 
 public class InternalBaseLogger {
+    public init() {}
+    
     public var levels: [Level] = [.info]
 }
