@@ -12,7 +12,7 @@ import Foundation
 /// LogFileManager manages all necessary operations for FileLogger.
 public class FileLoggerManager {
     /// The class is used as a Singleton, thus should be accesed via instance property !!!
-    static let shared = FileLoggerManager()
+    public static let shared = FileLoggerManager()
     
     private(set) var logDirPath = NSTemporaryDirectory() {
         didSet {
