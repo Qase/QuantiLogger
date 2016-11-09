@@ -10,6 +10,7 @@ import Foundation
 
 /// Pre-built logger that logs to the console.
 public class ConsoleLogger: InternalBaseLogger, Loging {
+    
     public func levels() -> [Level] {
         return levels
     }
