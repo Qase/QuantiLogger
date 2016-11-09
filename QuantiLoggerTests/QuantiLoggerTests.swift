@@ -25,25 +25,25 @@ class QuantiLoggerTests: XCTestCase {
         FileLoggerManager.shared.resetPropertiesToDefaultValues()
         
         // Check if default values were propertly stored to UserDefaults
-        if let _logDirPath = UserDefaults.standard.object(forKey: Constants.UserDefaultsKeys.logDirPath) as? String {
+        if let _logDirPath = UserDefaults.standard.object(forKey: QuantiLoggerConstants.UserDefaultsKeys.logDirPath) as? String {
             XCTAssertNotNil(_logDirPath.range(of: "^/.*/$", options: .regularExpression))
         } else {
             XCTFail()
         }
         
-        if let _currentLogFileNumber = UserDefaults.standard.object(forKey: Constants.UserDefaultsKeys.currentLogFileNumber) as? Int {
+        if let _currentLogFileNumber = UserDefaults.standard.object(forKey: QuantiLoggerConstants.UserDefaultsKeys.currentLogFileNumber) as? Int {
             XCTAssertEqual(0, _currentLogFileNumber)
         } else {
             XCTFail()
         }
         
-        if let _dateTimeOfLastLog = UserDefaults.standard.object(forKey: Constants.UserDefaultsKeys.dateOfLastLog) as? Date {
+        if let _dateTimeOfLastLog = UserDefaults.standard.object(forKey: QuantiLoggerConstants.UserDefaultsKeys.dateOfLastLog) as? Date {
             XCTAssertNotNil(_dateTimeOfLastLog.toFullDateString().range(of: "^\\d{4}-\\d{2}-\\d{2}$", options: .regularExpression))
         } else {
             XCTFail()
         }
         
-        if let _numOfLogFiles = UserDefaults.standard.object(forKey: Constants.UserDefaultsKeys.numOfLogFiles) as? Int {
+        if let _numOfLogFiles = UserDefaults.standard.object(forKey: QuantiLoggerConstants.UserDefaultsKeys.numOfLogFiles) as? Int {
             XCTAssertEqual(4, _numOfLogFiles)
         } else {
             XCTFail()
@@ -87,11 +87,11 @@ class QuantiLoggerTests: XCTestCase {
         }
         
         let linesOfContent = _contentOfLogFile.components(separatedBy: .newlines)
-        XCTAssertEqual(Constants.FileLogger.logFileRecordSeparator, linesOfContent[0])
+        XCTAssertEqual(QuantiLoggerConstants.FileLogger.logFileRecordSeparator, linesOfContent[0])
         XCTAssertNotNil(linesOfContent[1].range(of: "^\\[ERROR \\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}]$", options: .regularExpression))
         XCTAssertNotNil(linesOfContent[2].range(of: "^Error message$", options: .regularExpression))
         XCTAssertEqual(linesOfContent[3], "")
-        XCTAssertEqual(Constants.FileLogger.logFileRecordSeparator, linesOfContent[4])
+        XCTAssertEqual(QuantiLoggerConstants.FileLogger.logFileRecordSeparator, linesOfContent[4])
         XCTAssertNotNil(linesOfContent[5].range(of: "^\\[INFO \\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}]$", options: .regularExpression))
         XCTAssertNotNil(linesOfContent[6].range(of: "^Info message$", options: .regularExpression))
     

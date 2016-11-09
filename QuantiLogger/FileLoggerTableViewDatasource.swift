@@ -26,7 +26,7 @@ open class FileLoggerTableViewDatasource: NSObject, UITableViewDataSource {
     }
     
     open func gettingCell(_ tableView: UITableView, forRowAt indexPath: IndexPath, withLogFileRecord: LogFileRecord) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.FileLoggerTableViewDatasource.fileLoggerTableViewCellIdentifier, for: indexPath) as! FileLoggerTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: QuantiLoggerConstants.FileLoggerTableViewDatasource.fileLoggerTableViewCellIdentifier, for: indexPath) as! FileLoggerTableViewCell
         cell.logFileRecord = logFilesRecords[indexPath.row]
         return cell
     }
