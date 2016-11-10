@@ -22,14 +22,8 @@ class QuantiLoggerTests: XCTestCase {
     
     func testInicializationOfFileLogger() {
         // Set default values for all Logger properties and store them to UserDefaults
-        FileLoggerManager.shared.resetPropertiesToDefaultValues()
-        
-        // Check if default values were propertly stored to UserDefaults
-        if let _logDirPath = UserDefaults.standard.object(forKey: QuantiLoggerConstants.UserDefaultsKeys.logDirPath) as? String {
-            XCTAssertNotNil(_logDirPath.range(of: "^/.*/$", options: .regularExpression))
-        } else {
-            XCTFail()
-        }
+        let fileLoggerManager = FileLoggerManager.shared
+        fileLoggerManager.resetPropertiesToDefaultValues()
         
         if let _currentLogFileNumber = UserDefaults.standard.object(forKey: QuantiLoggerConstants.UserDefaultsKeys.currentLogFileNumber) as? Int {
             XCTAssertEqual(0, _currentLogFileNumber)
@@ -51,13 +45,19 @@ class QuantiLoggerTests: XCTestCase {
     }
     
     func testLogger() {
-        FileLoggerManager.shared.resetPropertiesToDefaultValues()
+        let fileLoggerManager = FileLoggerManager.shared
+        fileLoggerManager.resetPropertiesToDefaultValues()
+        
+        guard let _logDirUrl = fileLoggerManager.logDirUrl else {
+            XCTFail("Failed to set log directory")
+            return
+        }
         
         // Get the path of the first (0) log file - which is the first log file to write to after reseting properties to default values
-        let testLogFileName = "\(FileLoggerManager.shared.currentLogFileNumber).log"
+        let testLogFileUrl = _logDirUrl.appendingPathComponent("\(fileLoggerManager.currentLogFileNumber)").appendingPathExtension("log")
         
         // Check if the file exists and if it does - remove it before its created within the test
-        FileLoggerManager.shared.removeLogFile(withName: testLogFileName)
+        fileLoggerManager.removeLogFile(at: testLogFileUrl)
         
         // Set Console logger and File logger
         let logManager = LogManager.shared
@@ -79,7 +79,7 @@ class QuantiLoggerTests: XCTestCase {
         QLog("Info message", onLevel: .info)
         
         // Check if logs were correctly written in the log file
-        let contentOfLogFile = FileLoggerManager.shared.readingContentFromLogFile(withName: testLogFileName)
+        let contentOfLogFile = fileLoggerManager.readingContentFromLogFile(at: testLogFileUrl)
         
         guard let _contentOfLogFile = contentOfLogFile else {
             XCTFail("Log file is empty even though it should not be!")
@@ -97,17 +97,23 @@ class QuantiLoggerTests: XCTestCase {
     
         
         // Remove the log file
-        FileLoggerManager.shared.removeLogFile(withName: testLogFileName)
+        fileLoggerManager.removeLogFile(at: testLogFileUrl)
     }
     
     func testParsingOfLogFile() {
-        FileLoggerManager.shared.resetPropertiesToDefaultValues()
+        let fileLoggerManager = FileLoggerManager.shared
+        fileLoggerManager.resetPropertiesToDefaultValues()
+        
+        guard let _logDirUrl = fileLoggerManager.logDirUrl else {
+            XCTFail("Failed to set log directory")
+            return
+        }
         
         // Get the path of the first (0) log file - which is the first log file to write to after reseting properties to default values
-        let testLogFileName = "\(FileLoggerManager.shared.currentLogFileNumber).log"
+        let testLogFileUrl = _logDirUrl.appendingPathComponent("\(fileLoggerManager.currentLogFileNumber)").appendingPathExtension("log")
         
         // Check if the file exists and if it does - remove it before its created within the test
-        FileLoggerManager.shared.removeLogFile(withName: testLogFileName)
+        fileLoggerManager.removeLogFile(at: testLogFileUrl)
         
         // Set Console logger and File logger
         let logManager = LogManager.shared
@@ -120,7 +126,7 @@ class QuantiLoggerTests: XCTestCase {
         QLog("Error message", onLevel: .error)
         QLog("Warning message\nThis is test!", onLevel: .warn)
         
-        let logFileRecords = FileLoggerManager.shared.gettingRecordsFromLogFile(withName: testLogFileName)
+        let logFileRecords = fileLoggerManager.gettingRecordsFromLogFile(at: testLogFileUrl)
         
         guard let _logFileRecords = logFileRecords else {
             XCTFail("No log file records were parsed from the log file even though there should be 2 of them.")
@@ -137,6 +143,6 @@ class QuantiLoggerTests: XCTestCase {
         
         
         // Remove the log file
-        FileLoggerManager.shared.removeLogFile(withName: testLogFileName)
+        fileLoggerManager.removeLogFile(at: testLogFileUrl)
     }
 }
