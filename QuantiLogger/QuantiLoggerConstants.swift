@@ -11,7 +11,7 @@ import Foundation
 public struct QuantiLoggerConstants {
     
     struct UserDefaultsKeys {
-        static let logDirPath = "logDirPath"
+        static let logDirUrl = "logDirUrl"
         static let currentLogFileNumber = "currentLogFileNumber"
         static let dateOfLastLog = "dateOfLastLog"
         static let numOfLogFiles = "numOfLogFiles"

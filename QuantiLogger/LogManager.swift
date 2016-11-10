@@ -56,6 +56,10 @@ public class LogManager {
     ///   - message: String logging message
     ///   - level: Level of the logging message
     func log(_ message: String, onLevel level: Level) {
+        if loggers.count == 0 {
+            assertionFailure("No loggers were added to the manager.")
+            return
+        }
         for logger in loggers {
             if logger.doesLog(forLevel: level) {
                 logger.log(message, onLevel: level)

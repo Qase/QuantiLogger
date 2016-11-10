@@ -32,21 +32,25 @@ class FileLoggerTableViewCell: UITableViewCell {
     
     private func setup() {
         let vStackView = UIStackView()
-        addSubview(vStackView)
+        contentView.addSubview(vStackView)
         
         vStackView.axis = .vertical
         vStackView.spacing = 3.0
+        vStackView.translatesAutoresizingMaskIntoConstraints = false
         
-        let topOffset = NSLayoutConstraint(item: vStackView, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1, constant: 20)
-        let bottomOffset = NSLayoutConstraint(item: vStackView, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1, constant: -20)
-        let leftOffset = NSLayoutConstraint(item: vStackView, attribute: .left, relatedBy: .equal, toItem: self, attribute: .left, multiplier: 1, constant: 20)
-        let rightOffset = NSLayoutConstraint(item: vStackView, attribute: .right, relatedBy: .equal, toItem: self, attribute: .right, multiplier: 1, constant: -20)
-        addConstraints([topOffset, bottomOffset, leftOffset, rightOffset])
+        let topOffset = NSLayoutConstraint(item: vStackView, attribute: .top, relatedBy: .equal, toItem: self.contentView, attribute: .top, multiplier: 1, constant: 10)
+        let bottomOffset = NSLayoutConstraint(item: vStackView, attribute: .bottom, relatedBy: .equal, toItem: self.contentView, attribute: .bottom, multiplier: 1, constant: -10)
+        let leftOffset = NSLayoutConstraint(item: vStackView, attribute: .left, relatedBy: .equal, toItem: self.contentView, attribute: .left, multiplier: 1, constant: 20)
+        let rightOffset = NSLayoutConstraint(item: vStackView, attribute: .right, relatedBy: .equal, toItem: self.contentView, attribute: .right, multiplier: 1, constant: -20)
+        contentView.addConstraints([topOffset, bottomOffset, leftOffset, rightOffset])
         
         vStackView.addArrangedSubview(logHeaderLabel)
         vStackView.addArrangedSubview(logBodyLabel)
         
-        logHeaderLabel.font = UIFont.boldSystemFont(ofSize: 12.0)
+        logHeaderLabel.font = UIFont.boldSystemFont(ofSize: 14.0)
+        logBodyLabel.font = UIFont.systemFont(ofSize: 12.0)
+        logBodyLabel.numberOfLines = 0
+        
         
         if let _logFileRecord = logFileRecord {
             logHeaderLabel.text = _logFileRecord.header
