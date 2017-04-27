@@ -11,7 +11,7 @@ import MessageUI
 
 public class LogFilesViaMailViewController: MFMailComposeViewController {
     
-    init(withRecipients recipients: [String]) {
+    public init(withRecipients recipients: [String]) {
         super.init(nibName: nil, bundle: nil)
         
         setSubject("iOS log files from application")
