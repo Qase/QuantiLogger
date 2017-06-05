@@ -8,13 +8,13 @@
 
 import UIKit
 
-public protocol Loging {
+public protocol Logging {
     func levels() -> [Level]
     func configure()
     func log(_ message: String, onLevel level: Level)
 }
 
-extension Loging {
+extension Logging {
     public func configure() {}
     
     func doesLog(forLevel level: Level) -> Bool {
