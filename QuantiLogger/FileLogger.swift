@@ -17,7 +17,7 @@ public class FileLogger: InternalBaseLogger, Logging {
     }
 
     public func log(_ message: String, onLevel level: Level) {
-        FileLoggerManager.shared.writeToLogFile(message: message, onLevel: level)
+        FileLoggerManager.shared.writeToLogFile(message: message, withMessageHeader: messageHeader(forLevel: level), onLevel: level)
     }
     
     /// Method that enables to set a number of log files that can be used for logging.

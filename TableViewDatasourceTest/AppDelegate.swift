@@ -28,6 +28,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         logManager.add(fileLogger)
         
         //logManager.add(CrashLyticsLogger())
+
+        let systemLogger = SystemLogger(subsystem: "com.quanti.swift.QuantiLogger", category: "logging")
+        systemLogger.levels = [.error, .warn]
+        logManager.add(systemLogger)
         
         QLog("test", onLevel: .warn)
         QLog("test2\ntest2test2\ntest2test2test2\ntest2\ntest2test2\ntest2test2test2\n", onLevel: .warn)

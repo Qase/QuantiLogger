@@ -154,13 +154,14 @@ class FileLoggerManager {
     ///
     /// - Parameters:
     ///   - message: String logging message
+    ///   - header: Log message unified header
     ///   - level: Level of the logging message
-    func writeToLogFile(message: String, onLevel level: Level) {
+    func writeToLogFile(message: String, withMessageHeader messageHeader: String, onLevel level: Level) {
         guard let _logDirUrl = logDirUrl else { return }
         
         refreshCurrentLogFileStatus()
         
-        let contentToAppend = "\(QuantiLoggerConstants.FileLogger.logFileRecordSeparator)\n[\(level.rawValue) \(Date().toFullDateTimeString())]\n\(message)\n\n"
+        let contentToAppend = "\(QuantiLoggerConstants.FileLogger.logFileRecordSeparator)\n\(messageHeader)\n\(message)\n\n"
         
         let currentLogFileUrl = _logDirUrl.appendingPathComponent("\(currentLogFileNumber)").appendingPathExtension("log")
         do {

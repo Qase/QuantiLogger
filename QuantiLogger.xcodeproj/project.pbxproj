@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B16551B1EE585E0000D4652 /* SystemLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B16551A1EE585E0000D4652 /* SystemLogger.swift */; };
+		5B16551C1EE59E0A000D4652 /* SystemLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B16551A1EE585E0000D4652 /* SystemLogger.swift */; };
 		5B27824A1DC9F1AD00525431 /* QuantiLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B3641881DBFA4650034EF68 /* QuantiLogger.framework */; };
 		5B2782521DC9F72A00525431 /* FileLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2782511DC9F72A00525431 /* FileLogger.swift */; };
 		5B35E35E1DC0C87300C7E679 /* FileLoggerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B35E35D1DC0C87300C7E679 /* FileLoggerManager.swift */; };
@@ -70,6 +72,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5B16551A1EE585E0000D4652 /* SystemLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemLogger.swift; sourceTree = "<group>"; };
 		5B2782511DC9F72A00525431 /* FileLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileLogger.swift; sourceTree = "<group>"; };
 		5B35E35D1DC0C87300C7E679 /* FileLoggerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileLoggerManager.swift; sourceTree = "<group>"; };
 		5B3641881DBFA4650034EF68 /* QuantiLogger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = QuantiLogger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -144,6 +147,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5B1655191EE585CB000D4652 /* SystemLogger */ = {
+			isa = PBXGroup;
+			children = (
+				5B16551A1EE585E0000D4652 /* SystemLogger.swift */,
+			);
+			name = SystemLogger;
+			sourceTree = "<group>";
+		};
 		5B35E35A1DC0A82400C7E679 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
@@ -166,6 +177,7 @@
 			children = (
 				5BA364581DD0C9A30017F9EB /* InternalBaseLogger.swift */,
 				5B3641A41DBFACF80034EF68 /* Logging.swift */,
+				5B1655191EE585CB000D4652 /* SystemLogger */,
 				5BC00C981DC77C2100C3B89D /* FileLogger */,
 				5BC00C971DC77C1200C3B89D /* ConsoleLogger */,
 			);
@@ -540,6 +552,7 @@
 				5BEBBB191DC9EAC20055E453 /* DateExtension.swift in Sources */,
 				5BDA79CD1DBFB6CF00930ABA /* ConsoleLogger.swift in Sources */,
 				5BA364591DD0C9A30017F9EB /* InternalBaseLogger.swift in Sources */,
+				5B16551B1EE585E0000D4652 /* SystemLogger.swift in Sources */,
 				5B2782521DC9F72A00525431 /* FileLogger.swift in Sources */,
 				5B3641A71DBFAD5D0034EF68 /* LogManager.swift in Sources */,
 				5BA3645B1DD0EC160017F9EB /* FileLoggerTableViewDatasource.swift in Sources */,
@@ -574,6 +587,7 @@
 				5BD5D7E61DD35126003AF2A7 /* FileLoggerManager.swift in Sources */,
 				5BD5D7E81DD3512D003AF2A7 /* LogFileRecord.swift in Sources */,
 				5BD5D7E41DD35122003AF2A7 /* FileLoggerTableViewDatasource.swift in Sources */,
+				5B16551C1EE59E0A000D4652 /* SystemLogger.swift in Sources */,
 				5BC5351C1DD4A4BE00E64CED /* MainTabBarController.swift in Sources */,
 				5BD5D7E21DD3511B003AF2A7 /* InternalBaseLogger.swift in Sources */,
 				5BD5D7E01DD35115003AF2A7 /* Level.swift in Sources */,
