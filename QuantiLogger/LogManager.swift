@@ -8,12 +8,12 @@
 
 import Foundation
 
-/// Global method that handles loging. Once the LogManager is set and all necessary loggers are registered somewhere
+/// Global method that handles logging. Once the LogManager is set and all necessary loggers are registered somewhere
 /// at the beginning of the application, this method can be called throughout the whole project in order to log.
 ///
 /// - Parameters:
-///   - message: String loging message
-///   - level: Level of the loging message
+///   - message: String logging message
+///   - level: Level of the logging message
 public func QLog(_ message: String, onLevel level: Level) {
     LogManager.shared.log(message, onLevel: level)
 }
@@ -27,17 +27,17 @@ public class LogManager {
     // The class is used as a Singleton, thus should be accesed via instance property !!!
     public static let shared = LogManager()
     
-    private var loggers: [Loging]
+    private var loggers: [Logging]
     
     private init() {
-        loggers = [Loging]()
+        loggers = [Logging]()
     }
     
     
     /// Method to register a new custom or pre-build logger.
     ///
     /// - Parameter logger: Logger to be registered.
-    public func add(_ logger: Loging) {
+    public func add(_ logger: Logging) {
         logger.configure()
         loggers.append(logger)
     }
@@ -45,7 +45,7 @@ public class LogManager {
     
     /// Method to remove all existing loggers registered to the Log manager.
     public func removeAllLoggers() {
-        loggers = [Loging]()
+        loggers = [Logging]()
     }
     
     
