@@ -16,5 +16,7 @@ public enum Level: String {
     case info = "INFO"
     case debug = "DEBUG"
     case verbose = "VERBOSE"
+    case system = "SYSTEM"
+    case process = "PROCESS"
 }
  

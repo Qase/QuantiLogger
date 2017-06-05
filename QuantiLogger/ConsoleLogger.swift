@@ -16,7 +16,7 @@ public class ConsoleLogger: InternalBaseLogger, Logging {
     }
     
     public func log(_ message: String, onLevel level: Level) {
-        print("[\(level.rawValue) \(Date().toFullDateTimeString())] \(message)")
+        print("\(messageHeader(forLevel: level)) \(message)")
     }
     
 }
