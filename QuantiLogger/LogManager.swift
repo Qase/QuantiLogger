@@ -72,4 +72,13 @@ public class LogManager {
         }
     }
 
+    /// !!! This method only serves for unit tests !!! Before checking values (XCT checks), unit tests must wait for loging jobs to complete.
+    /// Loging is being executed on a different queue (logingQueue) and thus here the main queue waits (sync) until all of logingQueue jobs are completed.
+    /// Then it executes the block within logingQueue.sync which is empty, so it continues on doing other things.
+    func waitForLogingJobsToFinish() {
+        logingQueue.sync {
+            //
+        }
+    }
+
 }

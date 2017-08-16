@@ -71,7 +71,9 @@ class QuantiLoggerTests: XCTestCase {
         QLog("Warning message", onLevel: .warn)
         // Should NOT be displayed in console + written to file
         QLog("Info message", onLevel: .info)
-        
+
+        logManager.waitForLogingJobsToFinish()
+
         // Check if logs were correctly written in the log file
         let contentOfLogFile = fileLoggerManager.readingContentFromLogFile(at: _currentLogFileUrl)
         
@@ -113,6 +115,8 @@ class QuantiLoggerTests: XCTestCase {
         
         QLog("Error message", onLevel: .error)
         QLog("Warning message\nThis is test!", onLevel: .warn)
+
+        logManager.waitForLogingJobsToFinish()
         
         let logFileRecords = fileLoggerManager.gettingRecordsFromLogFile(at: _currentLogFileUrl)
         
@@ -133,16 +137,16 @@ class QuantiLoggerTests: XCTestCase {
         fileLoggerManager.deleteLogFile(at: _currentLogFileUrl)
     }
 
-    func testMultipleFileLoging() {
-        let logManager = LogManager.shared
-        logManager.removeAllLoggers()
-
-        let fileLogger = FileLogger()
-        fileLogger.levels = [.error, .warn]
-        fileLogger.numOfLogFiles = 4
-        logManager.add(fileLogger)
-
-
-        QLog("Error message 4", onLevel: .error)
-    }
+//    func testMultipleFileLoging() {
+//        let logManager = LogManager.shared
+//        logManager.removeAllLoggers()
+//
+//        let fileLogger = FileLogger()
+//        fileLogger.levels = [.error, .warn]
+//        fileLogger.numOfLogFiles = 4
+//        logManager.add(fileLogger)
+//
+//
+//        QLog("Error message 4", onLevel: .error)
+//    }
 }
