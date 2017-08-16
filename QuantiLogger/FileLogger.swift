@@ -11,21 +11,21 @@ import Foundation
 
 /// Pre-built logger that logs to a single or multiple files within dedicated log dir.
 public class FileLogger: InternalBaseLogger, Logging {
-    
+    private let fileLoggerManager = FileLoggerManager.shared
+
+    /// Property to set a number of log files that can be used for loging.
+    public var numOfLogFiles: Int = 4 {
+        didSet {
+            fileLoggerManager.numOfLogFiles = numOfLogFiles
+        }
+    }
+
     public func levels() -> [Level] {
         return levels
     }
 
     public func log(_ message: String, onLevel level: Level) {
-        FileLoggerManager.shared.writeToLogFile(message: message, withMessageHeader: messageHeader(forLevel: level), onLevel: level)
+        fileLoggerManager.writeToLogFile(message: message, withMessageHeader: messageHeader(forLevel: level), onLevel: level)
     }
-    
-    /// Method that enables to set a number of log files that can be used for logging.
-    ///
-    /// - Parameter number: Number of files
-    public func set(numOfLogfiles number: Int) {
-        FileLoggerManager.shared.numOfLogFiles = number
-    }
-    
     
 }

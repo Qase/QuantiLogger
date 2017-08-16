@@ -14,13 +14,60 @@ class FileLoggerManager {
     /// The class is used as a Singleton, thus should be accesed via instance property !!!
     static let shared = FileLoggerManager()
     
-    private(set) var logDirUrl: URL?
-    
+    let logDirUrl: URL? = {
+        do {
+            let fileManager = FileManager.default
+            let documentDirUrl = try fileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+            let _logDirUrl = documentDirUrl.appendingPathComponent("logs")
+            if !fileManager.fileExists(atPath: _logDirUrl.path) {
+                try fileManager.createDirectory(at: _logDirUrl, withIntermediateDirectories: true, attributes: nil)
+            }
+            print("File log directory: \(_logDirUrl).")
+
+            return _logDirUrl
+        } catch let error {
+            assertionFailure("Failed to create log directory within init() with error: \(error).")
+            return nil
+        }
+    }()
+
     private(set) var currentLogFileNumber: Int = 0 {
         didSet {
+            // Check if currentLogFileNumber got updated, if not - do nothing, thus keep the currentWritableFileHandle opened
+            if oldValue == currentLogFileNumber {
+                if currentWritableFileHandle == nil {
+                    assignNewFileHandle()
+                }
+            }
+
             UserDefaults.standard.set(currentLogFileNumber, forKey: QuantiLoggerConstants.UserDefaultsKeys.currentLogFileNumber)
+
+            // Check if new currentLogFileUrl is available (only a safety check, because its part - logDirUrl is Optional
+            guard let _currentLogFileUrl = currentLogFileUrl else {
+                assertionFailure("New currentLogFileUrl not available while trying to open appropriate currentWritableFileHandler.")
+                return
+            }
+
+            // Delete the file that is about to be used (it is overriden in a file cycle)
+            deleteLogFile(at: _currentLogFileUrl)
+
+            // Open new fileHandle and assign it to currentWritableFileHandle
+            assignNewFileHandle()
         }
     }
+
+    var currentLogFileUrl: URL? {
+        return logDirUrl?.appendingPathComponent("\(currentLogFileNumber)").appendingPathExtension("log")
+    }
+
+    private var currentWritableFileHandle: FileHandle? {
+        willSet {
+            guard currentWritableFileHandle != newValue else { return }
+
+            currentWritableFileHandle?.closeFile()
+        }
+    }
+
     private var dateOfLastLog: Date = Date() {
         didSet {
             UserDefaults.standard.set(dateOfLastLog, forKey: QuantiLoggerConstants.UserDefaultsKeys.dateOfLastLog)
@@ -29,10 +76,10 @@ class FileLoggerManager {
     var numOfLogFiles: Int = 4 {
         willSet(newNumOfLogFiles) {
             if newNumOfLogFiles == 0 {
-                preconditionFailure("There must be at least 1 log file so FileLogger can be used.")
+                assertionFailure("There must be at least 1 log file so FileLogger can be used.")
             }
             if numOfLogFiles > newNumOfLogFiles {
-                removeAllLogFiles()
+                deleteAllLogFiles()
             }
         }
         didSet {
@@ -41,28 +88,16 @@ class FileLoggerManager {
     }
     
     private init() {
-        do {
-            let fileManager = FileManager.default
-            let documentDirUrl = try fileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
-            let _logDirUrl = documentDirUrl.appendingPathComponent("logs")
-            if !fileManager.fileExists(atPath: _logDirUrl.path) {
-                try fileManager.createDirectory(at: _logDirUrl, withIntermediateDirectories: true, attributes: nil)
-            }
-            logDirUrl = _logDirUrl
-        } catch let error {
-            assertionFailure("Failed to create log directory with error: \(error).")
-        }
-        
-        if let _currentLogFileNumber = UserDefaults.standard.object(forKey: QuantiLoggerConstants.UserDefaultsKeys.currentLogFileNumber) as? Int {
-            currentLogFileNumber = _currentLogFileNumber
-        } else {
-            UserDefaults.standard.set(currentLogFileNumber, forKey: QuantiLoggerConstants.UserDefaultsKeys.currentLogFileNumber)
-        }
-    
         if let _dateOfLastLog = UserDefaults.standard.object(forKey: QuantiLoggerConstants.UserDefaultsKeys.dateOfLastLog) as? Date {
             dateOfLastLog = _dateOfLastLog
         } else {
             UserDefaults.standard.set(dateOfLastLog, forKey: QuantiLoggerConstants.UserDefaultsKeys.dateOfLastLog)
+        }
+
+        if let _currentLogFileNumber = UserDefaults.standard.object(forKey: QuantiLoggerConstants.UserDefaultsKeys.currentLogFileNumber) as? Int {
+            currentLogFileNumber = _currentLogFileNumber
+        } else {
+            UserDefaults.standard.set(currentLogFileNumber, forKey: QuantiLoggerConstants.UserDefaultsKeys.currentLogFileNumber)
         }
         
         if let _numOfLogFiles = UserDefaults.standard.object(forKey: QuantiLoggerConstants.UserDefaultsKeys.numOfLogFiles) as? Int {
@@ -70,12 +105,6 @@ class FileLoggerManager {
         } else {
             UserDefaults.standard.set(numOfLogFiles, forKey: QuantiLoggerConstants.UserDefaultsKeys.numOfLogFiles)
         }
-        
-        guard let _logDirPath = logDirUrl else {
-            assertionFailure("Log directory was not set properly.")
-            return
-        }
-        print("File log directory: \(_logDirPath)")
     }
     
     
@@ -84,6 +113,7 @@ class FileLoggerManager {
     /// - "dateTimeOfLastLog" represents the last date the logger was used
     /// - "numOfLogFiles" represents the number of files that are used for logging, can be set by a user
     func resetPropertiesToDefaultValues() {
+        currentWritableFileHandle = nil
         currentLogFileNumber = 0
         dateOfLastLog = Date()
         numOfLogFiles = 4
@@ -91,15 +121,62 @@ class FileLoggerManager {
     
     
     /// Method to remove all log files from dedicated log folder. These files are detected by its ".log" suffix.
-    private func removeAllLogFiles() {
+    private func deleteAllLogFiles() {
         guard let _logFiles = gettingAllLogFiles() else { return }
-        
-        for logFileURL in _logFiles {
-            removeLogFile(at: logFileURL)
+
+        _logFiles.forEach { (_logFileUrl) in
+            deleteLogFile(at: _logFileUrl)
         }
     }
-    
-    
+
+    /// Method to delete a specific log file from dedicated log folder.
+    ///
+    /// - Parameter fileUrlToDelete: fileName of the log file to be removed
+    func deleteLogFile(at fileUrlToDelete: URL) {
+        if !FileManager.default.fileExists(atPath: fileUrlToDelete.path) {
+            return
+        }
+
+        do {
+            try FileManager.default.removeItem(at: fileUrlToDelete)
+        } catch {
+            assertionFailure("Failed to remove log file with error: \(error)")
+        }
+    }
+
+    /// Method to create a specific log file from dedicated log folder.
+    ///
+    /// - Parameter fileUrlToAdd: fileName of the log file to be added
+    private func createLogFile(at fileUrlToAdd: URL) {
+        if FileManager.default.fileExists(atPath: fileUrlToAdd.path) {
+            return
+        }
+
+        if !FileManager.default.createFile(atPath: fileUrlToAdd.path, contents: nil) {
+            assertionFailure("Creating new log file failed.")
+        }
+    }
+
+    /// Method to open a new file descriptor and assign it to currentWritableFileHandle
+    ///
+    /// - Parameter fileUrl: fileName of the log file to open file descriptor on
+    private func assignNewFileHandle() {
+        guard let _currentLogFileUrl = currentLogFileUrl else {
+            assertionFailure("Unavailable currentLogFileUrl while trying to assign new currentWritableFileHandle.")
+            return
+        }
+
+        // Create the file that is about to be used and open its FileHandle (assign it to current WritableFileHandle) if not exists yet.
+        createLogFile(at: _currentLogFileUrl)
+
+        // Open new file descriptor (FileHandle)
+        do {
+            currentWritableFileHandle = try FileHandle(forWritingTo: _currentLogFileUrl)
+        } catch let error {
+            assertionFailure("Failed to get FileHandle instance (writable file descriptor) for currentLogFileUrl with error: \(error).")
+        }
+    }
+
     /// Method to get all log file names from dedicated log folder. These files are detected by its ".log" suffix.
     ///
     /// - Returns: Array of log file names
@@ -114,39 +191,9 @@ class FileLoggerManager {
             
             return logFiles
         } catch let error {
-            assertionFailure("Failed to get log directory content with error: \(error)")
+            assertionFailure("Failed to get log directory content with error: \(error).")
         }
         
-        return nil
-    }
-    
-    
-    /// Method to remove a specific log file from dedicated log folder.
-    ///
-    /// - Parameter fileName: fileName of the log file to be removed
-    func removeLogFile(at fileUrlToDelete: URL) {
-        if FileManager.default.fileExists(atPath: fileUrlToDelete.path) {
-            do {
-                try FileManager.default.removeItem(at: fileUrlToDelete)
-            } catch {
-                assertionFailure("Failed to remove log file with error: \(error)")
-            }
-        }
-    }
-    
-    
-    /// Method to get String content of a specific log file from dedicated log folder.
-    ///
-    /// - Parameter fileName: fileName of the log file to be read from
-    /// - Returns: content of the log file
-    func readingContentFromLogFile(at fileUrlToRead: URL) -> String? {
-        if FileManager.default.fileExists(atPath: fileUrlToRead.path) {
-            do {
-                return try String(contentsOf: fileUrlToRead, encoding: .utf8)
-            } catch let error {
-                assertionFailure("Failed to read \(fileUrlToRead.path) with error: \(error)")
-            }
-        }
         return nil
     }
     
@@ -154,50 +201,59 @@ class FileLoggerManager {
     ///
     /// - Parameters:
     ///   - message: String logging message
-    ///   - header: Log message unified header
-    ///   - level: Level of the logging message
+    ///   - withMessageHeader: Log message unified header
+    ///   - onLevel: Level of the logging message
     func writeToLogFile(message: String, withMessageHeader messageHeader: String, onLevel level: Level) {
-        guard let _logDirUrl = logDirUrl else { return }
+        guard logDirUrl != nil, currentLogFileUrl != nil else {
+            assertionFailure("logDirUrl or currentLogFileUrl not available while trying to write a message (log) in it.")
+            return
+        }
         
         refreshCurrentLogFileStatus()
         
         let contentToAppend = "\(QuantiLoggerConstants.FileLogger.logFileRecordSeparator)\n\(messageHeader)\n\(message)\n\n"
-        
-        let currentLogFileUrl = _logDirUrl.appendingPathComponent("\(currentLogFileNumber)").appendingPathExtension("log")
-        do {
-            if FileManager.default.fileExists(atPath: currentLogFileUrl.path) {
-                let fileHandle = try FileHandle(forWritingTo: currentLogFileUrl)
-                fileHandle.seekToEndOfFile()
-                if let dataToAppend = contentToAppend.data(using: .utf8) {
-                    fileHandle.write(dataToAppend)
-                }
-            } else {
-                try contentToAppend.write(to: currentLogFileUrl, atomically: true, encoding: .utf8)
-            }
-        } catch let error {
-            assertionFailure("Failed to write to log file with error: \(error)")
+
+        currentWritableFileHandle?.seekToEndOfFile()
+        if let _contentToAppend = contentToAppend.data(using: .utf8) {
+            currentWritableFileHandle?.write(_contentToAppend)
         }
     }
     
     /// Method to refresh/set "currentLogFileNumber" and "dateTimeOfLastLog" properties. It is called at the beginning 
     /// of writeToLogFile(_, _) method.
     private func refreshCurrentLogFileStatus() {
-        guard let _logDirUrl = logDirUrl else { return }
-        
         let currentDate = Date()
-        if currentDate.toFullDateString() != dateOfLastLog.toFullDateString() {
+        if currentDate.toFullDateTimeString() != dateOfLastLog.toFullDateTimeString() {
             currentLogFileNumber = (currentLogFileNumber + 1) % numOfLogFiles
             dateOfLastLog = currentDate
-            
-            let currentLogFile = _logDirUrl.appendingPathComponent("\(currentLogFileNumber)").appendingPathExtension("log")
-            removeLogFile(at: currentLogFile)
+        }
+
+        if currentWritableFileHandle == nil {
+            assignNewFileHandle()
         }
     }
-    
+
+    /// Method to get String content of a specific log file from dedicated log folder.
+    ///
+    /// - Parameter fileUrlToRead: fileName of the log file to be read from
+    /// - Returns: content of the log file
+    func readingContentFromLogFile(at fileUrlToRead: URL) -> String? {
+        if !FileManager.default.fileExists(atPath: fileUrlToRead.path) {
+            return nil
+        }
+
+        do {
+            return try String(contentsOf: fileUrlToRead, encoding: .utf8)
+        } catch let error {
+            assertionFailure("Failed to read \(fileUrlToRead.path) with error: \(error).")
+        }
+
+        return nil
+    }
     
     /// Method that parses a log file content into an array of LogFileRecord instances
     ///
-    /// - Parameter fileName: fileName of a log file to parse
+    /// - Parameter fileUrlToRead: fileName of a log file to parse
     /// - Returns: array of LogFileRecord instances
     func gettingRecordsFromLogFile(at fileUrlToRead: URL) -> [LogFileRecord]? {
         let logFileContent = readingContentFromLogFile(at: fileUrlToRead)
