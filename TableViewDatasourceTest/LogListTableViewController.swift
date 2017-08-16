@@ -29,6 +29,11 @@ class LogListTableViewController: UIViewController {
         logListTableView.delegate = self
         logListTableView.dataSource = fileLoggerTableViewDatasource
         logListTableView.register(FileLoggerTableViewCell.self, forCellReuseIdentifier: QuantiLoggerConstants.FileLoggerTableViewDatasource.fileLoggerTableViewCellIdentifier)
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) { 
+            self.fileLoggerTableViewDatasource.reload()
+            self.logListTableView.reloadData()
+        }
     }
 }
 
