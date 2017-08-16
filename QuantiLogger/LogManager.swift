@@ -26,7 +26,9 @@ public class LogManager {
     
     // The class is used as a Singleton, thus should be accesed via instance property !!!
     public static let shared = LogManager()
-    
+
+    private let logingQueue = DispatchQueue(label: "com.quanti.swift.QuantiLogger", qos: .background)
+
     private var loggers: [Logging]
     
     private init() {
@@ -56,16 +58,18 @@ public class LogManager {
     ///   - message: String logging message
     ///   - level: Level of the logging message
     func log(_ message: String, onLevel level: Level) {
-        if loggers.count == 0 {
-            assertionFailure("No loggers were added to the manager.")
-            return
-        }
-        for logger in loggers {
-            if logger.doesLog(forLevel: level) {
-                logger.log(message, onLevel: level)
+        // Dispatch loging on custom queue so it does not block the main queue
+        logingQueue.async {
+            if self.loggers.count == 0 {
+                assertionFailure("No loggers were added to the manager.")
+                return
+            }
+            for logger in self.loggers {
+                if logger.doesLog(forLevel: level) {
+                    logger.log(message, onLevel: level)
+                }
             }
         }
     }
-    
-    
+
 }
