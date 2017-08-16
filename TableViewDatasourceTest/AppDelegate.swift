@@ -35,7 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         QLog("test", onLevel: .warn)
         QLog("test2\ntest2test2\ntest2test2test2\ntest2\ntest2test2\ntest2test2test2\n", onLevel: .warn)
-        
+
         
         // Draw controller
         window = UIWindow(frame: UIScreen.main.bounds)
