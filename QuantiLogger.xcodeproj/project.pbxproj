@@ -40,8 +40,8 @@
 		5BD5D7E81DD3512D003AF2A7 /* LogFileRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA3645C1DD0EDD10017F9EB /* LogFileRecord.swift */; };
 		5BD5D7E91DD35131003AF2A7 /* ConsoleLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDA79CC1DBFB6CF00930ABA /* ConsoleLogger.swift */; };
 		5BD5D7EA1DD3514C003AF2A7 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEBBB181DC9EAC20055E453 /* DateExtension.swift */; };
-		5BD5D7F01DD361B0003AF2A7 /* LogFilesViaMail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD5D7EF1DD361B0003AF2A7 /* LogFilesViaMail.swift */; };
-		5BD5D7F31DD37627003AF2A7 /* LogFilesViaMail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD5D7EF1DD361B0003AF2A7 /* LogFilesViaMail.swift */; };
+		5BD5D7F01DD361B0003AF2A7 /* LogFilesViaMailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD5D7EF1DD361B0003AF2A7 /* LogFilesViaMailViewController.swift */; };
+		5BD5D7F31DD37627003AF2A7 /* LogFilesViaMailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD5D7EF1DD361B0003AF2A7 /* LogFilesViaMailViewController.swift */; };
 		5BDA79CD1DBFB6CF00930ABA /* ConsoleLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDA79CC1DBFB6CF00930ABA /* ConsoleLogger.swift */; };
 		5BEBBB191DC9EAC20055E453 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEBBB181DC9EAC20055E453 /* DateExtension.swift */; };
 		5BFA877F1DD1F6B40063CB73 /* FileLoggerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFA877E1DD1F6B40063CB73 /* FileLoggerTableViewCell.swift */; };
@@ -101,7 +101,7 @@
 		5BD5D7CE1DD34EFE003AF2A7 /* TableViewDatasourceTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TableViewDatasourceTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BD5D7D21DD34EFE003AF2A7 /* TableViewDatasourceTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDatasourceTestUITests.swift; sourceTree = "<group>"; };
 		5BD5D7D41DD34EFE003AF2A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5BD5D7EF1DD361B0003AF2A7 /* LogFilesViaMail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogFilesViaMail.swift; sourceTree = "<group>"; };
+		5BD5D7EF1DD361B0003AF2A7 /* LogFilesViaMailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogFilesViaMailViewController.swift; sourceTree = "<group>"; };
 		5BDA79CC1DBFB6CF00930ABA /* ConsoleLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsoleLogger.swift; sourceTree = "<group>"; };
 		5BEBBB181DC9EAC20055E453 /* DateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		5BFA877E1DD1F6B40063CB73 /* FileLoggerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileLoggerTableViewCell.swift; sourceTree = "<group>"; };
@@ -308,7 +308,7 @@
 		5BD5D7EE1DD3617A003AF2A7 /* LogFilesViaMail */ = {
 			isa = PBXGroup;
 			children = (
-				5BD5D7EF1DD361B0003AF2A7 /* LogFilesViaMail.swift */,
+				5BD5D7EF1DD361B0003AF2A7 /* LogFilesViaMailViewController.swift */,
 			);
 			name = LogFilesViaMail;
 			sourceTree = "<group>";
@@ -559,7 +559,7 @@
 				5B35E35E1DC0C87300C7E679 /* FileLoggerManager.swift in Sources */,
 				5B3641A31DBFAC810034EF68 /* Level.swift in Sources */,
 				5BAF4F241DC8DA35000379A4 /* QuantiLoggerConstants.swift in Sources */,
-				5BD5D7F01DD361B0003AF2A7 /* LogFilesViaMail.swift in Sources */,
+				5BD5D7F01DD361B0003AF2A7 /* LogFilesViaMailViewController.swift in Sources */,
 				5BFA877F1DD1F6B40063CB73 /* FileLoggerTableViewCell.swift in Sources */,
 				5BA3645D1DD0EDD10017F9EB /* LogFileRecord.swift in Sources */,
 			);
@@ -593,7 +593,7 @@
 				5BD5D7E01DD35115003AF2A7 /* Level.swift in Sources */,
 				5BD5D7E91DD35131003AF2A7 /* ConsoleLogger.swift in Sources */,
 				5BC5351E1DD4A51200E64CED /* SendLogFilesViaMailViewController.swift in Sources */,
-				5BD5D7F31DD37627003AF2A7 /* LogFilesViaMail.swift in Sources */,
+				5BD5D7F31DD37627003AF2A7 /* LogFilesViaMailViewController.swift in Sources */,
 				5BD5D7B31DD34EFE003AF2A7 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
