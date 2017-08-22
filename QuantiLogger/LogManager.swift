@@ -14,8 +14,8 @@ import Foundation
 /// - Parameters:
 ///   - message: String logging message
 ///   - level: Level of the logging message
-public func QLog(_ message: String, onLevel level: Level) {
-    LogManager.shared.log(message, onLevel: level)
+public func QLog(_ message: String, onLevel level: Level, performAsync async: Bool = true) {
+    LogManager.shared.log(message, onLevel: level, performAsync: async)
 }
 
 
@@ -57,20 +57,34 @@ public class LogManager {
     /// - Parameters:
     ///   - message: String logging message
     ///   - level: Level of the logging message
-    func log(_ message: String, onLevel level: Level) {
+    func log(_ message: String, onLevel level: Level, performAsync: Bool) {
         // Dispatch loging on custom queue so it does not block the main queue
-        logingQueue.async {
-            if self.loggers.count == 0 {
-                assertionFailure("No loggers were added to the manager.")
-                return
-            }
+
+        func internalLog(_ message: String, onLevel level: Level) {
+//            if self.loggers.count == 0 {
+//                assertionFailure("No loggers were added to the manager.")
+//                return
+//            }
+
             for logger in self.loggers {
-                if logger.doesLog(forLevel: level) {
+//                if logger.doesLog(forLevel: level) {
                     logger.log(message, onLevel: level)
-                }
+//                }
+            }
+        }
+
+        if performAsync {
+            logingQueue.async {
+                internalLog(message, onLevel: level)
+            }
+        } else {
+            logingQueue.sync {
+                internalLog(message, onLevel: level)
             }
         }
     }
+
+
 
     /// !!! This method only serves for unit tests !!! Before checking values (XCT checks), unit tests must wait for loging jobs to complete.
     /// Loging is being executed on a different queue (logingQueue) and thus here the main queue waits (sync) until all of logingQueue jobs are completed.
