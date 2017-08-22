@@ -30,7 +30,7 @@ public class LogManager {
 
     private let logingQueue = DispatchQueue(label: "com.quanti.swift.QuantiLogger", qos: .background)
 
-    public var loggers: [Logging]
+    private var loggers: [Logging]
 
     private init() {
         loggers = [Logging]()
