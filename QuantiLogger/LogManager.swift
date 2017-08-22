@@ -61,15 +61,15 @@ public class LogManager {
         // Dispatch loging on custom queue so it does not block the main queue
 
         func internalLog(_ message: String, onLevel level: Level) {
-//            if self.loggers.count == 0 {
-//                assertionFailure("No loggers were added to the manager.")
-//                return
-//            }
+            if self.loggers.count == 0 {
+                assertionFailure("No loggers were added to the manager.")
+                return
+            }
 
             for logger in self.loggers {
-//                if logger.doesLog(forLevel: level) {
+                if logger.doesLog(forLevel: level) {
                     logger.log(message, onLevel: level)
-//                }
+                }
             }
         }
 
