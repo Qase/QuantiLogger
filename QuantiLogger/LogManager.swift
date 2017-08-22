@@ -18,24 +18,22 @@ public func QLog(_ message: String, onLevel level: Level, performAsync async: Bo
     LogManager.shared.log(message, onLevel: level, performAsync: async)
 }
 
-
 /// LogManager manages different types of loggers. The class enables to register custom or pre-built loggers.
 /// Each of these logger classes must be subclassed from BaseLogger. The class handles logging to registered loggers
 /// based on levels they are set to acccept.
 public class LogManager {
-    
+
     // The class is used as a Singleton, thus should be accesed via instance property !!!
     public static let shared = LogManager()
 
     private let logingQueue = DispatchQueue(label: "com.quanti.swift.QuantiLogger", qos: .background)
 
     private var loggers: [Logging]
-    
+
     private init() {
         loggers = [Logging]()
     }
-    
-    
+
     /// Method to register a new custom or pre-build logger.
     ///
     /// - Parameter logger: Logger to be registered.
@@ -43,14 +41,12 @@ public class LogManager {
         logger.configure()
         loggers.append(logger)
     }
-    
-    
+
     /// Method to remove all existing loggers registered to the Log manager.
     public func removeAllLoggers() {
         loggers = [Logging]()
     }
-    
-    
+
     /// Method to handle logging, it is called internaly via global method QLog(_, _) and thus its not visible outside
     /// of the module.
     ///

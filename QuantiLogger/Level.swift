@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 /// Enum representing different possible levels for log messages.
 public enum Level: String {
     case error = "ERROR"
@@ -19,4 +18,3 @@ public enum Level: String {
     case system = "SYSTEM"
     case process = "PROCESS"
 }
- 

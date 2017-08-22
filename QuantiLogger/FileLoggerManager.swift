@@ -8,12 +8,11 @@
 
 import Foundation
 
-
 /// LogFileManager manages all necessary operations for FileLogger.
 class FileLoggerManager {
     /// The class is used as a Singleton, thus should be accesed via instance property !!!
     static let shared = FileLoggerManager()
-    
+
     let logDirUrl: URL? = {
         do {
             let fileManager = FileManager.default
@@ -86,7 +85,7 @@ class FileLoggerManager {
             UserDefaults.standard.set(numOfLogFiles, forKey: QuantiLoggerConstants.UserDefaultsKeys.numOfLogFiles)
         }
     }
-    
+
     private init() {
         if let _dateOfLastLog = UserDefaults.standard.object(forKey: QuantiLoggerConstants.UserDefaultsKeys.dateOfLastLog) as? Date {
             dateOfLastLog = _dateOfLastLog
@@ -99,15 +98,14 @@ class FileLoggerManager {
         } else {
             UserDefaults.standard.set(currentLogFileNumber, forKey: QuantiLoggerConstants.UserDefaultsKeys.currentLogFileNumber)
         }
-        
+
         if let _numOfLogFiles = UserDefaults.standard.object(forKey: QuantiLoggerConstants.UserDefaultsKeys.numOfLogFiles) as? Int {
             numOfLogFiles = _numOfLogFiles
         } else {
             UserDefaults.standard.set(numOfLogFiles, forKey: QuantiLoggerConstants.UserDefaultsKeys.numOfLogFiles)
         }
     }
-    
-    
+
     /// Method to reset properties that control the correct flow of storing log files. 
     /// - "currentLogFileNumber" represents the current logging file number
     /// - "dateTimeOfLastLog" represents the last date the logger was used
@@ -118,14 +116,13 @@ class FileLoggerManager {
         dateOfLastLog = Date()
         numOfLogFiles = 4
     }
-    
-    
+
     /// Method to remove all log files from dedicated log folder. These files are detected by its ".log" suffix.
     private func deleteAllLogFiles() {
-        guard let _logFiles = gettingAllLogFiles() else { return }
+        guard let aLogFiles = gettingAllLogFiles() else { return }
 
-        _logFiles.forEach { (_logFileUrl) in
-            deleteLogFile(at: _logFileUrl)
+        aLogFiles.forEach { (aLogFileUrl) in
+            deleteLogFile(at: aLogFileUrl)
         }
     }
 
@@ -182,21 +179,21 @@ class FileLoggerManager {
     /// - Returns: Array of log file names
     func gettingAllLogFiles() -> [URL]? {
         guard let _logDirUrl = logDirUrl else { return nil }
-        
+
         do {
             let directoryContent = try FileManager.default.contentsOfDirectory(at: _logDirUrl, includingPropertiesForKeys: nil, options: [])
             let logFiles = directoryContent.filter({ (file) -> Bool in
                 file.pathExtension == "log"
             })
-            
+
             return logFiles
         } catch let error {
             assertionFailure("Failed to get log directory content with error: \(error).")
         }
-        
+
         return nil
     }
-    
+
     /// Method to write a log message into the current log file.
     ///
     /// - Parameters:
@@ -208,9 +205,9 @@ class FileLoggerManager {
             assertionFailure("logDirUrl or currentLogFileUrl not available while trying to write a message (log) in it.")
             return
         }
-        
+
         refreshCurrentLogFileStatus()
-        
+
         let contentToAppend = "\(QuantiLoggerConstants.FileLogger.logFileRecordSeparator)\n\(messageHeader)\n\(message)\n\n"
 
         currentWritableFileHandle?.seekToEndOfFile()
@@ -218,7 +215,7 @@ class FileLoggerManager {
             currentWritableFileHandle?.write(_contentToAppend)
         }
     }
-    
+
     /// Method to refresh/set "currentLogFileNumber" and "dateTimeOfLastLog" properties. It is called at the beginning 
     /// of writeToLogFile(_, _) method.
     private func refreshCurrentLogFileStatus() {
@@ -250,7 +247,7 @@ class FileLoggerManager {
 
         return nil
     }
-    
+
     /// Method that parses a log file content into an array of LogFileRecord instances
     ///
     /// - Parameter fileUrlToRead: fileName of a log file to parse
@@ -258,13 +255,13 @@ class FileLoggerManager {
     func gettingRecordsFromLogFile(at fileUrlToRead: URL) -> [LogFileRecord]? {
         let logFileContent = readingContentFromLogFile(at: fileUrlToRead)
         guard let _logFileContent = logFileContent else { return nil }
-        
+
         var arrayOflogFileRecords = _logFileContent.components(separatedBy: QuantiLoggerConstants.FileLogger.logFileRecordSeparator)
         arrayOflogFileRecords.remove(at: 0)
         let logFileRecords = arrayOflogFileRecords.map { (logFileRecordInString) -> LogFileRecord in
             let trimmedLogFileRecordInString = logFileRecordInString.trimmingCharacters(in: .newlines)
             var arrayOfLogFileRecordLines = trimmedLogFileRecordInString.components(separatedBy: .newlines)
-            
+
             let header = arrayOfLogFileRecordLines[0]
             arrayOfLogFileRecordLines.remove(at: 0)
             let body = arrayOfLogFileRecordLines.reduce("", { (logBody, logBodyLine) -> String in
@@ -272,7 +269,7 @@ class FileLoggerManager {
             })
             return LogFileRecord(header: header, body: body)
         }
-    
+
         return logFileRecords
     }
 }

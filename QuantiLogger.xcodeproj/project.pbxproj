@@ -357,6 +357,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5B36419C1DBFA4650034EF68 /* Build configuration list for PBXNativeTarget "QuantiLogger" */;
 			buildPhases = (
+				D3405D511F4C7CB700A1987F /* ShellScript */,
 				5B3641831DBFA4650034EF68 /* Sources */,
 				5B3641841DBFA4650034EF68 /* Frameworks */,
 				5B3641851DBFA4650034EF68 /* Headers */,
@@ -557,6 +558,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if [ \"${CONFIGURATION}\" = \"Debug\" ]; then\n    rm -rf ~/Library/Developer/CoreSimulator/Devices/\nfi";
+		};
+		D3405D511F4C7CB700A1987F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\necho \"Hi\"\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
 		};
 /* End PBXShellScriptBuildPhase section */
 

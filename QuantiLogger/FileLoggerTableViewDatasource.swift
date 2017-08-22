@@ -11,19 +11,23 @@ import UIKit
 open class FileLoggerTableViewDatasource: NSObject, UITableViewDataSource {
 
     public var logFilesRecords = [LogFileRecord]()
-    
+
     public override init() {
         super.init()
 
         reloadLogFilesRecords()
     }
-    
+
     open func gettingCell(_ tableView: UITableView, forRowAt indexPath: IndexPath, withLogFileRecord: LogFileRecord) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: QuantiLoggerConstants.FileLoggerTableViewDatasource.fileLoggerTableViewCellIdentifier, for: indexPath) as! FileLoggerTableViewCell
+        let identifier = QuantiLoggerConstants.FileLoggerTableViewDatasource.fileLoggerTableViewCellIdentifier
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as? FileLoggerTableViewCell else {
+            return UITableViewCell()
+        }
+
         cell.logFileRecord = logFilesRecords[indexPath.row]
         return cell
     }
-    
+
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return gettingCell(tableView, forRowAt: indexPath, withLogFileRecord: logFilesRecords[indexPath.row])
     }

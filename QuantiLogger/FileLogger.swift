@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 /// Pre-built logger that logs to a single or multiple files within dedicated log dir.
 public class FileLogger: InternalBaseLogger, Logging {
     private let fileLoggerManager = FileLoggerManager.shared
@@ -27,5 +26,5 @@ public class FileLogger: InternalBaseLogger, Logging {
     public func log(_ message: String, onLevel level: Level) {
         fileLoggerManager.writeToLogFile(message: message, withMessageHeader: messageHeader(forLevel: level), onLevel: level)
     }
-    
+
 }

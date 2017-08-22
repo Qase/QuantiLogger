@@ -15,15 +15,14 @@ public protocol Logging {
 }
 
 extension Logging {
-    
+
     public func configure() {}
-    
+
     public func messageHeader(forLevel level: Level) -> String {
         return "[\(level.rawValue) \(DateTimeHelper.toFullDateTimeString())]"
     }
-    
+
     func doesLog(forLevel level: Level) -> Bool {
         return levels().contains(level)
     }
 }
-
