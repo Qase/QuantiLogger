@@ -11,19 +11,19 @@ import os
 
 /// Pre-built logger that wraps system os_logger
 public class SystemLogger: InternalBaseLogger, Logging {
-    
+
     private var logger: OSLog?
-    
+
     public init(subsystem: String, category: String) {
         super.init()
-        
+
         logger = OSLog(subsystem: subsystem, category: category)
     }
-    
+
     override public init() {
         assertionFailure("!!! init(subsystem: String, category: String) must be used to make SystemLogger work correctly !!!")
     }
-    
+
     private func systemLevel(forLevel level: Level) -> OSLogType {
         switch level {
         case .info:
@@ -38,16 +38,16 @@ public class SystemLogger: InternalBaseLogger, Logging {
             return .error
         }
     }
-    
+
     public func levels() -> [Level] {
         return levels
     }
-    
+
     public func log(_ message: String, onLevel level: Level) {
         guard let _logger = logger else { return }
-            
+
         let staticMessage = "\(messageHeader(forLevel: level)) \(message)"
         os_log("%@", log: _logger, type: systemLevel(forLevel: level), staticMessage)
     }
-    
+
 }
