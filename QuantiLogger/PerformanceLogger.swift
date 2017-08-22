@@ -20,7 +20,6 @@ public class PerformanceLogger: InternalBaseLogger, Logging {
 
     }
 
-
     public func levels() -> [Level] {
         return levels
     }
