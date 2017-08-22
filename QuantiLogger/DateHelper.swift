@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct DateTimeHelper{
+struct DateTimeHelper {
 
     static let dateTimeFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -25,7 +25,6 @@ struct DateTimeHelper{
         formatter.dateFormat = "yyyy-MM-dd"
         return formatter
     }()
-
 
     static func toFullDateTimeString(from date: Date = Date()) -> String {
         return DateTimeHelper.dateTimeFormatter.string(from: date)
