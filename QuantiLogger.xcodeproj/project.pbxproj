@@ -45,6 +45,9 @@
 		5BDA79CD1DBFB6CF00930ABA /* ConsoleLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDA79CC1DBFB6CF00930ABA /* ConsoleLogger.swift */; };
 		5BEBBB191DC9EAC20055E453 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEBBB181DC9EAC20055E453 /* DateExtension.swift */; };
 		5BFA877F1DD1F6B40063CB73 /* FileLoggerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFA877E1DD1F6B40063CB73 /* FileLoggerTableViewCell.swift */; };
+		D3405D501F4C494200A1987F /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3405D4F1F4C494200A1987F /* DateHelper.swift */; };
+		D3A03D121F4AD2DE00B0F50C /* PerformanceLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A03D111F4AD2DE00B0F50C /* PerformanceLogger.swift */; };
+		D3A03D141F4AD5D300B0F50C /* QuantiLoggerPerformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A03D131F4AD5D300B0F50C /* QuantiLoggerPerformanceTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +108,9 @@
 		5BDA79CC1DBFB6CF00930ABA /* ConsoleLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsoleLogger.swift; sourceTree = "<group>"; };
 		5BEBBB181DC9EAC20055E453 /* DateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		5BFA877E1DD1F6B40063CB73 /* FileLoggerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileLoggerTableViewCell.swift; sourceTree = "<group>"; };
+		D3405D4F1F4C494200A1987F /* DateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
+		D3A03D111F4AD2DE00B0F50C /* PerformanceLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerformanceLogger.swift; sourceTree = "<group>"; };
+		D3A03D131F4AD5D300B0F50C /* QuantiLoggerPerformanceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuantiLoggerPerformanceTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				5B3641961DBFA4650034EF68 /* QuantiLoggerTests.swift */,
+				D3A03D131F4AD5D300B0F50C /* QuantiLoggerPerformanceTests.swift */,
 			);
 			name = Tests;
 			sourceTree = "<group>";
@@ -175,6 +182,7 @@
 		5B35E35C1DC0A84D00C7E679 /* Loggers */ = {
 			isa = PBXGroup;
 			children = (
+				D3A03D101F4AD2C400B0F50C /* PerformanceLogger */,
 				5BA364581DD0C9A30017F9EB /* InternalBaseLogger.swift */,
 				5B3641A41DBFACF80034EF68 /* Logging.swift */,
 				5B1655191EE585CB000D4652 /* SystemLogger */,
@@ -189,6 +197,7 @@
 			children = (
 				5BAF4F231DC8DA35000379A4 /* QuantiLoggerConstants.swift */,
 				5B35E3601DC0EF1A00C7E679 /* Extensions */,
+				D3405D4F1F4C494200A1987F /* DateHelper.swift */,
 			);
 			name = Basic;
 			sourceTree = "<group>";
@@ -320,6 +329,14 @@
 				5BFA877E1DD1F6B40063CB73 /* FileLoggerTableViewCell.swift */,
 			);
 			name = TableViewDatasource;
+			sourceTree = "<group>";
+		};
+		D3A03D101F4AD2C400B0F50C /* PerformanceLogger */ = {
+			isa = PBXGroup;
+			children = (
+				D3A03D111F4AD2DE00B0F50C /* PerformanceLogger.swift */,
+			);
+			name = PerformanceLogger;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -567,9 +584,11 @@
 				5BDA79CD1DBFB6CF00930ABA /* ConsoleLogger.swift in Sources */,
 				5BA364591DD0C9A30017F9EB /* InternalBaseLogger.swift in Sources */,
 				5B16551B1EE585E0000D4652 /* SystemLogger.swift in Sources */,
+				D3A03D121F4AD2DE00B0F50C /* PerformanceLogger.swift in Sources */,
 				5B2782521DC9F72A00525431 /* FileLogger.swift in Sources */,
 				5B3641A71DBFAD5D0034EF68 /* LogManager.swift in Sources */,
 				5BA3645B1DD0EC160017F9EB /* FileLoggerTableViewDatasource.swift in Sources */,
+				D3405D501F4C494200A1987F /* DateHelper.swift in Sources */,
 				5B35E35E1DC0C87300C7E679 /* FileLoggerManager.swift in Sources */,
 				5B3641A31DBFAC810034EF68 /* Level.swift in Sources */,
 				5BAF4F241DC8DA35000379A4 /* QuantiLoggerConstants.swift in Sources */,
@@ -583,6 +602,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3A03D141F4AD5D300B0F50C /* QuantiLoggerPerformanceTests.swift in Sources */,
 				5B3641971DBFA4650034EF68 /* QuantiLoggerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

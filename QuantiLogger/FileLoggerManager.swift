@@ -220,7 +220,7 @@ class FileLoggerManager {
     /// of writeToLogFile(_, _) method.
     private func refreshCurrentLogFileStatus() {
         let currentDate = Date()
-        if currentDate.toFullDateString() != dateOfLastLog.toFullDateString() {
+        if DateTimeHelper.toFullDateString(from: currentDate) != DateTimeHelper.toFullDateString(from: dateOfLastLog) {
             currentLogFileNumber = (currentLogFileNumber + 1) % numOfLogFiles
             dateOfLastLog = currentDate
         }
