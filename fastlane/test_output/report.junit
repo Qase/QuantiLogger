@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<testsuites name='QuantiLoggerTests.xctest' tests='13' failures='0'>
+  <testsuite name='QuantiLoggerTests.QuantiLoggerPerformanceTests' tests='10' failures='0'>
+    <testcase classname='QuantiLoggerTests.QuantiLoggerPerformanceTests' name='testDirectLog' time='10.523'/>
+    <testcase classname='QuantiLoggerTests.QuantiLoggerPerformanceTests' name='testOuterLog' time='10.290'/>
+    <testcase classname='QuantiLoggerTests.QuantiLoggerPerformanceTests' name='testThousandRunNSLog' time='5.736'/>
+    <testcase classname='QuantiLoggerTests.QuantiLoggerPerformanceTests' name='testThousandRunPrint' time='0.402'/>
+    <testcase classname='QuantiLoggerTests.QuantiLoggerPerformanceTests' name='testThousandRunQLogBothAsync' time='5.071'/>
+    <testcase classname='QuantiLoggerTests.QuantiLoggerPerformanceTests' name='testThousandRunQLogBothSync' time='2.980'/>
+    <testcase classname='QuantiLoggerTests.QuantiLoggerPerformanceTests' name='testThousandRunQLogConsoleAsync' time='1.974'/>
+    <testcase classname='QuantiLoggerTests.QuantiLoggerPerformanceTests' name='testThousandRunQLogConsoleSync' time='2.542'/>
+    <testcase classname='QuantiLoggerTests.QuantiLoggerPerformanceTests' name='testThousandRunQLogFileAsync' time='1.362'/>
+    <testcase classname='QuantiLoggerTests.QuantiLoggerPerformanceTests' name='testThousandRunQLogFileSync' time='1.370'/>
+  </testsuite>
+  <testsuite name='QuantiLoggerTests.QuantiLoggerTests' tests='3' failures='0'>
+    <testcase classname='QuantiLoggerTests.QuantiLoggerTests' name='testInicializationOfFileLogger' time='0.028'/>
+    <testcase classname='QuantiLoggerTests.QuantiLoggerTests' name='testLogger' time='0.009'/>
+    <testcase classname='QuantiLoggerTests.QuantiLoggerTests' name='testParsingOfLogFile' time='0.009'/>
+  </testsuite>
+</testsuites>
