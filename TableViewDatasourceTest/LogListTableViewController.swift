@@ -9,7 +9,8 @@
 import UIKit
 
 class LogListTableViewController: UIViewController {
-    
+    private let refreshControl = UIRefreshControl()
+
     let logListTableView = UITableView()
     
     let fileLoggerTableViewDatasource = FileLoggerTableViewDatasource()
@@ -20,7 +21,7 @@ class LogListTableViewController: UIViewController {
         view.addSubview(logListTableView)
         
         logListTableView.translatesAutoresizingMaskIntoConstraints = false
-        let topConstraint = NSLayoutConstraint(item: logListTableView, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1, constant: 0)
+        let topConstraint = NSLayoutConstraint(item: logListTableView, attribute: .top, relatedBy: .equal, toItem: topLayoutGuide, attribute: .top, multiplier: 1, constant: 0)
         let bottomConstraint = NSLayoutConstraint(item: logListTableView, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1, constant: 0)
         let leftConstraint = NSLayoutConstraint(item: logListTableView, attribute: .left, relatedBy: .equal, toItem: view, attribute: .left, multiplier: 1, constant: 0)
         let rightConstraint = NSLayoutConstraint(item: logListTableView, attribute: .right, relatedBy: .equal, toItem: view, attribute: .right, multiplier: 1, constant: 0)
@@ -31,11 +32,23 @@ class LogListTableViewController: UIViewController {
         logListTableView.register(FileLoggerTableViewCell.self, forCellReuseIdentifier: QuantiLoggerConstants.FileLoggerTableViewDatasource.fileLoggerTableViewCellIdentifier)
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 5) { 
-            self.fileLoggerTableViewDatasource.reload()
-            self.logListTableView.reloadData()
+
         }
+
+
+        // Pull to refresh
+        refreshControl.addTarget(self, action: #selector(didPullToRefresh), for: .valueChanged)
+        logListTableView.addSubview(refreshControl)
+    }
+
+    dynamic private func didPullToRefresh(_ sender: UIRefreshControl) {
+        fileLoggerTableViewDatasource.reload()
+        logListTableView.reloadData()
+
+        refreshControl.endRefreshing()
     }
 }
+
 
 extension LogListTableViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
