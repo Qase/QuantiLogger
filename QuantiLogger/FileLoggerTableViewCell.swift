@@ -38,11 +38,10 @@ class FileLoggerTableViewCell: UITableViewCell {
         vStackView.spacing = 3.0
         vStackView.translatesAutoresizingMaskIntoConstraints = false
 
-        let topOffset = NSLayoutConstraint(item: vStackView, attribute: .top, relatedBy: .equal, toItem: self.contentView, attribute: .top, multiplier: 1, constant: 10)
-        let bottomOffset = NSLayoutConstraint(item: vStackView, attribute: .bottom, relatedBy: .equal, toItem: self.contentView, attribute: .bottom, multiplier: 1, constant: -10)
-        let leftOffset = NSLayoutConstraint(item: vStackView, attribute: .left, relatedBy: .equal, toItem: self.contentView, attribute: .left, multiplier: 1, constant: 20)
-        let rightOffset = NSLayoutConstraint(item: vStackView, attribute: .right, relatedBy: .equal, toItem: self.contentView, attribute: .right, multiplier: 1, constant: -20)
-        contentView.addConstraints([topOffset, bottomOffset, leftOffset, rightOffset])
+        vStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10).isActive = true
+        vStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10).isActive = true
+        vStackView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 20).isActive = true
+        vStackView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -20).isActive = true
 
         vStackView.addArrangedSubview(logHeaderLabel)
         vStackView.addArrangedSubview(logBodyLabel)
