@@ -24,10 +24,12 @@
 		5BDA79CD1DBFB6CF00930ABA /* ConsoleLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDA79CC1DBFB6CF00930ABA /* ConsoleLogger.swift */; };
 		5BEBBB191DC9EAC20055E453 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEBBB181DC9EAC20055E453 /* DateExtension.swift */; };
 		5BF957021F5ECF1C00F88F9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF957011F5ECF1C00F88F9B /* AppDelegate.swift */; };
-		5BF957041F5ECF1C00F88F9B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF957031F5ECF1C00F88F9B /* ViewController.swift */; };
 		5BF957091F5ECF1C00F88F9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BF957081F5ECF1C00F88F9B /* Assets.xcassets */; };
 		5BF957171F5ECF1D00F88F9B /* QuantiLoggerExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF957161F5ECF1D00F88F9B /* QuantiLoggerExampleTests.swift */; };
 		5BF957221F5ECF1D00F88F9B /* QuantiLoggerExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF957211F5ECF1D00F88F9B /* QuantiLoggerExampleUITests.swift */; };
+		5BF9572F1F5ED18D00F88F9B /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF9572E1F5ED18D00F88F9B /* MainTabBarController.swift */; };
+		5BF957311F5ED1E100F88F9B /* LogListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF957301F5ED1E100F88F9B /* LogListTableViewController.swift */; };
+		5BF957331F5ED1F500F88F9B /* SendLogFilesViaMailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF957321F5ED1F500F88F9B /* SendLogFilesViaMailViewController.swift */; };
 		5BFA877F1DD1F6B40063CB73 /* FileLoggerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFA877E1DD1F6B40063CB73 /* FileLoggerTableViewCell.swift */; };
 		D3405D501F4C494200A1987F /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3405D4F1F4C494200A1987F /* DateHelper.swift */; };
 		D3A03D121F4AD2DE00B0F50C /* PerformanceLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A03D111F4AD2DE00B0F50C /* PerformanceLogger.swift */; };
@@ -80,7 +82,6 @@
 		5BEBBB181DC9EAC20055E453 /* DateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		5BF956FF1F5ECF1C00F88F9B /* QuantiLoggerExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuantiLoggerExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BF957011F5ECF1C00F88F9B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5BF957031F5ECF1C00F88F9B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		5BF957081F5ECF1C00F88F9B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5BF9570D1F5ECF1C00F88F9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5BF957121F5ECF1D00F88F9B /* QuantiLoggerExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuantiLoggerExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -89,6 +90,9 @@
 		5BF9571D1F5ECF1D00F88F9B /* QuantiLoggerExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuantiLoggerExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BF957211F5ECF1D00F88F9B /* QuantiLoggerExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuantiLoggerExampleUITests.swift; sourceTree = "<group>"; };
 		5BF957231F5ECF1D00F88F9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5BF9572E1F5ED18D00F88F9B /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		5BF957301F5ED1E100F88F9B /* LogListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogListTableViewController.swift; sourceTree = "<group>"; };
+		5BF957321F5ED1F500F88F9B /* SendLogFilesViaMailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendLogFilesViaMailViewController.swift; sourceTree = "<group>"; };
 		5BFA877E1DD1F6B40063CB73 /* FileLoggerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileLoggerTableViewCell.swift; sourceTree = "<group>"; };
 		D3405D4F1F4C494200A1987F /* DateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		D3A03D111F4AD2DE00B0F50C /* PerformanceLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerformanceLogger.swift; sourceTree = "<group>"; };
@@ -164,9 +168,9 @@
 		5B35E35C1DC0A84D00C7E679 /* Loggers */ = {
 			isa = PBXGroup;
 			children = (
-				D3A03D101F4AD2C400B0F50C /* PerformanceLogger */,
 				5BA364581DD0C9A30017F9EB /* InternalBaseLogger.swift */,
 				5B3641A41DBFACF80034EF68 /* Logging.swift */,
+				D3A03D101F4AD2C400B0F50C /* PerformanceLogger */,
 				5B1655191EE585CB000D4652 /* SystemLogger */,
 				5BC00C981DC77C2100C3B89D /* FileLogger */,
 				5BC00C971DC77C1200C3B89D /* ConsoleLogger */,
@@ -269,8 +273,10 @@
 			isa = PBXGroup;
 			children = (
 				5BF957011F5ECF1C00F88F9B /* AppDelegate.swift */,
+				5BF9572E1F5ED18D00F88F9B /* MainTabBarController.swift */,
+				5BF957301F5ED1E100F88F9B /* LogListTableViewController.swift */,
+				5BF957321F5ED1F500F88F9B /* SendLogFilesViaMailViewController.swift */,
 				5BF9572D1F5ECF3F00F88F9B /* SupportingFiles */,
-				5BF957031F5ECF1C00F88F9B /* ViewController.swift */,
 			);
 			path = QuantiLoggerExample;
 			sourceTree = "<group>";
@@ -577,8 +583,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5BF957041F5ECF1C00F88F9B /* ViewController.swift in Sources */,
+				5BF957311F5ED1E100F88F9B /* LogListTableViewController.swift in Sources */,
+				5BF9572F1F5ED18D00F88F9B /* MainTabBarController.swift in Sources */,
 				5BF957021F5ECF1C00F88F9B /* AppDelegate.swift in Sources */,
+				5BF957331F5ED1F500F88F9B /* SendLogFilesViaMailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -935,6 +943,7 @@
 				5BF957261F5ECF1D00F88F9B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5BF957271F5ECF1D00F88F9B /* Build configuration list for PBXNativeTarget "QuantiLoggerExampleTests" */ = {
 			isa = XCConfigurationList;
@@ -943,6 +952,7 @@
 				5BF957291F5ECF1D00F88F9B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5BF9572A1F5ECF1D00F88F9B /* Build configuration list for PBXNativeTarget "QuantiLoggerExampleUITests" */ = {
 			isa = XCConfigurationList;
@@ -951,6 +961,7 @@
 				5BF9572C1F5ECF1D00F88F9B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
