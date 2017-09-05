@@ -1,15 +1,15 @@
 //
-//  TableViewDatasourceTestTests.swift
-//  TableViewDatasourceTestTests
+//  QuantiLoggerExampleTests.swift
+//  QuantiLoggerExampleTests
 //
-//  Created by Martin Troup on 09.11.16.
-//  Copyright © 2016 quanti. All rights reserved.
+//  Created by Martin Troup on 05/09/2017.
+//  Copyright © 2017 quanti. All rights reserved.
 //
 
 import XCTest
-@testable import TableViewDatasourceTest
+@testable import QuantiLoggerExample
 
-class TableViewDatasourceTestTests: XCTestCase {
+class QuantiLoggerExampleTests: XCTestCase {
     
     override func setUp() {
         super.setUp()

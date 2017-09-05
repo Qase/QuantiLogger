@@ -9,7 +9,7 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
-		<key>TableViewDatasourceTest.xcscheme</key>
+		<key>QuantiLoggerExample.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>1</integer>
@@ -38,6 +38,21 @@
 			<true/>
 		</dict>
 		<key>5BD5D7CD1DD34EFE003AF2A7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5BF956FE1F5ECF1C00F88F9B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5BF957111F5ECF1D00F88F9B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5BF9571C1F5ECF1D00F88F9B</key>
 		<dict>
 			<key>primary</key>
 			<true/>

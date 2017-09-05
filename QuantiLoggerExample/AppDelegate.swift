@@ -1,9 +1,9 @@
 //
 //  AppDelegate.swift
-//  TableViewDatasourceTest
+//  QuantiLoggerExample
 //
-//  Created by Martin Troup on 09.11.16.
-//  Copyright © 2016 quanti. All rights reserved.
+//  Created by Martin Troup on 05/09/2017.
+//  Copyright © 2017 quanti. All rights reserved.
 //
 
 import UIKit
@@ -15,34 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        
-        // Loggers setup
-        let logManager = LogManager.shared
-        
-        let consoleLogger = ConsoleLogger()
-        consoleLogger.levels = [.warn, .debug]
-        logManager.add(consoleLogger)
-        
-        let fileLogger = FileLogger()
-        fileLogger.levels = [.error, .warn]
-        logManager.add(fileLogger)
-        
-        //logManager.add(CrashLyticsLogger())
-
-        let systemLogger = SystemLogger(subsystem: "com.quanti.swift.QuantiLogger", category: "logging")
-        systemLogger.levels = [.error, .warn]
-        logManager.add(systemLogger)
-        
-        QLog("test", onLevel: .warn)
-        QLog("test2\ntest2test2\ntest2test2test2\ntest2\ntest2test2\ntest2test2test2\n", onLevel: .warn)
-
-        
-        // Draw controller
-        window = UIWindow(frame: UIScreen.main.bounds)
-        if let window = window {
-            window.rootViewController = MainTabBarController()
-            window.makeKeyAndVisible()
-        }
+        // Override point for customization after application launch.
         return true
     }
 
