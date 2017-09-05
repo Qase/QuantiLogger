@@ -37,7 +37,6 @@
 		5BF9573D1F5ED38500F88F9B /* LogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3641A61DBFAD5D0034EF68 /* LogManager.swift */; };
 		5BF9573E1F5ED38900F88F9B /* InternalBaseLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA364581DD0C9A30017F9EB /* InternalBaseLogger.swift */; };
 		5BF9573F1F5ED38D00F88F9B /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3641A41DBFACF80034EF68 /* Logging.swift */; };
-		5BF957401F5ED39100F88F9B /* PerformanceLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A03D111F4AD2DE00B0F50C /* PerformanceLogger.swift */; };
 		5BF957411F5ED39400F88F9B /* SystemLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B16551A1EE585E0000D4652 /* SystemLogger.swift */; };
 		5BF957421F5ED39800F88F9B /* LogFilesViaMailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD5D7EF1DD361B0003AF2A7 /* LogFilesViaMailViewController.swift */; };
 		5BF957431F5ED39C00F88F9B /* FileLoggerTableViewDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA3645A1DD0EC160017F9EB /* FileLoggerTableViewDatasource.swift */; };
@@ -48,7 +47,6 @@
 		5BF957481F5ED3AA00F88F9B /* ConsoleLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDA79CC1DBFB6CF00930ABA /* ConsoleLogger.swift */; };
 		5BFA877F1DD1F6B40063CB73 /* FileLoggerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFA877E1DD1F6B40063CB73 /* FileLoggerTableViewCell.swift */; };
 		D3405D501F4C494200A1987F /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3405D4F1F4C494200A1987F /* DateHelper.swift */; };
-		D3A03D121F4AD2DE00B0F50C /* PerformanceLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A03D111F4AD2DE00B0F50C /* PerformanceLogger.swift */; };
 		D3A03D141F4AD5D300B0F50C /* QuantiLoggerPerformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A03D131F4AD5D300B0F50C /* QuantiLoggerPerformanceTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -111,7 +109,6 @@
 		5BF957321F5ED1F500F88F9B /* SendLogFilesViaMailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendLogFilesViaMailViewController.swift; sourceTree = "<group>"; };
 		5BFA877E1DD1F6B40063CB73 /* FileLoggerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileLoggerTableViewCell.swift; sourceTree = "<group>"; };
 		D3405D4F1F4C494200A1987F /* DateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
-		D3A03D111F4AD2DE00B0F50C /* PerformanceLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerformanceLogger.swift; sourceTree = "<group>"; };
 		D3A03D131F4AD5D300B0F50C /* QuantiLoggerPerformanceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuantiLoggerPerformanceTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -186,7 +183,6 @@
 			children = (
 				5BA364581DD0C9A30017F9EB /* InternalBaseLogger.swift */,
 				5B3641A41DBFACF80034EF68 /* Logging.swift */,
-				D3A03D101F4AD2C400B0F50C /* PerformanceLogger */,
 				5B1655191EE585CB000D4652 /* SystemLogger */,
 				5BC00C981DC77C2100C3B89D /* FileLogger */,
 				5BC00C971DC77C1200C3B89D /* ConsoleLogger */,
@@ -331,14 +327,6 @@
 				5BFA877E1DD1F6B40063CB73 /* FileLoggerTableViewCell.swift */,
 			);
 			name = TableViewDatasource;
-			sourceTree = "<group>";
-		};
-		D3A03D101F4AD2C400B0F50C /* PerformanceLogger */ = {
-			isa = PBXGroup;
-			children = (
-				D3A03D111F4AD2DE00B0F50C /* PerformanceLogger.swift */,
-			);
-			name = PerformanceLogger;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -572,7 +560,6 @@
 				5BDA79CD1DBFB6CF00930ABA /* ConsoleLogger.swift in Sources */,
 				5BA364591DD0C9A30017F9EB /* InternalBaseLogger.swift in Sources */,
 				5B16551B1EE585E0000D4652 /* SystemLogger.swift in Sources */,
-				D3A03D121F4AD2DE00B0F50C /* PerformanceLogger.swift in Sources */,
 				5B2782521DC9F72A00525431 /* FileLogger.swift in Sources */,
 				5B3641A71DBFAD5D0034EF68 /* LogManager.swift in Sources */,
 				5BA3645B1DD0EC160017F9EB /* FileLoggerTableViewDatasource.swift in Sources */,
@@ -610,7 +597,6 @@
 				5BF957391F5ED37500F88F9B /* QuantiLoggerConstants.swift in Sources */,
 				5BF9572F1F5ED18D00F88F9B /* MainTabBarController.swift in Sources */,
 				5BF957021F5ECF1C00F88F9B /* AppDelegate.swift in Sources */,
-				5BF957401F5ED39100F88F9B /* PerformanceLogger.swift in Sources */,
 				5BF957441F5ED39E00F88F9B /* FileLoggerTableViewCell.swift in Sources */,
 				5BF957481F5ED3AA00F88F9B /* ConsoleLogger.swift in Sources */,
 				5BF9573B1F5ED37B00F88F9B /* DateHelper.swift in Sources */,
