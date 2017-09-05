@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct DateTimeHelper {
+struct DateHelper {
 
     static let dateTimeFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -26,11 +26,11 @@ struct DateTimeHelper {
         return formatter
     }()
 
-    static func toFullDateTimeString(from date: Date = Date()) -> String {
-        return DateTimeHelper.dateTimeFormatter.string(from: date)
+    static func toFullDateTimeString(from date: Date) -> String {
+        return DateHelper.dateTimeFormatter.string(from: date)
     }
 
-    static func toFullDateString(from date: Date = Date()) -> String {
-        return DateTimeHelper.dateFormatter.string(from: date)
+    static func toFullDateString(from date: Date) -> String {
+        return DateHelper.dateFormatter.string(from: date)
     }
 }

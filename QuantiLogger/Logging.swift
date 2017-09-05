@@ -19,7 +19,7 @@ extension Logging {
     public func configure() {}
 
     public func messageHeader(forLevel level: Level) -> String {
-        return "[\(level.rawValue) \(DateTimeHelper.toFullDateTimeString())]"
+        return "[\(level.rawValue) \(Date().toFullDateTimeString())]"
     }
 
     func doesLog(forLevel level: Level) -> Bool {
