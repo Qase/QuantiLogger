@@ -18,14 +18,16 @@ class LogListTableViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        view.backgroundColor = .white
+
         view.addSubview(logListTableView)
         
         logListTableView.translatesAutoresizingMaskIntoConstraints = false
-        let topConstraint = NSLayoutConstraint(item: logListTableView, attribute: .top, relatedBy: .equal, toItem: topLayoutGuide, attribute: .top, multiplier: 1, constant: 0)
-        let bottomConstraint = NSLayoutConstraint(item: logListTableView, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1, constant: 0)
-        let leftConstraint = NSLayoutConstraint(item: logListTableView, attribute: .left, relatedBy: .equal, toItem: view, attribute: .left, multiplier: 1, constant: 0)
-        let rightConstraint = NSLayoutConstraint(item: logListTableView, attribute: .right, relatedBy: .equal, toItem: view, attribute: .right, multiplier: 1, constant: 0)
-        view.addConstraints([topConstraint, bottomConstraint, leftConstraint, rightConstraint])
+
+        logListTableView.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor).isActive = true
+        logListTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        logListTableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        logListTableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
 
         logListTableView.delegate = self
         logListTableView.dataSource = fileLoggerTableViewDatasource
