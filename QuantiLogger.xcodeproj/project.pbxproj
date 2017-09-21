@@ -25,7 +25,6 @@
 		5BEBBB191DC9EAC20055E453 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEBBB181DC9EAC20055E453 /* DateExtension.swift */; };
 		5BF957021F5ECF1C00F88F9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF957011F5ECF1C00F88F9B /* AppDelegate.swift */; };
 		5BF957091F5ECF1C00F88F9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BF957081F5ECF1C00F88F9B /* Assets.xcassets */; };
-		5BF957171F5ECF1D00F88F9B /* QuantiLoggerExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF957161F5ECF1D00F88F9B /* QuantiLoggerExampleTests.swift */; };
 		5BF957221F5ECF1D00F88F9B /* QuantiLoggerExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF957211F5ECF1D00F88F9B /* QuantiLoggerExampleUITests.swift */; };
 		5BF9572F1F5ED18D00F88F9B /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF9572E1F5ED18D00F88F9B /* MainTabBarController.swift */; };
 		5BF957311F5ED1E100F88F9B /* LogListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF957301F5ED1E100F88F9B /* LogListTableViewController.swift */; };
@@ -57,13 +56,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 5B3641871DBFA4650034EF68;
 			remoteInfo = QuantiLogger;
-		};
-		5BF957131F5ECF1D00F88F9B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5B36417F1DBFA4640034EF68 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 5BF956FE1F5ECF1C00F88F9B;
-			remoteInfo = QuantiLoggerExample;
 		};
 		5BF9571E1F5ECF1D00F88F9B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -98,9 +90,6 @@
 		5BF957011F5ECF1C00F88F9B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5BF957081F5ECF1C00F88F9B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5BF9570D1F5ECF1C00F88F9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5BF957121F5ECF1D00F88F9B /* QuantiLoggerExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuantiLoggerExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5BF957161F5ECF1D00F88F9B /* QuantiLoggerExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuantiLoggerExampleTests.swift; sourceTree = "<group>"; };
-		5BF957181F5ECF1D00F88F9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5BF9571D1F5ECF1D00F88F9B /* QuantiLoggerExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuantiLoggerExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BF957211F5ECF1D00F88F9B /* QuantiLoggerExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuantiLoggerExampleUITests.swift; sourceTree = "<group>"; };
 		5BF957231F5ECF1D00F88F9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -129,13 +118,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		5BF956FC1F5ECF1C00F88F9B /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5BF9570F1F5ECF1D00F88F9B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -214,7 +196,6 @@
 				5B36418A1DBFA4650034EF68 /* QuantiLogger */,
 				5B3641951DBFA4650034EF68 /* QuantiLoggerTests */,
 				5BF957001F5ECF1C00F88F9B /* QuantiLoggerExample */,
-				5BF957151F5ECF1D00F88F9B /* QuantiLoggerExampleTests */,
 				5BF957201F5ECF1D00F88F9B /* QuantiLoggerExampleUITests */,
 				5B3641891DBFA4650034EF68 /* Products */,
 			);
@@ -226,7 +207,6 @@
 				5B3641881DBFA4650034EF68 /* QuantiLogger.framework */,
 				5B3641911DBFA4650034EF68 /* QuantiLoggerTests.xctest */,
 				5BF956FF1F5ECF1C00F88F9B /* QuantiLoggerExample.app */,
-				5BF957121F5ECF1D00F88F9B /* QuantiLoggerExampleTests.xctest */,
 				5BF9571D1F5ECF1D00F88F9B /* QuantiLoggerExampleUITests.xctest */,
 			);
 			name = Products;
@@ -291,15 +271,6 @@
 				5BF9572D1F5ECF3F00F88F9B /* SupportingFiles */,
 			);
 			path = QuantiLoggerExample;
-			sourceTree = "<group>";
-		};
-		5BF957151F5ECF1D00F88F9B /* QuantiLoggerExampleTests */ = {
-			isa = PBXGroup;
-			children = (
-				5BF957161F5ECF1D00F88F9B /* QuantiLoggerExampleTests.swift */,
-				5BF957181F5ECF1D00F88F9B /* Info.plist */,
-			);
-			path = QuantiLoggerExampleTests;
 			sourceTree = "<group>";
 		};
 		5BF957201F5ECF1D00F88F9B /* QuantiLoggerExampleUITests */ = {
@@ -397,24 +368,6 @@
 			productReference = 5BF956FF1F5ECF1C00F88F9B /* QuantiLoggerExample.app */;
 			productType = "com.apple.product-type.application";
 		};
-		5BF957111F5ECF1D00F88F9B /* QuantiLoggerExampleTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 5BF957271F5ECF1D00F88F9B /* Build configuration list for PBXNativeTarget "QuantiLoggerExampleTests" */;
-			buildPhases = (
-				5BF9570E1F5ECF1D00F88F9B /* Sources */,
-				5BF9570F1F5ECF1D00F88F9B /* Frameworks */,
-				5BF957101F5ECF1D00F88F9B /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				5BF957141F5ECF1D00F88F9B /* PBXTargetDependency */,
-			);
-			name = QuantiLoggerExampleTests;
-			productName = QuantiLoggerExampleTests;
-			productReference = 5BF957121F5ECF1D00F88F9B /* QuantiLoggerExampleTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		5BF9571C1F5ECF1D00F88F9B /* QuantiLoggerExampleUITests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5BF9572A1F5ECF1D00F88F9B /* Build configuration list for PBXNativeTarget "QuantiLoggerExampleUITests" */;
@@ -459,12 +412,6 @@
 						DevelopmentTeam = 2PY9RKK8A7;
 						ProvisioningStyle = Automatic;
 					};
-					5BF957111F5ECF1D00F88F9B = {
-						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = 2PY9RKK8A7;
-						ProvisioningStyle = Automatic;
-						TestTargetID = 5BF956FE1F5ECF1C00F88F9B;
-					};
 					5BF9571C1F5ECF1D00F88F9B = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = 2PY9RKK8A7;
@@ -489,7 +436,6 @@
 				5B3641871DBFA4650034EF68 /* QuantiLogger */,
 				5B3641901DBFA4650034EF68 /* QuantiLoggerTests */,
 				5BF956FE1F5ECF1C00F88F9B /* QuantiLoggerExample */,
-				5BF957111F5ECF1D00F88F9B /* QuantiLoggerExampleTests */,
 				5BF9571C1F5ECF1D00F88F9B /* QuantiLoggerExampleUITests */,
 			);
 		};
@@ -515,13 +461,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5BF957091F5ECF1C00F88F9B /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5BF957101F5ECF1D00F88F9B /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -608,14 +547,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5BF9570E1F5ECF1D00F88F9B /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5BF957171F5ECF1D00F88F9B /* QuantiLoggerExampleTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		5BF957191F5ECF1D00F88F9B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -631,11 +562,6 @@
 			isa = PBXTargetDependency;
 			target = 5B3641871DBFA4650034EF68 /* QuantiLogger */;
 			targetProxy = 5B3641931DBFA4650034EF68 /* PBXContainerItemProxy */;
-		};
-		5BF957141F5ECF1D00F88F9B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 5BF956FE1F5ECF1C00F88F9B /* QuantiLoggerExample */;
-			targetProxy = 5BF957131F5ECF1D00F88F9B /* PBXContainerItemProxy */;
 		};
 		5BF9571F1F5ECF1D00F88F9B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -854,40 +780,6 @@
 			};
 			name = Release;
 		};
-		5BF957281F5ECF1D00F88F9B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				DEVELOPMENT_TEAM = 2PY9RKK8A7;
-				INFOPLIST_FILE = QuantiLoggerExampleTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.quanti.QuantiLoggerExampleTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/QuantiLoggerExample.app/QuantiLoggerExample";
-			};
-			name = Debug;
-		};
-		5BF957291F5ECF1D00F88F9B /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				DEVELOPMENT_TEAM = 2PY9RKK8A7;
-				INFOPLIST_FILE = QuantiLoggerExampleTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.quanti.QuantiLoggerExampleTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/QuantiLoggerExample.app/QuantiLoggerExample";
-			};
-			name = Release;
-		};
 		5BF9572B1F5ECF1D00F88F9B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -955,15 +847,6 @@
 			buildConfigurations = (
 				5BF957251F5ECF1D00F88F9B /* Debug */,
 				5BF957261F5ECF1D00F88F9B /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		5BF957271F5ECF1D00F88F9B /* Build configuration list for PBXNativeTarget "QuantiLoggerExampleTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				5BF957281F5ECF1D00F88F9B /* Debug */,
-				5BF957291F5ECF1D00F88F9B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
