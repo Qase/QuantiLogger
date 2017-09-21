@@ -16,14 +16,14 @@ build_job:
   script:
     - fastlane build
   tags:
-    - mac
+    - xcode-9
 
 lint_job:
   stage: lint
   script:
     - ./scripts/swiftlint_wrapper.sh
   tags:
-    - mac
+    - xcode-9
   allow_failure: true
 
 test_job:
@@ -35,4 +35,4 @@ test_job:
     paths:
     - ./fastlane/test_output 
   tags:
-    - mac
+    - xcode-9
