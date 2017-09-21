@@ -15,28 +15,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        
+
         // Loggers setup
         let logManager = LogManager.shared
-        
+
         let consoleLogger = ConsoleLogger()
         consoleLogger.levels = [.warn, .debug]
         logManager.add(consoleLogger)
-        
+
         let fileLogger = FileLogger()
         fileLogger.levels = [.error, .warn]
         logManager.add(fileLogger)
-        
+
         //logManager.add(CrashLyticsLogger())
 
         let systemLogger = SystemLogger(subsystem: "com.quanti.swift.QuantiLogger", category: "logging")
         systemLogger.levels = [.error, .warn]
         logManager.add(systemLogger)
-        
+
         QLog("test", onLevel: .warn)
         QLog("test2\ntest2test2\ntest2test2test2\ntest2\ntest2test2\ntest2test2test2\n", onLevel: .warn)
 
-        
+
         // Draw controller
         window = UIWindow(frame: UIScreen.main.bounds)
         if let window = window {
@@ -67,7 +67,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
+    
+    
 }
 

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		5B16551B1EE585E0000D4652 /* SystemLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B16551A1EE585E0000D4652 /* SystemLogger.swift */; };
-		5B16551C1EE59E0A000D4652 /* SystemLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B16551A1EE585E0000D4652 /* SystemLogger.swift */; };
 		5B27824A1DC9F1AD00525431 /* QuantiLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B3641881DBFA4650034EF68 /* QuantiLogger.framework */; };
 		5B2782521DC9F72A00525431 /* FileLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2782511DC9F72A00525431 /* FileLogger.swift */; };
 		5B35E35E1DC0C87300C7E679 /* FileLoggerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B35E35D1DC0C87300C7E679 /* FileLoggerManager.swift */; };
@@ -21,32 +20,32 @@
 		5BA3645B1DD0EC160017F9EB /* FileLoggerTableViewDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA3645A1DD0EC160017F9EB /* FileLoggerTableViewDatasource.swift */; };
 		5BA3645D1DD0EDD10017F9EB /* LogFileRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA3645C1DD0EDD10017F9EB /* LogFileRecord.swift */; };
 		5BAF4F241DC8DA35000379A4 /* QuantiLoggerConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAF4F231DC8DA35000379A4 /* QuantiLoggerConstants.swift */; };
-		5BC5351C1DD4A4BE00E64CED /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC5351B1DD4A4BE00E64CED /* MainTabBarController.swift */; };
-		5BC5351E1DD4A51200E64CED /* SendLogFilesViaMailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC5351D1DD4A51200E64CED /* SendLogFilesViaMailViewController.swift */; };
-		5BD5D7B31DD34EFE003AF2A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD5D7B21DD34EFE003AF2A7 /* AppDelegate.swift */; };
-		5BD5D7B51DD34EFE003AF2A7 /* LogListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD5D7B41DD34EFE003AF2A7 /* LogListTableViewController.swift */; };
-		5BD5D7BA1DD34EFE003AF2A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BD5D7B91DD34EFE003AF2A7 /* Assets.xcassets */; };
-		5BD5D7C81DD34EFE003AF2A7 /* TableViewDatasourceTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD5D7C71DD34EFE003AF2A7 /* TableViewDatasourceTestTests.swift */; };
-		5BD5D7D31DD34EFE003AF2A7 /* TableViewDatasourceTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD5D7D21DD34EFE003AF2A7 /* TableViewDatasourceTestUITests.swift */; };
-		5BD5D7DF1DD35111003AF2A7 /* QuantiLoggerConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAF4F231DC8DA35000379A4 /* QuantiLoggerConstants.swift */; };
-		5BD5D7E01DD35115003AF2A7 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3641A21DBFAC810034EF68 /* Level.swift */; };
-		5BD5D7E11DD35118003AF2A7 /* LogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3641A61DBFAD5D0034EF68 /* LogManager.swift */; };
-		5BD5D7E21DD3511B003AF2A7 /* InternalBaseLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA364581DD0C9A30017F9EB /* InternalBaseLogger.swift */; };
-		5BD5D7E31DD3511E003AF2A7 /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3641A41DBFACF80034EF68 /* Logging.swift */; };
-		5BD5D7E41DD35122003AF2A7 /* FileLoggerTableViewDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA3645A1DD0EC160017F9EB /* FileLoggerTableViewDatasource.swift */; };
-		5BD5D7E51DD35124003AF2A7 /* FileLoggerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFA877E1DD1F6B40063CB73 /* FileLoggerTableViewCell.swift */; };
-		5BD5D7E61DD35126003AF2A7 /* FileLoggerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B35E35D1DC0C87300C7E679 /* FileLoggerManager.swift */; };
-		5BD5D7E71DD3512A003AF2A7 /* FileLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2782511DC9F72A00525431 /* FileLogger.swift */; };
-		5BD5D7E81DD3512D003AF2A7 /* LogFileRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA3645C1DD0EDD10017F9EB /* LogFileRecord.swift */; };
-		5BD5D7E91DD35131003AF2A7 /* ConsoleLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDA79CC1DBFB6CF00930ABA /* ConsoleLogger.swift */; };
-		5BD5D7EA1DD3514C003AF2A7 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEBBB181DC9EAC20055E453 /* DateExtension.swift */; };
 		5BD5D7F01DD361B0003AF2A7 /* LogFilesViaMailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD5D7EF1DD361B0003AF2A7 /* LogFilesViaMailViewController.swift */; };
-		5BD5D7F31DD37627003AF2A7 /* LogFilesViaMailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD5D7EF1DD361B0003AF2A7 /* LogFilesViaMailViewController.swift */; };
 		5BDA79CD1DBFB6CF00930ABA /* ConsoleLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDA79CC1DBFB6CF00930ABA /* ConsoleLogger.swift */; };
 		5BEBBB191DC9EAC20055E453 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEBBB181DC9EAC20055E453 /* DateExtension.swift */; };
+		5BF957021F5ECF1C00F88F9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF957011F5ECF1C00F88F9B /* AppDelegate.swift */; };
+		5BF957091F5ECF1C00F88F9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BF957081F5ECF1C00F88F9B /* Assets.xcassets */; };
+		5BF957221F5ECF1D00F88F9B /* QuantiLoggerExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF957211F5ECF1D00F88F9B /* QuantiLoggerExampleUITests.swift */; };
+		5BF9572F1F5ED18D00F88F9B /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF9572E1F5ED18D00F88F9B /* MainTabBarController.swift */; };
+		5BF957311F5ED1E100F88F9B /* LogListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF957301F5ED1E100F88F9B /* LogListTableViewController.swift */; };
+		5BF957331F5ED1F500F88F9B /* SendLogFilesViaMailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF957321F5ED1F500F88F9B /* SendLogFilesViaMailViewController.swift */; };
+		5BF957391F5ED37500F88F9B /* QuantiLoggerConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAF4F231DC8DA35000379A4 /* QuantiLoggerConstants.swift */; };
+		5BF9573A1F5ED37900F88F9B /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEBBB181DC9EAC20055E453 /* DateExtension.swift */; };
+		5BF9573B1F5ED37B00F88F9B /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3405D4F1F4C494200A1987F /* DateHelper.swift */; };
+		5BF9573C1F5ED38300F88F9B /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3641A21DBFAC810034EF68 /* Level.swift */; };
+		5BF9573D1F5ED38500F88F9B /* LogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3641A61DBFAD5D0034EF68 /* LogManager.swift */; };
+		5BF9573E1F5ED38900F88F9B /* InternalBaseLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA364581DD0C9A30017F9EB /* InternalBaseLogger.swift */; };
+		5BF9573F1F5ED38D00F88F9B /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3641A41DBFACF80034EF68 /* Logging.swift */; };
+		5BF957411F5ED39400F88F9B /* SystemLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B16551A1EE585E0000D4652 /* SystemLogger.swift */; };
+		5BF957421F5ED39800F88F9B /* LogFilesViaMailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD5D7EF1DD361B0003AF2A7 /* LogFilesViaMailViewController.swift */; };
+		5BF957431F5ED39C00F88F9B /* FileLoggerTableViewDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA3645A1DD0EC160017F9EB /* FileLoggerTableViewDatasource.swift */; };
+		5BF957441F5ED39E00F88F9B /* FileLoggerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFA877E1DD1F6B40063CB73 /* FileLoggerTableViewCell.swift */; };
+		5BF957451F5ED3A100F88F9B /* FileLoggerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B35E35D1DC0C87300C7E679 /* FileLoggerManager.swift */; };
+		5BF957461F5ED3A400F88F9B /* FileLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2782511DC9F72A00525431 /* FileLogger.swift */; };
+		5BF957471F5ED3A700F88F9B /* LogFileRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA3645C1DD0EDD10017F9EB /* LogFileRecord.swift */; };
+		5BF957481F5ED3AA00F88F9B /* ConsoleLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDA79CC1DBFB6CF00930ABA /* ConsoleLogger.swift */; };
 		5BFA877F1DD1F6B40063CB73 /* FileLoggerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFA877E1DD1F6B40063CB73 /* FileLoggerTableViewCell.swift */; };
 		D3405D501F4C494200A1987F /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3405D4F1F4C494200A1987F /* DateHelper.swift */; };
-		D3A03D121F4AD2DE00B0F50C /* PerformanceLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A03D111F4AD2DE00B0F50C /* PerformanceLogger.swift */; };
 		D3A03D141F4AD5D300B0F50C /* QuantiLoggerPerformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A03D131F4AD5D300B0F50C /* QuantiLoggerPerformanceTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -58,19 +57,12 @@
 			remoteGlobalIDString = 5B3641871DBFA4650034EF68;
 			remoteInfo = QuantiLogger;
 		};
-		5BD5D7C41DD34EFE003AF2A7 /* PBXContainerItemProxy */ = {
+		5BF9571E1F5ECF1D00F88F9B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5B36417F1DBFA4640034EF68 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 5BD5D7AF1DD34EFE003AF2A7;
-			remoteInfo = TableViewDatasourceTest;
-		};
-		5BD5D7CF1DD34EFE003AF2A7 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5B36417F1DBFA4640034EF68 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 5BD5D7AF1DD34EFE003AF2A7;
-			remoteInfo = TableViewDatasourceTest;
+			remoteGlobalIDString = 5BF956FE1F5ECF1C00F88F9B;
+			remoteInfo = QuantiLoggerExample;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -91,25 +83,21 @@
 		5BA3645A1DD0EC160017F9EB /* FileLoggerTableViewDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileLoggerTableViewDatasource.swift; sourceTree = "<group>"; };
 		5BA3645C1DD0EDD10017F9EB /* LogFileRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogFileRecord.swift; sourceTree = "<group>"; };
 		5BAF4F231DC8DA35000379A4 /* QuantiLoggerConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuantiLoggerConstants.swift; sourceTree = "<group>"; };
-		5BC5351B1DD4A4BE00E64CED /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
-		5BC5351D1DD4A51200E64CED /* SendLogFilesViaMailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendLogFilesViaMailViewController.swift; sourceTree = "<group>"; };
-		5BD5D7B01DD34EFE003AF2A7 /* TableViewDatasourceTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TableViewDatasourceTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		5BD5D7B21DD34EFE003AF2A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5BD5D7B41DD34EFE003AF2A7 /* LogListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogListTableViewController.swift; sourceTree = "<group>"; };
-		5BD5D7B91DD34EFE003AF2A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		5BD5D7BE1DD34EFE003AF2A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5BD5D7C31DD34EFE003AF2A7 /* TableViewDatasourceTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TableViewDatasourceTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5BD5D7C71DD34EFE003AF2A7 /* TableViewDatasourceTestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDatasourceTestTests.swift; sourceTree = "<group>"; };
-		5BD5D7C91DD34EFE003AF2A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5BD5D7CE1DD34EFE003AF2A7 /* TableViewDatasourceTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TableViewDatasourceTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5BD5D7D21DD34EFE003AF2A7 /* TableViewDatasourceTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDatasourceTestUITests.swift; sourceTree = "<group>"; };
-		5BD5D7D41DD34EFE003AF2A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5BD5D7EF1DD361B0003AF2A7 /* LogFilesViaMailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogFilesViaMailViewController.swift; sourceTree = "<group>"; };
 		5BDA79CC1DBFB6CF00930ABA /* ConsoleLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsoleLogger.swift; sourceTree = "<group>"; };
 		5BEBBB181DC9EAC20055E453 /* DateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		5BF956FF1F5ECF1C00F88F9B /* QuantiLoggerExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuantiLoggerExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5BF957011F5ECF1C00F88F9B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		5BF957081F5ECF1C00F88F9B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5BF9570D1F5ECF1C00F88F9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5BF9571D1F5ECF1D00F88F9B /* QuantiLoggerExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuantiLoggerExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5BF957211F5ECF1D00F88F9B /* QuantiLoggerExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuantiLoggerExampleUITests.swift; sourceTree = "<group>"; };
+		5BF957231F5ECF1D00F88F9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5BF9572E1F5ED18D00F88F9B /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		5BF957301F5ED1E100F88F9B /* LogListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogListTableViewController.swift; sourceTree = "<group>"; };
+		5BF957321F5ED1F500F88F9B /* SendLogFilesViaMailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendLogFilesViaMailViewController.swift; sourceTree = "<group>"; };
 		5BFA877E1DD1F6B40063CB73 /* FileLoggerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileLoggerTableViewCell.swift; sourceTree = "<group>"; };
 		D3405D4F1F4C494200A1987F /* DateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
-		D3A03D111F4AD2DE00B0F50C /* PerformanceLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerformanceLogger.swift; sourceTree = "<group>"; };
 		D3A03D131F4AD5D300B0F50C /* QuantiLoggerPerformanceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuantiLoggerPerformanceTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -129,21 +117,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5BD5D7AD1DD34EFE003AF2A7 /* Frameworks */ = {
+		5BF956FC1F5ECF1C00F88F9B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5BD5D7C01DD34EFE003AF2A7 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5BD5D7CB1DD34EFE003AF2A7 /* Frameworks */ = {
+		5BF9571A1F5ECF1D00F88F9B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -182,7 +163,6 @@
 		5B35E35C1DC0A84D00C7E679 /* Loggers */ = {
 			isa = PBXGroup;
 			children = (
-				D3A03D101F4AD2C400B0F50C /* PerformanceLogger */,
 				5BA364581DD0C9A30017F9EB /* InternalBaseLogger.swift */,
 				5B3641A41DBFACF80034EF68 /* Logging.swift */,
 				5B1655191EE585CB000D4652 /* SystemLogger */,
@@ -215,9 +195,8 @@
 			children = (
 				5B36418A1DBFA4650034EF68 /* QuantiLogger */,
 				5B3641951DBFA4650034EF68 /* QuantiLoggerTests */,
-				5BD5D7B11DD34EFE003AF2A7 /* TableViewDatasourceTest */,
-				5BD5D7C61DD34EFE003AF2A7 /* TableViewDatasourceTestTests */,
-				5BD5D7D11DD34EFE003AF2A7 /* TableViewDatasourceTestUITests */,
+				5BF957001F5ECF1C00F88F9B /* QuantiLoggerExample */,
+				5BF957201F5ECF1D00F88F9B /* QuantiLoggerExampleUITests */,
 				5B3641891DBFA4650034EF68 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -227,9 +206,8 @@
 			children = (
 				5B3641881DBFA4650034EF68 /* QuantiLogger.framework */,
 				5B3641911DBFA4650034EF68 /* QuantiLoggerTests.xctest */,
-				5BD5D7B01DD34EFE003AF2A7 /* TableViewDatasourceTest.app */,
-				5BD5D7C31DD34EFE003AF2A7 /* TableViewDatasourceTestTests.xctest */,
-				5BD5D7CE1DD34EFE003AF2A7 /* TableViewDatasourceTestUITests.xctest */,
+				5BF956FF1F5ECF1C00F88F9B /* QuantiLoggerExample.app */,
+				5BF9571D1F5ECF1D00F88F9B /* QuantiLoggerExampleUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -275,51 +253,42 @@
 			name = FileLogger;
 			sourceTree = "<group>";
 		};
-		5BD5D7B11DD34EFE003AF2A7 /* TableViewDatasourceTest */ = {
-			isa = PBXGroup;
-			children = (
-				5BD5D7B21DD34EFE003AF2A7 /* AppDelegate.swift */,
-				5BC5351B1DD4A4BE00E64CED /* MainTabBarController.swift */,
-				5BD5D7B41DD34EFE003AF2A7 /* LogListTableViewController.swift */,
-				5BC5351D1DD4A51200E64CED /* SendLogFilesViaMailViewController.swift */,
-				5BD5D7DE1DD34F34003AF2A7 /* SupportingFiles */,
-			);
-			path = TableViewDatasourceTest;
-			sourceTree = "<group>";
-		};
-		5BD5D7C61DD34EFE003AF2A7 /* TableViewDatasourceTestTests */ = {
-			isa = PBXGroup;
-			children = (
-				5BD5D7C71DD34EFE003AF2A7 /* TableViewDatasourceTestTests.swift */,
-				5BD5D7C91DD34EFE003AF2A7 /* Info.plist */,
-			);
-			path = TableViewDatasourceTestTests;
-			sourceTree = "<group>";
-		};
-		5BD5D7D11DD34EFE003AF2A7 /* TableViewDatasourceTestUITests */ = {
-			isa = PBXGroup;
-			children = (
-				5BD5D7D21DD34EFE003AF2A7 /* TableViewDatasourceTestUITests.swift */,
-				5BD5D7D41DD34EFE003AF2A7 /* Info.plist */,
-			);
-			path = TableViewDatasourceTestUITests;
-			sourceTree = "<group>";
-		};
-		5BD5D7DE1DD34F34003AF2A7 /* SupportingFiles */ = {
-			isa = PBXGroup;
-			children = (
-				5BD5D7B91DD34EFE003AF2A7 /* Assets.xcassets */,
-				5BD5D7BE1DD34EFE003AF2A7 /* Info.plist */,
-			);
-			name = SupportingFiles;
-			sourceTree = "<group>";
-		};
 		5BD5D7EE1DD3617A003AF2A7 /* LogFilesViaMail */ = {
 			isa = PBXGroup;
 			children = (
 				5BD5D7EF1DD361B0003AF2A7 /* LogFilesViaMailViewController.swift */,
 			);
 			name = LogFilesViaMail;
+			sourceTree = "<group>";
+		};
+		5BF957001F5ECF1C00F88F9B /* QuantiLoggerExample */ = {
+			isa = PBXGroup;
+			children = (
+				5BF957011F5ECF1C00F88F9B /* AppDelegate.swift */,
+				5BF9572E1F5ED18D00F88F9B /* MainTabBarController.swift */,
+				5BF957301F5ED1E100F88F9B /* LogListTableViewController.swift */,
+				5BF957321F5ED1F500F88F9B /* SendLogFilesViaMailViewController.swift */,
+				5BF9572D1F5ECF3F00F88F9B /* SupportingFiles */,
+			);
+			path = QuantiLoggerExample;
+			sourceTree = "<group>";
+		};
+		5BF957201F5ECF1D00F88F9B /* QuantiLoggerExampleUITests */ = {
+			isa = PBXGroup;
+			children = (
+				5BF957211F5ECF1D00F88F9B /* QuantiLoggerExampleUITests.swift */,
+				5BF957231F5ECF1D00F88F9B /* Info.plist */,
+			);
+			path = QuantiLoggerExampleUITests;
+			sourceTree = "<group>";
+		};
+		5BF9572D1F5ECF3F00F88F9B /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				5BF957081F5ECF1C00F88F9B /* Assets.xcassets */,
+				5BF9570D1F5ECF1C00F88F9B /* Info.plist */,
+			);
+			name = SupportingFiles;
 			sourceTree = "<group>";
 		};
 		5BFA877D1DD1F68C0063CB73 /* TableViewDatasource */ = {
@@ -329,14 +298,6 @@
 				5BFA877E1DD1F6B40063CB73 /* FileLoggerTableViewCell.swift */,
 			);
 			name = TableViewDatasource;
-			sourceTree = "<group>";
-		};
-		D3A03D101F4AD2C400B0F50C /* PerformanceLogger */ = {
-			isa = PBXGroup;
-			children = (
-				D3A03D111F4AD2DE00B0F50C /* PerformanceLogger.swift */,
-			);
-			name = PerformanceLogger;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -390,58 +351,39 @@
 			productReference = 5B3641911DBFA4650034EF68 /* QuantiLoggerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		5BD5D7AF1DD34EFE003AF2A7 /* TableViewDatasourceTest */ = {
+		5BF956FE1F5ECF1C00F88F9B /* QuantiLoggerExample */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5BD5D7DB1DD34EFE003AF2A7 /* Build configuration list for PBXNativeTarget "TableViewDatasourceTest" */;
+			buildConfigurationList = 5BF957241F5ECF1D00F88F9B /* Build configuration list for PBXNativeTarget "QuantiLoggerExample" */;
 			buildPhases = (
-				5BD5D7AC1DD34EFE003AF2A7 /* Sources */,
-				5BD5D7AD1DD34EFE003AF2A7 /* Frameworks */,
-				5BD5D7AE1DD34EFE003AF2A7 /* Resources */,
-				5BD5D7EB1DD356CA003AF2A7 /* ShellScript */,
+				5BF956FB1F5ECF1C00F88F9B /* Sources */,
+				5BF956FC1F5ECF1C00F88F9B /* Frameworks */,
+				5BF956FD1F5ECF1C00F88F9B /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = TableViewDatasourceTest;
-			productName = TableViewDatasourceTest;
-			productReference = 5BD5D7B01DD34EFE003AF2A7 /* TableViewDatasourceTest.app */;
+			name = QuantiLoggerExample;
+			productName = QuantiLoggerExample;
+			productReference = 5BF956FF1F5ECF1C00F88F9B /* QuantiLoggerExample.app */;
 			productType = "com.apple.product-type.application";
 		};
-		5BD5D7C21DD34EFE003AF2A7 /* TableViewDatasourceTestTests */ = {
+		5BF9571C1F5ECF1D00F88F9B /* QuantiLoggerExampleUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5BD5D7DC1DD34EFE003AF2A7 /* Build configuration list for PBXNativeTarget "TableViewDatasourceTestTests" */;
+			buildConfigurationList = 5BF9572A1F5ECF1D00F88F9B /* Build configuration list for PBXNativeTarget "QuantiLoggerExampleUITests" */;
 			buildPhases = (
-				5BD5D7BF1DD34EFE003AF2A7 /* Sources */,
-				5BD5D7C01DD34EFE003AF2A7 /* Frameworks */,
-				5BD5D7C11DD34EFE003AF2A7 /* Resources */,
+				5BF957191F5ECF1D00F88F9B /* Sources */,
+				5BF9571A1F5ECF1D00F88F9B /* Frameworks */,
+				5BF9571B1F5ECF1D00F88F9B /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				5BD5D7C51DD34EFE003AF2A7 /* PBXTargetDependency */,
+				5BF9571F1F5ECF1D00F88F9B /* PBXTargetDependency */,
 			);
-			name = TableViewDatasourceTestTests;
-			productName = TableViewDatasourceTestTests;
-			productReference = 5BD5D7C31DD34EFE003AF2A7 /* TableViewDatasourceTestTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		5BD5D7CD1DD34EFE003AF2A7 /* TableViewDatasourceTestUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 5BD5D7DD1DD34EFE003AF2A7 /* Build configuration list for PBXNativeTarget "TableViewDatasourceTestUITests" */;
-			buildPhases = (
-				5BD5D7CA1DD34EFE003AF2A7 /* Sources */,
-				5BD5D7CB1DD34EFE003AF2A7 /* Frameworks */,
-				5BD5D7CC1DD34EFE003AF2A7 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				5BD5D7D01DD34EFE003AF2A7 /* PBXTargetDependency */,
-			);
-			name = TableViewDatasourceTestUITests;
-			productName = TableViewDatasourceTestUITests;
-			productReference = 5BD5D7CE1DD34EFE003AF2A7 /* TableViewDatasourceTestUITests.xctest */;
+			name = QuantiLoggerExampleUITests;
+			productName = QuantiLoggerExampleUITests;
+			productReference = 5BF9571D1F5ECF1D00F88F9B /* QuantiLoggerExampleUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -450,37 +392,34 @@
 		5B36417F1DBFA4640034EF68 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0810;
+				LastSwiftUpdateCheck = 0830;
 				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = quanti;
 				TargetAttributes = {
 					5B3641871DBFA4650034EF68 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 97DXWGRCGZ;
-						LastSwiftMigration = 0800;
+						DevelopmentTeam = 2PY9RKK8A7;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 					5B3641901DBFA4650034EF68 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 2PY9RKK8A7;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
-					5BD5D7AF1DD34EFE003AF2A7 = {
-						CreatedOnToolsVersion = 8.1;
+					5BF956FE1F5ECF1C00F88F9B = {
+						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = 2PY9RKK8A7;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
-					5BD5D7C21DD34EFE003AF2A7 = {
-						CreatedOnToolsVersion = 8.1;
+					5BF9571C1F5ECF1D00F88F9B = {
+						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = 2PY9RKK8A7;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
-						TestTargetID = 5BD5D7AF1DD34EFE003AF2A7;
-					};
-					5BD5D7CD1DD34EFE003AF2A7 = {
-						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = 2PY9RKK8A7;
-						ProvisioningStyle = Automatic;
-						TestTargetID = 5BD5D7AF1DD34EFE003AF2A7;
+						TestTargetID = 5BF956FE1F5ECF1C00F88F9B;
 					};
 				};
 			};
@@ -499,9 +438,8 @@
 			targets = (
 				5B3641871DBFA4650034EF68 /* QuantiLogger */,
 				5B3641901DBFA4650034EF68 /* QuantiLoggerTests */,
-				5BD5D7AF1DD34EFE003AF2A7 /* TableViewDatasourceTest */,
-				5BD5D7C21DD34EFE003AF2A7 /* TableViewDatasourceTestTests */,
-				5BD5D7CD1DD34EFE003AF2A7 /* TableViewDatasourceTestUITests */,
+				5BF956FE1F5ECF1C00F88F9B /* QuantiLoggerExample */,
+				5BF9571C1F5ECF1D00F88F9B /* QuantiLoggerExampleUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -521,22 +459,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5BD5D7AE1DD34EFE003AF2A7 /* Resources */ = {
+		5BF956FD1F5ECF1C00F88F9B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5BD5D7BA1DD34EFE003AF2A7 /* Assets.xcassets in Resources */,
+				5BF957091F5ECF1C00F88F9B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5BD5D7C11DD34EFE003AF2A7 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5BD5D7CC1DD34EFE003AF2A7 /* Resources */ = {
+		5BF9571B1F5ECF1D00F88F9B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -546,19 +477,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		5BD5D7EB1DD356CA003AF2A7 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if [ \"${CONFIGURATION}\" = \"Debug\" ]; then\n    rm -rf ~/Library/Developer/CoreSimulator/Devices/\nfi";
-		};
 		D3405D511F4C7CB700A1987F /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -584,7 +502,6 @@
 				5BDA79CD1DBFB6CF00930ABA /* ConsoleLogger.swift in Sources */,
 				5BA364591DD0C9A30017F9EB /* InternalBaseLogger.swift in Sources */,
 				5B16551B1EE585E0000D4652 /* SystemLogger.swift in Sources */,
-				D3A03D121F4AD2DE00B0F50C /* PerformanceLogger.swift in Sources */,
 				5B2782521DC9F72A00525431 /* FileLogger.swift in Sources */,
 				5B3641A71DBFAD5D0034EF68 /* LogManager.swift in Sources */,
 				5BA3645B1DD0EC160017F9EB /* FileLoggerTableViewDatasource.swift in Sources */,
@@ -607,44 +524,37 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5BD5D7AC1DD34EFE003AF2A7 /* Sources */ = {
+		5BF956FB1F5ECF1C00F88F9B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5BD5D7E31DD3511E003AF2A7 /* Logging.swift in Sources */,
-				5BD5D7EA1DD3514C003AF2A7 /* DateExtension.swift in Sources */,
-				5BD5D7E51DD35124003AF2A7 /* FileLoggerTableViewCell.swift in Sources */,
-				5BD5D7E71DD3512A003AF2A7 /* FileLogger.swift in Sources */,
-				5BD5D7B51DD34EFE003AF2A7 /* LogListTableViewController.swift in Sources */,
-				5BD5D7E11DD35118003AF2A7 /* LogManager.swift in Sources */,
-				5BD5D7DF1DD35111003AF2A7 /* QuantiLoggerConstants.swift in Sources */,
-				5BD5D7E61DD35126003AF2A7 /* FileLoggerManager.swift in Sources */,
-				5BD5D7E81DD3512D003AF2A7 /* LogFileRecord.swift in Sources */,
-				5BD5D7E41DD35122003AF2A7 /* FileLoggerTableViewDatasource.swift in Sources */,
-				5B16551C1EE59E0A000D4652 /* SystemLogger.swift in Sources */,
-				5BC5351C1DD4A4BE00E64CED /* MainTabBarController.swift in Sources */,
-				5BD5D7E21DD3511B003AF2A7 /* InternalBaseLogger.swift in Sources */,
-				5BD5D7E01DD35115003AF2A7 /* Level.swift in Sources */,
-				5BD5D7E91DD35131003AF2A7 /* ConsoleLogger.swift in Sources */,
-				5BC5351E1DD4A51200E64CED /* SendLogFilesViaMailViewController.swift in Sources */,
-				5BD5D7F31DD37627003AF2A7 /* LogFilesViaMailViewController.swift in Sources */,
-				5BD5D7B31DD34EFE003AF2A7 /* AppDelegate.swift in Sources */,
+				5BF9573D1F5ED38500F88F9B /* LogManager.swift in Sources */,
+				5BF957451F5ED3A100F88F9B /* FileLoggerManager.swift in Sources */,
+				5BF957421F5ED39800F88F9B /* LogFilesViaMailViewController.swift in Sources */,
+				5BF957311F5ED1E100F88F9B /* LogListTableViewController.swift in Sources */,
+				5BF957431F5ED39C00F88F9B /* FileLoggerTableViewDatasource.swift in Sources */,
+				5BF9573A1F5ED37900F88F9B /* DateExtension.swift in Sources */,
+				5BF9573F1F5ED38D00F88F9B /* Logging.swift in Sources */,
+				5BF9573E1F5ED38900F88F9B /* InternalBaseLogger.swift in Sources */,
+				5BF957391F5ED37500F88F9B /* QuantiLoggerConstants.swift in Sources */,
+				5BF9572F1F5ED18D00F88F9B /* MainTabBarController.swift in Sources */,
+				5BF957021F5ECF1C00F88F9B /* AppDelegate.swift in Sources */,
+				5BF957441F5ED39E00F88F9B /* FileLoggerTableViewCell.swift in Sources */,
+				5BF957481F5ED3AA00F88F9B /* ConsoleLogger.swift in Sources */,
+				5BF9573B1F5ED37B00F88F9B /* DateHelper.swift in Sources */,
+				5BF957411F5ED39400F88F9B /* SystemLogger.swift in Sources */,
+				5BF957461F5ED3A400F88F9B /* FileLogger.swift in Sources */,
+				5BF9573C1F5ED38300F88F9B /* Level.swift in Sources */,
+				5BF957331F5ED1F500F88F9B /* SendLogFilesViaMailViewController.swift in Sources */,
+				5BF957471F5ED3A700F88F9B /* LogFileRecord.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5BD5D7BF1DD34EFE003AF2A7 /* Sources */ = {
+		5BF957191F5ECF1D00F88F9B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5BD5D7C81DD34EFE003AF2A7 /* TableViewDatasourceTestTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5BD5D7CA1DD34EFE003AF2A7 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5BD5D7D31DD34EFE003AF2A7 /* TableViewDatasourceTestUITests.swift in Sources */,
+				5BF957221F5ECF1D00F88F9B /* QuantiLoggerExampleUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -656,15 +566,10 @@
 			target = 5B3641871DBFA4650034EF68 /* QuantiLogger */;
 			targetProxy = 5B3641931DBFA4650034EF68 /* PBXContainerItemProxy */;
 		};
-		5BD5D7C51DD34EFE003AF2A7 /* PBXTargetDependency */ = {
+		5BF9571F1F5ECF1D00F88F9B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 5BD5D7AF1DD34EFE003AF2A7 /* TableViewDatasourceTest */;
-			targetProxy = 5BD5D7C41DD34EFE003AF2A7 /* PBXContainerItemProxy */;
-		};
-		5BD5D7D01DD34EFE003AF2A7 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 5BD5D7AF1DD34EFE003AF2A7 /* TableViewDatasourceTest */;
-			targetProxy = 5BD5D7CF1DD34EFE003AF2A7 /* PBXContainerItemProxy */;
+			target = 5BF956FE1F5ECF1C00F88F9B /* QuantiLoggerExample */;
+			targetProxy = 5BF9571E1F5ECF1D00F88F9B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -796,7 +701,8 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -822,7 +728,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -835,7 +742,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.quanti.swift.QuantiLoggerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -848,97 +756,74 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.quanti.swift.QuantiLoggerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
-		5BD5D7D51DD34EFE003AF2A7 /* Debug */ = {
+		5BF957251F5ECF1D00F88F9B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				DEVELOPMENT_TEAM = 2PY9RKK8A7;
-				INFOPLIST_FILE = TableViewDatasourceTest/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				INFOPLIST_FILE = QuantiLoggerExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.quanti.swift.TableViewDatasourceTest;
+				PRODUCT_BUNDLE_IDENTIFIER = com.quanti.QuantiLoggerExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
-		5BD5D7D61DD34EFE003AF2A7 /* Release */ = {
+		5BF957261F5ECF1D00F88F9B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				DEVELOPMENT_TEAM = 2PY9RKK8A7;
-				INFOPLIST_FILE = TableViewDatasourceTest/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				INFOPLIST_FILE = QuantiLoggerExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.quanti.swift.TableViewDatasourceTest;
+				PRODUCT_BUNDLE_IDENTIFIER = com.quanti.QuantiLoggerExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
-		5BD5D7D71DD34EFE003AF2A7 /* Debug */ = {
+		5BF9572B1F5ECF1D00F88F9B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				DEVELOPMENT_TEAM = 2PY9RKK8A7;
-				INFOPLIST_FILE = TableViewDatasourceTestTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				INFOPLIST_FILE = QuantiLoggerExampleUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.quanti.swift.TableViewDatasourceTestTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.quanti.QuantiLoggerExampleUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TableViewDatasourceTest.app/TableViewDatasourceTest";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
+				TEST_TARGET_NAME = QuantiLoggerExample;
 			};
 			name = Debug;
 		};
-		5BD5D7D81DD34EFE003AF2A7 /* Release */ = {
+		5BF9572C1F5ECF1D00F88F9B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				DEVELOPMENT_TEAM = 2PY9RKK8A7;
-				INFOPLIST_FILE = TableViewDatasourceTestTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				INFOPLIST_FILE = QuantiLoggerExampleUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.quanti.swift.TableViewDatasourceTestTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.quanti.QuantiLoggerExampleUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TableViewDatasourceTest.app/TableViewDatasourceTest";
-			};
-			name = Release;
-		};
-		5BD5D7D91DD34EFE003AF2A7 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				DEVELOPMENT_TEAM = 2PY9RKK8A7;
-				INFOPLIST_FILE = TableViewDatasourceTestUITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.quanti.swift.TableViewDatasourceTestUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_TARGET_NAME = TableViewDatasourceTest;
-			};
-			name = Debug;
-		};
-		5BD5D7DA1DD34EFE003AF2A7 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				DEVELOPMENT_TEAM = 2PY9RKK8A7;
-				INFOPLIST_FILE = TableViewDatasourceTestUITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.quanti.swift.TableViewDatasourceTestUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_TARGET_NAME = TableViewDatasourceTest;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
+				TEST_TARGET_NAME = QuantiLoggerExample;
 			};
 			name = Release;
 		};
@@ -972,29 +857,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5BD5D7DB1DD34EFE003AF2A7 /* Build configuration list for PBXNativeTarget "TableViewDatasourceTest" */ = {
+		5BF957241F5ECF1D00F88F9B /* Build configuration list for PBXNativeTarget "QuantiLoggerExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5BD5D7D51DD34EFE003AF2A7 /* Debug */,
-				5BD5D7D61DD34EFE003AF2A7 /* Release */,
+				5BF957251F5ECF1D00F88F9B /* Debug */,
+				5BF957261F5ECF1D00F88F9B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5BD5D7DC1DD34EFE003AF2A7 /* Build configuration list for PBXNativeTarget "TableViewDatasourceTestTests" */ = {
+		5BF9572A1F5ECF1D00F88F9B /* Build configuration list for PBXNativeTarget "QuantiLoggerExampleUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5BD5D7D71DD34EFE003AF2A7 /* Debug */,
-				5BD5D7D81DD34EFE003AF2A7 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		5BD5D7DD1DD34EFE003AF2A7 /* Build configuration list for PBXNativeTarget "TableViewDatasourceTestUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				5BD5D7D91DD34EFE003AF2A7 /* Debug */,
-				5BD5D7DA1DD34EFE003AF2A7 /* Release */,
+				5BF9572B1F5ECF1D00F88F9B /* Debug */,
+				5BF9572C1F5ECF1D00F88F9B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

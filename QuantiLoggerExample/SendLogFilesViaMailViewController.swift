@@ -13,14 +13,14 @@ class SendLogFilesViaMailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         view.backgroundColor = .white
-        
-        
+
+
         if MFMailComposeViewController.canSendMail() {
             let logFilesViaMailViewController = LogFilesViaMailViewController(withRecipients: ["mbigmac@seznam.cz"])
             logFilesViaMailViewController.mailComposeDelegate = self
-            
+
             present(logFilesViaMailViewController, animated: true, completion: nil)
         } else {
             let sendMailErrorAlert = UIAlertController(title: "Could Not Send Email",
@@ -29,7 +29,7 @@ class SendLogFilesViaMailViewController: UIViewController {
             sendMailErrorAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
                 sendMailErrorAlert.dismiss(animated: true, completion: nil)
             }))
-            
+
             present(sendMailErrorAlert, animated: true, completion: nil)
         }
     }

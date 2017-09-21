@@ -9,6 +9,21 @@
 import XCTest
 @testable import QuantiLogger
 
+// Custom logger for performance testing
+class PerformanceLogger: QuantiLogger.Logging {
+    open func configure() {
+        //
+    }
+    open func log(_ message: String, onLevel level: Level) {
+        sleep(1)
+    }
+
+    open func levels() -> [Level] {
+        return [.verbose, .info, .debug, .warn, .error]
+    }
+
+}
+
 class QuantiLoggerPerformanceTests: XCTestCase {
 
     override func setUp() {
