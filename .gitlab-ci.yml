@@ -1,0 +1,38 @@
+variables:
+  LC_ALL: "en_US.UTF-8"
+  LANG: "en_US.UTF-8"
+
+before_script:
+  - "~/unlock_ci_keychain.sh"
+  - "gem update fastlane"
+
+stages:
+  - build 
+  - test
+  - lint
+
+build_job:
+  stage: build
+  script:
+    - fastlane build
+  tags:
+    - xcode-9
+
+lint_job:
+  stage: lint
+  script:
+    - ./scripts/swiftlint_wrapper.sh
+  tags:
+    - xcode-9
+  allow_failure: true
+
+test_job:
+  stage: test
+  script:
+    - fastlane test
+  artifacts:
+    when: always
+    paths:
+    - ./fastlane/test_output 
+  tags:
+    - xcode-9
