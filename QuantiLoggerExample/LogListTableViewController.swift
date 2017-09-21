@@ -43,7 +43,7 @@ class LogListTableViewController: UIViewController {
         logListTableView.addSubview(refreshControl)
     }
 
-    dynamic private func didPullToRefresh(_ sender: UIRefreshControl) {
+    @objc private func didPullToRefresh(_ sender: UIRefreshControl) {
         fileLoggerTableViewDatasource.reload()
         logListTableView.reloadData()
 
