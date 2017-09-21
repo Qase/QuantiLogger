@@ -29,6 +29,16 @@
       language = ""
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "5B3641901DBFA4650034EF68"
+               BuildableName = "QuantiLoggerTests.xctest"
+               BlueprintName = "QuantiLoggerTests"
+               ReferencedContainer = "container:QuantiLogger.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
