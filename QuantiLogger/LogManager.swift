@@ -71,7 +71,15 @@ public class LogManager {
             }
         }
 
-		if shouldPerformAsync || performAsync {
+		guard shouldPerformAsync else {
+			logingQueue.sync {
+				internalLog(message, onLevel: level)
+			}
+
+			return
+		}
+
+		if performAsync {
             logingQueue.async {
                 internalLog(message, onLevel: level)
             }
