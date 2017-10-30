@@ -26,6 +26,8 @@ public class LogManager {
     // The class is used as a Singleton, thus should be accesed via instance property !!!
     public static let shared = LogManager()
 
+	public var shouldPerformAsync = true
+
     private let logingQueue = DispatchQueue(label: "com.quanti.swift.QuantiLogger", qos: .background)
 
     private var loggers: [Logging]
@@ -69,7 +71,7 @@ public class LogManager {
             }
         }
 
-        if performAsync {
+		if shouldPerformAsync || performAsync {
             logingQueue.async {
                 internalLog(message, onLevel: level)
             }
