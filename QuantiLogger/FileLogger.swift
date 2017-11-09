@@ -27,4 +27,8 @@ public class FileLogger: InternalBaseLogger, Logging {
         fileLoggerManager.writeToLogFile(message: message, withMessageHeader: messageHeader(forLevel: level), onLevel: level)
     }
 
+	public func deleteAllLogFiles() {
+		fileLoggerManager.deleteAllLogFiles()
+	}
+
 }
