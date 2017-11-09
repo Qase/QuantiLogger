@@ -118,7 +118,7 @@ class FileLoggerManager {
     }
 
     /// Method to remove all log files from dedicated log folder. These files are detected by its ".log" suffix.
-    private func deleteAllLogFiles() {
+    func deleteAllLogFiles() {
         guard let aLogFiles = gettingAllLogFiles() else { return }
 
         aLogFiles.forEach { (aLogFileUrl) in
