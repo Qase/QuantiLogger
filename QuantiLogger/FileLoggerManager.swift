@@ -124,6 +124,8 @@ class FileLoggerManager {
         aLogFiles.forEach { (aLogFileUrl) in
             deleteLogFile(at: aLogFileUrl)
         }
+
+		resetPropertiesToDefaultValues()
     }
 
     /// Method to delete a specific log file from dedicated log folder.
