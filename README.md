@@ -19,25 +19,33 @@ Swift lightweight logger.
 ### Carthage
 
 [Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks. You can install Carthage with [Homebrew](https://brew.sh) using the following command:
-    $ brew update
-    $ brew install carthage
-
+```
+$ brew update
+$ brew install carthage
+```
 To integrate QuantiLogger into your Xcode project using Carthage, specify it in your `Cartfile`:
-    github "Qase/QuantiLogger" ~> 1.10
-    
+```
+github "Qase/QuantiLogger" ~> 1.10
+``` 
 Run `carthage update` to build the framework and drag the built `QuantiLogger.framework` into your Xcode project.
 
 ### CocoaPods
 
 [CocoaPods](https://cocoapods.org) is a dependency manager for Cocoa projects. You can install it with the following command:
-    $ gem install cocoapods
+```
+$ gem install cocoapods
+```
 To integrate QuantiLogger into your Xcode project using CocoaPods, specify it in your Podfile:
-    source 'https://github.com/CocoaPods/Specs.git'
-    platform :ios, '10.0'
-    use_frameworks!
+```
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '10.0'
+use_frameworks!
 
-    target '<Your Target Name>' do
-       pod 'QuantiLogger', '~> 1.10'
-    end
+target '<Your Target Name>' do
+  pod 'QuantiLogger', '~> 1.10'
+end
+```
 Then, run the following command:
-    $ pod install
+```
+$ pod install
+```
