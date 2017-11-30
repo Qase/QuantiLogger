@@ -5,8 +5,7 @@
 [![](https://img.shields.io/badge/license-MIT-lightgrey.svg?style=flat-square "License")](LICENSE)
 
 # QuantiLogger
-Swift lightweight logger. 
-
+QuantiLogger is a super lightweight logging library for iOS development in Swift. It provides a few pre-built loggers including Apple system logger or a file logger. It also provides an interface for creating custom loggers.
 
 ## Requirements
 
@@ -49,6 +48,20 @@ Then, run the following command:
 ```
 $ pod install
 ```
+
+## Usage
+
+### Pre-build loggers
+
+### Creating custom loggers
+
+### Initialization
+
+### Logging
+
+### Sending file logs via mail
+
+### Displaying file logs in tableView
 
 ## License
 
