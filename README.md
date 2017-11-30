@@ -49,3 +49,7 @@ Then, run the following command:
 ```
 $ pod install
 ```
+
+## License
+
+`QuantiLogger` is released under the [MIT License](LICENSE).
