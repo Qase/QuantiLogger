@@ -57,13 +57,14 @@ It is possible to log on different levels. Each logger can support different lev
 
 Although it is definitely up to the developer in which way the levels will be used, there is a recommended way how to use them since each of them serves a different purpose.
 
-`info` for mostly UI related user actions
-`debug` for debugging purposes
-`verbose` for extended debug purposes, especially when there is a need for very specific messages
-`warn` for warnings
-`error` for errors
-`system` (for native os_log only) matches to os_log_fault -> sends a fault-level message to the logging system
-`process` (for native os_log only) matches to os_log_error -> sends an error-level message to the logging system
+
+- `info` for mostly UI related user actions
+- `debug` for debugging purposes
+- `verbose` for extended debug purposes, especially when there is a need for very specific messages
+- `warn` for warnings
+- `error` for errors
+- `system` (for native os_log only) matches to os_log_fault -> sends a fault-level message to the logging system
+- `process` (for native os_log only) matches to os_log_error -> sends an error-level message to the logging system
 
 ### Pre-build loggers
 ```
