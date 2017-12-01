@@ -33,11 +33,6 @@ class LogListTableViewController: UIViewController {
         logListTableView.dataSource = fileLoggerTableViewDatasource
         logListTableView.register(FileLoggerTableViewCell.self, forCellReuseIdentifier: QuantiLoggerConstants.FileLoggerTableViewDatasource.fileLoggerTableViewCellIdentifier)
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-
-        }
-
-
         // Pull to refresh
         refreshControl.addTarget(self, action: #selector(didPullToRefresh), for: .valueChanged)
         logListTableView.addSubview(refreshControl)

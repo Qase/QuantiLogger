@@ -18,7 +18,7 @@ class SendLogFilesViaMailViewController: UIViewController {
 
 
         if MFMailComposeViewController.canSendMail() {
-            let logFilesViaMailViewController = LogFilesViaMailViewController(withRecipients: ["mbigmac@seznam.cz"])
+            let logFilesViaMailViewController = LogFilesViaMailViewController(withRecipients: ["xxx@xxx.xx"])
             logFilesViaMailViewController.mailComposeDelegate = self
 
             present(logFilesViaMailViewController, animated: true, completion: nil)
