@@ -139,6 +139,26 @@ Example of how to log:
 QLog("This is the message to be logged.", onLevel: .info)
 ```
 
+### Concurrency modes
+
+`QuantiLogger` supports 3 different concurrency modes at the moment. 
+
+- `syncSerial`
+Logging task is dispatched synchronously on a custom serial queue, where all loggers perform their tasks serially one by one.
+
+![asyncserial](https://user-images.githubusercontent.com/2511209/33495945-a2732168-d6c8-11e7-9a77-519204be448a.png)
+
+- `asyncSerial`
+Logging task is dispatched asynchronously on a custom serial queue, where all loggers perform their tasks serially one by one.
+
+![syncserial](https://user-images.githubusercontent.com/2511209/33495947-a2f21ca2-d6c8-11e7-9082-f841ef074012.png)
+- `syncConcurrent`
+
+Logging task is dispatched synchronously on a custom serial queue, where all loggers perform their tasks concurrently.
+![syncconcurrent](https://user-images.githubusercontent.com/2511209/33495946-a297c2fc-d6c8-11e7-8610-8b995c8fb6b3.png)
+
+The logging mode is set using `loggingConcurrencyMode` property of `LogManager`. Default value is `asyncSerial`.
+
 ### Sending file logs via mail
 
 The framework also provides `LogFilesViaMailViewController` that has a pre-configured controller that, when presented, will offer the option to send all log files via mail. It is constructed using `init(withRecipients:)` where `withRecipients` is `[String]` containing all mail recipients.
