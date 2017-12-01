@@ -67,19 +67,14 @@ Although it is definitely up to the developer in which way the levels will be us
 - `process` (for native os_log only) matches to os_log_error -> sends an error-level message to the logging system
 
 ### Pre-build loggers
-```
-ConsoleLogger
-```
+
+#### `ConsoleLogger`
 The simplest logger. Wraps `print(_:separator:terminator:)` function from Swift Standard Library.
 
-```
-SystemLogger
-```
+#### `SystemLogger`
 Wraps the native ```OSLog``` to log messages on the system level.
 
-```
-FileLogger
-```
+#### `FileLogger`
 
 Enables logging to a file. Each log file relates to a single day data. Another day, another log file is used. `numberOfLogFiles` specifies the number of log files that are stored. In other words, how many days back (log files) should be kept. If the last log file is filled, the first one gets overriden using the simplest Round-robin strategy.
 
