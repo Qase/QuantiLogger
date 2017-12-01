@@ -120,6 +120,8 @@ class QuantiLoggerPerformanceTests: XCTestCase {
     }
 
     func testThousandRunQLogBothAsync() {
+		LogManager.shared.loggingConcurrencyMode = .asyncSerial
+
         let fileLogger = FileLogger()
         fileLogger.levels = [.info]
         LogManager.shared.add(fileLogger)
@@ -138,30 +140,36 @@ class QuantiLoggerPerformanceTests: XCTestCase {
     }
 
     func testThousandRunQLogConsoleSync() {
+		LogManager.shared.loggingConcurrencyMode = .syncSerial
+
         let consoleLogger = ConsoleLogger()
         consoleLogger.levels = [.info]
         LogManager.shared.add(consoleLogger)
 
         self.measure {
             for _ in 1...1000 {
-                QLog("Test", onLevel: .info, performAs: .syncSerial)
+                QLog("Test", onLevel: .info)
             }
         }
     }
 
     func testThousandRunQLogFileSync() {
+		LogManager.shared.loggingConcurrencyMode = .syncSerial
+
         let fileLogger = FileLogger()
         fileLogger.levels = [.info]
         LogManager.shared.add(fileLogger)
 
         self.measure {
             for _ in 1...1000 {
-                QLog("Test", onLevel: .info, performAs: .syncSerial)
+                QLog("Test", onLevel: .info)
             }
         }
     }
 
     func testThousandRunQLogBothSync() {
+		LogManager.shared.loggingConcurrencyMode = .syncSerial
+
         let fileLogger = FileLogger()
         fileLogger.levels = [.info]
         LogManager.shared.add(fileLogger)
@@ -172,7 +180,7 @@ class QuantiLoggerPerformanceTests: XCTestCase {
 
         self.measure {
             for _ in 1...1000 {
-                QLog("Test", onLevel: .info, performAs: .syncSerial)
+                QLog("Test", onLevel: .info)
             }
         }
     }

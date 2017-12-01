@@ -14,8 +14,8 @@ import Foundation
 /// - Parameters:
 ///   - message: String logging message
 ///   - level: Level of the logging message
-public func QLog(_ message: String, onLevel level: Level, performAs loggingConcurrency: LoggingConcurrency? = nil) {
-    LogManager.shared.log(message, onLevel: level, performAs: loggingConcurrency)
+public func QLog(_ message: String, onLevel level: Level) {
+    LogManager.shared.log(message, onLevel: level)
 }
 
 /// Logging concurrency types
@@ -23,7 +23,7 @@ public func QLog(_ message: String, onLevel level: Level, performAs loggingConcu
 /// - syncSerial: logging executed synchronously towards the main thread. All loggers log serially one by one within a dedicated queue
 /// - asyncSerial: logging executed asynchronously towards the main thread. All loggers log serially one by one within a dedicated queue
 /// - syncConcurrent: logging executed synchronously towards the main thread. All loggers log concurrently within a dedicated queue
-public enum LoggingConcurrency {
+public enum LoggingConcurrencyMode {
 	case syncSerial
 	case asyncSerial
 	case syncConcurrent
@@ -37,7 +37,7 @@ public class LogManager {
     // The class is used as a Singleton, thus should be accesed via instance property !!!
     public static let shared = LogManager()
 
-	public var loggingConcurrencyUsed: LoggingConcurrency = .asyncSerial
+	public var loggingConcurrencyMode: LoggingConcurrencyMode = .asyncSerial
 
     private let serialLoggingQueue = DispatchQueue(label: "com.quanti.swift.QuantiLoggerSerial", qos: .background)
 	private let concurrentLoggingQueue = DispatchQueue(label: "com.quanti.swift.QuantiLoggerConcurrent", qos: .background, attributes: .concurrent)
@@ -67,11 +67,8 @@ public class LogManager {
 	/// - Parameters:
 	///   - message: String logging message
 	///   - level: Level of the logging message
-	///   - loggingConcurrency: Logging concurrency type
-	func log(_ message: String, onLevel level: Level, performAs loggingConcurrency: LoggingConcurrency? = nil) {
-		let loggingConcurrentyToUse = loggingConcurrency ?? loggingConcurrencyUsed
-
-		switch loggingConcurrentyToUse {
+	func log(_ message: String, onLevel level: Level) {
+		switch loggingConcurrencyMode {
 		case .syncSerial:
 			logSyncSerially(message, onLevel: level)
 		case .asyncSerial:
