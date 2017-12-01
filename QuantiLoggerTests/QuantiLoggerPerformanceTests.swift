@@ -144,7 +144,7 @@ class QuantiLoggerPerformanceTests: XCTestCase {
 
         self.measure {
             for _ in 1...1000 {
-                QLog("Test", onLevel: .info, performAsync: false)
+                QLog("Test", onLevel: .info, performAs: .syncSerial)
             }
         }
     }
@@ -156,7 +156,7 @@ class QuantiLoggerPerformanceTests: XCTestCase {
 
         self.measure {
             for _ in 1...1000 {
-                QLog("Test", onLevel: .info, performAsync: false)
+                QLog("Test", onLevel: .info, performAs: .syncSerial)
             }
         }
     }
@@ -172,7 +172,7 @@ class QuantiLoggerPerformanceTests: XCTestCase {
 
         self.measure {
             for _ in 1...1000 {
-                QLog("Test", onLevel: .info, performAsync: false)
+                QLog("Test", onLevel: .info, performAs: .syncSerial)
             }
         }
     }
