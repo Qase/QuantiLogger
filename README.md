@@ -144,11 +144,15 @@ The framework also provides `LogFilesViaMailViewController` that has a pre-confi
 
 Example can be seen in a form of `SendLogFilesViaMailViewController` within `QuantiLoggerExample` which is a working example within the framework (clone the project to see).
 
-### Displaying file logs in tableView
+![Example](https://user-images.githubusercontent.com/2511209/33484357-2c76cb84-d6a2-11e7-8302-804a1ed67fb4.PNG "Example")
+
+### Displaying file logs in UITableView
 
 The framework also provides `FileLoggerTableViewDatasource` which is a pre-configured `UITableViewDataSource` containing all log files merged, each log = a single `UITableViewCell`.
 
 Example can be seen in a form of `LogListTableViewController` within `QuantiLoggerExample` which is a working example within teh framework (clone the project to see).
+
+![Example](https://user-images.githubusercontent.com/2511209/33484358-2c94790e-d6a2-11e7-8810-20db77dd2960.PNG "Example")
 
 ## License
 
