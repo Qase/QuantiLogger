@@ -142,11 +142,13 @@ QLog("This is the message to be logged.", onLevel: .info)
 
 The framework also provides `LogFilesViaMailViewController` that has a pre-configured controller that, when presented, will offer the option to send all log files via mail. It is constructed using `init(withRecipients:)` where `withRecipients` is `[String]` containing all mail recipients.
 
-Example can be seen in a form of `SendLogFilesViaMailViewController` within `QuantiLoggerExample` which is a working example within the framework (clone to project to see).
+Example can be seen in a form of `SendLogFilesViaMailViewController` within `QuantiLoggerExample` which is a working example within the framework (clone the project to see).
 
 ### Displaying file logs in tableView
 
-The framework also provides `FileLoggerTableViewDatasource` which is a pre-configured `UITableView` `UITableViewDataSource` containing all log files merged, each log = a single `UITableViewCell`.
+The framework also provides `FileLoggerTableViewDatasource` which is a pre-configured `UITableViewDataSource` containing all log files merged, each log = a single `UITableViewCell`.
+
+Example can be seen in a form of `LogListTableViewController` within `QuantiLoggerExample` which is a working example within teh framework (clone the project to see).
 
 ## License
 
