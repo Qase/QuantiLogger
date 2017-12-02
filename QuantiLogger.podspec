@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "QuantiLogger"
-  s.version      = "1.10"
+  s.version      = "1.11"
   s.summary      = "Swift lightweight logging framework"
 
   # This description is used to generate tags and improve search results.
