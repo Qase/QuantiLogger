@@ -3,6 +3,7 @@
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Pod compatible](https://cocoapod-badges.herokuapp.com/v/QuantiLogger/badge.png)](https://cocoapods.org)
 [![](https://img.shields.io/badge/license-MIT-lightgrey.svg?style=flat-square "License")](LICENSE)
+[![codebeat badge](https://codebeat.co/badges/4b554069-7c41-4ddd-9a84-9498896a909c)](https://codebeat.co/projects/github-com-qase-quantilogger-master)
 
 # QuantiLogger
 QuantiLogger is a super lightweight logging library for iOS development in Swift. It provides a few pre-built loggers including native os_log or a file logger. It also provides an interface for creating custom loggers.
