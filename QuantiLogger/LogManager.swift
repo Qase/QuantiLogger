@@ -78,6 +78,13 @@ public class LogManager {
 		}
     }
 
+
+	/// Method to delete all log files if there are any.
+	public func deleteAllLogFiles() {
+		loggers.flatMap { $0 as? FileLogger }
+			.forEach { $0.deleteAllLogFiles() }
+	}
+
 	/// Method to log synchronously towards the main thread. All loggers log serially one by one within a dedicated queue.
 	///
 	/// - Parameters:
