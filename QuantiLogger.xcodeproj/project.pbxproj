@@ -16,6 +16,7 @@
 		5B3641A31DBFAC810034EF68 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3641A21DBFAC810034EF68 /* Level.swift */; };
 		5B3641A51DBFACF90034EF68 /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3641A41DBFACF80034EF68 /* Logging.swift */; };
 		5B3641A71DBFAD5D0034EF68 /* LogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3641A61DBFAD5D0034EF68 /* LogManager.swift */; };
+		5B6B33441FF847C800CB106D /* ApplicationCallbackLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF451371FF568A500E18215 /* ApplicationCallbackLogger.swift */; };
 		5BA364591DD0C9A30017F9EB /* InternalBaseLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA364581DD0C9A30017F9EB /* InternalBaseLogger.swift */; };
 		5BA3645B1DD0EC160017F9EB /* FileLoggerTableViewDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA3645A1DD0EC160017F9EB /* FileLoggerTableViewDatasource.swift */; };
 		5BA3645D1DD0EDD10017F9EB /* LogFileRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA3645C1DD0EDD10017F9EB /* LogFileRecord.swift */; };
@@ -23,6 +24,7 @@
 		5BD5D7F01DD361B0003AF2A7 /* LogFilesViaMailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD5D7EF1DD361B0003AF2A7 /* LogFilesViaMailViewController.swift */; };
 		5BDA79CD1DBFB6CF00930ABA /* ConsoleLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDA79CC1DBFB6CF00930ABA /* ConsoleLogger.swift */; };
 		5BEBBB191DC9EAC20055E453 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEBBB181DC9EAC20055E453 /* DateExtension.swift */; };
+		5BF451381FF568A500E18215 /* ApplicationCallbackLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF451371FF568A500E18215 /* ApplicationCallbackLogger.swift */; };
 		5BF957021F5ECF1C00F88F9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF957011F5ECF1C00F88F9B /* AppDelegate.swift */; };
 		5BF957091F5ECF1C00F88F9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BF957081F5ECF1C00F88F9B /* Assets.xcassets */; };
 		5BF957221F5ECF1D00F88F9B /* QuantiLoggerExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF957211F5ECF1D00F88F9B /* QuantiLoggerExampleUITests.swift */; };
@@ -86,6 +88,7 @@
 		5BD5D7EF1DD361B0003AF2A7 /* LogFilesViaMailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogFilesViaMailViewController.swift; sourceTree = "<group>"; };
 		5BDA79CC1DBFB6CF00930ABA /* ConsoleLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsoleLogger.swift; sourceTree = "<group>"; };
 		5BEBBB181DC9EAC20055E453 /* DateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		5BF451371FF568A500E18215 /* ApplicationCallbackLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCallbackLogger.swift; sourceTree = "<group>"; };
 		5BF956FF1F5ECF1C00F88F9B /* QuantiLoggerExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuantiLoggerExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BF957011F5ECF1C00F88F9B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5BF957081F5ECF1C00F88F9B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -163,6 +166,7 @@
 		5B35E35C1DC0A84D00C7E679 /* Loggers */ = {
 			isa = PBXGroup;
 			children = (
+				5BF451371FF568A500E18215 /* ApplicationCallbackLogger.swift */,
 				5BA364581DD0C9A30017F9EB /* InternalBaseLogger.swift */,
 				5B3641A41DBFACF80034EF68 /* Logging.swift */,
 				5B1655191EE585CB000D4652 /* SystemLogger */,
@@ -490,32 +494,6 @@
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\necho \"Hi\"\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
 		};
-		D3405D511F4C7CB700A1987F /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\necho \"Hi\"\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
-		};
-		D3405D511F4C7CB700A1987F /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\necho \"Hi\"\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -529,6 +507,7 @@
 				5BA364591DD0C9A30017F9EB /* InternalBaseLogger.swift in Sources */,
 				5B16551B1EE585E0000D4652 /* SystemLogger.swift in Sources */,
 				5B2782521DC9F72A00525431 /* FileLogger.swift in Sources */,
+				5BF451381FF568A500E18215 /* ApplicationCallbackLogger.swift in Sources */,
 				5B3641A71DBFAD5D0034EF68 /* LogManager.swift in Sources */,
 				5BA3645B1DD0EC160017F9EB /* FileLoggerTableViewDatasource.swift in Sources */,
 				D3405D501F4C494200A1987F /* DateHelper.swift in Sources */,
@@ -568,6 +547,7 @@
 				5BF957441F5ED39E00F88F9B /* FileLoggerTableViewCell.swift in Sources */,
 				5BF957481F5ED3AA00F88F9B /* ConsoleLogger.swift in Sources */,
 				5BF9573B1F5ED37B00F88F9B /* DateHelper.swift in Sources */,
+				5B6B33441FF847C800CB106D /* ApplicationCallbackLogger.swift in Sources */,
 				5BF957411F5ED39400F88F9B /* SystemLogger.swift in Sources */,
 				5BF957461F5ED3A400F88F9B /* FileLogger.swift in Sources */,
 				5BF9573C1F5ED38300F88F9B /* Level.swift in Sources */,
