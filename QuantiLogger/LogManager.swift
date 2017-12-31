@@ -44,9 +44,22 @@ public class LogManager {
 
     private var loggers: [Logging]
 
+	private let applicationCallbackLogger = ApplicationCallbackLogger()
+
     private init() {
         loggers = [Logging]()
+
+		applicationCallbackLogger.delegate = self
     }
+
+	public func setApplicationCallbackLogger(with callbacks: [ApplicationCallbackType]?, onLevel level: Level = .debug) {
+		applicationCallbackLogger.callbacks = callbacks
+		setApplicationCallbackLogger(onLevel: level)
+	}
+
+	public func setApplicationCallbackLogger(onLevel level: Level) {
+		applicationCallbackLogger.level = level
+	}
 
     /// Method to register a new custom or pre-build logger.
     ///
@@ -77,7 +90,6 @@ public class LogManager {
 			logSyncConcurrently(message, onLevel: level)
 		}
     }
-
 
 	/// Method to delete all log files if there are any.
 	public func deleteAllLogFiles() {
@@ -150,5 +162,11 @@ public class LogManager {
             //
         }
     }
+}
 
+// MARK: - ApplicationCallbackLoggerDelegate methods implementation
+extension LogManager: ApplicationCallbackLoggerDelegate {
+	func applicationCallbackLogging(of message: String, onLevel level: Level) {
+		log(message, onLevel: level)
+	}
 }
