@@ -19,6 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Loggers setup
         let logManager = LogManager.shared
 
+		logManager.setApplicationCallbackLogger(onLevel: .warn)
+
         let consoleLogger = ConsoleLogger()
         consoleLogger.levels = [.warn, .debug]
         logManager.add(consoleLogger)
@@ -29,9 +31,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         //logManager.add(CrashLyticsLogger())
 
-        let systemLogger = SystemLogger(subsystem: "com.quanti.swift.QuantiLogger", category: "logging")
-        systemLogger.levels = [.error, .warn]
-        logManager.add(systemLogger)
+//        let systemLogger = SystemLogger(subsystem: "com.quanti.swift.QuantiLogger", category: "logging")
+//        systemLogger.levels = [.error, .warn]
+//        logManager.add(systemLogger)
 
         QLog("test", onLevel: .warn)
         QLog("test2\ntest2test2\ntest2test2test2\ntest2\ntest2test2\ntest2test2test2\n", onLevel: .warn)
@@ -43,6 +45,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             window.rootViewController = MainTabBarController()
             window.makeKeyAndVisible()
         }
+
+		DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+			logManager.setApplicationCallbackLogger(with: [.didChangeStatusBarOrientation], onLevel: .debug)
+		}
+
+		DispatchQueue.main.asyncAfter(deadline: .now() + 15) {
+			logManager.setApplicationCallbackLogger(with: [.willChangeStatusBarFrame, .willChangeStatusBarOrientation], onLevel: .warn)
+		}
+
         return true
     }
 
