@@ -26,6 +26,13 @@ public enum ApplicationCallbackType: String {
 	case backroundRefreshStatusDidChange
 	case protectedDataWillBecomeUnavailable
 
+	static let allValues: [ApplicationCallbackType] =
+		[.willTerminate, .didBecomeActive, .willResignActive, .didEnterBackground,
+		 .didFinishLaunching, .willEnterForeground, .significantTimeChange, .userDidTakeScreenshot,
+		 .didChangeStatusBarFrame, .didReceiveMemoryWarning, .willChangeStatusBarFrame,
+		 .didChangeStatusBarOrientation, .willChangeStatusBarOrientation, .protectedDataDidBecomeAvailable,
+		 .backroundRefreshStatusDidChange, .protectedDataWillBecomeUnavailable]
+
 	var notificationName: NSNotification.Name {
 		switch self {
 		case .willTerminate:
@@ -71,16 +78,10 @@ protocol ApplicationCallbackLoggerDelegate: class {
 class ApplicationCallbackLogger {
 	weak var delegate: ApplicationCallbackLoggerDelegate?
 
-	private let allCallbacks: [ApplicationCallbackType] = [.willTerminate, .didBecomeActive, .willResignActive, .didEnterBackground,
-								.didFinishLaunching, .willEnterForeground, .significantTimeChange, .userDidTakeScreenshot,
-								.didChangeStatusBarFrame, .didReceiveMemoryWarning, .willChangeStatusBarFrame,
-								.didChangeStatusBarOrientation, .willChangeStatusBarOrientation, .protectedDataDidBecomeAvailable,
-								.backroundRefreshStatusDidChange, .protectedDataWillBecomeUnavailable]
-
 	var callbacks: [ApplicationCallbackType]? = [] {
 		didSet {
-			let _oldValue = oldValue?.count == 0 ? allCallbacks : oldValue
-			let _callbacks = callbacks?.count == 0 ? allCallbacks : callbacks
+			let _oldValue = oldValue?.count == 0 ? ApplicationCallbackType.allValues : oldValue
+			let _callbacks = callbacks?.count == 0 ? ApplicationCallbackType.allValues : callbacks
 
 			removeNotifications(for: getCallbacksToRemove(from: _oldValue, basedOn: _callbacks))
 			addNotifications(for: getCallbacksToAdd(from: _callbacks, basedOn: _oldValue))
@@ -90,7 +91,7 @@ class ApplicationCallbackLogger {
 	var level: Level = .debug
 
 	init() {
-		addNotifications(for: allCallbacks)
+		addNotifications(for: ApplicationCallbackType.allValues)
 	}
 
 	/// Method to get array of callbacks to remove (thus those, who are in oldCallbacks but not in newCallbacks).
