@@ -25,7 +25,7 @@ $ brew install carthage
 ```
 To integrate QuantiLogger into your Xcode project using Carthage, specify it in your `Cartfile`:
 ```
-github "Qase/QuantiLogger" ~> 1.11
+github "Qase/QuantiLogger" ~> 1.12
 ``` 
 Run `carthage update` to build the framework and drag the built `QuantiLogger.framework` into your Xcode project.
 
@@ -42,7 +42,7 @@ platform :ios, '10.0'
 use_frameworks!
 
 target '<Your Target Name>' do
-  pod 'QuantiLogger', '~> 1.11'
+  pod 'QuantiLogger', '~> 1.12'
 end
 ```
 Then, run the following command:
@@ -78,6 +78,28 @@ Wraps the native ```OSLog``` to log messages on the system level.
 #### `FileLogger`
 
 Enables logging to a file. Each log file relates to a single day data. Another day, another log file is used. `numberOfLogFiles` specifies the number of log files that are stored. In other words, how many days back (log files) should be kept. If the last log file is filled, the first one gets overriden using the simplest Round-robin strategy.
+
+#### `ApplicationCallbackLogger`
+
+A special type of logger, that automatically logs all received UIApplication<callback> notifications, further called application callbacks. Here is a complete list of supported application callbacks:
+  - `UIApplicationWillTerminate`
+  - `UIApplicationDidBecomeActive`
+  - `UIApplicationWillResignActive`
+  - `UIApplicationDidEnterBackground`
+  - `UIApplicationDidFinishLaunching`
+  - `UIApplicationWillEnterForeground`
+  - `UIApplicationSignificantTimeChange`
+  - `UIApplicationUserDidTakeScreenshot`
+  - `UIApplicationDidChangeStatusBarFrame`
+  - `UIApplicationDidReceiveMemoryWarning`  
+  - `UIApplicationWillChangeStatusBarFrame`
+  - `UIApplicationDidChangeStatusBarOrientation`
+  - `UIApplicationWillChangeStatusBarOrientation`
+  - `UIApplicationProtectedDataDidBecomeAvailable`
+  - `UIApplicationBackgroundRefreshStatusDidChange`
+  - `UIApplicationProtectedDataWillBecomeUnavailable`  
+  
+The logger is integrated and set automatically, thus it logs all application callbacks on `debug` level as is. By using `setApplicationCallbackLogger(with: [ApplicationCallbackType]?)` on `LogManager` a user can specific application callbacks to be logged (all of them are logged by default). If an empty array is passed, all application callbacks will be logged. If nil is passed, none of application callbacks will be logged. By using `setApplicationCallbackLogger(onLevel: Level)` a user can set a specific level on which to log application callbacks (`debug` is used by default). By using `setApplicationCallbackLogger(with: [ApplicationCallbackType]?, onLevel: Level)` a user can set both, application callbacks and a level at the same time.
 
 ### Creating custom loggers
 
