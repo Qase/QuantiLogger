@@ -1,0 +1,13 @@
+language: objective-c
+osx_image: xcode9.1
+branches:
+  only:
+    - master
+env:
+  global:
+  
+script:
+  - xcodebuild -version
+  - xcodebuild -showsdks
+  - fastlane build
+  
