@@ -52,15 +52,6 @@ public class LogManager {
 		applicationCallbackLogger.delegate = self
     }
 
-	public func setApplicationCallbackLogger(with callbacks: [ApplicationCallbackType]?, onLevel level: Level = .debug) {
-		applicationCallbackLogger.callbacks = callbacks
-		setApplicationCallbackLogger(onLevel: level)
-	}
-
-	public func setApplicationCallbackLogger(onLevel level: Level) {
-		applicationCallbackLogger.level = level
-	}
-
     /// Method to register a new custom or pre-build logger.
     ///
     /// - Parameter logger: Logger to be registered.
@@ -95,6 +86,25 @@ public class LogManager {
 	public func deleteAllLogFiles() {
 		loggers.flatMap { $0 as? FileLogger }
 			.forEach { $0.deleteAllLogFiles() }
+	}
+
+	/// Method to set specific application's callbacks to be logged and possibly a level to be logged on.
+	/// If array of callbacks set nil, none of the application's callbacks will be logged.
+	/// If array of callbacks set an emty array, all of the application's callbacks will be logged.
+	///
+	/// - Parameters:
+	///   - callbacks: array of application's callbacks to be logged
+	///   - level: to be logged on
+	public func setApplicationCallbackLogger(with callbacks: [ApplicationCallbackType]?, onLevel level: Level = .debug) {
+		applicationCallbackLogger.callbacks = callbacks
+		setApplicationCallbackLogger(onLevel: level)
+	}
+
+	/// Method to set a level on which application's callbacks should be logged.
+	///
+	/// - Parameter level: to be logged on
+	public func setApplicationCallbackLogger(onLevel level: Level) {
+		applicationCallbackLogger.level = level
 	}
 
 	/// Method to log synchronously towards the main thread. All loggers log serially one by one within a dedicated queue.
