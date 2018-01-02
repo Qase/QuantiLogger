@@ -88,16 +88,26 @@ public class LogManager {
 			.forEach { $0.deleteAllLogFiles() }
 	}
 
-	/// Method to set specific application's callbacks to be logged and possibly a level to be logged on.
+	/// Method to set specific application's callbacks to be logged and a level to be logged on.
 	/// If array of callbacks set nil, none of the application's callbacks will be logged.
 	/// If array of callbacks set an emty array, all of the application's callbacks will be logged.
 	///
 	/// - Parameters:
 	///   - callbacks: array of application's callbacks to be logged
 	///   - level: to be logged on
-	public func setApplicationCallbackLogger(with callbacks: [ApplicationCallbackType]?, onLevel level: Level = .debug) {
-		applicationCallbackLogger.callbacks = callbacks
+	public func setApplicationCallbackLogger(with callbacks: [ApplicationCallbackType]?, onLevel level: Level) {
+		setApplicationCallbackLogger(with: callbacks)
 		setApplicationCallbackLogger(onLevel: level)
+	}
+
+	/// Method to set specific application's callbacks to be logged.
+	/// If array of callbacks set nil, none of the application's callbacks will be logged.
+	/// If array of callbacks set an emty array, all of the application's callbacks will be logged.
+	///
+	/// - Parameters:
+	///   - callbacks: array of application's callbacks to be logged
+	public func setApplicationCallbackLogger(with callbacks: [ApplicationCallbackType]?) {
+		applicationCallbackLogger.callbacks = callbacks
 	}
 
 	/// Method to set a level on which application's callbacks should be logged.
