@@ -8,4 +8,6 @@ script:
   - xcodebuild -version
   - xcodebuild -showsdks
   - fastlane build
+  - fastlane test
+
 
