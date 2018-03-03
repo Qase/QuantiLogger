@@ -16,10 +16,6 @@ fastlane_version "2.50.0"
 default_platform :ios
 
 platform :ios do
-  before_all do
-    ENV["SLACK_URL"] = "https://hooks.slack.com/services/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" # Webhook URL created in Slack        
-  end
-
   desc "Runs all the tests"
   lane :test do
     scan(
@@ -32,13 +28,7 @@ platform :ios do
       scheme: "QuantiLogger",
     )
   end
-
-  error do |lane, exception|
-    slack(
-      message: exception.message,
-      success: false
-    )
-  end
+  
 end
 
 
