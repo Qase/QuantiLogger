@@ -56,6 +56,12 @@ public class LogManager {
     ///
     /// - Parameter logger: Logger to be registered.
     public func add(_ logger: Logging) {
+		if loggers.contains(where: { object_getClass($0) == object_getClass(logger) }) {
+			assertionFailure("LogManager does not support having multiple logger" +
+				"of the same type, such as two instances of FileLogger.")
+			return
+		}
+
         logger.configure()
         loggers.append(logger)
     }
