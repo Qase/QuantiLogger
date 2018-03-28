@@ -19,6 +19,10 @@ public class FileLogger: InternalBaseLogger, Logging {
         }
     }
 
+	public var logDirectory: URL? {
+		return fileLoggerManager.logDirUrl
+	}
+
     public func levels() -> [Level] {
         return levels
     }
