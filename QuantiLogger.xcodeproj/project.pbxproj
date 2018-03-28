@@ -11,6 +11,7 @@
 		5B27824A1DC9F1AD00525431 /* QuantiLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B3641881DBFA4650034EF68 /* QuantiLogger.framework */; };
 		5B2782521DC9F72A00525431 /* FileLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2782511DC9F72A00525431 /* FileLogger.swift */; };
 		5B35E35E1DC0C87300C7E679 /* FileLoggerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B35E35D1DC0C87300C7E679 /* FileLoggerManager.swift */; };
+		5B361E8A206BD92A000ECE0D /* ZipArchive.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B361E89206BD92A000ECE0D /* ZipArchive.framework */; };
 		5B3641971DBFA4650034EF68 /* QuantiLoggerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3641961DBFA4650034EF68 /* QuantiLoggerTests.swift */; };
 		5B3641991DBFA4650034EF68 /* QuantiLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B36418B1DBFA4650034EF68 /* QuantiLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5B3641A31DBFAC810034EF68 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3641A21DBFAC810034EF68 /* Level.swift */; };
@@ -72,6 +73,7 @@
 		5B16551A1EE585E0000D4652 /* SystemLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemLogger.swift; sourceTree = "<group>"; };
 		5B2782511DC9F72A00525431 /* FileLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileLogger.swift; sourceTree = "<group>"; };
 		5B35E35D1DC0C87300C7E679 /* FileLoggerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileLoggerManager.swift; sourceTree = "<group>"; };
+		5B361E89206BD92A000ECE0D /* ZipArchive.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ZipArchive.framework; path = Carthage/Build/iOS/ZipArchive.framework; sourceTree = SOURCE_ROOT; };
 		5B3641881DBFA4650034EF68 /* QuantiLogger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = QuantiLogger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B36418B1DBFA4650034EF68 /* QuantiLogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuantiLogger.h; sourceTree = "<group>"; };
 		5B36418C1DBFA4650034EF68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B361E8A206BD92A000ECE0D /* ZipArchive.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,6 +197,15 @@
 			name = Extensions;
 			sourceTree = "<group>";
 		};
+		5B361E88206BD917000ECE0D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5B361E89206BD92A000ECE0D /* ZipArchive.framework */,
+			);
+			name = Frameworks;
+			path = QuantiLogger;
+			sourceTree = "<group>";
+		};
 		5B36417E1DBFA4640034EF68 = {
 			isa = PBXGroup;
 			children = (
@@ -202,6 +214,7 @@
 				5BF957001F5ECF1C00F88F9B /* QuantiLoggerExample */,
 				5BF957201F5ECF1D00F88F9B /* QuantiLoggerExampleUITests */,
 				5B3641891DBFA4650034EF68 /* Products */,
+				5B361E88206BD917000ECE0D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
