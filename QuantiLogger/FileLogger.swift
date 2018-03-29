@@ -19,6 +19,11 @@ public class FileLogger: InternalBaseLogger, Logging {
         }
     }
 
+	// Url of the zip file containing all log files.
+	public var archivedLogFilesUrl: URL? {
+		return fileLoggerManager.archivedLogFilesUrl
+	}
+
     public func levels() -> [Level] {
         return levels
     }

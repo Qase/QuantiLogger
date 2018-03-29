@@ -86,6 +86,21 @@ class FileLoggerManager {
         }
     }
 
+	// Url of the zip file containing all log files.
+	var archivedLogFilesUrl: URL? {
+		guard let allLogFiles = gettingAllLogFiles(), allLogFiles.count > 0 else {
+			QLog("No log files while trying to retrieve archivedLogFilesUrl.", onLevel: .error)
+			return nil
+		}
+
+		do {
+			return try Zip.quickZipFiles(allLogFiles, fileName: "archive")
+		} catch {
+			QLog("Failed to create a zip file while trying to retrieve archivedLogFilesUrl.", onLevel: .error)
+			return nil
+		}
+	}
+
     private init() {
         if let _dateOfLastLog = UserDefaults.standard.object(forKey: QuantiLoggerConstants.UserDefaultsKeys.dateOfLastLog) as? Date {
             dateOfLastLog = _dateOfLastLog

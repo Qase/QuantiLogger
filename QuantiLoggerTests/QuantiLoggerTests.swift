@@ -74,6 +74,16 @@ class QuantiLoggerTests: XCTestCase {
 
         logManager.waitForLogingJobsToFinish()
 
+		// Archived log files check
+		let url = fileLogger.archivedLogFilesUrl
+		XCTAssertNotNil(url)
+		do {
+			let reachable = try url!.checkResourceIsReachable()
+			XCTAssertTrue(reachable)
+		} catch {
+			XCTFail("Archived log files url is invalid.")
+		}
+
         // Check if logs were correctly written in the log file
         let contentOfLogFile = fileLoggerManager.readingContentFromLogFile(at: _currentLogFileUrl)
         
