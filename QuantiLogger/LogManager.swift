@@ -42,7 +42,7 @@ public class LogManager {
     private let serialLoggingQueue = DispatchQueue(label: "com.quanti.swift.QuantiLoggerSerial", qos: .background)
 	private let concurrentLoggingQueue = DispatchQueue(label: "com.quanti.swift.QuantiLoggerConcurrent", qos: .background, attributes: .concurrent)
 
-    private var loggers: [Logging]
+    public private(set) var loggers: [Logging]
 
 	private let applicationCallbackLogger = ApplicationCallbackLogger()
 
