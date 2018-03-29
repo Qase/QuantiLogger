@@ -48,18 +48,17 @@
 		5BF957481F5ED3AA00F88F9B /* ConsoleLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDA79CC1DBFB6CF00930ABA /* ConsoleLogger.swift */; };
 		5BFA877F1DD1F6B40063CB73 /* FileLoggerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFA877E1DD1F6B40063CB73 /* FileLoggerTableViewCell.swift */; };
 		D3405D501F4C494200A1987F /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3405D4F1F4C494200A1987F /* DateHelper.swift */; };
-		D3920BED206D2BD40054FE9F /* minizip in Resources */ = {isa = PBXBuildFile; fileRef = D3920BE8206D2BD30054FE9F /* minizip */; };
 		D3920BEE206D2BD40054FE9F /* ZipUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3920BE9206D2BD30054FE9F /* ZipUtilities.swift */; };
 		D3920BEF206D2BD40054FE9F /* QuickZip.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3920BEA206D2BD30054FE9F /* QuickZip.swift */; };
 		D3920BF0206D2BD40054FE9F /* Zip.h in Headers */ = {isa = PBXBuildFile; fileRef = D3920BEB206D2BD30054FE9F /* Zip.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D3920BF1206D2BD40054FE9F /* Zip.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3920BEC206D2BD30054FE9F /* Zip.swift */; };
-		D3920BF8206D2E8E0054FE9F /* unzip.h in Headers */ = {isa = PBXBuildFile; fileRef = D3920BF7206D2E8E0054FE9F /* unzip.h */; };
-		D3920BFA206D2EA00054FE9F /* zip.h in Headers */ = {isa = PBXBuildFile; fileRef = D3920BF9206D2EA00054FE9F /* zip.h */; };
-		D3920BFC206D2EA60054FE9F /* ioapi.h in Headers */ = {isa = PBXBuildFile; fileRef = D3920BFB206D2EA60054FE9F /* ioapi.h */; };
-		D3920BFE206D2EAA0054FE9F /* crypt.h in Headers */ = {isa = PBXBuildFile; fileRef = D3920BFD206D2EA90054FE9F /* crypt.h */; };
-		D3920C00206D2EEF0054FE9F /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = D3920BFF206D2EEF0054FE9F /* zip.c */; };
-		D3920C02206D2EF50054FE9F /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = D3920C01206D2EF40054FE9F /* unzip.c */; };
-		D3920C04206D2EFA0054FE9F /* ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = D3920C03206D2EF90054FE9F /* ioapi.c */; };
+		D3920C07206D2F700054FE9F /* crypt.h in Headers */ = {isa = PBXBuildFile; fileRef = D3920C06206D2F700054FE9F /* crypt.h */; };
+		D3920C09206D2F760054FE9F /* ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = D3920C08206D2F760054FE9F /* ioapi.c */; };
+		D3920C0B206D2F7E0054FE9F /* ioapi.h in Headers */ = {isa = PBXBuildFile; fileRef = D3920C0A206D2F7D0054FE9F /* ioapi.h */; };
+		D3920C10206D2F840054FE9F /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = D3920C0C206D2F830054FE9F /* zip.c */; };
+		D3920C11206D2F840054FE9F /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = D3920C0D206D2F830054FE9F /* unzip.c */; };
+		D3920C12206D2F840054FE9F /* unzip.h in Headers */ = {isa = PBXBuildFile; fileRef = D3920C0E206D2F840054FE9F /* unzip.h */; };
+		D3920C13206D2F840054FE9F /* zip.h in Headers */ = {isa = PBXBuildFile; fileRef = D3920C0F206D2F840054FE9F /* zip.h */; };
 		D3A03D141F4AD5D300B0F50C /* QuantiLoggerPerformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A03D131F4AD5D300B0F50C /* QuantiLoggerPerformanceTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -113,18 +112,17 @@
 		5BF957321F5ED1F500F88F9B /* SendLogFilesViaMailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendLogFilesViaMailViewController.swift; sourceTree = "<group>"; };
 		5BFA877E1DD1F6B40063CB73 /* FileLoggerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileLoggerTableViewCell.swift; sourceTree = "<group>"; };
 		D3405D4F1F4C494200A1987F /* DateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
-		D3920BE8206D2BD30054FE9F /* minizip */ = {isa = PBXFileReference; lastKnownFileType = folder; name = minizip; path = Zip/Zip/minizip; sourceTree = SOURCE_ROOT; };
 		D3920BE9206D2BD30054FE9F /* ZipUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZipUtilities.swift; path = Zip/Zip/ZipUtilities.swift; sourceTree = SOURCE_ROOT; };
 		D3920BEA206D2BD30054FE9F /* QuickZip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuickZip.swift; path = Zip/Zip/QuickZip.swift; sourceTree = SOURCE_ROOT; };
 		D3920BEB206D2BD30054FE9F /* Zip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Zip.h; path = Zip/Zip/Zip.h; sourceTree = SOURCE_ROOT; };
 		D3920BEC206D2BD30054FE9F /* Zip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Zip.swift; path = Zip/Zip/Zip.swift; sourceTree = SOURCE_ROOT; };
-		D3920BF7206D2E8E0054FE9F /* unzip.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = unzip.h; path = Zip/Zip/minizip/unzip.h; sourceTree = "<group>"; };
-		D3920BF9206D2EA00054FE9F /* zip.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = zip.h; path = Zip/Zip/minizip/zip.h; sourceTree = "<group>"; };
-		D3920BFB206D2EA60054FE9F /* ioapi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ioapi.h; path = Zip/Zip/minizip/ioapi.h; sourceTree = "<group>"; };
-		D3920BFD206D2EA90054FE9F /* crypt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = crypt.h; path = Zip/Zip/minizip/crypt.h; sourceTree = "<group>"; };
-		D3920BFF206D2EEF0054FE9F /* zip.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = zip.c; path = Zip/Zip/minizip/zip.c; sourceTree = "<group>"; };
-		D3920C01206D2EF40054FE9F /* unzip.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = unzip.c; path = Zip/Zip/minizip/unzip.c; sourceTree = "<group>"; };
-		D3920C03206D2EF90054FE9F /* ioapi.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = ioapi.c; path = Zip/Zip/minizip/ioapi.c; sourceTree = "<group>"; };
+		D3920C06206D2F700054FE9F /* crypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = crypt.h; path = Zip/Zip/minizip/crypt.h; sourceTree = SOURCE_ROOT; };
+		D3920C08206D2F760054FE9F /* ioapi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ioapi.c; path = Zip/Zip/minizip/ioapi.c; sourceTree = SOURCE_ROOT; };
+		D3920C0A206D2F7D0054FE9F /* ioapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ioapi.h; path = Zip/Zip/minizip/ioapi.h; sourceTree = SOURCE_ROOT; };
+		D3920C0C206D2F830054FE9F /* zip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = zip.c; path = Zip/Zip/minizip/zip.c; sourceTree = SOURCE_ROOT; };
+		D3920C0D206D2F830054FE9F /* unzip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = unzip.c; path = Zip/Zip/minizip/unzip.c; sourceTree = SOURCE_ROOT; };
+		D3920C0E206D2F840054FE9F /* unzip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = unzip.h; path = Zip/Zip/minizip/unzip.h; sourceTree = SOURCE_ROOT; };
+		D3920C0F206D2F840054FE9F /* zip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = zip.h; path = Zip/Zip/minizip/zip.h; sourceTree = SOURCE_ROOT; };
 		D3A03D131F4AD5D300B0F50C /* QuantiLoggerPerformanceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuantiLoggerPerformanceTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -221,13 +219,6 @@
 		5B36417E1DBFA4640034EF68 = {
 			isa = PBXGroup;
 			children = (
-				D3920C03206D2EF90054FE9F /* ioapi.c */,
-				D3920C01206D2EF40054FE9F /* unzip.c */,
-				D3920BFF206D2EEF0054FE9F /* zip.c */,
-				D3920BFD206D2EA90054FE9F /* crypt.h */,
-				D3920BFB206D2EA60054FE9F /* ioapi.h */,
-				D3920BF9206D2EA00054FE9F /* zip.h */,
-				D3920BF7206D2E8E0054FE9F /* unzip.h */,
 				5B36418A1DBFA4650034EF68 /* QuantiLogger */,
 				5B3641951DBFA4650034EF68 /* QuantiLoggerTests */,
 				5BF957001F5ECF1C00F88F9B /* QuantiLoggerExample */,
@@ -339,7 +330,7 @@
 		D3920BE7206D2BAE0054FE9F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D3920BE8206D2BD30054FE9F /* minizip */,
+				D3920C05206D2F570054FE9F /* minizip */,
 				D3920BEA206D2BD30054FE9F /* QuickZip.swift */,
 				D3920BEB206D2BD30054FE9F /* Zip.h */,
 				D3920BEC206D2BD30054FE9F /* Zip.swift */,
@@ -349,6 +340,20 @@
 			path = QuantiLogger;
 			sourceTree = "<group>";
 		};
+		D3920C05206D2F570054FE9F /* minizip */ = {
+			isa = PBXGroup;
+			children = (
+				D3920C0D206D2F830054FE9F /* unzip.c */,
+				D3920C0E206D2F840054FE9F /* unzip.h */,
+				D3920C0C206D2F830054FE9F /* zip.c */,
+				D3920C0F206D2F840054FE9F /* zip.h */,
+				D3920C0A206D2F7D0054FE9F /* ioapi.h */,
+				D3920C06206D2F700054FE9F /* crypt.h */,
+				D3920C08206D2F760054FE9F /* ioapi.c */,
+			);
+			path = minizip;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -356,12 +361,12 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3920C13206D2F840054FE9F /* zip.h in Headers */,
+				D3920C07206D2F700054FE9F /* crypt.h in Headers */,
+				D3920C12206D2F840054FE9F /* unzip.h in Headers */,
 				D3920BF0206D2BD40054FE9F /* Zip.h in Headers */,
-				D3920BFE206D2EAA0054FE9F /* crypt.h in Headers */,
 				5B3641991DBFA4650034EF68 /* QuantiLogger.h in Headers */,
-				D3920BFC206D2EA60054FE9F /* ioapi.h in Headers */,
-				D3920BF8206D2E8E0054FE9F /* unzip.h in Headers */,
-				D3920BFA206D2EA00054FE9F /* zip.h in Headers */,
+				D3920C0B206D2F7E0054FE9F /* ioapi.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -453,7 +458,7 @@
 					5B3641871DBFA4650034EF68 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 97DXWGRCGZ;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 					5B3641901DBFA4650034EF68 = {
@@ -503,7 +508,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D3920BED206D2BD40054FE9F /* minizip in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -564,16 +568,16 @@
 				D3405D501F4C494200A1987F /* DateHelper.swift in Sources */,
 				5B35E35E1DC0C87300C7E679 /* FileLoggerManager.swift in Sources */,
 				5B3641A31DBFAC810034EF68 /* Level.swift in Sources */,
+				D3920C11206D2F840054FE9F /* unzip.c in Sources */,
 				5BAF4F241DC8DA35000379A4 /* QuantiLoggerConstants.swift in Sources */,
 				5BD5D7F01DD361B0003AF2A7 /* LogFilesViaMailViewController.swift in Sources */,
+				D3920C09206D2F760054FE9F /* ioapi.c in Sources */,
 				D3920BF1206D2BD40054FE9F /* Zip.swift in Sources */,
 				5BFA877F1DD1F6B40063CB73 /* FileLoggerTableViewCell.swift in Sources */,
 				D3920BEF206D2BD40054FE9F /* QuickZip.swift in Sources */,
+				D3920C10206D2F840054FE9F /* zip.c in Sources */,
 				D3920BEE206D2BD40054FE9F /* ZipUtilities.swift in Sources */,
 				5BA3645D1DD0EDD10017F9EB /* LogFileRecord.swift in Sources */,
-				D3920C00206D2EEF0054FE9F /* zip.c in Sources */,
-				D3920C02206D2EF50054FE9F /* unzip.c in Sources */,
-				D3920C04206D2EFA0054FE9F /* ioapi.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
