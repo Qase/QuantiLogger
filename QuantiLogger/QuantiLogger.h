@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-#import "ZipArchive.h"
-
 //! Project version number for QuantiLogger.
 FOUNDATION_EXPORT double QuantiLoggerVersionNumber;
 
