@@ -19,6 +19,11 @@ public class FileLogger: InternalBaseLogger, Logging {
         }
     }
 
+	public var zippedLogFilesUrl: URL? {
+		//
+
+	}
+
     public func levels() -> [Level] {
         return levels
     }
