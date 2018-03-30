@@ -98,6 +98,7 @@
 		5BAF4F231DC8DA35000379A4 /* QuantiLoggerConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuantiLoggerConstants.swift; sourceTree = "<group>"; };
 		5BD5D7EF1DD361B0003AF2A7 /* LogFilesViaMailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogFilesViaMailViewController.swift; sourceTree = "<group>"; };
 		5BDA79CC1DBFB6CF00930ABA /* ConsoleLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsoleLogger.swift; sourceTree = "<group>"; };
+		5BE5AE61206E584900ED610D /* module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
 		5BEBBB181DC9EAC20055E453 /* DateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		5BF451371FF568A500E18215 /* ApplicationCallbackLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCallbackLogger.swift; sourceTree = "<group>"; };
 		5BF956FF1F5ECF1C00F88F9B /* QuantiLoggerExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuantiLoggerExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -343,6 +344,7 @@
 		D3920C05206D2F570054FE9F /* minizip */ = {
 			isa = PBXGroup;
 			children = (
+				5BE5AE61206E584900ED610D /* module.modulemap */,
 				D3920C0D206D2F830054FE9F /* unzip.c */,
 				D3920C0E206D2F840054FE9F /* unzip.h */,
 				D3920C0C206D2F830054FE9F /* zip.c */,
@@ -351,7 +353,8 @@
 				D3920C06206D2F700054FE9F /* crypt.h */,
 				D3920C08206D2F760054FE9F /* ioapi.c */,
 			);
-			path = minizip;
+			name = minizip;
+			path = ../Zip/Zip/minizip;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
