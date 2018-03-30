@@ -23,6 +23,17 @@
 		5BAF4F241DC8DA35000379A4 /* QuantiLoggerConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAF4F231DC8DA35000379A4 /* QuantiLoggerConstants.swift */; };
 		5BD5D7F01DD361B0003AF2A7 /* LogFilesViaMailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD5D7EF1DD361B0003AF2A7 /* LogFilesViaMailViewController.swift */; };
 		5BDA79CD1DBFB6CF00930ABA /* ConsoleLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDA79CC1DBFB6CF00930ABA /* ConsoleLogger.swift */; };
+		5BE5AE8B206E69E100ED610D /* QuickZip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE5AE8A206E69E100ED610D /* QuickZip.swift */; };
+		5BE5AE8D206E69E800ED610D /* Zip.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BE5AE8C206E69E800ED610D /* Zip.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BE5AE8F206E69ED00ED610D /* Zip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE5AE8E206E69ED00ED610D /* Zip.swift */; };
+		5BE5AE91206E69F200ED610D /* ZipUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE5AE90206E69F200ED610D /* ZipUtilities.swift */; };
+		5BE5AE9B206E6A0500ED610D /* crypt.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BE5AE93206E6A0500ED610D /* crypt.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BE5AE9C206E6A0500ED610D /* ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = 5BE5AE95206E6A0500ED610D /* ioapi.c */; };
+		5BE5AE9D206E6A0500ED610D /* zip.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BE5AE96206E6A0500ED610D /* zip.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BE5AE9E206E6A0500ED610D /* ioapi.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BE5AE97206E6A0500ED610D /* ioapi.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BE5AE9F206E6A0500ED610D /* unzip.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BE5AE98206E6A0500ED610D /* unzip.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BE5AEA0206E6A0500ED610D /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = 5BE5AE99206E6A0500ED610D /* unzip.c */; };
+		5BE5AEA1206E6A0500ED610D /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = 5BE5AE9A206E6A0500ED610D /* zip.c */; };
 		5BEBBB191DC9EAC20055E453 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEBBB181DC9EAC20055E453 /* DateExtension.swift */; };
 		5BF451381FF568A500E18215 /* ApplicationCallbackLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF451371FF568A500E18215 /* ApplicationCallbackLogger.swift */; };
 		5BF957021F5ECF1C00F88F9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF957011F5ECF1C00F88F9B /* AppDelegate.swift */; };
@@ -87,6 +98,18 @@
 		5BAF4F231DC8DA35000379A4 /* QuantiLoggerConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuantiLoggerConstants.swift; sourceTree = "<group>"; };
 		5BD5D7EF1DD361B0003AF2A7 /* LogFilesViaMailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogFilesViaMailViewController.swift; sourceTree = "<group>"; };
 		5BDA79CC1DBFB6CF00930ABA /* ConsoleLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsoleLogger.swift; sourceTree = "<group>"; };
+		5BE5AE8A206E69E100ED610D /* QuickZip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuickZip.swift; path = Zip/QuickZip.swift; sourceTree = SOURCE_ROOT; };
+		5BE5AE8C206E69E800ED610D /* Zip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Zip.h; path = Zip/Zip.h; sourceTree = SOURCE_ROOT; };
+		5BE5AE8E206E69ED00ED610D /* Zip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Zip.swift; path = Zip/Zip.swift; sourceTree = SOURCE_ROOT; };
+		5BE5AE90206E69F200ED610D /* ZipUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZipUtilities.swift; path = Zip/ZipUtilities.swift; sourceTree = SOURCE_ROOT; };
+		5BE5AE93206E6A0500ED610D /* crypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = crypt.h; path = Zip/minizip/crypt.h; sourceTree = SOURCE_ROOT; };
+		5BE5AE94206E6A0500ED610D /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; name = module.modulemap; path = Zip/minizip/module.modulemap; sourceTree = SOURCE_ROOT; };
+		5BE5AE95206E6A0500ED610D /* ioapi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ioapi.c; path = Zip/minizip/ioapi.c; sourceTree = SOURCE_ROOT; };
+		5BE5AE96206E6A0500ED610D /* zip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = zip.h; path = Zip/minizip/zip.h; sourceTree = SOURCE_ROOT; };
+		5BE5AE97206E6A0500ED610D /* ioapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ioapi.h; path = Zip/minizip/ioapi.h; sourceTree = SOURCE_ROOT; };
+		5BE5AE98206E6A0500ED610D /* unzip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = unzip.h; path = Zip/minizip/unzip.h; sourceTree = SOURCE_ROOT; };
+		5BE5AE99206E6A0500ED610D /* unzip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = unzip.c; path = Zip/minizip/unzip.c; sourceTree = SOURCE_ROOT; };
+		5BE5AE9A206E6A0500ED610D /* zip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = zip.c; path = Zip/minizip/zip.c; sourceTree = SOURCE_ROOT; };
 		5BEBBB181DC9EAC20055E453 /* DateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		5BF451371FF568A500E18215 /* ApplicationCallbackLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCallbackLogger.swift; sourceTree = "<group>"; };
 		5BF956FF1F5ECF1C00F88F9B /* QuantiLoggerExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuantiLoggerExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -266,6 +289,34 @@
 			name = LogFilesViaMail;
 			sourceTree = "<group>";
 		};
+		5BE5AE89206E69BD00ED610D /* Zip */ = {
+			isa = PBXGroup;
+			children = (
+				5BE5AE92206E69F400ED610D /* Minizip */,
+				5BE5AE90206E69F200ED610D /* ZipUtilities.swift */,
+				5BE5AE8E206E69ED00ED610D /* Zip.swift */,
+				5BE5AE8C206E69E800ED610D /* Zip.h */,
+				5BE5AE8A206E69E100ED610D /* QuickZip.swift */,
+			);
+			name = Zip;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		5BE5AE92206E69F400ED610D /* Minizip */ = {
+			isa = PBXGroup;
+			children = (
+				5BE5AE93206E6A0500ED610D /* crypt.h */,
+				5BE5AE95206E6A0500ED610D /* ioapi.c */,
+				5BE5AE97206E6A0500ED610D /* ioapi.h */,
+				5BE5AE94206E6A0500ED610D /* module.modulemap */,
+				5BE5AE99206E6A0500ED610D /* unzip.c */,
+				5BE5AE98206E6A0500ED610D /* unzip.h */,
+				5BE5AE9A206E6A0500ED610D /* zip.c */,
+				5BE5AE96206E6A0500ED610D /* zip.h */,
+			);
+			path = Minizip;
+			sourceTree = "<group>";
+		};
 		5BF957001F5ECF1C00F88F9B /* QuantiLoggerExample */ = {
 			isa = PBXGroup;
 			children = (
@@ -308,6 +359,7 @@
 		D3920BE7206D2BAE0054FE9F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5BE5AE89206E69BD00ED610D /* Zip */,
 			);
 			name = Frameworks;
 			path = QuantiLogger;
@@ -320,7 +372,12 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BE5AE9B206E6A0500ED610D /* crypt.h in Headers */,
+				5BE5AE8D206E69E800ED610D /* Zip.h in Headers */,
+				5BE5AE9D206E6A0500ED610D /* zip.h in Headers */,
+				5BE5AE9F206E6A0500ED610D /* unzip.h in Headers */,
 				5B3641991DBFA4650034EF68 /* QuantiLogger.h in Headers */,
+				5BE5AE9E206E6A0500ED610D /* ioapi.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -513,14 +570,20 @@
 				5B3641A51DBFACF90034EF68 /* Logging.swift in Sources */,
 				5BEBBB191DC9EAC20055E453 /* DateExtension.swift in Sources */,
 				5BDA79CD1DBFB6CF00930ABA /* ConsoleLogger.swift in Sources */,
+				5BE5AE8B206E69E100ED610D /* QuickZip.swift in Sources */,
 				5BA364591DD0C9A30017F9EB /* InternalBaseLogger.swift in Sources */,
+				5BE5AE8F206E69ED00ED610D /* Zip.swift in Sources */,
 				5B16551B1EE585E0000D4652 /* SystemLogger.swift in Sources */,
+				5BE5AE91206E69F200ED610D /* ZipUtilities.swift in Sources */,
 				5B2782521DC9F72A00525431 /* FileLogger.swift in Sources */,
 				5BF451381FF568A500E18215 /* ApplicationCallbackLogger.swift in Sources */,
 				5B3641A71DBFAD5D0034EF68 /* LogManager.swift in Sources */,
+				5BE5AEA1206E6A0500ED610D /* zip.c in Sources */,
 				5BA3645B1DD0EC160017F9EB /* FileLoggerTableViewDatasource.swift in Sources */,
 				D3405D501F4C494200A1987F /* DateHelper.swift in Sources */,
 				5B35E35E1DC0C87300C7E679 /* FileLoggerManager.swift in Sources */,
+				5BE5AE9C206E6A0500ED610D /* ioapi.c in Sources */,
+				5BE5AEA0206E6A0500ED610D /* unzip.c in Sources */,
 				5B3641A31DBFAC810034EF68 /* Level.swift in Sources */,
 				5BAF4F241DC8DA35000379A4 /* QuantiLoggerConstants.swift in Sources */,
 				5BD5D7F01DD361B0003AF2A7 /* LogFilesViaMailViewController.swift in Sources */,
@@ -724,7 +787,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
-				SWIFT_INCLUDE_PATHS = "${SRCROOT}/Zip/Zip/minizip/**";
+				SWIFT_INCLUDE_PATHS = "${SRCROOT}/Zip/minizip/**";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
@@ -750,7 +813,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
-				SWIFT_INCLUDE_PATHS = "${SRCROOT}/Zip/Zip/minizip/**";
+				SWIFT_INCLUDE_PATHS = "${SRCROOT}/Zip/minizip/**";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};
