@@ -94,7 +94,7 @@ class FileLoggerManager {
 		}
 
 		do {
-			return try Zip.quickZipFiles(allLogFiles, fileName: "archive")
+			return try Zip.quickZipFiles(allLogFiles, fileName: "archive_with_log_files")
 		} catch {
 			QLog("Failed to create a zip file while trying to retrieve archivedLogFilesUrl.", onLevel: .error)
 			return nil
