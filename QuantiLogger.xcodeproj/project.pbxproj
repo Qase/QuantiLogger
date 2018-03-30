@@ -299,7 +299,6 @@
 				5BE5AE8A206E69E100ED610D /* QuickZip.swift */,
 			);
 			name = Zip;
-			path = "New Group";
 			sourceTree = "<group>";
 		};
 		5BE5AE92206E69F400ED610D /* Minizip */ = {
@@ -362,7 +361,7 @@
 				5BE5AE89206E69BD00ED610D /* Zip */,
 			);
 			name = Frameworks;
-			path = QuantiLogger;
+			path = Zip;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
