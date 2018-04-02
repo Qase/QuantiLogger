@@ -90,7 +90,7 @@ public class LogManager {
 
 	/// Method to delete all log files if there are any.
 	public func deleteAllLogFiles() {
-		loggers.flatMap { $0 as? FileLogger }
+		loggers.compactMap { $0 as? FileLogger }
 			.forEach { $0.deleteAllLogFiles() }
 	}
 
