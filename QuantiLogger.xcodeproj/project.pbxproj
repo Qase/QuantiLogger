@@ -24,14 +24,14 @@
 		5BD5D7F01DD361B0003AF2A7 /* LogFilesViaMailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD5D7EF1DD361B0003AF2A7 /* LogFilesViaMailViewController.swift */; };
 		5BDA79CD1DBFB6CF00930ABA /* ConsoleLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDA79CC1DBFB6CF00930ABA /* ConsoleLogger.swift */; };
 		5BE5AE8B206E69E100ED610D /* QuickZip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE5AE8A206E69E100ED610D /* QuickZip.swift */; };
-		5BE5AE8D206E69E800ED610D /* Zip.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BE5AE8C206E69E800ED610D /* Zip.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BE5AE8D206E69E800ED610D /* Zip.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BE5AE8C206E69E800ED610D /* Zip.h */; };
 		5BE5AE8F206E69ED00ED610D /* Zip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE5AE8E206E69ED00ED610D /* Zip.swift */; };
 		5BE5AE91206E69F200ED610D /* ZipUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE5AE90206E69F200ED610D /* ZipUtilities.swift */; };
-		5BE5AE9B206E6A0500ED610D /* crypt.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BE5AE93206E6A0500ED610D /* crypt.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BE5AE9B206E6A0500ED610D /* crypt.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BE5AE93206E6A0500ED610D /* crypt.h */; };
 		5BE5AE9C206E6A0500ED610D /* ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = 5BE5AE95206E6A0500ED610D /* ioapi.c */; };
-		5BE5AE9D206E6A0500ED610D /* zip.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BE5AE96206E6A0500ED610D /* zip.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5BE5AE9E206E6A0500ED610D /* ioapi.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BE5AE97206E6A0500ED610D /* ioapi.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5BE5AE9F206E6A0500ED610D /* unzip.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BE5AE98206E6A0500ED610D /* unzip.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BE5AE9D206E6A0500ED610D /* zip.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BE5AE96206E6A0500ED610D /* zip.h */; };
+		5BE5AE9E206E6A0500ED610D /* ioapi.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BE5AE97206E6A0500ED610D /* ioapi.h */; };
+		5BE5AE9F206E6A0500ED610D /* unzip.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BE5AE98206E6A0500ED610D /* unzip.h */; };
 		5BE5AEA0206E6A0500ED610D /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = 5BE5AE99206E6A0500ED610D /* unzip.c */; };
 		5BE5AEA1206E6A0500ED610D /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = 5BE5AE9A206E6A0500ED610D /* zip.c */; };
 		5BEBBB191DC9EAC20055E453 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEBBB181DC9EAC20055E453 /* DateExtension.swift */; };
@@ -299,7 +299,6 @@
 				5BE5AE8A206E69E100ED610D /* QuickZip.swift */,
 			);
 			name = Zip;
-			path = "New Group";
 			sourceTree = "<group>";
 		};
 		5BE5AE92206E69F400ED610D /* Minizip */ = {
@@ -362,7 +361,7 @@
 				5BE5AE89206E69BD00ED610D /* Zip */,
 			);
 			name = Frameworks;
-			path = QuantiLogger;
+			path = Zip;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
