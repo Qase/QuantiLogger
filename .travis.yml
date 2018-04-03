@@ -5,6 +5,7 @@ env:
 script:
 - xcodebuild -version
 - xcodebuild -showsdks
+- fastlane env
 - fastlane test
 
 notifications:
