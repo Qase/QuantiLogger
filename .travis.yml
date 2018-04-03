@@ -2,6 +2,8 @@ language: objective-c
 osx_image: xcode9.3beta
 env:
   global: 
+before_install:
+- bundle update
 script:
 - xcodebuild -version
 - xcodebuild -showsdks
