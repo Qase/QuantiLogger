@@ -1,4 +1,5 @@
 disabled_rules: # rule identifiers to exclude from running
+  - identifier_name
 opt_in_rules: # some rules are only opt-in
   - implicit_return
   # - empty_count
