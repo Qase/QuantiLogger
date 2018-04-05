@@ -88,19 +88,51 @@ class FileLoggerManager {
 
 	// Url of the zip file containing all log files.
 	var archivedLogFilesUrl: URL? {
-		guard let allLogFiles = gettingAllLogFiles(), allLogFiles.count > 0 else {
-			QLog("No log files while trying to retrieve archivedLogFilesUrl.", onLevel: .error)
+		guard let _logDirUrl = logDirUrl else {
+			QLog("\(#function) - logDirUrl is nil.", onLevel: .error)
 			return nil
 		}
 
-		// TODO:
-		return nil
-//		do {
-//			return try Zip.quickZipFiles(allLogFiles, fileName: "archive_with_log_files")
-//		} catch {
-//			QLog("Failed to create a zip file while trying to retrieve archivedLogFilesUrl.", onLevel: .error)
-//			return nil
-//		}
+		let archiveUrl = _logDirUrl.appendingPathComponent("log_files_archive.zip")
+
+		guard let allLogFiles = gettingAllLogFiles(), allLogFiles.count > 0 else {
+			QLog("\(#function) - no log files.", onLevel: .error)
+			return nil
+		}
+
+		// Remove old archive if exists
+		do {
+			try FileManager.default.removeItem(at: archiveUrl)
+		} catch let error {
+			QLog("\(#function) - failed to remove old archive file with error \(error).", onLevel: .debug)
+		}
+
+		// Create new archive
+		guard Archive(url: archiveUrl, accessMode: .create) != nil else {
+			QLog("\(#function) - failed to create the archive.", onLevel: .error)
+			return nil
+		}
+
+		// Open newly created archive for update
+		guard let archive = Archive(url: archiveUrl, accessMode: .update) else {
+			QLog("\(#function) - failed to open the archive for update.", onLevel: .error)
+			return nil
+		}
+
+		// Add all log files to the archive
+		do {
+			try allLogFiles.forEach { logFileUrl in
+				var logFileUrlVar = logFileUrl
+				logFileUrlVar.deleteLastPathComponent()
+
+				try archive.addEntry(with: logFileUrl.lastPathComponent, relativeTo: logFileUrlVar)
+			}
+		} catch let error {
+			QLog("\(#function) - failed to add a log file to the archive with error \(error).", onLevel: .error)
+			return nil
+		}
+
+		return archive.url
 	}
 
     private init() {

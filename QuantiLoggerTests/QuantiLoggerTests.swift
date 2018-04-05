@@ -75,13 +75,20 @@ class QuantiLoggerTests: XCTestCase {
         logManager.waitForLogingJobsToFinish()
 
 		// Archived log files check
-		let url = fileLogger.archivedLogFilesUrl
-		XCTAssertNotNil(url)
+		let archiveUrl = fileLogger.archivedLogFilesUrl
+		XCTAssertNotNil(archiveUrl)
 		do {
-			let reachable = try url!.checkResourceIsReachable()
+			let reachable = try archiveUrl!.checkResourceIsReachable()
 			XCTAssertTrue(reachable)
 		} catch {
-			XCTFail("Archived log files url is invalid.")
+			XCTFail("Archive with log files was not created.")
+		}
+
+		// Delete archive
+		do {
+			try FileManager.default.removeItem(at: archiveUrl!)
+		} catch {
+			XCTFail("Failed to remove created archive.")
 		}
 
         // Check if logs were correctly written in the log file
