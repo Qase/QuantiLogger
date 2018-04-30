@@ -50,6 +50,14 @@ public class LogManager {
         loggers = [Logging]()
 
 		applicationCallbackLogger.delegate = self
+
+		var boottime = timeval()
+		var size = MemoryLayout<timeval>.stride
+		sysctlbyname("kern.boottime", &boottime, &size, nil, 0)
+		print(boottime)
+
+		let bundle = Bundle.main
+		print(bundle.infoDictionary)
     }
 
     /// Method to register a new custom or pre-build logger.
