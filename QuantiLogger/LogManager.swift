@@ -45,11 +45,13 @@ public class LogManager {
     public private(set) var loggers: [Logging]
 
 	private let applicationCallbackLogger = ApplicationCallbackLogger()
+	private let metaInformationLogger = MetaInformationLogger()
 
     private init() {
         loggers = [Logging]()
 
 		applicationCallbackLogger.delegate = self
+		metaInformationLogger.delegate = self
     }
 
     /// Method to register a new custom or pre-build logger.
@@ -123,11 +125,20 @@ public class LogManager {
 		applicationCallbackLogger.level = level
 	}
 
+	/// Method to log specific meta information.
+	///
+	/// - Parameters:
+	///   - dataToLog: array of meta information to be logged, all meta information is logged when the array set empty
+	///   - level: to be logged on
+	public func logMetaInformation(_ dataToLog: [MetaInformationType] = [], onLevel level: Level) {
+		metaInformationLogger.log(dataToLog, onLevel: level)
+	}
+
 	/// Method to log synchronously towards the main thread. All loggers log serially one by one within a dedicated queue.
 	///
 	/// - Parameters:
 	///   - message: to be logged
-	///   - level: of the message to be logged
+	///   - level: to be logged on
 	private func logSyncSerially(_ message: String, onLevel level: Level) {
 		serialLoggingQueue.sync {
 			guard self.loggers.count > 0 else {
@@ -145,7 +156,7 @@ public class LogManager {
 	///
 	/// - Parameters:
 	///   - message: to be logged
-	///   - level: of the message to be logged
+	///   - level: to be logged on
 	private func logAsyncSerially(_ message: String, onLevel level: Level) {
 		serialLoggingQueue.async {
 			guard self.loggers.count > 0 else {
@@ -163,7 +174,7 @@ public class LogManager {
 	///
 	/// - Parameters:
 	///   - message: to be logged
-	///   - level: of the message to be logged
+	///   - level: to be logged on
 	private func logSyncConcurrently(_ message: String, onLevel level: Level) {
 		serialLoggingQueue.sync {
 			guard loggers.count > 0 else {
@@ -192,7 +203,14 @@ public class LogManager {
 
 // MARK: - ApplicationCallbackLoggerDelegate methods implementation
 extension LogManager: ApplicationCallbackLoggerDelegate {
-	func applicationCallbackLogging(of message: String, onLevel level: Level) {
+	func logApplicationCallback(_ message: String, onLevel level: Level) {
+		log(message, onLevel: level)
+	}
+}
+
+// MARK: - MetaInformationLoggerDelegate methods implementation
+extension LogManager: MetaInformationLoggerDelegate {
+	func logMetaInformation(_ message: String, onLevel level: Level) {
 		log(message, onLevel: level)
 	}
 }
