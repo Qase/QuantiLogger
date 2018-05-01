@@ -26,12 +26,14 @@ public enum ApplicationCallbackType: String {
 	case backroundRefreshStatusDidChange
 	case protectedDataWillBecomeUnavailable
 
-	static let allValues: [ApplicationCallbackType] =
-		[.willTerminate, .didBecomeActive, .willResignActive, .didEnterBackground,
-		 .didFinishLaunching, .willEnterForeground, .significantTimeChange, .userDidTakeScreenshot,
-		 .didChangeStatusBarFrame, .didReceiveMemoryWarning, .willChangeStatusBarFrame,
-		 .didChangeStatusBarOrientation, .willChangeStatusBarOrientation, .protectedDataDidBecomeAvailable,
-		 .backroundRefreshStatusDidChange, .protectedDataWillBecomeUnavailable]
+	static let allValues: [ApplicationCallbackType] = [.willTerminate, .didBecomeActive,
+													   .willResignActive, .didEnterBackground,
+													   .didFinishLaunching, .willEnterForeground,
+													   .significantTimeChange, .userDidTakeScreenshot,
+													   .didChangeStatusBarFrame, .didReceiveMemoryWarning,
+													   .willChangeStatusBarFrame, .didChangeStatusBarOrientation,
+													   .willChangeStatusBarOrientation, .protectedDataDidBecomeAvailable,
+													   .backroundRefreshStatusDidChange, .protectedDataWillBecomeUnavailable]
 
 	var notificationName: NSNotification.Name {
 		switch self {
@@ -72,7 +74,7 @@ public enum ApplicationCallbackType: String {
 }
 
 protocol ApplicationCallbackLoggerDelegate: class {
-	func applicationCallbackLogging(of message: String, onLevel level: Level)
+	func logApplicationCallback(_ message: String, onLevel level: Level)
 }
 
 class ApplicationCallbackLogger {
@@ -138,7 +140,7 @@ class ApplicationCallbackLogger {
 // MARK: - Application's notification callbacks
 extension ApplicationCallbackLogger {
 	private func log(_ message: String, onLevel level: Level) {
-		delegate?.applicationCallbackLogging(of: message, onLevel: level)
+		delegate?.logApplicationCallback(message, onLevel: level)
 	}
 
 	@objc fileprivate func willTerminate() {
