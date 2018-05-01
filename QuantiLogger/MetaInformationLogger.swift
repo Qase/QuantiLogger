@@ -68,7 +68,7 @@ class MetaInformationLogger {
 		}
 
 		if dataToLog.contains(.version), let _value = bundle.infoDictionary?[MetaInformationType.version.rawValue] as? String {
-			data[MetaInformationType.compiler.rawValue] = _value
+			data[MetaInformationType.version.rawValue] = _value
 		}
 
 		if dataToLog.contains(.buildNumber), let _value = bundle.infoDictionary?[MetaInformationType.buildNumber.rawValue] as? String {
