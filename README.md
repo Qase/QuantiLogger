@@ -107,13 +107,13 @@ The logger is integrated and set automatically, thus it logs all application cal
 
 A special type of logger, that enables to log various meta information about the application and the host application. Here is a complete list of supported meta information:
 
-  - `identifier` application unique identifier
-	- `compiler` used compiler version
-	- `version` CFBundleShortVersionString a.k.a. version of the application
+  - `identifier` application unique identifier
+  - `compiler` used compiler version
+  - `version` CFBundleShortVersionString a.k.a. version of the application
   - `buildNumber` CFBundleVersion a.k.a. build number of the application
-	- `modelType` model of the application's host device
-	- `currentOSVersion` current OS version of the application's host device
-	- `upTime` boot time of the application
+  - `modelType` model of the application's host device
+  - `currentOSVersion` current OS version of the application's host device
+  - `upTime` boot time of the application
   - `language` localization of the application's host device
 
 The logger is accessible outside of the framework using `logMetaInformation(_: [MetaInformationType])` method on `LogManager`. It allows to explicitly list meta information that should be logged. If not specified explicitely, all the meta information will be logged. 
