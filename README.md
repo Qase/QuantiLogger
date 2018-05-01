@@ -103,6 +103,21 @@ A special type of logger, that automatically logs all received UIApplication<cal
   
 The logger is integrated and set automatically, thus it logs all application callbacks on `debug` level as is. By using `setApplicationCallbackLogger(with: [ApplicationCallbackType]?)` on `LogManager` a user can specific application callbacks to be logged (all of them are logged by default). If an empty array is passed, all application callbacks will be logged. If nil is passed, none of application callbacks will be logged. By using `setApplicationCallbackLogger(onLevel: Level)` a user can set a specific level on which to log application callbacks (`debug` is used by default). By using `setApplicationCallbackLogger(with: [ApplicationCallbackType]?, onLevel: Level)` a user can set both, application callbacks and a level at the same time.
 
+#### `MetaInformationLogger`
+
+A special type of logger, that enables to log various meta information about the application and the host application. Here is a complete list of supported meta information:
+
+  - `identifier` application unique identifier
+	- `compiler` used compiler version
+	- `version` CFBundleShortVersionString a.k.a. version of the application
+  - `buildNumber` CFBundleVersion a.k.a. build number of the application
+	- `modelType` model of the application's host device
+	- `currentOSVersion` current OS version of the application's host device
+	- `upTime` boot time of the application
+  - `language` localization of the application's host device
+
+The logger is accessible outside of the framework using `logMetaInformation(_: [MetaInformationType])` method on `LogManager`. It allows to explicitly list meta information that should be logged. If not specified explicitely, all the meta information will be logged. 
+
 ### Creating custom loggers
 
 There is a possibility of creating custom loggers just by implementing `Logging` protocol. In the simplest form, the custom logger only needs to implement `log(_:onLevel:)` and `levels()` methods. Optionaly it can also implement `configure()` method in case there is some configuration necessary before starting logging.
