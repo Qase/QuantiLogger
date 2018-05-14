@@ -93,7 +93,7 @@ public class LogManager {
 	/// Method to delete all log files if there are any.
 	public func deleteAllLogFiles() {
 		serialLoggingQueue.async {
-			dispatchPrecondition(condition: .onQueue(serialLoggingQueue))
+			dispatchPrecondition(condition: .onQueue(self.serialLoggingQueue))
 
 			self.loggers.compactMap { $0 as? FileLogger }
 				.forEach { $0.deleteAllLogFiles() }
@@ -145,7 +145,7 @@ public class LogManager {
 	///   - level: to be logged on
 	private func logSyncSerially(_ message: String, onLevel level: Level) {
 		serialLoggingQueue.sync {
-			dispatchPrecondition(condition: .onQueue(serialLoggingQueue))
+			dispatchPrecondition(condition: .onQueue(self.serialLoggingQueue))
 
 			guard self.loggers.count > 0 else {
 				assertionFailure("No loggers were added to the LogManager.")
@@ -185,7 +185,7 @@ public class LogManager {
 	///   - level: to be logged on
 	private func logSyncConcurrently(_ message: String, onLevel level: Level) {
 		serialLoggingQueue.sync {
-			dispatchPrecondition(condition: .onQueue(serialLoggingQueue))
+			dispatchPrecondition(condition: .onQueue(self.serialLoggingQueue))
 
 			guard loggers.count > 0 else {
 				assertionFailure("No loggers were added to the LogManager.")
