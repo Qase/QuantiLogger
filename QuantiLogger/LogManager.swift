@@ -14,8 +14,8 @@ import Foundation
 /// - Parameters:
 ///   - message: String logging message
 ///   - level: Level of the logging message
-public func QLog(_ message: String, onLevel level: Level) {
-    LogManager.shared.log(message, onLevel: level)
+public func QLog(_ message: String, onLevel level: Level, inFunction function: String = #function) {
+	LogManager.shared.log("\(function): \(message)", onLevel: level)
 }
 
 /// Logging concurrency types
