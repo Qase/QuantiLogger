@@ -102,11 +102,11 @@ class QuantiLoggerTests: XCTestCase {
         let linesOfContent = _contentOfLogFile.components(separatedBy: .newlines)
         XCTAssertEqual(QuantiLoggerConstants.FileLogger.logFileRecordSeparator, linesOfContent[0])
         XCTAssertNotNil(linesOfContent[1].range(of: "^\\[ERROR \\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}]$", options: .regularExpression))
-        XCTAssertNotNil(linesOfContent[2].range(of: "^Error message$", options: .regularExpression))
+        XCTAssertNotNil(linesOfContent[2].range(of: "^.* - .* - line \\d+: Error message$", options: .regularExpression))
         XCTAssertEqual(linesOfContent[3], "")
         XCTAssertEqual(QuantiLoggerConstants.FileLogger.logFileRecordSeparator, linesOfContent[4])
         XCTAssertNotNil(linesOfContent[5].range(of: "^\\[INFO \\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}]$", options: .regularExpression))
-        XCTAssertNotNil(linesOfContent[6].range(of: "^Info message$", options: .regularExpression))
+        XCTAssertNotNil(linesOfContent[6].range(of: "^.* - .* - line \\d+: Info message$", options: .regularExpression))
     
         
         // Delete the log file
@@ -145,10 +145,10 @@ class QuantiLoggerTests: XCTestCase {
         XCTAssertEqual(2, _logFileRecords.count)
         
         XCTAssertNotNil(_logFileRecords[0].header.range(of: "^\\[ERROR \\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}]$", options: .regularExpression))
-        XCTAssertNotNil(_logFileRecords[0].body.range(of: "^Error message\n$", options: .regularExpression))
+		XCTAssertNotNil(_logFileRecords[0].body.range(of: "^.* - .* - line \\d+: Error message\n$", options: .regularExpression))
         
         XCTAssertNotNil(_logFileRecords[1].header.range(of: "^\\[WARNING \\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}]$", options: .regularExpression))
-        XCTAssertNotNil(_logFileRecords[1].body.range(of: "^Warning message\nThis is test!\n$", options: .regularExpression))
+        XCTAssertNotNil(_logFileRecords[1].body.range(of: "^.* - .* - line \\d+: Warning message\nThis is test!\n$", options: .regularExpression))
 
         // Delete the log file
         fileLoggerManager.deleteLogFile(at: _currentLogFileUrl)
