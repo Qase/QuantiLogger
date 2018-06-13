@@ -56,7 +56,7 @@ struct LogEntryBatch: JSONSerializable {
 
 }
 
-public class WebLogger: QuantiLogger.Logging {
+public class WebLogger: InternalBaseLogger, Logging {
 
     private let api = WebLoggerApi(url: "http://localhost:3000/api/v1")
 
