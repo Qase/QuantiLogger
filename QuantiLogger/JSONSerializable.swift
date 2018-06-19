@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import QuantiLogger
 import RxSwift
 
 protocol JSONRepresentable {
@@ -60,7 +59,7 @@ extension JSONSerializable {
 		do {
 			return try JSONSerialization.data(withJSONObject: jsonRepresentation, options: [])
 		} catch {
-			QLog("\(#function) - could not perform JSON serialization on jsonRepresentation.", onLevel: .error)
+			print("\(#function) - could not perform JSON serialization on jsonRepresentation.")
 			return nil
 		}
 	}

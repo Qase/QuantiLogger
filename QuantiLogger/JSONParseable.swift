@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import QuantiLogger
 
 protocol JSONParseable {
 	associatedtype Object
@@ -20,7 +19,7 @@ protocol JSONParseable {
 extension JSONParseable {
 	static func parse(from json: Any) -> Object? {
 		guard let _jsonValue = JSONValue.fromObject(object: json) else {
-			QLog("Failed to parse Object data from JSON.", onLevel: .error)
+			print("Failed to parse Object data from JSON.")
 			return nil
 		}
 
@@ -29,12 +28,12 @@ extension JSONParseable {
 
 	static func parseMany(from json: Any) -> [Object]? {
 		guard let _jsonValue = JSONValue.fromObject(object: json) else {
-			QLog("Failed to parse array of [Object] data from JSON.", onLevel: .error)
+			print("Failed to parse array of [Object] data from JSON.")
 			return nil
 		}
 
 		guard let _parsedArray = _jsonValue.array else {
-			QLog("Failed to parse [Object] from JSON.", onLevel: .error)
+			print("Failed to parse [Object] from JSON.")
 			return nil
 		}
 

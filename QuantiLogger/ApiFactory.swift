@@ -9,7 +9,6 @@
 import Foundation
 import RxSwift
 import RxCocoa
-import QuantiLogger
 
 /// A class that provides static methods that make API request/response communication easier.
 class ApiFactory {

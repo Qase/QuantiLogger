@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import QuantiLogger
 import RxSwift
 
 extension Level: JSONSerializable {
@@ -21,7 +20,7 @@ struct LogEntry: JSONSerializable {
     let severity: Level
     let timestamp: Double
     let message: String
-    let sessionName = "ios-12345"
+    let sessionName: String
 
     func severityValue(severity: Level) -> String {
         switch severity {
@@ -58,7 +57,30 @@ struct LogEntryBatch: JSONSerializable {
 
 public class WebLogger: InternalBaseLogger, Logging {
 
-    private let api = WebLoggerApi(url: "http://localhost:3000/api/v1")
+    // Default value is UUID which is same until someone reinstal the application
+    public var sessionName = UUID().uuidString
+
+    // Size of batch which is send to server API
+    // In other word, lengt of array whith LogEntries
+    public var sizeOfBatch = 5
+
+    // After this time interval LogEntries are send to server API, regardless of their amount
+    public var timeSpan: RxTimeInterval = 4
+
+    public var urlString: String = WebLogger.defaultUrlString {
+        didSet {
+            guard let _api = WebLoggerApi(url: urlString) else {
+                print("\(#function) - could not create an URL instance out of provided URL string.")
+                return
+            }
+
+            self.api = _api
+        }
+    }
+
+    private static let defaultUrlString = "http://localhost:3000/api/v1"
+
+    private var api = WebLoggerApi(url: WebLogger.defaultUrlString)
 
     private let logSubject = ReplaySubject<LogEntry>.create(bufferSize: 10)
 
@@ -66,11 +88,8 @@ public class WebLogger: InternalBaseLogger, Logging {
 
     open func configure() {
 
-        let bufferTimeSpan: RxTimeInterval = 4
-        let bufferMaxCount = 4
-
         logSubject
-            .buffer(timeSpan: bufferTimeSpan, count: bufferMaxCount, scheduler: MainScheduler.instance)
+            .buffer(timeSpan: timeSpan, count: sizeOfBatch, scheduler: MainScheduler.instance)
             .filter { $0.count > 0 }
             .map { LogEntryBatch(logs: $0) }
             .flatMap { logBatch -> Completable in
@@ -80,9 +99,6 @@ public class WebLogger: InternalBaseLogger, Logging {
 
                 return _api.send(logBatch)
             }
-            .do(onCompleted: {
-                print("XXX")
-            })
             .subscribe()
             .disposed(by: bag)
 
@@ -91,7 +107,7 @@ public class WebLogger: InternalBaseLogger, Logging {
     open func log(_ message: String, onLevel level: Level) {
         //do some fancy logging
 
-        let entry = LogEntry(severity: level, timestamp: NSDate().timeIntervalSince1970, message: message)
+        let entry = LogEntry(severity: level, timestamp: NSDate().timeIntervalSince1970, message: message, sessionName: sessionName )
         logSubject.onNext(entry)
     }
 

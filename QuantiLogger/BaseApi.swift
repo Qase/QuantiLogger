@@ -7,8 +7,6 @@
 //
 
 import Foundation
-
-import QuantiLogger
 import RxSwift
 
 class BaseApi: NSObject {
@@ -17,7 +15,7 @@ class BaseApi: NSObject {
 
 	required init?(url: String) {
 		guard let _url = URL(string: url) else {
-			QLog("\(#function) - could not create an URL instance out of provided URL string.", onLevel: .error)
+			print("\(#function) - could not create an URL instance out of provided URL string.")
 			return nil
 		}
 
