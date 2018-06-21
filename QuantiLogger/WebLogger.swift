@@ -9,20 +9,22 @@
 import Foundation
 import RxSwift
 
-extension Level: JSONSerializable {
-    var jsonRepresentation: AnyObject {
-        return self.rawValue as AnyObject
-    }
-}
-
 struct LogEntry: JSONSerializable {
-
     let severity: Level
     let timestamp: Double
     let message: String
     let sessionName: String
 
-    func severityValue(severity: Level) -> String {
+    var jsonRepresentation: AnyObject {
+        return [
+            "severity": severityValue(severity),
+            "timestamp": timestamp,
+            "message": message,
+            "sessionName": sessionName
+        ] as AnyObject
+    }
+
+    func severityValue(_ severity: Level) -> String {
         switch severity {
         case .warn:
             return "WARNING"
@@ -35,9 +37,9 @@ struct LogEntry: JSONSerializable {
 }
 
 struct LogEntryBatch: JSONSerializable {
-    private var logs = [LogEntry]()
+    private var logs: [LogEntry]
 
-    init(logs: [LogEntry]) {
+    init(logs: [LogEntry] = []) {
         self.logs = logs
     }
 
@@ -46,7 +48,7 @@ struct LogEntryBatch: JSONSerializable {
     }
 
     mutating func clearLogs() {
-        logs = [LogEntry]()
+        logs = []
     }
 
     var jsonRepresentation: AnyObject {
@@ -56,7 +58,6 @@ struct LogEntryBatch: JSONSerializable {
 }
 
 public class WebLogger: InternalBaseLogger, Logging {
-
     // Default value is UUID which is same until someone reinstal the application
     public var sessionName = UUID().uuidString
 
@@ -107,7 +108,7 @@ public class WebLogger: InternalBaseLogger, Logging {
     open func log(_ message: String, onLevel level: Level) {
         //do some fancy logging
 
-        let entry = LogEntry(severity: level, timestamp: NSDate().timeIntervalSince1970, message: message, sessionName: sessionName )
+        let entry = LogEntry(severity: level, timestamp: NSDate().timeIntervalSince1970, message: message, sessionName: sessionName)
         logSubject.onNext(entry)
     }
 
