@@ -10,28 +10,28 @@ import Foundation
 import RxSwift
 
 struct LogEntry: JSONSerializable {
-    let severity: Level
+    let level: Level
     let timestamp: Double
     let message: String
     let sessionName: String
 
     var jsonRepresentation: AnyObject {
         return [
-            "severity": severityValue(severity),
+			"severity": serverLevelName(for: level),
             "timestamp": timestamp,
             "message": message,
             "sessionName": sessionName
         ] as AnyObject
     }
 
-    func severityValue(_ severity: Level) -> String {
-        switch severity {
+    private func serverLevelName(for level: Level) -> String {
+        switch level {
         case .warn:
             return "WARNING"
         case .system, .process:
             return "INFO"
         default:
-            return severity.rawValue.uppercased()
+            return level.rawValue.uppercased()
         }
     }
 }
@@ -68,9 +68,9 @@ public class WebLogger: InternalBaseLogger, Logging {
     // After this time interval LogEntries are send to server API, regardless of their amount
     public var timeSpan: RxTimeInterval = 4
 
-    public var urlString: String = WebLogger.defaultUrlString {
+    public var serverUrl: String = WebLogger.defaultServerUrl {
         didSet {
-            guard let _api = WebLoggerApi(url: urlString) else {
+            guard let _api = WebLoggerApi(url: serverUrl) else {
                 print("\(#function) - could not create an URL instance out of provided URL string.")
                 return
             }
@@ -79,16 +79,15 @@ public class WebLogger: InternalBaseLogger, Logging {
         }
     }
 
-    private static let defaultUrlString = "http://localhost:3000/api/v1"
+    private static let defaultServerUrl = "http://localhost:3000/api/v1"
 
-    private var api = WebLoggerApi(url: WebLogger.defaultUrlString)
+    private var api = WebLoggerApi(url: WebLogger.defaultServerUrl)
 
     private let logSubject = ReplaySubject<LogEntry>.create(bufferSize: 10)
 
     private let bag = DisposeBag()
 
     open func configure() {
-
         logSubject
             .buffer(timeSpan: timeSpan, count: sizeOfBatch, scheduler: MainScheduler.instance)
             .filter { $0.count > 0 }
@@ -108,7 +107,7 @@ public class WebLogger: InternalBaseLogger, Logging {
     open func log(_ message: String, onLevel level: Level) {
         //do some fancy logging
 
-        let entry = LogEntry(severity: level, timestamp: NSDate().timeIntervalSince1970, message: message, sessionName: sessionName)
+        let entry = LogEntry(level: level, timestamp: NSDate().timeIntervalSince1970, message: message, sessionName: sessionName)
         logSubject.onNext(entry)
     }
 
