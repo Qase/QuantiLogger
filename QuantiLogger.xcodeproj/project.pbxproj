@@ -25,6 +25,8 @@
 		5B3641A31DBFAC810034EF68 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3641A21DBFAC810034EF68 /* Level.swift */; };
 		5B3641A51DBFACF90034EF68 /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3641A41DBFACF80034EF68 /* Logging.swift */; };
 		5B3641A71DBFAD5D0034EF68 /* LogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3641A61DBFAD5D0034EF68 /* LogManager.swift */; };
+		5B4E481E20DA689A00BF2BA8 /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D32E65AA20D15E3E00698F3E /* RxBlocking.framework */; };
+		5B4E482120DA68B500BF2BA8 /* RxTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B4E481F20DA68AE00BF2BA8 /* RxTest.framework */; };
 		5B6B33441FF847C800CB106D /* ApplicationCallbackLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF451371FF568A500E18215 /* ApplicationCallbackLogger.swift */; };
 		5BA364591DD0C9A30017F9EB /* InternalBaseLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA364581DD0C9A30017F9EB /* InternalBaseLogger.swift */; };
 		5BA3645B1DD0EC160017F9EB /* FileLoggerTableViewDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA3645A1DD0EC160017F9EB /* FileLoggerTableViewDatasource.swift */; };
@@ -56,6 +58,19 @@
 		5BF957471F5ED3A700F88F9B /* LogFileRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA3645C1DD0EDD10017F9EB /* LogFileRecord.swift */; };
 		5BF957481F5ED3AA00F88F9B /* ConsoleLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDA79CC1DBFB6CF00930ABA /* ConsoleLogger.swift */; };
 		5BFA877F1DD1F6B40063CB73 /* FileLoggerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFA877E1DD1F6B40063CB73 /* FileLoggerTableViewCell.swift */; };
+		D32E659320D15A5C00698F3E /* WebLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32E659220D15A5C00698F3E /* WebLogger.swift */; };
+		D32E659E20D15A7100698F3E /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32E659420D15A6900698F3E /* JSONParser.swift */; };
+		D32E659F20D15A7100698F3E /* ApiFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32E659520D15A6A00698F3E /* ApiFactory.swift */; };
+		D32E65A020D15A7100698F3E /* BaseApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32E659620D15A6B00698F3E /* BaseApi.swift */; };
+		D32E65A120D15A7100698F3E /* HTTPURLResponse+logDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32E659720D15A6B00698F3E /* HTTPURLResponse+logDescription.swift */; };
+		D32E65A220D15A7100698F3E /* WebLoggerApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32E659820D15A6C00698F3E /* WebLoggerApi.swift */; };
+		D32E65A320D15A7100698F3E /* HttpMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32E659920D15A6D00698F3E /* HttpMethod.swift */; };
+		D32E65A420D15A7100698F3E /* JSONSerializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32E659A20D15A6E00698F3E /* JSONSerializable.swift */; };
+		D32E65A520D15A7100698F3E /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32E659B20D15A6F00698F3E /* ApiError.swift */; };
+		D32E65A620D15A7100698F3E /* URLRequest+logDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32E659C20D15A7000698F3E /* URLRequest+logDescription.swift */; };
+		D32E65A720D15A7100698F3E /* JSONParseable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32E659D20D15A7100698F3E /* JSONParseable.swift */; };
+		D32E65AB20D15E3E00698F3E /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D32E65A820D15E3D00698F3E /* RxCocoa.framework */; };
+		D32E65AC20D15E3E00698F3E /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D32E65A920D15E3E00698F3E /* RxSwift.framework */; };
 		D3405D501F4C494200A1987F /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3405D4F1F4C494200A1987F /* DateHelper.swift */; };
 		D3A03D141F4AD5D300B0F50C /* QuantiLoggerPerformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A03D131F4AD5D300B0F50C /* QuantiLoggerPerformanceTests.swift */; };
 /* End PBXBuildFile section */
@@ -98,6 +113,7 @@
 		5B3641A21DBFAC810034EF68 /* Level.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
 		5B3641A41DBFACF80034EF68 /* Logging.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logging.swift; sourceTree = "<group>"; };
 		5B3641A61DBFAD5D0034EF68 /* LogManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogManager.swift; sourceTree = "<group>"; };
+		5B4E481F20DA68AE00BF2BA8 /* RxTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxTest.framework; path = Carthage/Build/iOS/RxTest.framework; sourceTree = SOURCE_ROOT; };
 		5BA364581DD0C9A30017F9EB /* InternalBaseLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InternalBaseLogger.swift; sourceTree = "<group>"; };
 		5BA3645A1DD0EC160017F9EB /* FileLoggerTableViewDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileLoggerTableViewDatasource.swift; sourceTree = "<group>"; };
 		5BA3645C1DD0EDD10017F9EB /* LogFileRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogFileRecord.swift; sourceTree = "<group>"; };
@@ -117,6 +133,20 @@
 		5BF957301F5ED1E100F88F9B /* LogListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogListTableViewController.swift; sourceTree = "<group>"; };
 		5BF957321F5ED1F500F88F9B /* SendLogFilesViaMailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendLogFilesViaMailViewController.swift; sourceTree = "<group>"; };
 		5BFA877E1DD1F6B40063CB73 /* FileLoggerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileLoggerTableViewCell.swift; sourceTree = "<group>"; };
+		D32E659220D15A5C00698F3E /* WebLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebLogger.swift; sourceTree = "<group>"; };
+		D32E659420D15A6900698F3E /* JSONParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
+		D32E659520D15A6A00698F3E /* ApiFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiFactory.swift; sourceTree = "<group>"; };
+		D32E659620D15A6B00698F3E /* BaseApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseApi.swift; sourceTree = "<group>"; };
+		D32E659720D15A6B00698F3E /* HTTPURLResponse+logDescription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HTTPURLResponse+logDescription.swift"; sourceTree = "<group>"; };
+		D32E659820D15A6C00698F3E /* WebLoggerApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebLoggerApi.swift; sourceTree = "<group>"; };
+		D32E659920D15A6D00698F3E /* HttpMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpMethod.swift; sourceTree = "<group>"; };
+		D32E659A20D15A6E00698F3E /* JSONSerializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONSerializable.swift; sourceTree = "<group>"; };
+		D32E659B20D15A6F00698F3E /* ApiError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
+		D32E659C20D15A7000698F3E /* URLRequest+logDescription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLRequest+logDescription.swift"; sourceTree = "<group>"; };
+		D32E659D20D15A7100698F3E /* JSONParseable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONParseable.swift; sourceTree = "<group>"; };
+		D32E65A820D15E3D00698F3E /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = SOURCE_ROOT; };
+		D32E65A920D15E3E00698F3E /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = SOURCE_ROOT; };
+		D32E65AA20D15E3E00698F3E /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = SOURCE_ROOT; };
 		D3405D4F1F4C494200A1987F /* DateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		D3A03D131F4AD5D300B0F50C /* QuantiLoggerPerformanceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuantiLoggerPerformanceTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -126,6 +156,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D32E65AB20D15E3E00698F3E /* RxCocoa.framework in Frameworks */,
+				D32E65AC20D15E3E00698F3E /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,6 +166,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B27824A1DC9F1AD00525431 /* QuantiLogger.framework in Frameworks */,
+				5B4E481E20DA689A00BF2BA8 /* RxBlocking.framework in Frameworks */,
+				5B4E482120DA68B500BF2BA8 /* RxTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,6 +240,7 @@
 		5B35E35C1DC0A84D00C7E679 /* Loggers */ = {
 			isa = PBXGroup;
 			children = (
+				D32E659020D1541300698F3E /* WebLogger */,
 				5B1E989D20974F9000855C80 /* MetaInformationLogger.swift */,
 				5BF451371FF568A500E18215 /* ApplicationCallbackLogger.swift */,
 				5B1E98A42098AB5200855C80 /* Base */,
@@ -219,6 +254,7 @@
 		5B35E35F1DC0EF0F00C7E679 /* Basic */ = {
 			isa = PBXGroup;
 			children = (
+				D3B4611920DBBFEE00F531D9 /* Api */,
 				5BAF4F231DC8DA35000379A4 /* QuantiLoggerConstants.swift */,
 				5B35E3601DC0EF1A00C7E679 /* Extensions */,
 				D3405D4F1F4C494200A1987F /* DateHelper.swift */,
@@ -345,13 +381,42 @@
 			name = TableViewDatasource;
 			sourceTree = "<group>";
 		};
+		D32E659020D1541300698F3E /* WebLogger */ = {
+			isa = PBXGroup;
+			children = (
+				D32E659220D15A5C00698F3E /* WebLogger.swift */,
+				D32E659820D15A6C00698F3E /* WebLoggerApi.swift */,
+			);
+			name = WebLogger;
+			sourceTree = "<group>";
+		};
 		D3920BE7206D2BAE0054FE9F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5B4E481F20DA68AE00BF2BA8 /* RxTest.framework */,
+				D32E65AA20D15E3E00698F3E /* RxBlocking.framework */,
+				D32E65A820D15E3D00698F3E /* RxCocoa.framework */,
+				D32E65A920D15E3E00698F3E /* RxSwift.framework */,
 				5B13DE9E20752A5C0013E1CF /* ZipFoundation */,
 			);
 			name = Frameworks;
 			path = Zip;
+			sourceTree = "<group>";
+		};
+		D3B4611920DBBFEE00F531D9 /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				D32E659B20D15A6F00698F3E /* ApiError.swift */,
+				D32E659520D15A6A00698F3E /* ApiFactory.swift */,
+				D32E659620D15A6B00698F3E /* BaseApi.swift */,
+				D32E659920D15A6D00698F3E /* HttpMethod.swift */,
+				D32E659720D15A6B00698F3E /* HTTPURLResponse+logDescription.swift */,
+				D32E659D20D15A7100698F3E /* JSONParseable.swift */,
+				D32E659420D15A6900698F3E /* JSONParser.swift */,
+				D32E659A20D15A6E00698F3E /* JSONSerializable.swift */,
+				D32E659C20D15A7000698F3E /* URLRequest+logDescription.swift */,
+			);
+			name = Api;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -551,17 +616,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D32E659320D15A5C00698F3E /* WebLogger.swift in Sources */,
+				D32E65A620D15A7100698F3E /* URLRequest+logDescription.swift in Sources */,
 				5B13DEC8207649D20013E1CF /* Data+Serialization.swift in Sources */,
+				D32E65A420D15A7100698F3E /* JSONSerializable.swift in Sources */,
 				5B3641A51DBFACF90034EF68 /* Logging.swift in Sources */,
 				5BEBBB191DC9EAC20055E453 /* DateExtension.swift in Sources */,
+				D32E65A120D15A7100698F3E /* HTTPURLResponse+logDescription.swift in Sources */,
+				D32E659E20D15A7100698F3E /* JSONParser.swift in Sources */,
 				5BDA79CD1DBFB6CF00930ABA /* ConsoleLogger.swift in Sources */,
+				D32E659F20D15A7100698F3E /* ApiFactory.swift in Sources */,
 				5BA364591DD0C9A30017F9EB /* InternalBaseLogger.swift in Sources */,
 				5B16551B1EE585E0000D4652 /* SystemLogger.swift in Sources */,
+				D32E65A520D15A7100698F3E /* ApiError.swift in Sources */,
+				D32E65A720D15A7100698F3E /* JSONParseable.swift in Sources */,
 				5B2782521DC9F72A00525431 /* FileLogger.swift in Sources */,
 				5B13DEC7207649D20013E1CF /* Entry.swift in Sources */,
 				5BF451381FF568A500E18215 /* ApplicationCallbackLogger.swift in Sources */,
 				5B13DEC3207649D20013E1CF /* FileManager+ZIP.swift in Sources */,
 				5B3641A71DBFAD5D0034EF68 /* LogManager.swift in Sources */,
+				D32E65A220D15A7100698F3E /* WebLoggerApi.swift in Sources */,
 				5BA3645B1DD0EC160017F9EB /* FileLoggerTableViewDatasource.swift in Sources */,
 				5B13DEC5207649D20013E1CF /* Archive.swift in Sources */,
 				D3405D501F4C494200A1987F /* DateHelper.swift in Sources */,
@@ -569,11 +643,13 @@
 				5B13DEC4207649D20013E1CF /* Data+Compression.swift in Sources */,
 				5B3641A31DBFAC810034EF68 /* Level.swift in Sources */,
 				5BAF4F241DC8DA35000379A4 /* QuantiLoggerConstants.swift in Sources */,
+				D32E65A020D15A7100698F3E /* BaseApi.swift in Sources */,
 				5BD5D7F01DD361B0003AF2A7 /* LogFilesViaMailViewController.swift in Sources */,
 				5B1E989E20974F9000855C80 /* MetaInformationLogger.swift in Sources */,
 				5B13DEC6207649D20013E1CF /* Archive+Writing.swift in Sources */,
 				5BFA877F1DD1F6B40063CB73 /* FileLoggerTableViewCell.swift in Sources */,
 				5B13DEC2207649D20013E1CF /* Archive+Reading.swift in Sources */,
+				D32E65A320D15A7100698F3E /* HttpMethod.swift in Sources */,
 				5BA3645D1DD0EDD10017F9EB /* LogFileRecord.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -769,7 +845,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = "";
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/iOS";
 				INFOPLIST_FILE = QuantiLogger/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -796,7 +872,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = "";
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/iOS";
 				INFOPLIST_FILE = QuantiLogger/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -815,8 +891,12 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 2PY9RKK8A7;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/Carthage/Build/iOS/",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = QuantiLoggerTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(FRAMEWORK_SEARCH_PATHS)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.quanti.swift.QuantiLoggerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
@@ -829,8 +909,12 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 2PY9RKK8A7;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/Carthage/Build/iOS/",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = QuantiLoggerTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(FRAMEWORK_SEARCH_PATHS)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.quanti.swift.QuantiLoggerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
