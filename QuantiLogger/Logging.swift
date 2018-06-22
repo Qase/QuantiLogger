@@ -9,13 +9,12 @@
 import UIKit
 
 public protocol Logging {
-    func levels() -> [Level]
+	var levels: [Level] { get set }
     func configure()
     func log(_ message: String, onLevel level: Level)
 }
 
 extension Logging {
-
     public func configure() {}
 
     public func messageHeader(forLevel level: Level) -> String {
@@ -23,6 +22,6 @@ extension Logging {
     }
 
     func doesLog(forLevel level: Level) -> Bool {
-        return levels().contains(level)
+        return levels.contains(level)
     }
 }

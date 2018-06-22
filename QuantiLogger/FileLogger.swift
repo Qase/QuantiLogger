@@ -9,7 +9,7 @@
 import Foundation
 
 /// Pre-built logger that logs to a single or multiple files within dedicated log dir.
-public class FileLogger: InternalBaseLogger, Logging {
+public class FileLogger: Logging {
     private let fileLoggerManager = FileLoggerManager.shared
 
     /// Property to set a number of log files that can be used for loging.
@@ -24,9 +24,7 @@ public class FileLogger: InternalBaseLogger, Logging {
 		return fileLoggerManager.archivedLogFilesUrl
 	}
 
-    public func levels() -> [Level] {
-        return levels
-    }
+	public var levels: [Level] = [.info]
 
     public func log(_ message: String, onLevel level: Level) {
         fileLoggerManager.writeToLogFile(message: message, withMessageHeader: messageHeader(forLevel: level), onLevel: level)

@@ -1,4 +1,4 @@
-//
+
 //  WebLogger.swift
 //  WebLoggerExample
 //
@@ -57,7 +57,7 @@ struct LogEntryBatch: JSONSerializable {
 
 }
 
-public class WebLogger: InternalBaseLogger, Logging {
+public class WebLogger: Logging {
     // Default value is UUID which is same until someone reinstal the application
     public var sessionName = UUID().uuidString
 
@@ -104,15 +104,12 @@ public class WebLogger: InternalBaseLogger, Logging {
 
     }
 
+	public var levels: [Level] = [.info]
+
     open func log(_ message: String, onLevel level: Level) {
         //do some fancy logging
 
         let entry = LogEntry(level: level, timestamp: NSDate().timeIntervalSince1970, message: message, sessionName: sessionName)
         logSubject.onNext(entry)
     }
-
-    open func levels() -> [Level] {
-        return [.verbose, .info, .debug, .warn, .error]
-    }
-
 }

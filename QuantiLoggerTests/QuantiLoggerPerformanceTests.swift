@@ -18,10 +18,7 @@ class PerformanceLogger: QuantiLogger.Logging {
         sleep(1)
     }
 
-    open func levels() -> [Level] {
-        return [.verbose, .info, .debug, .warn, .error]
-    }
-
+    var levels: [Level] = [.verbose, .info, .debug, .warn, .error]
 }
 
 class QuantiLoggerPerformanceTests: XCTestCase {

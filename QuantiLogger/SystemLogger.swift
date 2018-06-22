@@ -10,18 +10,12 @@ import Foundation
 import os
 
 /// Pre-built logger that wraps system os_logger
-public class SystemLogger: InternalBaseLogger, Logging {
+public class SystemLogger: Logging {
 
     private var logger: OSLog?
 
     public init(subsystem: String, category: String) {
-        super.init()
-
         logger = OSLog(subsystem: subsystem, category: category)
-    }
-
-    override public init() {
-        assertionFailure("!!! init(subsystem: String, category: String) must be used to make SystemLogger work correctly !!!")
     }
 
     private func systemLevel(forLevel level: Level) -> OSLogType {
@@ -39,9 +33,7 @@ public class SystemLogger: InternalBaseLogger, Logging {
         }
     }
 
-    public func levels() -> [Level] {
-        return levels
-    }
+    public var levels: [Level] = [.info]
 
     public func log(_ message: String, onLevel level: Level) {
         guard let _logger = logger else { return }

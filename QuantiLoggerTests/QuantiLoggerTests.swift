@@ -153,17 +153,4 @@ class QuantiLoggerTests: XCTestCase {
         // Delete the log file
         fileLoggerManager.deleteLogFile(at: _currentLogFileUrl)
     }
-
-//    func testMultipleFileLoging() {
-//        let logManager = LogManager.shared
-//        logManager.removeAllLoggers()
-//
-//        let fileLogger = FileLogger()
-//        fileLogger.levels = [.error, .warn]
-//        fileLogger.numOfLogFiles = 4
-//        logManager.add(fileLogger)
-//
-//
-//        QLog("Error message 4", onLevel: .error)
-//    }
 }

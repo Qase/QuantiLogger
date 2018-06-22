@@ -9,11 +9,8 @@
 import Foundation
 
 /// Pre-built logger that logs to the console.
-public class ConsoleLogger: InternalBaseLogger, Logging {
-
-    public func levels() -> [Level] {
-        return levels
-    }
+public class ConsoleLogger: Logging {
+    public var levels: [Level] = [.info]
 
     public func log(_ message: String, onLevel level: Level) {
         print("\(messageHeader(forLevel: level)) \(message)")
