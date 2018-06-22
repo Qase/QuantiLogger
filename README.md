@@ -15,6 +15,7 @@ QuantiLogger is a super lightweight logging library for iOS development in Swift
 - Swift 4.0+
 - Xcode 9+
 - iOS 11.0+
+- RxSwift 4.0+ (NOTE: QuantiLogger uses set of RxSwift libraries as a dependency and takes advantage of provided reactive functionality. In order to successfully integrate QuantiLogger, the target framework / application must also include RxSwift as a dependency. For example, when using Carthage, both QuantiLogger and RxSwift must be listed within the Cartfile.) 
 
 ## Installation
 
@@ -80,6 +81,36 @@ Wraps the native ```OSLog``` to log messages on the system level.
 #### `FileLogger`
 
 Enables logging to a file. Each log file relates to a single day data. Another day, another log file is used. `numberOfLogFiles` specifies the number of log files that are stored. In other words, how many days back (log files) should be kept. If the last log file is filled, the first one gets overriden using the simplest Round-robin strategy.
+
+#### `WebLogger`
+
+Enables logging via REST API to a target server. To reduce the traffic, logs are grouped into so-called batches when sent. A user can set the size of such batches and also a time interval between individual batches being sent. 
+
+Here is an example of log batch in JSON:
+```
+[{"severity": "VERBOSE",
+  "sessionName": "E598B4C1-2B08-4563-81C0-2A77E5CE0C3C",
+  "message":"/some/path/QuantiLoggerTests.swift - testWebLogger() - line 165: Test verbose",
+  "timestamp": 1529668897.318845},
+ {"severity": "INFO",
+  "sessionName":"E598B4C1-2B08-4563-81C0-2A77E5CE0C3C",
+  "message": "/some/path/QuantiLoggerTests.swift - testWebLogger() - line 166: Test system",
+  "timestamp":1529668897.3196549},
+ {"severity":"INFO",
+  "sessionName":"E598B4C1-2B08-4563-81C0-2A77E5CE0C3C",
+  "message":"/some/path/QuantiLoggerTests.swift - testWebLogger() - line 167: Test process",
+  "timestamp":1529668897.3196959
+}]
+```
+
+
+Here is the set of properties a user can customize:
+  - `serverUrl` target server's url
+  - `sessionName` name of a session to log in
+  - `sizeOfBatch` size of a log batch
+  - `timeSpan` time interval between individual batches being sent
+  
+Target server that receives logs is independent on the WebLogger. Therefore a user can implement a customized server that displays logs in a prefered way. If one does not wish to implement a customized server, we also provide [a simple server solution](https://github.com/Qase/LoggingServer/) written in Node.js.
 
 #### `ApplicationCallbackLogger`
 
