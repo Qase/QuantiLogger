@@ -92,8 +92,6 @@ Pod::Spec.new do |s|
   s.source_files  = "QuantiLogger", "QuantiLogger/**/*.{h,m,swift}", "ZipFoundation/**/*.{h,m,swift}"
   s.dependency "RxSwift", "~> 4.0"
   s.dependency "RxCocoa", "~> 4.0"
-  s.dependency "RxTest", "~> 4.0"
-  s.dependency "RxBlocking", "~> 4.0"
 
   # s.exclude_files = "Classes/Exclude"
 
