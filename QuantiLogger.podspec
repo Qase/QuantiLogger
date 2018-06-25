@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "QuantiLogger"
-  s.version      = "1.16"
+  s.version      = "1.16.1"
   s.summary      = "Swift lightweight logging framework"
 
   # This description is used to generate tags and improve search results.
@@ -78,7 +78,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/Qase/QuantiLogger.git", :tag => "v1.16" }
+  s.source       = { :git => "https://github.com/Qase/QuantiLogger.git", :tag => "v1.16.1" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
