@@ -26,6 +26,8 @@ public class FileLogger: Logging {
 
 	public var levels: [Level] = [.info]
 
+	public init() {}
+
     public func log(_ message: String, onLevel level: Level) {
         fileLoggerManager.writeToLogFile(message: message, withMessageHeader: messageHeader(forLevel: level), onLevel: level)
     }

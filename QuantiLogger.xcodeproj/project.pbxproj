@@ -236,13 +236,13 @@
 		5B35E35C1DC0A84D00C7E679 /* Loggers */ = {
 			isa = PBXGroup;
 			children = (
-				D32E659020D1541300698F3E /* WebLogger */,
 				5B1E989D20974F9000855C80 /* MetaInformationLogger.swift */,
 				5BF451371FF568A500E18215 /* ApplicationCallbackLogger.swift */,
 				5B1E98A42098AB5200855C80 /* Base */,
 				5B1655191EE585CB000D4652 /* SystemLogger */,
 				5BC00C981DC77C2100C3B89D /* FileLogger */,
 				5BC00C971DC77C1200C3B89D /* ConsoleLogger */,
+				D32E659020D1541300698F3E /* WebLogger */,
 			);
 			name = Loggers;
 			sourceTree = "<group>";

@@ -12,6 +12,8 @@ import Foundation
 public class ConsoleLogger: Logging {
     public var levels: [Level] = [.info]
 
+	public init() {}
+	
     public func log(_ message: String, onLevel level: Level) {
         print("\(messageHeader(forLevel: level)) \(message)")
     }

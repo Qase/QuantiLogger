@@ -87,6 +87,8 @@ public class WebLogger: Logging {
 
     private let bag = DisposeBag()
 
+	public init() {}
+
     open func configure() {
         logSubject
             .buffer(timeSpan: timeSpan, count: sizeOfBatch, scheduler: MainScheduler.instance)
