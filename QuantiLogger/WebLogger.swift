@@ -1,4 +1,3 @@
-
 //  WebLogger.swift
 //  WebLoggerExample
 //
