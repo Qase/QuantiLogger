@@ -29,6 +29,7 @@ $ brew install carthage
 To integrate QuantiLogger into your Xcode project using Carthage, specify it in your `Cartfile`:
 ```
 github "Qase/QuantiLogger" ~> 1.13
+github "ReactiveX/RxSwift" ~> 4.0
 ``` 
 Run `carthage update` to build the framework and drag the built `QuantiLogger.framework` into your Xcode project.
 
