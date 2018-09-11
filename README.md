@@ -15,7 +15,7 @@ QuantiLogger is a super lightweight logging library for iOS development in Swift
 - Swift 4.0+
 - Xcode 9+
 - iOS 11.0+
-- RxSwift 4.0+ (NOTE: QuantiLogger uses set of RxSwift libraries as a dependency and takes advantage of provided reactive functionality. In order to successfully integrate QuantiLogger, the target framework / application must also include RxSwift as a dependency. For example, when using Carthage, both QuantiLogger and RxSwift must be listed within the Cartfile.) 
+- RxSwift 4.0+ (NOTE: QuantiLogger uses set of RxSwift libraries as a dependency and takes advantage of provided reactive functionality. In order to successfully integrate QuantiLogger, the target framework / application must also include RxSwift as a dependency.) 
 
 ## Installation
 
@@ -29,7 +29,6 @@ $ brew install carthage
 To integrate QuantiLogger into your Xcode project using Carthage, specify it in your `Cartfile`:
 ```
 github "Qase/QuantiLogger" ~> 1.13
-github "ReactiveX/RxSwift" ~> 4.0
 ``` 
 Run `carthage update` to build the framework and drag the built `QuantiLogger.framework` into your Xcode project.
 
