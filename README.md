@@ -15,7 +15,7 @@ QuantiLogger is a super lightweight logging library for iOS development in Swift
 - Swift 4.0+
 - Xcode 9+
 - iOS 11.0+
-- RxSwift 4.0+ (NOTE: QuantiLogger uses set of RxSwift libraries as a dependency and takes advantage of provided reactive functionality. In order to successfully integrate QuantiLogger, the target framework / application must also include RxSwift as a dependency.) 
+- RxSwift 4.0+ (NOTE: QuantiLogger uses set of RxSwift libraries and takes advantage of its provided reactive functionality.) 
 
 ## Installation
 
