@@ -15,7 +15,8 @@ import Foundation
 ///   - message: String logging message
 ///   - level: Level of the logging message
 public func QLog(_ message: String, onLevel level: Level, inFile file: String = #file, inFunction function: String = #function, onLine line: Int = #line) {
-	LogManager.shared.log("\(file) - \(function) - line \(line): \(message)", onLevel: level)
+    let theFileName = (file as NSString).lastPathComponent
+	LogManager.shared.log("\(theFileName) - \(function) - line \(line): \(message)", onLevel: level)
 }
 
 /// Logging concurrency types
