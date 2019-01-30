@@ -5,7 +5,7 @@
 [![Pod compatible](https://cocoapod-badges.herokuapp.com/v/QuantiLogger/badge.png)](https://cocoapods.org)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![codebeat badge](https://codebeat.co/badges/4b554069-7c41-4ddd-9a84-9498896a909c)](https://codebeat.co/projects/github-com-qase-quantilogger-master)
-[![Maintainer: Martin](https://img.shields.io/badge/Maintainer-troupmar-blue.svg)](mailto:vladislav.trnka@quanti.cz)
+[![Maintainer: Martin](https://img.shields.io/badge/Maintains-Martin-blue.svg)](mailto:martin.troup@quanti.cz)
 [![Qase: QuantiLogger](https://img.shields.io/badge/Qase-QuantiLogger-ff69b4.svg)](https://github.com/Qase/KotlinLogger)
 
 
