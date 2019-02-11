@@ -2,7 +2,7 @@
 ![Swift 4.0](https://img.shields.io/badge/Swift-4.0-orange.svg)
 [![travis badge](https://travis-ci.org/Qase/QuantiLogger.svg)](https://travis-ci.org/Qase/QuantiLogger)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
-[![Pod compatible](https://cocoapod-badges.herokuapp.com/v/QuantiLogger/badge.png)](https://cocoapods.org)
+[![Pod compatible](https://img.shields.io/cocoapods/v/QuantiBase.svg?style=flat)](https://cocoapods.org)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![codebeat badge](https://codebeat.co/badges/4b554069-7c41-4ddd-9a84-9498896a909c)](https://codebeat.co/projects/github-com-qase-quantilogger-master)
 [![Maintainer: Martin](https://img.shields.io/badge/Maintains-Martin-blue.svg)](mailto:martin.troup@quanti.cz)
