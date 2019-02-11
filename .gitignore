@@ -63,10 +63,6 @@ fastlane/Preview.html
 fastlane/screenshots
 fastlane/test_output
 
-# Developer defaults
-#
-# Out custom quanti class for developers to easy use defaults values while developing app
-2N-mobile-communicator/DeveloperDefaults.plist
 docs
 
 .DS_Store
