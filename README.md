@@ -32,7 +32,7 @@ To integrate QuantiLogger into your Xcode project using Carthage, specify it in 
 ```
 github "Qase/QuantiLogger" ~> 1.13
 ``` 
-Run `carthage update` to build the framework and drag the built `QuantiLogger.framework` into your Xcode project.
+Run `carthage update` to build the framework and drag the built `QuantiLogger.framework` and its dependencies into your Xcode project.
 
 ### CocoaPods
 
