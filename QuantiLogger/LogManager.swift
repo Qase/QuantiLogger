@@ -43,7 +43,7 @@ public class LogManager {
     private let serialLoggingQueue = DispatchQueue(label: "com.quanti.swift.QuantiLoggerSerial", qos: .background)
 	private let concurrentLoggingQueue = DispatchQueue(label: "com.quanti.swift.QuantiLoggerConcurrent", qos: .background, attributes: .concurrent)
 
-    public private(set) var loggers: [Logging]
+    private var loggers: [Logging]
 
 	private let applicationCallbackLogger = ApplicationCallbackLogger()
 	private let metaInformationLogger = MetaInformationLogger()
@@ -55,11 +55,18 @@ public class LogManager {
 		metaInformationLogger.delegate = self
     }
 
+	/// Method to return a specific logger if registered to the Log manager.
+	///
+	/// - Returns: the logger if exists, nil otherwise
+	func logger<T: Logging>() -> T? {
+		return loggers.compactMap { $0 as? T }.first
+	}
+
     /// Method to register a new custom or pre-build logger.
     ///
     /// - Parameter logger: Logger to be registered.
-    public func add(_ logger: Logging) {
-		if loggers.contains(where: { object_getClass($0) == object_getClass(logger) }) {
+	public func add<T: Logging>(_ logger: T) {
+		if loggers.contains(where: { $0 is T }) {
 			assertionFailure("LogManager does not support having multiple logger" +
 				"of the same type, such as two instances of FileLogger.")
 			return
@@ -68,6 +75,13 @@ public class LogManager {
         logger.configure()
         loggers.append(logger)
     }
+
+	/// Method to remove a specific logger registered to the Log manager.
+	///
+	/// - Parameter logger: to be removed
+	public func remove<T: Logging>(_ logger: T) {
+		loggers.removeAll { $0 is T }
+	}
 
     /// Method to remove all existing loggers registered to the Log manager.
     public func removeAllLoggers() {

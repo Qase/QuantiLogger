@@ -20,6 +20,10 @@ class QuantiLoggerTests: XCTestCase {
         super.tearDown()
     }
 
+	func testLogManager() {
+		// TODO:
+	}
+
     func testInicializationOfFileLogger() {
         // Set default values for all Logger properties and store them to UserDefaults
         let fileLoggerManager = FileLoggerManager.shared
