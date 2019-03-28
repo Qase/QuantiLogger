@@ -90,25 +90,21 @@ enum JSONValue {
     }
 
     subscript(i: Int) -> JSONValue? {
-        get {
-            switch self {
-            case .JSONArray(let value):
-                return value[i]
-            default:
-                return nil
-            }
-        }
+		switch self {
+		case .JSONArray(let value):
+			return value[i]
+		default:
+			return nil
+		}
     }
 
     subscript(key: String) -> JSONValue? {
-        get {
-            switch self {
-            case .JSONObject(let value):
-                return value[key]
-            default:
-                return nil
-            }
-        }
+		switch self {
+		case .JSONObject(let value):
+			return value[key]
+		default:
+			return nil
+		}
     }
 
 	// swiftlint:disable:next cyclomatic_complexity
