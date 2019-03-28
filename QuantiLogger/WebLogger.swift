@@ -88,7 +88,7 @@ public class WebLogger: Logging {
 
 	public init() {}
 
-	convenience init(serverUrl: String, sessionName: String) {
+	public convenience init(serverUrl: String, sessionName: String) {
 		self.init()
 
 		self.serverUrl = serverUrl
