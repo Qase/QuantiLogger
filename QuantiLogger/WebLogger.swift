@@ -88,6 +88,13 @@ public class WebLogger: Logging {
 
 	public init() {}
 
+	convenience init(serverUrl: String, sessionName: String) {
+		self.init()
+
+		self.serverUrl = serverUrl
+		self.sessionName = sessionName
+	}
+
     open func configure() {
         logSubject
             .buffer(timeSpan: timeSpan, count: sizeOfBatch, scheduler: MainScheduler.instance)
