@@ -58,7 +58,7 @@ public class LogManager {
 	/// Method to return a specific logger if registered to the Log manager.
 	///
 	/// - Returns: the logger if exists, nil otherwise
-	func logger<T: Logging>() -> T? {
+	public func logger<T: Logging>() -> T? {
 		return loggers.compactMap { $0 as? T }.first
 	}
 
