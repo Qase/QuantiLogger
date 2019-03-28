@@ -58,41 +58,28 @@ struct LogEntryBatch: JSONSerializable {
 
 public class WebLogger: Logging {
     // Default value is UUID which is same until someone reinstal the application
-    public var sessionName = UUID().uuidString
+	private let sessionName: String
 
     // Size of batch which is send to server API
     // In other word, lengt of array whith LogEntries
-    public var sizeOfBatch = 5
+	private let sizeOfBatch: Int
 
     // After this time interval LogEntries are send to server API, regardless of their amount
-    public var timeSpan: RxTimeInterval = 4
+    private let timeSpan: RxTimeInterval
 
-    public var serverUrl: String = WebLogger.defaultServerUrl {
-        didSet {
-            guard let _api = WebLoggerApi(url: serverUrl) else {
-                print("\(#function) - could not create an URL instance out of provided URL string.")
-                return
-            }
+    public static let defaultServerUrl = "http://localhost:3000/api/v1"
 
-            self.api = _api
-        }
-    }
-
-    private static let defaultServerUrl = "http://localhost:3000/api/v1"
-
-    private var api = WebLoggerApi(url: WebLogger.defaultServerUrl)
+	private let api: WebLoggerApi?
 
     private let logSubject = ReplaySubject<LogEntry>.create(bufferSize: 10)
 
     private let bag = DisposeBag()
 
-	public init() {}
-
-	public convenience init(serverUrl: String, sessionName: String) {
-		self.init()
-
-		self.serverUrl = serverUrl
+	public init(serverUrl: String = WebLogger.defaultServerUrl, sessionName: String = UUID().uuidString, sizeOfBatch: Int = 5, timeSpan: RxTimeInterval = 4) {
+		self.api = WebLoggerApi(url: serverUrl)
 		self.sessionName = sessionName
+		self.sizeOfBatch = sizeOfBatch
+		self.timeSpan = timeSpan
 	}
 
     open func configure() {
