@@ -26,8 +26,8 @@ class QuantiLoggerTests: XCTestCase {
 		let consoleLogger = ConsoleLogger()
 		let fileLogger = FileLogger()
 
-		LogManager.shared.add(consoleLogger)
-		LogManager.shared.add(fileLogger)
+		_ = LogManager.shared.add(consoleLogger)
+		_ = LogManager.shared.add(fileLogger)
 
 		let retrievedConsoleLogger: ConsoleLogger? = LogManager.shared.logger()
 		XCTAssertNotNil(retrievedConsoleLogger)

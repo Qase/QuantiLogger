@@ -64,16 +64,17 @@ public class LogManager {
 
     /// Method to register a new custom or pre-build logger.
     ///
-    /// - Parameter logger: Logger to be registered.
-	public func add<T: Logging>(_ logger: T) {
+    /// - Parameter logger: Logger to be registered
+	/// - Returns: if adding succeds or not
+	public func add<T: Logging>(_ logger: T) -> Bool {
 		if loggers.contains(where: { $0 is T }) {
-			assertionFailure("LogManager does not support having multiple logger" +
-				"of the same type, such as two instances of FileLogger.")
-			return
+			QLog("LogManager does not support having multiple logger of the same type, such as two instances of FileLogger.", onLevel: .error)
+			return false
 		}
 
         logger.configure()
         loggers.append(logger)
+		return true
     }
 
 	/// Method to remove a specific logger registered to the Log manager.
