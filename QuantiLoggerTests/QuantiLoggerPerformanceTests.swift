@@ -40,7 +40,7 @@ class QuantiLoggerPerformanceTests: XCTestCase {
     func testDirectLog() {
 
         let performanceLogger = PerformanceLogger()
-        LogManager.shared.add(performanceLogger)
+        _ = LogManager.shared.add(performanceLogger)
 
         // This code log directly into logger, where is sleep for 1 second
         // So total run time should be 1s
@@ -53,7 +53,7 @@ class QuantiLoggerPerformanceTests: XCTestCase {
     func testOuterLog() {
 
         let performanceLogger = PerformanceLogger()
-        LogManager.shared.add(performanceLogger)
+        _ = LogManager.shared.add(performanceLogger)
 
         // This code use QLog wrapper over performance logger.
         // So work should be dispatch in special queue without blocking current thread
@@ -68,7 +68,7 @@ class QuantiLoggerPerformanceTests: XCTestCase {
 
     func testThousandRunNSLog() {
         let performanceLogger = PerformanceLogger()
-        LogManager.shared.add(performanceLogger)
+        _ = LogManager.shared.add(performanceLogger)
 
         self.measure {
             for _ in 1...1000 {
@@ -79,7 +79,7 @@ class QuantiLoggerPerformanceTests: XCTestCase {
 
     func testThousandRunPrint() {
         let performanceLogger = PerformanceLogger()
-        LogManager.shared.add(performanceLogger)
+        _ = LogManager.shared.add(performanceLogger)
 
         self.measure {
             for _ in 1...1000 {
@@ -91,7 +91,7 @@ class QuantiLoggerPerformanceTests: XCTestCase {
     func testThousandRunQLogConsoleAsync() {
         let consoleLogger = ConsoleLogger()
         consoleLogger.levels = [.info]
-        LogManager.shared.add(consoleLogger)
+        _ = LogManager.shared.add(consoleLogger)
 
         self.measure {
             for _ in 1...1000 {
@@ -105,7 +105,7 @@ class QuantiLoggerPerformanceTests: XCTestCase {
     func testThousandRunQLogFileAsync() {
         let fileLogger = FileLogger()
         fileLogger.levels = [.info]
-        LogManager.shared.add(fileLogger)
+        _ = LogManager.shared.add(fileLogger)
 
         self.measure {
             for _ in 1...1000 {
@@ -121,11 +121,11 @@ class QuantiLoggerPerformanceTests: XCTestCase {
 
         let fileLogger = FileLogger()
         fileLogger.levels = [.info]
-        LogManager.shared.add(fileLogger)
+        _ = LogManager.shared.add(fileLogger)
 
         let consoleLogger = ConsoleLogger()
         consoleLogger.levels = [.info]
-        LogManager.shared.add(consoleLogger)
+        _ = LogManager.shared.add(consoleLogger)
 
         self.measure {
             for _ in 1...1000 {
@@ -141,7 +141,7 @@ class QuantiLoggerPerformanceTests: XCTestCase {
 
         let consoleLogger = ConsoleLogger()
         consoleLogger.levels = [.info]
-        LogManager.shared.add(consoleLogger)
+        _ = LogManager.shared.add(consoleLogger)
 
         self.measure {
             for _ in 1...1000 {
@@ -155,7 +155,7 @@ class QuantiLoggerPerformanceTests: XCTestCase {
 
         let fileLogger = FileLogger()
         fileLogger.levels = [.info]
-        LogManager.shared.add(fileLogger)
+        _ = LogManager.shared.add(fileLogger)
 
         self.measure {
             for _ in 1...1000 {
@@ -169,11 +169,11 @@ class QuantiLoggerPerformanceTests: XCTestCase {
 
         let fileLogger = FileLogger()
         fileLogger.levels = [.info]
-        LogManager.shared.add(fileLogger)
+        _ = LogManager.shared.add(fileLogger)
 
         let consoleLogger = ConsoleLogger()
         consoleLogger.levels = [.info]
-        LogManager.shared.add(consoleLogger)
+        _ = LogManager.shared.add(consoleLogger)
 
         self.measure {
             for _ in 1...1000 {

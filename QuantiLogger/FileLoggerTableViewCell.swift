@@ -20,7 +20,7 @@ class FileLoggerTableViewCell: UITableViewCell {
     private let logHeaderLabel = UILabel()
     private let logBodyLabel = UILabel()
 
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
         setup()

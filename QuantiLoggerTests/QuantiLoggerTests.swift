@@ -79,11 +79,11 @@ class QuantiLoggerTests: XCTestCase {
         
         let consoleLogger = ConsoleLogger()
         consoleLogger.levels = [.warn, .error]
-        logManager.add(consoleLogger)
+        _ = logManager.add(consoleLogger)
         
         let fileLogger = FileLogger()
         fileLogger.levels = [.error, .info]
-        logManager.add(fileLogger)
+        _ = logManager.add(fileLogger)
         
         // Should be displayed in console + written to file
         QLog("Error message", onLevel: .error)
@@ -148,7 +148,7 @@ class QuantiLoggerTests: XCTestCase {
         
         let fileLogger = FileLogger()
         fileLogger.levels = [.error, .warn]
-        logManager.add(fileLogger)
+        _ = logManager.add(fileLogger)
         
         QLog("Error message", onLevel: .error)
         QLog("Warning message\nThis is test!", onLevel: .warn)

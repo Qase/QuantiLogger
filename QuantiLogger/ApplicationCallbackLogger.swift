@@ -38,37 +38,37 @@ public enum ApplicationCallbackType: String {
 	var notificationName: NSNotification.Name {
 		switch self {
 		case .willTerminate:
-			return NSNotification.Name.UIApplicationWillTerminate
+			return UIApplication.willTerminateNotification
 		case .didBecomeActive:
-			return NSNotification.Name.UIApplicationDidBecomeActive
+			return UIApplication.didBecomeActiveNotification
 		case .willResignActive:
-			return NSNotification.Name.UIApplicationWillResignActive
+			return UIApplication.willResignActiveNotification
 		case .didEnterBackground:
-			return NSNotification.Name.UIApplicationDidEnterBackground
+			return UIApplication.didEnterBackgroundNotification
 		case .didFinishLaunching:
-			return NSNotification.Name.UIApplicationDidFinishLaunching
+			return UIApplication.didFinishLaunchingNotification
 		case .willEnterForeground:
-			return NSNotification.Name.UIApplicationWillEnterForeground
+			return UIApplication.willEnterForegroundNotification
 		case .significantTimeChange:
-			return NSNotification.Name.UIApplicationSignificantTimeChange
+			return UIApplication.significantTimeChangeNotification
 		case .userDidTakeScreenshot:
-			return NSNotification.Name.UIApplicationUserDidTakeScreenshot
+			return UIApplication.userDidTakeScreenshotNotification
 		case .didChangeStatusBarFrame:
-			return NSNotification.Name.UIApplicationDidChangeStatusBarFrame
+			return UIApplication.didChangeStatusBarFrameNotification
 		case .didReceiveMemoryWarning:
-			return NSNotification.Name.UIApplicationDidReceiveMemoryWarning
+			return UIApplication.didReceiveMemoryWarningNotification
 		case .willChangeStatusBarFrame:
-			return NSNotification.Name.UIApplicationWillChangeStatusBarFrame
+			return UIApplication.willChangeStatusBarFrameNotification
 		case .didChangeStatusBarOrientation:
-			return NSNotification.Name.UIApplicationDidChangeStatusBarOrientation
+			return UIApplication.didChangeStatusBarOrientationNotification
 		case .willChangeStatusBarOrientation:
-			return NSNotification.Name.UIApplicationWillChangeStatusBarOrientation
+			return UIApplication.willChangeStatusBarOrientationNotification
 		case .protectedDataDidBecomeAvailable:
-			return NSNotification.Name.UIApplicationProtectedDataDidBecomeAvailable
+			return UIApplication.protectedDataDidBecomeAvailableNotification
 		case .backroundRefreshStatusDidChange:
-			return NSNotification.Name.UIApplicationBackgroundRefreshStatusDidChange
+			return UIApplication.backgroundRefreshStatusDidChangeNotification
 		case .protectedDataWillBecomeUnavailable:
-			return NSNotification.Name.UIApplicationProtectedDataWillBecomeUnavailable
+			return UIApplication.protectedDataWillBecomeUnavailableNotification
 		}
 	}
 }
