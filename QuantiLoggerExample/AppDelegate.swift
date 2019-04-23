@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    internal func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
         // Loggers setup
         let logManager = LogManager.shared
@@ -23,11 +23,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         let consoleLogger = ConsoleLogger()
         consoleLogger.levels = [.warn, .debug]
-        logManager.add(consoleLogger)
+        _ = logManager.add(consoleLogger)
 
         let fileLogger = FileLogger()
         fileLogger.levels = [.error, .warn]
-        logManager.add(fileLogger)
+        _ = logManager.add(fileLogger)
 
         //logManager.add(CrashLyticsLogger())
 

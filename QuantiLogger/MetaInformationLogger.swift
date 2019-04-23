@@ -6,7 +6,7 @@
 //  Copyright © 2018 quanti. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 public enum MetaInformationType: String {
 	case identifier = "CFBundleIdentifier"
