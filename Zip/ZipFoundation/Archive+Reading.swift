@@ -2,10 +2,10 @@
 //  Archive+Reading.swift
 //  ZIPFoundation
 //
-//  Copyright © 2017 Thomas Zoechling, https://www.peakstep.com and the ZIP Foundation project authors.
+//  Copyright © 2017-2019 Thomas Zoechling, https://www.peakstep.com and the ZIP Foundation project authors.
 //  Released under the MIT License.
 //
-//  See https://github.com/weichsel/ZIPFoundation/LICENSE for license information.
+//  See https://github.com/weichsel/ZIPFoundation/blob/master/LICENSE for license information.
 //
 
 import Foundation
@@ -27,11 +27,13 @@ extension Archive {
         switch entry.type {
         case .file:
             guard !fileManager.fileExists(atPath: url.path) else {
-                throw CocoaError.error(.fileWriteFileExists, userInfo: [NSFilePathErrorKey: url.path], url: nil)
+                throw CocoaError(.fileWriteFileExists, userInfo: [NSFilePathErrorKey: url.path])
             }
             try fileManager.createParentDirectoryStructure(for: url)
-            let destinationFileSystemRepresentation = fileManager.fileSystemRepresentation(withPath: url.path)
-            let destinationFile: UnsafeMutablePointer<FILE> = fopen(destinationFileSystemRepresentation, "wb+")
+            let destinationRepresentation = fileManager.fileSystemRepresentation(withPath: url.path)
+            guard let destinationFile: UnsafeMutablePointer<FILE> = fopen(destinationRepresentation, "wb+") else {
+                throw CocoaError(.fileNoSuchFile)
+            }
             defer { fclose(destinationFile) }
             let consumer = { _ = try Data.write(chunk: $0, to: destinationFile) }
             checksum = try self.extract(entry, bufferSize: bufferSize, progress: progress, consumer: consumer)
@@ -42,7 +44,7 @@ extension Archive {
             checksum = try self.extract(entry, bufferSize: bufferSize, progress: progress, consumer: consumer)
         case .symlink:
             guard !fileManager.fileExists(atPath: url.path) else {
-                throw CocoaError.error(.fileWriteFileExists, userInfo: [NSFilePathErrorKey: url.path], url: nil)
+                throw CocoaError(.fileWriteFileExists, userInfo: [NSFilePathErrorKey: url.path])
             }
             let consumer = { (data: Data) in
                 guard let linkPath = String(data: data, encoding: .utf8) else { throw ArchiveError.invalidEntryPath }
@@ -102,9 +104,9 @@ extension Archive {
                                   progress: Progress? = nil, with consumer: Consumer) throws -> CRC32 {
         let size = Int(entry.centralDirectoryStructure.uncompressedSize)
         return try Data.consumePart(of: size, chunkSize: Int(bufferSize), provider: { (_, chunkSize) -> Data in
-            if progress?.isCancelled == true { throw ArchiveError.cancelledOperation }
             return try Data.readChunk(of: Int(chunkSize), from: self.archiveFile)
         }, consumer: { (data) in
+            if progress?.isCancelled == true { throw ArchiveError.cancelledOperation }
             try consumer(data)
             progress?.completedUnitCount += Int64(data.count)
         })
@@ -114,9 +116,9 @@ extension Archive {
                                 progress: Progress? = nil, with consumer: Consumer) throws -> CRC32 {
         let size = Int(entry.centralDirectoryStructure.compressedSize)
         return try Data.decompress(size: size, bufferSize: Int(bufferSize), provider: { (_, chunkSize) -> Data in
-            if progress?.isCancelled == true { throw ArchiveError.cancelledOperation }
             return try Data.readChunk(of: chunkSize, from: self.archiveFile)
         }, consumer: { (data) in
+            if progress?.isCancelled == true { throw ArchiveError.cancelledOperation }
             try consumer(data)
             progress?.completedUnitCount += Int64(data.count)
         })

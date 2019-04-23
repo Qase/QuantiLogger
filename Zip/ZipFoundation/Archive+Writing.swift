@@ -2,10 +2,10 @@
 //  Archive+Writing.swift
 //  ZIPFoundation
 //
-//  Copyright © 2017 Thomas Zoechling, https://www.peakstep.com and the ZIP Foundation project authors.
+//  Copyright © 2017-2019 Thomas Zoechling, https://www.peakstep.com and the ZIP Foundation project authors.
 //  Released under the MIT License.
 //
-//  See https://github.com/weichsel/ZIPFoundation/LICENSE for license information.
+//  See https://github.com/weichsel/ZIPFoundation/blob/master/LICENSE for license information.
 //
 
 import Foundation
@@ -31,10 +31,10 @@ extension Archive {
         let fileManager = FileManager()
         let entryURL = baseURL.appendingPathComponent(path)
         guard fileManager.fileExists(atPath: entryURL.path) else {
-            throw CocoaError.error(.fileReadNoSuchFile, userInfo: [NSFilePathErrorKey: entryURL.path], url: nil)
+            throw CocoaError(.fileReadNoSuchFile, userInfo: [NSFilePathErrorKey: entryURL.path])
         }
         guard fileManager.isReadableFile(atPath: entryURL.path) else {
-            throw CocoaError.error(.fileReadNoPermission, userInfo: [NSFilePathErrorKey: url.path], url: nil)
+            throw CocoaError(.fileReadNoPermission, userInfo: [NSFilePathErrorKey: url.path])
         }
         let type = try FileManager.typeForItem(at: entryURL)
         let modDate = try FileManager.fileModificationDateTimeForItem(at: entryURL)
@@ -44,7 +44,9 @@ extension Archive {
         switch type {
         case .file:
             let entryFileSystemRepresentation = fileManager.fileSystemRepresentation(withPath: entryURL.path)
-            let entryFile: UnsafeMutablePointer<FILE> = fopen(entryFileSystemRepresentation, "rb")
+            guard let entryFile: UnsafeMutablePointer<FILE> = fopen(entryFileSystemRepresentation, "rb") else {
+                throw CocoaError(.fileNoSuchFile)
+            }
             defer { fclose(entryFile) }
             provider = { _, _ in return try Data.readChunk(of: Int(bufferSize), from: entryFile) }
             try self.addEntry(with: path, type: type, uncompressedSize: uncompressedSize,
@@ -60,7 +62,6 @@ extension Archive {
                               progress: progress, provider: provider)
         case .symlink:
             provider = { _, _ -> Data in
-                let fileManager = FileManager()
                 let linkDestination = try fileManager.destinationOfSymbolicLink(atPath: entryURL.path)
                 let linkFileSystemRepresentation = fileManager.fileSystemRepresentation(withPath: linkDestination)
                 let linkLength = Int(strlen(linkFileSystemRepresentation))
@@ -159,10 +160,10 @@ extension Archive {
                 let entryStart = Int(currentEntry.centralDirectoryStructure.relativeOffsetOfLocalHeader)
                 fseek(self.archiveFile, entryStart, SEEK_SET)
                 let provider: Provider = { (_, chunkSize) -> Data in
-                    if progress?.isCancelled == true { throw ArchiveError.cancelledOperation }
                     return try Data.readChunk(of: Int(chunkSize), from: self.archiveFile)
                 }
                 let consumer: Consumer = {
+                    if progress?.isCancelled == true { throw ArchiveError.cancelledOperation }
                     _ = try Data.write(chunk: $0, to: tempArchive.archiveFile)
                     progress?.completedUnitCount += Int64($0.count)
                 }

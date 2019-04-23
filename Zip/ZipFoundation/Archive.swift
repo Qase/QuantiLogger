@@ -2,10 +2,10 @@
 //  Archive.swift
 //  ZIPFoundation
 //
-//  Copyright © 2017 Thomas Zoechling, https://www.peakstep.com and the ZIP Foundation project authors.
+//  Copyright © 2017-2019 Thomas Zoechling, https://www.peakstep.com and the ZIP Foundation project authors.
 //  Released under the MIT License.
 //
-//  See https://github.com/weichsel/ZIPFoundation/LICENSE for license information.
+//  See https://github.com/weichsel/ZIPFoundation/blob/master/LICENSE for license information.
 //
 
 import Foundation
@@ -112,6 +112,7 @@ public final class Archive: Sequence {
     public let accessMode: AccessMode
     var archiveFile: UnsafeMutablePointer<FILE>
     var endOfCentralDirectoryRecord: EndOfCentralDirectoryRecord
+    var preferredEncoding: String.Encoding?
 
     /// Initializes a new ZIP `Archive`.
     ///
@@ -126,25 +127,28 @@ public final class Archive: Sequence {
     /// - Parameters:
     ///   - url: File URL to the receivers backing file.
     ///   - mode: Access mode of the receiver.
+    ///   - preferredEncoding: Encoding for entry paths. Overrides the encoding specified in the archive.
     ///
     /// - Returns: An archive initialized with a backing file at the passed in file URL and the given access mode
     ///   or `nil` if the following criteria are not met:
     ///   - The file URL _must_ point to an existing file for `AccessMode.read`
     ///   - The file URL _must_ point to a non-existing file for `AccessMode.write`
     ///   - The file URL _must_ point to an existing file for `AccessMode.update`
-    public init?(url: URL, accessMode mode: AccessMode) {
+    public init?(url: URL, accessMode mode: AccessMode, preferredEncoding: String.Encoding? = nil) {
         self.url = url
         self.accessMode = mode
+        self.preferredEncoding = preferredEncoding
         let fileManager = FileManager()
         switch mode {
         case .read:
             guard fileManager.fileExists(atPath: url.path) else { return nil }
             guard fileManager.isReadableFile(atPath: url.path) else { return nil }
             let fileSystemRepresentation = fileManager.fileSystemRepresentation(withPath: url.path)
-            self.archiveFile = fopen(fileSystemRepresentation, "rb")
-            guard let endOfCentralDirectoryRecord = Archive.scanForEndOfCentralDirectoryRecord(in: archiveFile) else {
+            guard let archiveFile = fopen(fileSystemRepresentation, "rb"),
+                let endOfCentralDirectoryRecord = Archive.scanForEndOfCentralDirectoryRecord(in: archiveFile) else {
                 return nil
             }
+            self.archiveFile = archiveFile
             self.endOfCentralDirectoryRecord = endOfCentralDirectoryRecord
         case .create:
             guard !fileManager.fileExists(atPath: url.path) else { return nil }
@@ -161,10 +165,11 @@ public final class Archive: Sequence {
         case .update:
             guard fileManager.isWritableFile(atPath: url.path) else { return nil }
             let fileSystemRepresentation = fileManager.fileSystemRepresentation(withPath: url.path)
-            self.archiveFile = fopen(fileSystemRepresentation, "rb+")
-            guard let endOfCentralDirectoryRecord = Archive.scanForEndOfCentralDirectoryRecord(in: archiveFile) else {
+            guard let archiveFile = fopen(fileSystemRepresentation, "rb+"),
+                let endOfCentralDirectoryRecord = Archive.scanForEndOfCentralDirectoryRecord(in: archiveFile) else {
                 return nil
             }
+            self.archiveFile = archiveFile
             self.endOfCentralDirectoryRecord = endOfCentralDirectoryRecord
             fseek(self.archiveFile, 0, SEEK_SET)
         }
@@ -188,7 +193,7 @@ public final class Archive: Sequence {
             let offset = Int(centralDirStruct.relativeOffsetOfLocalHeader)
             guard let localFileHeader: LocalFileHeader = Data.readStruct(from: self.archiveFile,
                                                                          at: offset) else { return nil }
-            var dataDescriptor: DataDescriptor? = nil
+            var dataDescriptor: DataDescriptor?
             if centralDirStruct.usesDataDescriptor {
                 let additionalSize = Int(localFileHeader.fileNameLength + localFileHeader.extraFieldLength)
                 let isCompressed = centralDirStruct.compressionMethod != CompressionMethod.none.rawValue
@@ -217,6 +222,9 @@ public final class Archive: Sequence {
     /// - Parameter path: A relative file path identifiying the corresponding `Entry`.
     /// - Returns: An `Entry` with the given `path`. Otherwise, `nil`.
     public subscript(path: String) -> Entry? {
+        if let encoding = preferredEncoding {
+            return self.filter { $0.path(using: encoding) == path }.first
+        }
         return self.filter { $0.path == path }.first
     }
 
