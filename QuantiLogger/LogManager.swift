@@ -66,6 +66,7 @@ public class LogManager {
     ///
     /// - Parameter logger: Logger to be registered
 	/// - Returns: if adding succeds or not
+    @discardableResult
 	public func add<T: Logging>(_ logger: T) -> Bool {
 		if loggers.contains(where: { $0 is T }) {
 			QLog("LogManager does not support having multiple logger of the same type, such as two instances of FileLogger.", onLevel: .error)
