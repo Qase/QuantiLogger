@@ -6,7 +6,7 @@
 //  Copyright © 2016 quanti. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 public protocol Logging {
 	var levels: [Level] { get set }

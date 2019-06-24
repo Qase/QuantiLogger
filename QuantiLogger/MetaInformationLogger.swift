@@ -6,7 +6,10 @@
 //  Copyright © 2018 quanti. All rights reserved.
 //
 
+import Foundation
+#if canImport(UIKit)
 import UIKit
+#endif
 
 public enum MetaInformationType: String {
 	case identifier = "CFBundleIdentifier"
@@ -47,7 +50,13 @@ class MetaInformationLogger {
 	}
 
 	private var currentOSVersion: String {
-		return UIDevice.current.systemVersion
+        #if canImport(UIKit)
+        return UIDevice.current.systemVersion
+        #elseif os(OSX)
+        return ProcessInfo.processInfo.operatingSystemVersionString
+        #else
+        return "Unknown OS"
+        #endif
 	}
 
 	private var language: String? {

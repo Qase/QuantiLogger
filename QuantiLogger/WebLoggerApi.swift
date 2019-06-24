@@ -6,7 +6,7 @@
 //  Copyright © 2018 Jakub Prusa. All rights reserved.
 //
 
-import UIKit
+import Foundation
 import RxSwift
 
 protocol WebLoggerApiType {

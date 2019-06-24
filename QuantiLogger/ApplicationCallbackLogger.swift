@@ -6,6 +6,9 @@
 //  Copyright © 2017 quanti. All rights reserved.
 //
 
+import Foundation
+
+#if canImport(UIKit)
 import UIKit
 
 public enum ApplicationCallbackType: String, CaseIterable {
@@ -63,7 +66,60 @@ public enum ApplicationCallbackType: String, CaseIterable {
 		}
 	}
 }
+#elseif canImport(Cocoa)
+import Cocoa
 
+public enum ApplicationCallbackType: String, CaseIterable {
+    case didBecomeActiveNotification
+    case didChangeOcclusionStateNotification
+    case didChangeScreenParametersNotification
+    case didFinishLaunchingNotification
+    case didFinishRestoringWindowsNotification
+    case didHideNotification
+    case didResignActiveNotification
+    case didUnhideNotification
+    case willBecomeActiveNotification
+    case willFinishLaunchingNotification
+    case willHideNotification
+    case willResignActiveNotification
+    case willTerminateNotification
+    case willUnhideNotification
+
+    var notificationName: NSNotification.Name {
+        switch self {
+        case .didBecomeActiveNotification:
+            return NSApplication.didBecomeActiveNotification
+        case .didChangeOcclusionStateNotification:
+            return NSApplication.didChangeOcclusionStateNotification
+        case .didChangeScreenParametersNotification:
+            return NSApplication.didChangeScreenParametersNotification
+        case .didFinishLaunchingNotification:
+            return NSApplication.didFinishLaunchingNotification
+        case .didFinishRestoringWindowsNotification:
+            return NSApplication.didFinishRestoringWindowsNotification
+        case .didHideNotification:
+            return NSApplication.didHideNotification
+        case .didResignActiveNotification:
+            return NSApplication.didResignActiveNotification
+        case .didUnhideNotification:
+            return NSApplication.didUnhideNotification
+        case .willBecomeActiveNotification:
+            return NSApplication.willBecomeActiveNotification
+        case .willFinishLaunchingNotification:
+            return NSApplication.willFinishLaunchingNotification
+        case .willHideNotification:
+            return NSApplication.willHideNotification
+        case .willResignActiveNotification:
+            return NSApplication.willResignActiveNotification
+        case .willTerminateNotification:
+            return NSApplication.willTerminateNotification
+        case .willUnhideNotification:
+            return NSApplication.willUnhideNotification
+        }
+
+    }
+}
+#endif
 protocol ApplicationCallbackLoggerDelegate: class {
 	func logApplicationCallback(_ message: String, onLevel level: Level)
 }
@@ -122,8 +178,14 @@ class ApplicationCallbackLogger {
 	///
 	/// - Parameter callbacks: callbacks to be added
 	private func addNotifications(`for` callbacks: [ApplicationCallbackType]) {
+
 		callbacks.forEach { (callback) in
-			NotificationCenter.default.addObserver(self, selector: Selector(callback.rawValue), name: callback.notificationName, object: nil)
+            #if canImport(UIKit)
+            let selector = Selector(callback.rawValue)
+            #elseif os(OSX)
+            let selector = #selector(logNotification(_:))
+            #endif
+            NotificationCenter.default.addObserver(self, selector: selector, name: callback.notificationName, object: nil)
 		}
 	}
 }
@@ -134,6 +196,7 @@ extension ApplicationCallbackLogger {
 		delegate?.logApplicationCallback(message, onLevel: level)
 	}
 
+    #if canImport(UIKit)
 	@objc fileprivate func willTerminate() {
 		log("\(#function)", onLevel: level)
 	}
@@ -197,4 +260,15 @@ extension ApplicationCallbackLogger {
 	@objc fileprivate func protectedDataWillBecomeUnavailable() {
 		log("\(#function)", onLevel: level)
 	}
+
+    #elseif os(OSX)
+    @objc fileprivate func logNotification(_ notification: NSNotification) {
+
+        let notificationName = notification.name.rawValue
+            .replacingOccurrences(of: "NSApplication", with: "NSApplication: ")
+            .replacingOccurrences(of: "Notification", with: "")
+
+        log("\(notificationName)", onLevel: level)
+    }
+    #endif
 }
