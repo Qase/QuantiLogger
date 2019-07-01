@@ -38,7 +38,6 @@
 		5BA6AB08226F42BA00FBB047 /* Archive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA6AAFB226F42BA00FBB047 /* Archive.swift */; };
 		5BA6AB09226F42BA00FBB047 /* Archive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA6AAFB226F42BA00FBB047 /* Archive.swift */; };
 		5BAF4F241DC8DA35000379A4 /* QuantiLoggerConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAF4F231DC8DA35000379A4 /* QuantiLoggerConstants.swift */; };
-		5BD5D7F01DD361B0003AF2A7 /* LogFilesViaMailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD5D7EF1DD361B0003AF2A7 /* LogFilesViaMailViewController.swift */; };
 		5BDA79CD1DBFB6CF00930ABA /* ConsoleLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDA79CC1DBFB6CF00930ABA /* ConsoleLogger.swift */; };
 		5BEBBB191DC9EAC20055E453 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEBBB181DC9EAC20055E453 /* DateExtension.swift */; };
 		5BF451381FF568A500E18215 /* ApplicationCallbackLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF451371FF568A500E18215 /* ApplicationCallbackLogger.swift */; };
@@ -55,7 +54,6 @@
 		5BF9573D1F5ED38500F88F9B /* LogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3641A61DBFAD5D0034EF68 /* LogManager.swift */; };
 		5BF9573F1F5ED38D00F88F9B /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3641A41DBFACF80034EF68 /* Logging.swift */; };
 		5BF957411F5ED39400F88F9B /* SystemLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B16551A1EE585E0000D4652 /* SystemLogger.swift */; };
-		5BF957421F5ED39800F88F9B /* LogFilesViaMailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD5D7EF1DD361B0003AF2A7 /* LogFilesViaMailViewController.swift */; };
 		5BF957431F5ED39C00F88F9B /* FileLoggerTableViewDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA3645A1DD0EC160017F9EB /* FileLoggerTableViewDatasource.swift */; };
 		5BF957441F5ED39E00F88F9B /* FileLoggerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFA877E1DD1F6B40063CB73 /* FileLoggerTableViewCell.swift */; };
 		5BF957451F5ED3A100F88F9B /* FileLoggerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B35E35D1DC0C87300C7E679 /* FileLoggerManager.swift */; };
@@ -63,6 +61,7 @@
 		5BF957471F5ED3A700F88F9B /* LogFileRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA3645C1DD0EDD10017F9EB /* LogFileRecord.swift */; };
 		5BF957481F5ED3AA00F88F9B /* ConsoleLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDA79CC1DBFB6CF00930ABA /* ConsoleLogger.swift */; };
 		5BFA877F1DD1F6B40063CB73 /* FileLoggerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFA877E1DD1F6B40063CB73 /* FileLoggerTableViewCell.swift */; };
+		6C07CA8522CA6C740009203A /* LogFilesViaMailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C07CA8422CA6C730009203A /* LogFilesViaMailViewController.swift */; };
 		6C5DF0AC22C0E96600271501 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA6AAF7226F42B900FBB047 /* Entry.swift */; };
 		6C5DF0AD22C0E96600271501 /* WebLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32E659220D15A5C00698F3E /* WebLogger.swift */; };
 		6C5DF0AE22C0E96600271501 /* URLRequest+logDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32E659C20D15A7000698F3E /* URLRequest+logDescription.swift */; };
@@ -137,26 +136,25 @@
 		5B2782511DC9F72A00525431 /* FileLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileLogger.swift; sourceTree = "<group>"; };
 		5B35E35D1DC0C87300C7E679 /* FileLoggerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileLoggerManager.swift; sourceTree = "<group>"; };
 		5B3641881DBFA4650034EF68 /* QuantiLogger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = QuantiLogger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5B36418B1DBFA4650034EF68 /* QuantiLogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuantiLogger.h; sourceTree = "<group>"; };
-		5B36418C1DBFA4650034EF68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5B36418B1DBFA4650034EF68 /* QuantiLogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = QuantiLogger.h; path = ios/QuantiLogger.h; sourceTree = "<group>"; };
+		5B36418C1DBFA4650034EF68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ios/Info.plist; sourceTree = "<group>"; };
 		5B3641911DBFA4650034EF68 /* QuantiLoggerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuantiLoggerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B3641961DBFA4650034EF68 /* QuantiLoggerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuantiLoggerTests.swift; sourceTree = "<group>"; };
 		5B3641981DBFA4650034EF68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5B3641A21DBFAC810034EF68 /* Level.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
+		5B3641A21DBFAC810034EF68 /* Level.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Level.swift; path = common/Level.swift; sourceTree = "<group>"; };
 		5B3641A41DBFACF80034EF68 /* Logging.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logging.swift; sourceTree = "<group>"; };
-		5B3641A61DBFAD5D0034EF68 /* LogManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogManager.swift; sourceTree = "<group>"; };
+		5B3641A61DBFAD5D0034EF68 /* LogManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LogManager.swift; path = common/LogManager.swift; sourceTree = "<group>"; };
 		5B4E481F20DA68AE00BF2BA8 /* RxTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxTest.framework; path = Carthage/Build/iOS/RxTest.framework; sourceTree = SOURCE_ROOT; };
 		5BA3645A1DD0EC160017F9EB /* FileLoggerTableViewDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileLoggerTableViewDatasource.swift; sourceTree = "<group>"; };
 		5BA3645C1DD0EDD10017F9EB /* LogFileRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogFileRecord.swift; sourceTree = "<group>"; };
-		5BA6AAF5226F42B900FBB047 /* Archive+Writing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Archive+Writing.swift"; path = "../ZipFoundation/Archive+Writing.swift"; sourceTree = "<group>"; };
-		5BA6AAF6226F42B900FBB047 /* Data+Compression.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Data+Compression.swift"; path = "../ZipFoundation/Data+Compression.swift"; sourceTree = "<group>"; };
-		5BA6AAF7226F42B900FBB047 /* Entry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Entry.swift; path = ../ZipFoundation/Entry.swift; sourceTree = "<group>"; };
-		5BA6AAF8226F42B900FBB047 /* Data+Serialization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Data+Serialization.swift"; path = "../ZipFoundation/Data+Serialization.swift"; sourceTree = "<group>"; };
-		5BA6AAF9226F42B900FBB047 /* Archive+Reading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Archive+Reading.swift"; path = "../ZipFoundation/Archive+Reading.swift"; sourceTree = "<group>"; };
-		5BA6AAFA226F42B900FBB047 /* FileManager+ZIP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "FileManager+ZIP.swift"; path = "../ZipFoundation/FileManager+ZIP.swift"; sourceTree = "<group>"; };
-		5BA6AAFB226F42BA00FBB047 /* Archive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Archive.swift; path = ../ZipFoundation/Archive.swift; sourceTree = "<group>"; };
+		5BA6AAF5226F42B900FBB047 /* Archive+Writing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Archive+Writing.swift"; sourceTree = "<group>"; };
+		5BA6AAF6226F42B900FBB047 /* Data+Compression.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Data+Compression.swift"; sourceTree = "<group>"; };
+		5BA6AAF7226F42B900FBB047 /* Entry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
+		5BA6AAF8226F42B900FBB047 /* Data+Serialization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Data+Serialization.swift"; sourceTree = "<group>"; };
+		5BA6AAF9226F42B900FBB047 /* Archive+Reading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Archive+Reading.swift"; sourceTree = "<group>"; };
+		5BA6AAFA226F42B900FBB047 /* FileManager+ZIP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FileManager+ZIP.swift"; sourceTree = "<group>"; };
+		5BA6AAFB226F42BA00FBB047 /* Archive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Archive.swift; sourceTree = "<group>"; };
 		5BAF4F231DC8DA35000379A4 /* QuantiLoggerConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuantiLoggerConstants.swift; sourceTree = "<group>"; };
-		5BD5D7EF1DD361B0003AF2A7 /* LogFilesViaMailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogFilesViaMailViewController.swift; sourceTree = "<group>"; };
 		5BDA79CC1DBFB6CF00930ABA /* ConsoleLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsoleLogger.swift; sourceTree = "<group>"; };
 		5BEBBB181DC9EAC20055E453 /* DateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		5BF451371FF568A500E18215 /* ApplicationCallbackLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCallbackLogger.swift; sourceTree = "<group>"; };
@@ -171,9 +169,10 @@
 		5BF957301F5ED1E100F88F9B /* LogListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogListTableViewController.swift; sourceTree = "<group>"; };
 		5BF957321F5ED1F500F88F9B /* SendLogFilesViaMailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendLogFilesViaMailViewController.swift; sourceTree = "<group>"; };
 		5BFA877E1DD1F6B40063CB73 /* FileLoggerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileLoggerTableViewCell.swift; sourceTree = "<group>"; };
+		6C07CA8422CA6C730009203A /* LogFilesViaMailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogFilesViaMailViewController.swift; sourceTree = "<group>"; };
 		6C5DF0D722C0E96600271501 /* QuantiLoggerMac.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = QuantiLoggerMac.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6CA969E222C0E4FC009185F6 /* QuantiLoggerMac.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuantiLoggerMac.h; sourceTree = "<group>"; };
-		6CA969E322C0E4FC009185F6 /* InfoMac.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = InfoMac.plist; sourceTree = "<group>"; };
+		6CA969E222C0E4FC009185F6 /* QuantiLoggerMac.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = QuantiLoggerMac.h; path = mac/QuantiLoggerMac.h; sourceTree = "<group>"; };
+		6CA969E322C0E4FC009185F6 /* InfoMac.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = InfoMac.plist; path = mac/InfoMac.plist; sourceTree = "<group>"; };
 		6CA969E822C0E681009185F6 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/Mac/RxSwift.framework; sourceTree = SOURCE_ROOT; };
 		6CA969E922C0E681009185F6 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/Mac/RxCocoa.framework; sourceTree = SOURCE_ROOT; };
 		D32E659220D15A5C00698F3E /* WebLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebLogger.swift; sourceTree = "<group>"; };
@@ -288,6 +287,7 @@
 				D32E659020D1541300698F3E /* WebLogger */,
 			);
 			name = Loggers;
+			path = common;
 			sourceTree = "<group>";
 		};
 		5B35E35F1DC0EF0F00C7E679 /* Basic */ = {
@@ -299,6 +299,7 @@
 				D3405D4F1F4C494200A1987F /* DateHelper.swift */,
 			);
 			name = Basic;
+			path = common;
 			sourceTree = "<group>";
 		};
 		5B35E3601DC0EF1A00C7E679 /* Extensions */ = {
@@ -354,7 +355,7 @@
 			path = QuantiLoggerTests;
 			sourceTree = "<group>";
 		};
-		5BA6AAF4226F429400FBB047 /* ZIPFoundation */ = {
+		5BA6AAF4226F429400FBB047 /* Zip */ = {
 			isa = PBXGroup;
 			children = (
 				5BA6AAFB226F42BA00FBB047 /* Archive.swift */,
@@ -365,7 +366,8 @@
 				5BA6AAF7226F42B900FBB047 /* Entry.swift */,
 				5BA6AAFA226F42B900FBB047 /* FileManager+ZIP.swift */,
 			);
-			path = ZIPFoundation;
+			name = Zip;
+			path = ../QuantiLogger/common/Zip;
 			sourceTree = "<group>";
 		};
 		5BC00C971DC77C1200C3B89D /* ConsoleLogger */ = {
@@ -391,9 +393,10 @@
 		5BD5D7EE1DD3617A003AF2A7 /* LogFilesViaMail */ = {
 			isa = PBXGroup;
 			children = (
-				5BD5D7EF1DD361B0003AF2A7 /* LogFilesViaMailViewController.swift */,
+				6C07CA8422CA6C730009203A /* LogFilesViaMailViewController.swift */,
 			);
 			name = LogFilesViaMail;
+			path = ../ios;
 			sourceTree = "<group>";
 		};
 		5BF957001F5ECF1C00F88F9B /* QuantiLoggerExample */ = {
@@ -433,6 +436,7 @@
 				5BFA877E1DD1F6B40063CB73 /* FileLoggerTableViewCell.swift */,
 			);
 			name = TableViewDatasource;
+			path = ../ios;
 			sourceTree = "<group>";
 		};
 		D32E659020D1541300698F3E /* WebLogger */ = {
@@ -449,7 +453,7 @@
 			children = (
 				6CA969E922C0E681009185F6 /* RxCocoa.framework */,
 				6CA969E822C0E681009185F6 /* RxSwift.framework */,
-				5BA6AAF4226F429400FBB047 /* ZIPFoundation */,
+				5BA6AAF4226F429400FBB047 /* Zip */,
 				5B4E481F20DA68AE00BF2BA8 /* RxTest.framework */,
 				D32E65AA20D15E3E00698F3E /* RxBlocking.framework */,
 				D32E65A820D15E3D00698F3E /* RxCocoa.framework */,
@@ -752,9 +756,9 @@
 				5B3641A31DBFAC810034EF68 /* Level.swift in Sources */,
 				5BAF4F241DC8DA35000379A4 /* QuantiLoggerConstants.swift in Sources */,
 				D32E65A020D15A7100698F3E /* BaseApi.swift in Sources */,
-				5BD5D7F01DD361B0003AF2A7 /* LogFilesViaMailViewController.swift in Sources */,
 				5B1E989E20974F9000855C80 /* MetaInformationLogger.swift in Sources */,
 				5BFA877F1DD1F6B40063CB73 /* FileLoggerTableViewCell.swift in Sources */,
+				6C07CA8522CA6C740009203A /* LogFilesViaMailViewController.swift in Sources */,
 				D32E65A320D15A7100698F3E /* HttpMethod.swift in Sources */,
 				5BA3645D1DD0EDD10017F9EB /* LogFileRecord.swift in Sources */,
 			);
@@ -776,7 +780,6 @@
 				5BF9573D1F5ED38500F88F9B /* LogManager.swift in Sources */,
 				5BA6AB05226F42BA00FBB047 /* Archive+Reading.swift in Sources */,
 				5BF957451F5ED3A100F88F9B /* FileLoggerManager.swift in Sources */,
-				5BF957421F5ED39800F88F9B /* LogFilesViaMailViewController.swift in Sources */,
 				5BF957311F5ED1E100F88F9B /* LogListTableViewController.swift in Sources */,
 				5BF957431F5ED39C00F88F9B /* FileLoggerTableViewDatasource.swift in Sources */,
 				5BF9573A1F5ED37900F88F9B /* DateExtension.swift in Sources */,
@@ -996,7 +999,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/iOS";
-				INFOPLIST_FILE = QuantiLogger/Info.plist;
+				INFOPLIST_FILE = QuantiLogger/ios/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
@@ -1022,7 +1025,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/iOS";
-				INFOPLIST_FILE = QuantiLogger/Info.plist;
+				INFOPLIST_FILE = QuantiLogger/ios/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.quanti.swift.QuantiLogger;
@@ -1144,7 +1147,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/Mac";
-				INFOPLIST_FILE = QuantiLogger/InfoMac.plist;
+				INFOPLIST_FILE = QuantiLogger/mac/InfoMac.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
@@ -1172,7 +1175,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/Mac";
-				INFOPLIST_FILE = QuantiLogger/InfoMac.plist;
+				INFOPLIST_FILE = QuantiLogger/mac/InfoMac.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;

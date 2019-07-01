@@ -89,10 +89,9 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "QuantiLogger/*.{swift}", "Zip/**/*.{h,m,swift}"
-  s.ios.source_files = "QuantiLogger/QuantiLogger.h"
-  s.osx.source_files = "QuantiLogger/QuantiLoggerMac.h"
-  s.osx.exclude_files = "QuantiLogger/{FileLoggerTableViewCell,FileLoggerTableViewDatasource,LogFilesViaMailViewController}.swift"
+  s.source_files  = "QuantiLogger/common", "QuantiLogger/common/Zip"
+  s.ios.source_files = "QuantiLogger/ios/*.{h,m,swift}"
+  s.osx.source_files = "QuantiLogger/mac/*.{h,m,swift}"
   s.dependency "RxSwift", "~> 4.0"
   s.dependency "RxCocoa", "~> 4.0"
 
