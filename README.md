@@ -1,5 +1,5 @@
-![Platform](https://img.shields.io/cocoapods/p/PagingKit.svg?style=flat)
-![Swift 4.0](https://img.shields.io/badge/Swift-4.0-orange.svg)
+![Platform](https://img.shields.io/cocoapods/p/QuantiLogger.svg)
+![Swift 5.0](https://img.shields.io/badge/Swift-5.0-orange.svg)
 [![travis badge](https://travis-ci.org/Qase/QuantiLogger.svg)](https://travis-ci.org/Qase/QuantiLogger)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Pod compatible](https://img.shields.io/cocoapods/v/QuantiLogger.svg?style=flat)](https://cocoapods.org)
@@ -14,8 +14,8 @@ QuantiLogger is a super lightweight logging library for iOS development in Swift
 
 ## Requirements
 
-- Swift 4.0+
-- Xcode 9+
+- Swift 5.0+
+- Xcode 10+
 - iOS 11.0+
 - RxSwift 4.0+ (NOTE: QuantiLogger uses set of RxSwift libraries and takes advantage of its provided reactive functionality.) 
 
@@ -30,7 +30,7 @@ $ brew install carthage
 ```
 To integrate QuantiLogger into your Xcode project using Carthage, specify it in your `Cartfile`:
 ```
-github "Qase/QuantiLogger" ~> 1.13
+github "Qase/QuantiLogger" ~> 1.17
 ``` 
 Run `carthage update` to build the framework and drag the built `QuantiLogger.framework` and its dependencies into your Xcode project.
 
@@ -43,11 +43,11 @@ $ gem install cocoapods
 To integrate QuantiLogger into your Xcode project using CocoaPods, specify it in your Podfile:
 ```
 source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '10.0'
+platform :ios, '11.0'
 use_frameworks!
 
 target '<Your Target Name>' do
-  pod 'QuantiLogger', '~> 1.13'
+  pod 'QuantiLogger', '~> 1.17'
 end
 ```
 Then, run the following command:
