@@ -54,6 +54,31 @@ Then, run the following command:
 ```
 $ pod install
 ```
+### Swift Package Manager
+The [Swift Package Manager](https://swift.org/package-manager/) is a tool for managing the distribution of Swift code. The Package Manager is included in Swift 3.0 and above.
+
+In file `Package.swift` in the dependencies parameter add the following: 
+
+`.package(url: "https://github.com/Qase/QuantiLogger", from: "1.17")`
+
+so it should look something like this: 
+```
+let package = Package(
+    name: "YOUR_APP_NAME",
+    dependencies: [
+        .package(url: "https://github.com/Qase/QuantiLogger", from: "1.17")
+    ]
+)
+```
+then run 
+`$ swift build`
+and 
+`$ 
+swift package generate-xcodeproj`
+
+For updating use
+`$ swift package update`
+
 
 ## Usage
 
