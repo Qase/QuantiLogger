@@ -96,6 +96,7 @@
 		6C5DF0DC22C0EA1400271501 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CA969E822C0E681009185F6 /* RxSwift.framework */; };
 		6C5DF0DD22C0EED600271501 /* ApplicationCallbackLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF451371FF568A500E18215 /* ApplicationCallbackLogger.swift */; };
 		6C5DF0E322C103F600271501 /* QuantiLoggerMac.h in Headers */ = {isa = PBXBuildFile; fileRef = 6CA969E222C0E4FC009185F6 /* QuantiLoggerMac.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6CF70E3922CB6AA60058D080 /* LogFilesViaMailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C07CA8422CA6C730009203A /* LogFilesViaMailViewController.swift */; };
 		D32E659320D15A5C00698F3E /* WebLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32E659220D15A5C00698F3E /* WebLogger.swift */; };
 		D32E659E20D15A7100698F3E /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32E659420D15A6900698F3E /* JSONParser.swift */; };
 		D32E659F20D15A7100698F3E /* ApiFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32E659520D15A6A00698F3E /* ApiFactory.swift */; };
@@ -792,6 +793,7 @@
 				5BF957021F5ECF1C00F88F9B /* AppDelegate.swift in Sources */,
 				5BF957441F5ED39E00F88F9B /* FileLoggerTableViewCell.swift in Sources */,
 				5BF957481F5ED3AA00F88F9B /* ConsoleLogger.swift in Sources */,
+				6CF70E3922CB6AA60058D080 /* LogFilesViaMailViewController.swift in Sources */,
 				5BF9573B1F5ED37B00F88F9B /* DateHelper.swift in Sources */,
 				5B6B33441FF847C800CB106D /* ApplicationCallbackLogger.swift in Sources */,
 				5BA6AB01226F42BA00FBB047 /* Entry.swift in Sources */,
