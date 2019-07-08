@@ -75,12 +75,15 @@ public class WebLogger: Logging {
 
     private let bag = DisposeBag()
 
-	public init(serverUrl: String = WebLogger.defaultServerUrl, sessionName: String = UUID().uuidString, sizeOfBatch: Int = 5, timeSpan: RxTimeInterval = 4) {
-		self.api = WebLoggerApi(url: serverUrl)
-		self.sessionName = sessionName
-		self.sizeOfBatch = sizeOfBatch
-		self.timeSpan = timeSpan
-	}
+    public init(serverUrl: String = WebLogger.defaultServerUrl,
+                sessionName: String = UUID().uuidString,
+                sizeOfBatch: Int = 5,
+                timeSpan: RxTimeInterval = .seconds(4)) {
+        self.api = WebLoggerApi(url: serverUrl)
+        self.sessionName = sessionName
+        self.sizeOfBatch = sizeOfBatch
+        self.timeSpan = timeSpan
+    }
 
     open func configure() {
         logSubject
