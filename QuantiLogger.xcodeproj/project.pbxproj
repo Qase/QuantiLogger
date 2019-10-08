@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B152C7D234CDA7D006FAF97 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B152C7C234CDA7D006FAF97 /* RxCocoa.framework */; };
 		5B16551B1EE585E0000D4652 /* SystemLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B16551A1EE585E0000D4652 /* SystemLogger.swift */; };
 		5B1E989E20974F9000855C80 /* MetaInformationLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1E989D20974F9000855C80 /* MetaInformationLogger.swift */; };
 		5B1E989F20976BD800855C80 /* MetaInformationLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1E989D20974F9000855C80 /* MetaInformationLogger.swift */; };
@@ -21,7 +22,6 @@
 		5B4E481E20DA689A00BF2BA8 /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D32E65AA20D15E3E00698F3E /* RxBlocking.framework */; };
 		5B4E482120DA68B500BF2BA8 /* RxTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B4E481F20DA68AE00BF2BA8 /* RxTest.framework */; };
 		5B6B33441FF847C800CB106D /* ApplicationCallbackLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF451371FF568A500E18215 /* ApplicationCallbackLogger.swift */; };
-		5B9FCB5322D39C330099A698 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B9FCB5222D39C330099A698 /* RxCocoa.framework */; };
 		5B9FCB5422D39C330099A698 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B9FCB5222D39C330099A698 /* RxCocoa.framework */; };
 		5BA3645B1DD0EC160017F9EB /* FileLoggerTableViewDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA3645A1DD0EC160017F9EB /* FileLoggerTableViewDatasource.swift */; };
 		5BA3645D1DD0EDD10017F9EB /* LogFileRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA3645C1DD0EDD10017F9EB /* LogFileRecord.swift */; };
@@ -132,6 +132,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5B152C7C234CDA7D006FAF97 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = SOURCE_ROOT; };
 		5B16551A1EE585E0000D4652 /* SystemLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemLogger.swift; sourceTree = "<group>"; };
 		5B1E989D20974F9000855C80 /* MetaInformationLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetaInformationLogger.swift; sourceTree = "<group>"; };
 		5B2782511DC9F72A00525431 /* FileLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileLogger.swift; sourceTree = "<group>"; };
@@ -198,7 +199,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B9FCB5322D39C330099A698 /* RxCocoa.framework in Frameworks */,
+				5B152C7D234CDA7D006FAF97 /* RxCocoa.framework in Frameworks */,
 				D32E65AC20D15E3E00698F3E /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -452,11 +453,12 @@
 			isa = PBXGroup;
 			children = (
 				5B9FCB5222D39C330099A698 /* RxCocoa.framework */,
+				5B152C7C234CDA7D006FAF97 /* RxCocoa.framework */,
 				6CA969E822C0E681009185F6 /* RxSwift.framework */,
+				D32E65A920D15E3E00698F3E /* RxSwift.framework */,
 				5BA6AAF4226F429400FBB047 /* Zip */,
 				5B4E481F20DA68AE00BF2BA8 /* RxTest.framework */,
 				D32E65AA20D15E3E00698F3E /* RxBlocking.framework */,
-				D32E65A920D15E3E00698F3E /* RxSwift.framework */,
 			);
 			name = Frameworks;
 			path = Zip;
