@@ -107,7 +107,7 @@ public class WebLogger: Logging {
     open func log(_ message: String, onLevel level: Level) {
         //do some fancy logging
 
-        let entry = LogEntry(level: level, timestamp: NSDate().timeIntervalSince1970, message: message, sessionName: sessionName)
+        let entry = LogEntry(level: level, timestamp: Date().timeIntervalSince1970 * 1000, message: message, sessionName: sessionName)
         logSubject.onNext(entry)
     }
 }

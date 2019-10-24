@@ -118,15 +118,15 @@ Here is an example of log batch in JSON:
 [{"severity": "VERBOSE",
   "sessionName": "E598B4C1-2B08-4563-81C0-2A77E5CE0C3C",
   "message":"/some/path/QuantiLoggerTests.swift - testWebLogger() - line 165: Test verbose",
-  "timestamp": 1529668897.318845},
+  "timestamp": 1529668897318.845},
  {"severity": "INFO",
   "sessionName":"E598B4C1-2B08-4563-81C0-2A77E5CE0C3C",
   "message": "/some/path/QuantiLoggerTests.swift - testWebLogger() - line 166: Test system",
-  "timestamp":1529668897.3196549},
+  "timestamp":1529668897319.6549},
  {"severity":"INFO",
   "sessionName":"E598B4C1-2B08-4563-81C0-2A77E5CE0C3C",
   "message":"/some/path/QuantiLoggerTests.swift - testWebLogger() - line 167: Test process",
-  "timestamp":1529668897.3196959
+  "timestamp":1529668897319.6959
 }]
 ```
 
