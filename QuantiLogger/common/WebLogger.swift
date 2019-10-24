@@ -82,7 +82,7 @@ public class WebLogger: Logging {
                 timeSpan: RxTimeInterval = .seconds(4)) {
 
         let serverUrlHasScheme = serverUrl.starts(with: "http://") || serverUrl.starts(with: "https://")
-        self.api = WebLoggerApi(url: serverUrlHasScheme ? "" : "http://" + serverUrl + apiPath)
+        self.api = WebLoggerApi(url: (serverUrlHasScheme ? "" : "http://") + serverUrl + apiPath)
         self.sessionName = sessionName
         self.sizeOfBatch = sizeOfBatch
         self.timeSpan = timeSpan
