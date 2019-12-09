@@ -98,6 +98,8 @@
 		6C5DF0DD22C0EED600271501 /* ApplicationCallbackLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF451371FF568A500E18215 /* ApplicationCallbackLogger.swift */; };
 		6C5DF0E322C103F600271501 /* QuantiLoggerMac.h in Headers */ = {isa = PBXBuildFile; fileRef = 6CA969E222C0E4FC009185F6 /* QuantiLoggerMac.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6CF70E3922CB6AA60058D080 /* LogFilesViaMailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C07CA8422CA6C730009203A /* LogFilesViaMailViewController.swift */; };
+		9CDE51B4239E4F340025FA36 /* CompressionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDE51B3239E4F340025FA36 /* CompressionService.swift */; };
+		9CDE51B5239E4FD80025FA36 /* CompressionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDE51B3239E4F340025FA36 /* CompressionService.swift */; };
 		D32E659320D15A5C00698F3E /* WebLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32E659220D15A5C00698F3E /* WebLogger.swift */; };
 		D32E659E20D15A7100698F3E /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32E659420D15A6900698F3E /* JSONParser.swift */; };
 		D32E659F20D15A7100698F3E /* ApiFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32E659520D15A6A00698F3E /* ApiFactory.swift */; };
@@ -177,6 +179,7 @@
 		6CA969E222C0E4FC009185F6 /* QuantiLoggerMac.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = QuantiLoggerMac.h; path = mac/QuantiLoggerMac.h; sourceTree = "<group>"; };
 		6CA969E322C0E4FC009185F6 /* InfoMac.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = InfoMac.plist; path = mac/InfoMac.plist; sourceTree = "<group>"; };
 		6CA969E822C0E681009185F6 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/Mac/RxSwift.framework; sourceTree = SOURCE_ROOT; };
+		9CDE51B3239E4F340025FA36 /* CompressionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompressionService.swift; sourceTree = "<group>"; };
 		D32E659220D15A5C00698F3E /* WebLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebLogger.swift; sourceTree = "<group>"; };
 		D32E659420D15A6900698F3E /* JSONParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
 		D32E659520D15A6A00698F3E /* ApiFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiFactory.swift; sourceTree = "<group>"; };
@@ -387,6 +390,7 @@
 				5B35E35D1DC0C87300C7E679 /* FileLoggerManager.swift */,
 				5B2782511DC9F72A00525431 /* FileLogger.swift */,
 				5BA3645C1DD0EDD10017F9EB /* LogFileRecord.swift */,
+				9CDE51B3239E4F340025FA36 /* CompressionService.swift */,
 			);
 			name = FileLogger;
 			sourceTree = "<group>";
@@ -617,7 +621,7 @@
 					};
 					5BF956FE1F5ECF1C00F88F9B = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = 2PY9RKK8A7;
+						DevelopmentTeam = 8JH59DJ45H;
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
@@ -759,6 +763,7 @@
 				D32E65A020D15A7100698F3E /* BaseApi.swift in Sources */,
 				5B1E989E20974F9000855C80 /* MetaInformationLogger.swift in Sources */,
 				5BFA877F1DD1F6B40063CB73 /* FileLoggerTableViewCell.swift in Sources */,
+				9CDE51B4239E4F340025FA36 /* CompressionService.swift in Sources */,
 				6C07CA8522CA6C740009203A /* LogFilesViaMailViewController.swift in Sources */,
 				D32E65A320D15A7100698F3E /* HttpMethod.swift in Sources */,
 				5BA3645D1DD0EDD10017F9EB /* LogFileRecord.swift in Sources */,
@@ -788,6 +793,7 @@
 				5B1E989F20976BD800855C80 /* MetaInformationLogger.swift in Sources */,
 				5BA6AAFF226F42BA00FBB047 /* Data+Compression.swift in Sources */,
 				5BF957391F5ED37500F88F9B /* QuantiLoggerConstants.swift in Sources */,
+				9CDE51B5239E4FD80025FA36 /* CompressionService.swift in Sources */,
 				5BA6AB07226F42BA00FBB047 /* FileManager+ZIP.swift in Sources */,
 				5BF9572F1F5ED18D00F88F9B /* MainTabBarController.swift in Sources */,
 				5BF957021F5ECF1C00F88F9B /* AppDelegate.swift in Sources */,
@@ -1086,7 +1092,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				DEVELOPMENT_TEAM = 2PY9RKK8A7;
+				DEVELOPMENT_TEAM = 8JH59DJ45H;
 				INFOPLIST_FILE = QuantiLoggerExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1102,7 +1108,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				DEVELOPMENT_TEAM = 2PY9RKK8A7;
+				DEVELOPMENT_TEAM = 8JH59DJ45H;
 				INFOPLIST_FILE = QuantiLoggerExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
