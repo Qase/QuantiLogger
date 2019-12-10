@@ -21,8 +21,7 @@ struct CompressionService: CompressionServiceProtocol {
             return nil
         }
         let compressedData = data.withUnsafeBytes { (sourcePtr: UnsafePointer<UInt8>) -> Data? in
-            return perform(source: sourcePtr, sourceSize: data.count)
-
+            perform(source: sourcePtr, sourceSize: data.count)
         }
         return compressedData
     }
@@ -62,9 +61,8 @@ struct CompressionService: CompressionServiceProtocol {
                 stream.dst_ptr = buffer
                 stream.dst_size = bufferSize
 
-                if flags == 0 && stream.src_size == 0 {
-                    flags = Int32(COMPRESSION_STREAM_FINALIZE.rawValue)
-                }
+                flags = flags == 0 && stream.src_size == 0 ?
+                Int32(COMPRESSION_STREAM_FINALIZE.rawValue) : flags
 
             case COMPRESSION_STATUS_END:
                 result.append(buffer, count: stream.dst_ptr - buffer)
