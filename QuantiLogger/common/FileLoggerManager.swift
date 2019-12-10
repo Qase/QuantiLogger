@@ -132,7 +132,6 @@ class FileLoggerManager {
         }
 
         print("Size1:")
-//        print(fileSize(forURL: archive.url))
         
         
         do {
@@ -159,17 +158,6 @@ class FileLoggerManager {
 //            print("\(#function) - failed to compress an archive \(error).")
 //            return nil
 //        }
-        
-        print("Size2:")
-//        print(fileSize(forURL: archive.url))
-        
-        do {
-            let resources = try archive.url.resourceValues(forKeys:[.fileSizeKey])
-            let fileSize = resources.fileSize!
-            print ("\(fileSize)")
-        } catch {
-            print("Error: \(error)")
-        }
 
         return archive.url
     }
@@ -275,26 +263,7 @@ class FileLoggerManager {
             let logFiles = directoryContent.filter({ (file) -> Bool in
                 file.pathExtension == "log"
             })
-            
-            let compressedLogFiles = logFiles.map({ (fileURL) -> URL in
-                do {
-                    let fileData = try Data.init(contentsOf: fileURL)
-                    // Compress an archive
-                    let compressionService: CompressionServiceProtocol = CompressionService()
-                    let compressedData = compressionService.compress(data: fileData)
-                    do {
-                        // Rewrite an archive
-                        try compressedData?.write(to: fileURL)
-                    } catch let error {
-                        print("\(#function) - failed to rewrite an archive \(error).")
-                    }
-                } catch let error {
-                    print("\(#function) - failed to compress an archive \(error).")
-                }
-                return fileURL;
-            })
-
-            return compressedLogFiles
+            return logFiles
         } catch let error {
             assertionFailure("Failed to get log directory content with error: \(error).")
         }
