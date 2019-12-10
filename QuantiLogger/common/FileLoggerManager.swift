@@ -131,34 +131,6 @@ class FileLoggerManager {
             return nil
         }
 
-        print("Size1:")
-        
-        
-        do {
-            let resources = try archive.url.resourceValues(forKeys:[.fileSizeKey])
-            let fileSize = resources.fileSize!
-            print ("\(fileSize)")
-        } catch {
-            print("Error: \(error)")
-        }
-        
-//        do {
-//            let fileData = try Data.init(contentsOf: archive.url)
-//            // Compress an archive
-//            let compressionService: CompressionServiceProtocol = CompressionService()
-//            let compressedData = compressionService.compress(data: fileData)
-//            do {
-//                // Rewrite an archive
-//                try compressedData?.write(to: archive.url)
-//            } catch let error {
-//                print("\(#function) - failed to rewrite an archive \(error).")
-//                return nil
-//            }
-//        } catch let error {
-//            print("\(#function) - failed to compress an archive \(error).")
-//            return nil
-//        }
-
         return archive.url
     }
 

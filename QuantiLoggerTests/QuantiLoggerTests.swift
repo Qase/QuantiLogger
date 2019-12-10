@@ -173,25 +173,4 @@ class QuantiLoggerTests: XCTestCase {
         // Delete the log file
         fileLoggerManager.deleteLogFile(at: _currentLogFileUrl)
     }
-    
-    func testCompression() {
-        let compressionService: CompressionServiceProtocol = CompressionService()
-        let stringData = """
-             Lorem ipsum dolor sit amet consectetur adipiscing elit mi
-        nibh ornare proin blandit diam ridiculus, faucibus mus
-        dui eu vehicula nam donec dictumst sed vivamus bibendum
-        aliquet efficitur. Felis imperdiet sodales dictum morbi
-        vivamus augue dis duis aliquet velit ullamcorper porttitor,
-        lobortis dapibus hac purus aliquam natoque iaculis blandit
-        montes nunc pretium.
-        """
-        guard let data: Data = stringData.data(using: .utf8) else {
-            return
-        }
-        let compressedData = compressionService.compress(data: data)
-        XCTAssertNotNil(compressedData)
-        if let compressedDataCount: Int = compressedData?.count {
-            XCTAssertLessThan(compressedDataCount, data.count)
-        }
-    }
 }
