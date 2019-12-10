@@ -15,6 +15,12 @@ class SendLogFilesViaMailViewController: UIViewController {
         super.viewDidLoad()
 
         view.backgroundColor = .white
+        
+        guard let fileLogger: FileLogger = LogManager.shared.logger(),
+            let _logFilesArchiveUrl = fileLogger.archivedLogFilesUrl else {
+                QLog("Could not get logFilesArchiveUrl.", onLevel: .error)
+                return 
+        }
 
 
         if MFMailComposeViewController.canSendMail() {
