@@ -124,8 +124,7 @@ class FileLoggerManager {
             try allLogFiles.forEach { logFileUrl in
                 var logFileUrlVar = logFileUrl
                 logFileUrlVar.deleteLastPathComponent()
-
-                try archive.addEntry(with: logFileUrl.lastPathComponent, relativeTo: logFileUrlVar)
+                try archive.addEntry(with: logFileUrl.lastPathComponent, relativeTo: logFileUrlVar, compressionMethod: .deflate)
             }
         } catch let error {
             print("\(#function) - failed to add a log file to the archive with error \(error).")
