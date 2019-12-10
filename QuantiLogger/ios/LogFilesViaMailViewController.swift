@@ -27,13 +27,13 @@ public class LogFilesViaMailViewController: MFMailComposeViewController {
     private func addLogFilesViaAttachments() {
         guard let _logFilesUrls = FileLoggerManager.shared.gettingAllLogFiles() else { return }
         for logFileUrl in _logFilesUrls {
-//            guard let logFileContent = FileLoggerManager.shared.readingContentFromLogFile(at: logFileUrl) else {
-//                break
-//            }
-//            guard let logFileData = logFileContent.data(using: .utf8) else {
-//                break
-//            }
-//            addAttachmentData(logFileData, mimeType: "text/plain", fileName: logFileUrl.lastPathComponent)
+            guard let logFileContent = FileLoggerManager.shared.readingContentFromLogFile(at: logFileUrl) else {
+                break
+            }
+            guard let logFileData = logFileContent.data(using: .utf8) else {
+                break
+            }
+            addAttachmentData(logFileData, mimeType: "text/plain", fileName: logFileUrl.lastPathComponent)
         }
     }
 }
