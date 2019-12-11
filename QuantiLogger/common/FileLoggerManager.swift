@@ -322,4 +322,3 @@ class FileLoggerManager {
         return logFileRecords
     }
 }
-
