@@ -48,13 +48,13 @@ extension Archive {
                 throw CocoaError(.fileNoSuchFile)
             }
             defer { fclose(entryFile) }
-            provider = { _, _ in return try Data.readChunk(of: Int(bufferSize), from: entryFile) }
+            provider = { _, _ in try Data.readChunk(of: Int(bufferSize), from: entryFile) }
             try self.addEntry(with: path, type: type, uncompressedSize: uncompressedSize,
                               modificationDate: modDate, permissions: permissions,
                               compressionMethod: compressionMethod, bufferSize: bufferSize,
                               progress: progress, provider: provider)
         case .directory:
-            provider = { _, _ in return Data() }
+            provider = { _, _ in Data() }
             try self.addEntry(with: path.hasSuffix("/") ? path : path + "/",
                               type: type, uncompressedSize: uncompressedSize,
                               modificationDate: modDate, permissions: permissions,
@@ -160,7 +160,7 @@ extension Archive {
                 let entryStart = Int(currentEntry.centralDirectoryStructure.relativeOffsetOfLocalHeader)
                 fseek(self.archiveFile, entryStart, SEEK_SET)
                 let provider: Provider = { (_, chunkSize) -> Data in
-                    return try Data.readChunk(of: Int(chunkSize), from: self.archiveFile)
+                    try Data.readChunk(of: Int(chunkSize), from: self.archiveFile)
                 }
                 let consumer: Consumer = {
                     if progress?.isCancelled == true { throw ArchiveError.cancelledOperation }
