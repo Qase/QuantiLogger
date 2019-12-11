@@ -37,7 +37,7 @@ extension Data {
             return nil
         }
         let structure = T(data: data, additionalDataProvider: { (additionalDataSize) -> Data in
-            return try self.readChunk(of: additionalDataSize, from: file)
+            try self.readChunk(of: additionalDataSize, from: file)
         })
         return structure
     }

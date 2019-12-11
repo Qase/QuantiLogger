@@ -76,10 +76,13 @@ public class WebLogger: Logging {
     private let bag = DisposeBag()
 
     public init(serverUrl: String = WebLogger.defaultServerUrl,
+                apiPath: String = "/api/v1",
                 sessionName: String = UUID().uuidString,
                 sizeOfBatch: Int = 5,
                 timeSpan: RxTimeInterval = .seconds(4)) {
-        self.api = WebLoggerApi(url: serverUrl)
+
+        let serverUrlHasScheme = serverUrl.starts(with: "http://") || serverUrl.starts(with: "https://")
+        self.api = WebLoggerApi(url: (serverUrlHasScheme ? "" : "http://") + serverUrl + apiPath)
         self.sessionName = sessionName
         self.sizeOfBatch = sizeOfBatch
         self.timeSpan = timeSpan
@@ -107,7 +110,7 @@ public class WebLogger: Logging {
     open func log(_ message: String, onLevel level: Level) {
         //do some fancy logging
 
-        let entry = LogEntry(level: level, timestamp: NSDate().timeIntervalSince1970, message: message, sessionName: sessionName)
+        let entry = LogEntry(level: level, timestamp: Date().timeIntervalSince1970 * 1000, message: message, sessionName: sessionName)
         logSubject.onNext(entry)
     }
 }

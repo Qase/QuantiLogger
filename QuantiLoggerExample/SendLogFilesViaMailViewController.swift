@@ -16,7 +16,6 @@ class SendLogFilesViaMailViewController: UIViewController {
 
         view.backgroundColor = .white
 
-
         if MFMailComposeViewController.canSendMail() {
             let logFilesViaMailViewController = LogFilesViaMailViewController(withRecipients: ["xxx@xxx.xx"])
             logFilesViaMailViewController.mailComposeDelegate = self

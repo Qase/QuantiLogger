@@ -15,7 +15,7 @@ class BaseApi: NSObject {
 
 	required init?(url: String) {
 		guard let _url = URL(string: url) else {
-			print("\(#function) - could not create an URL instance out of provided URL string.")
+            print("\(#function) - could not create an URL instance out of provided URL string: \(url)")
 			return nil
 		}
 

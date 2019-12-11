@@ -86,54 +86,53 @@ class FileLoggerManager {
         }
     }
 
-	// Url of the zip file containing all log files.
-	var archivedLogFilesUrl: URL? {
-		guard let _logDirUrl = logDirUrl else {
-			print("\(#function) - logDirUrl is nil.")
-			return nil
-		}
+    // Url of the zip file containing all log files.
+    var archivedLogFilesUrl: URL? {
+        guard let _logDirUrl = logDirUrl else {
+            print("\(#function) - logDirUrl is nil.")
+            return nil
+        }
 
-		let archiveUrl = _logDirUrl.appendingPathComponent("log_files_archive.zip")
+        let archiveUrl = _logDirUrl.appendingPathComponent("log_files_archive.zip")
 
-		guard let allLogFiles = gettingAllLogFiles(), allLogFiles.count > 0 else {
-			print("\(#function) - no log files.")
-			return nil
-		}
+        guard let allLogFiles = gettingAllLogFiles(), allLogFiles.count > 0 else {
+            print("\(#function) - no log files.")
+            return nil
+        }
 
-		// Remove old archive if exists
-		do {
-			try FileManager.default.removeItem(at: archiveUrl)
-		} catch let error {
-			print("\(#function) - failed to remove old archive file with error \(error).")
-		}
+        // Remove old archive if exists
+        do {
+            try FileManager.default.removeItem(at: archiveUrl)
+        } catch let error {
+            print("\(#function) - failed to remove old archive file with error \(error).")
+        }
 
-		// Create new archive
-		guard Archive(url: archiveUrl, accessMode: .create) != nil else {
-			print("\(#function) - failed to create the archive.")
-			return nil
-		}
+        // Create new archive
+        guard Archive(url: archiveUrl, accessMode: .create) != nil else {
+            print("\(#function) - failed to create the archive.")
+            return nil
+        }
 
-		// Open newly created archive for update
-		guard let archive = Archive(url: archiveUrl, accessMode: .update) else {
-			print("\(#function) - failed to open the archive for update.")
-			return nil
-		}
+        // Open newly created archive for update
+        guard let archive = Archive(url: archiveUrl, accessMode: .update) else {
+            print("\(#function) - failed to open the archive for update.")
+            return nil
+        }
 
-		// Add all log files to the archive
-		do {
-			try allLogFiles.forEach { logFileUrl in
-				var logFileUrlVar = logFileUrl
-				logFileUrlVar.deleteLastPathComponent()
+        // Add all log files to the archive
+        do {
+            try allLogFiles.forEach { logFileUrl in
+                var logFileUrlVar = logFileUrl
+                logFileUrlVar.deleteLastPathComponent()
+                try archive.addEntry(with: logFileUrl.lastPathComponent, relativeTo: logFileUrlVar, compressionMethod: .deflate)
+            }
+        } catch let error {
+            print("\(#function) - failed to add a log file to the archive with error \(error).")
+            return nil
+        }
 
-				try archive.addEntry(with: logFileUrl.lastPathComponent, relativeTo: logFileUrlVar)
-			}
-		} catch let error {
-			print("\(#function) - failed to add a log file to the archive with error \(error).")
-			return nil
-		}
-
-		return archive.url
-	}
+        return archive.url
+    }
 
     private init() {
         if let _dateOfLastLog = UserDefaults.standard.object(forKey: QuantiLoggerConstants.UserDefaultsKeys.dateOfLastLog) as? Date {
@@ -155,7 +154,7 @@ class FileLoggerManager {
         }
     }
 
-    /// Method to reset properties that control the correct flow of storing log files. 
+    /// Method to reset properties that control the correct flow of storing log files.
     /// - "currentLogFileNumber" represents the current logging file number
     /// - "dateTimeOfLastLog" represents the last date the logger was used
     /// - "numOfLogFiles" represents the number of files that are used for logging, can be set by a user
@@ -236,7 +235,6 @@ class FileLoggerManager {
             let logFiles = directoryContent.filter({ (file) -> Bool in
                 file.pathExtension == "log"
             })
-
             return logFiles
         } catch let error {
             assertionFailure("Failed to get log directory content with error: \(error).")
@@ -267,7 +265,7 @@ class FileLoggerManager {
         }
     }
 
-    /// Method to refresh/set "currentLogFileNumber" and "dateTimeOfLastLog" properties. It is called at the beginning 
+    /// Method to refresh/set "currentLogFileNumber" and "dateTimeOfLastLog" properties. It is called at the beginning
     /// of writeToLogFile(_, _) method.
     private func refreshCurrentLogFileStatus() {
         let currentDate = Date()
