@@ -1,5 +1,2 @@
 # RxSwift
 github "ReactiveX/RxSwift" ~> 5.0
-
-# DataCompression
-github "mw99/DataCompression"
