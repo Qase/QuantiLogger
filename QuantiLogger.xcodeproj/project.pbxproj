@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5B07491423A0F46B00887C7C /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B07490B23A0F2A100887C7C /* RxSwift.framework */; };
-		5B07491523A0F46B00887C7C /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5B07490B23A0F2A100887C7C /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5B164FBB23BDF34F00A5F4E6 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B07490B23A0F2A100887C7C /* RxSwift.framework */; };
+		5B164FBC23BDF34F00A5F4E6 /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5B07490B23A0F2A100887C7C /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5B16551B1EE585E0000D4652 /* SystemLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B16551A1EE585E0000D4652 /* SystemLogger.swift */; };
 		5B1E989E20974F9000855C80 /* MetaInformationLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1E989D20974F9000855C80 /* MetaInformationLogger.swift */; };
 		5B1E989F20976BD800855C80 /* MetaInformationLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1E989D20974F9000855C80 /* MetaInformationLogger.swift */; };
@@ -132,13 +132,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		5B07491223A0F36200887C7C /* Embed Frameworks */ = {
+		5B164FBD23BDF34F00A5F4E6 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				5B07491523A0F46B00887C7C /* RxSwift.framework in Embed Frameworks */,
+				5B164FBC23BDF34F00A5F4E6 /* RxSwift.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -247,7 +247,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B07491423A0F46B00887C7C /* RxSwift.framework in Frameworks */,
+				5B164FBB23BDF34F00A5F4E6 /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -599,7 +599,7 @@
 				6C5DF0CE22C0E96600271501 /* Frameworks */,
 				6C5DF0D122C0E96600271501 /* Headers */,
 				6C5DF0D322C0E96600271501 /* Resources */,
-				5B07491223A0F36200887C7C /* Embed Frameworks */,
+				5B164FBD23BDF34F00A5F4E6 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
