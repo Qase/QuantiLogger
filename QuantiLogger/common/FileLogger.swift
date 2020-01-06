@@ -24,6 +24,10 @@ public class FileLogger: Logging {
 		return fileLoggerManager.archivedLogFilesUrl
 	}
 
+    public var archivedLogFiles: Archive? {
+        return fileLoggerManager.archivedLogFiles
+    }
+
 	public var levels: [Level] = [.info]
 
 	public init() {}
