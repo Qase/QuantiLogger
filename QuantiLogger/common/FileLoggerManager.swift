@@ -134,6 +134,53 @@ class FileLoggerManager {
         return archive.url
     }
 
+    var archivedLogFiles: Archive? {
+        guard let _logDirUrl = logDirUrl else {
+            print("\(#function) - logDirUrl is nil.")
+            return nil
+        }
+
+        let archiveUrl = _logDirUrl.appendingPathComponent("log_files_archive.zip")
+
+        guard let allLogFiles = gettingAllLogFiles(), allLogFiles.count > 0 else {
+            print("\(#function) - no log files.")
+            return nil
+        }
+
+        // Remove old archive if exists
+        do {
+            try FileManager.default.removeItem(at: archiveUrl)
+        } catch let error {
+            print("\(#function) - failed to remove old archive file with error \(error).")
+        }
+
+        // Create new archive
+        guard Archive(url: archiveUrl, accessMode: .create) != nil else {
+            print("\(#function) - failed to create the archive.")
+            return nil
+        }
+
+        // Open newly created archive for update
+        guard let archive = Archive(url: archiveUrl, accessMode: .update) else {
+            print("\(#function) - failed to open the archive for update.")
+            return nil
+        }
+
+        // Add all log files to the archive
+        do {
+            try allLogFiles.forEach { logFileUrl in
+                var logFileUrlVar = logFileUrl
+                logFileUrlVar.deleteLastPathComponent()
+                try archive.addEntry(with: logFileUrl.lastPathComponent, relativeTo: logFileUrlVar, compressionMethod: .deflate)
+            }
+        } catch let error {
+            print("\(#function) - failed to add a log file to the archive with error \(error).")
+            return nil
+        }
+
+        return archive
+    }
+
     private init() {
         if let _dateOfLastLog = UserDefaults.standard.object(forKey: QuantiLoggerConstants.UserDefaultsKeys.dateOfLastLog) as? Date {
             dateOfLastLog = _dateOfLastLog
