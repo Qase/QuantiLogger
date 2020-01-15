@@ -19,11 +19,6 @@ public class FileLogger: Logging {
         }
     }
 
-	// Url of the zip file containing all log files.
-	public var archivedLogFilesUrl: URL? {
-		return fileLoggerManager.archivedLogFilesUrl
-	}
-
     public var archivedLogFiles: Archive? {
         return fileLoggerManager.archivedLogFiles
     }
