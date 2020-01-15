@@ -86,6 +86,11 @@ class FileLoggerManager {
         }
     }
 
+    // Url of the zip file containing all log files.
+    var archivedLogFilesUrl: URL? {
+        return archivedLogFiles?.url
+    }
+
     // Zip file containing log files
     var archivedLogFiles: Archive? {
         guard let _logDirUrl = logDirUrl else {
