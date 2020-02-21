@@ -85,6 +85,17 @@ class FileLoggerManager {
             UserDefaults.standard.set(numOfLogFiles, forKey: QuantiLoggerConstants.UserDefaultsKeys.numOfLogFiles)
         }
     }
+    
+    // Zip file size (in bytes)
+    var archivedLogFilesSize: Int? {
+        do {
+            let resources = try archivedLogFilesUrl?.resourceValues(forKeys: [.fileSizeKey])
+            let fileSize = resources?.fileSize
+            return fileSize
+        } catch {
+            return nil
+        }
+    }
 
     // Url of the zip file containing all log files.
     var archivedLogFilesUrl: URL? {
