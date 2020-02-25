@@ -19,16 +19,20 @@ public class FileLogger: Logging {
         }
     }
 
-    public var archivedLogFilesSize: Int? {
-        return fileLoggerManager.archivedLogFilesSize
+    public func getArchivedFileSize(fileUrl: URL) -> Int? {
+        fileLoggerManager.getArchivedFileSize(fileUrl: fileUrl)
     }
-    
+
+    public var archivedLogFilesSize: Int? {
+        fileLoggerManager.archivedLogFilesSize
+    }
+
     public var archivedLogFilesUrl: URL? {
-        return fileLoggerManager.archivedLogFilesUrl
+        fileLoggerManager.archivedLogFilesUrl
     }
 
     public var archivedLogFiles: Archive? {
-        return fileLoggerManager.archivedLogFiles
+        fileLoggerManager.archivedLogFiles
     }
 
 	public var levels: [Level] = [.info]

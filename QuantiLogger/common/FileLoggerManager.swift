@@ -56,7 +56,7 @@ class FileLoggerManager {
     }
 
     var currentLogFileUrl: URL? {
-        return logDirUrl?.appendingPathComponent("\(currentLogFileNumber)").appendingPathExtension("log")
+        logDirUrl?.appendingPathComponent("\(currentLogFileNumber)").appendingPathExtension("log")
     }
 
     private var currentWritableFileHandle: FileHandle? {
@@ -85,7 +85,51 @@ class FileLoggerManager {
             UserDefaults.standard.set(numOfLogFiles, forKey: QuantiLoggerConstants.UserDefaultsKeys.numOfLogFiles)
         }
     }
-    
+
+    func getArchivedFileSize(fileUrl: URL?) -> Int? {
+        guard let logDirUrl = logDirUrl else {
+            print("\(#function) - logDirUrl is nil.")
+            return nil
+        }
+        let archiveUrl = logDirUrl.appendingPathComponent("tmp_archive.zip")
+
+        do {
+            let fileManager = FileManager.default
+            try fileManager.removeItem(atPath: archiveUrl.path)
+        } catch {}
+
+        guard Archive(url: archiveUrl, accessMode: .create) != nil else {
+            print("\(#function) - failed to create the archive.")
+            return nil
+        }
+
+        guard let archive = Archive(url: archiveUrl, accessMode: .update) else {
+            print("\(#function) - failed to open the archive for update.")
+            return nil
+        }
+
+        do {
+            guard let url = fileUrl else {
+                return nil
+            }
+            var urlVar = url
+            urlVar.deleteLastPathComponent()
+            try archive.addEntry(with: url.lastPathComponent, relativeTo: urlVar, compressionMethod: .deflate)
+        } catch let error {
+            print("\(#function) - failed to add a log file to the archive with error \(error).")
+            return nil
+        }
+
+        do {
+            let resources = try archive.url.resourceValues(forKeys: [.fileSizeKey])
+            let fileSize = resources.fileSize
+
+            return fileSize
+        } catch {
+            return nil
+        }
+    }
+
     // Zip file size (in bytes)
     var archivedLogFilesSize: Int? {
         do {
@@ -99,7 +143,7 @@ class FileLoggerManager {
 
     // Url of the zip file containing all log files.
     var archivedLogFilesUrl: URL? {
-        return archivedLogFiles?.url
+        archivedLogFiles?.url
     }
 
     // Zip file containing log files
@@ -110,6 +154,11 @@ class FileLoggerManager {
         }
 
         let archiveUrl = _logDirUrl.appendingPathComponent("log_files_archive.zip")
+        
+        do {
+            let fileManager = FileManager.default
+            try fileManager.removeItem(atPath: archiveUrl.path)
+        } catch {}
 
         guard let allLogFiles = gettingAllLogFiles(), allLogFiles.count > 0 else {
             print("\(#function) - no log files.")
