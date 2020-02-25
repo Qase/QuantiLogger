@@ -86,12 +86,12 @@ class FileLoggerManager {
         }
     }
 
-    func getArchivedFileSize(fileUrl: URL?) -> Int? {
+    private func createArchive(fileName: String) -> Archive? {
         guard let logDirUrl = logDirUrl else {
             print("\(#function) - logDirUrl is nil.")
             return nil
         }
-        let archiveUrl = logDirUrl.appendingPathComponent("tmp_archive.zip")
+        let archiveUrl = logDirUrl.appendingPathComponent(fileName)
 
         do {
             let fileManager = FileManager.default
@@ -104,6 +104,14 @@ class FileLoggerManager {
         }
 
         guard let archive = Archive(url: archiveUrl, accessMode: .update) else {
+            print("\(#function) - failed to open the archive for update.")
+            return nil
+        }
+        return archive
+    }
+
+    func getArchivedFileSize(fileUrl: URL?) -> Int? {
+        guard let archive = createArchive(fileName: "tmp_archive.zip") else {
             print("\(#function) - failed to open the archive for update.")
             return nil
         }
@@ -148,39 +156,15 @@ class FileLoggerManager {
 
     // Zip file containing log files
     var archivedLogFiles: Archive? {
-        guard let _logDirUrl = logDirUrl else {
-            print("\(#function) - logDirUrl is nil.")
+        // Open newly created archive for update
+        guard let archive = createArchive(fileName: "log_files_archive.zip") else {
+            print("\(#function) - failed to open the archive for update.")
             return nil
         }
 
-        let archiveUrl = _logDirUrl.appendingPathComponent("log_files_archive.zip")
-        
-        do {
-            let fileManager = FileManager.default
-            try fileManager.removeItem(atPath: archiveUrl.path)
-        } catch {}
-
+        // Get all log files to the archive
         guard let allLogFiles = gettingAllLogFiles(), allLogFiles.count > 0 else {
             print("\(#function) - no log files.")
-            return nil
-        }
-
-        // Remove old archive if exists
-        do {
-            try FileManager.default.removeItem(at: archiveUrl)
-        } catch let error {
-            print("\(#function) - failed to remove old archive file with error \(error).")
-        }
-
-        // Create new archive
-        guard Archive(url: archiveUrl, accessMode: .create) != nil else {
-            print("\(#function) - failed to create the archive.")
-            return nil
-        }
-
-        // Open newly created archive for update
-        guard let archive = Archive(url: archiveUrl, accessMode: .update) else {
-            print("\(#function) - failed to open the archive for update.")
             return nil
         }
 
