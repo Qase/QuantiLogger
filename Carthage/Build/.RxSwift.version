@@ -1,30 +1,30 @@
 {
-  "commitish" : "5.0.1",
+  "commitish" : "5.1.1",
   "Mac" : [
     {
-      "name" : "RxRelay",
-      "hash" : "b991c29c126882ec26993d1ca8a6a49458313df3ad2cb232036a9b193e30df1b",
-      "swiftToolchainVersion" : "5.1.2 (swiftlang-1100.0.278 clang-1100.0.33.9)"
-    },
-    {
       "name" : "RxTest",
-      "hash" : "db67757c3cb6c4378479c1f65cccd33a278cb659c3fc5c74ac0e89e368caaaee",
-      "swiftToolchainVersion" : "5.1.2 (swiftlang-1100.0.278 clang-1100.0.33.9)"
-    },
-    {
-      "name" : "RxBlocking",
-      "hash" : "2fd0594beac82acf49ff20d5c620e16796b03dea00eb6dd115b1e2c798bb0333",
-      "swiftToolchainVersion" : "5.1.2 (swiftlang-1100.0.278 clang-1100.0.33.9)"
+      "hash" : "f940a187d8fe71169caa278b6b2718990c7fe720cba61d3736e8d460fd6dc4f1",
+      "swiftToolchainVersion" : "5.2 (swiftlang-1103.0.32.1 clang-1103.0.32.29)"
     },
     {
       "name" : "RxCocoa",
-      "hash" : "eb00b6a685f4f85f47f0baad6a67636f183ea069fbd3a06baa380dca7155d7d2",
-      "swiftToolchainVersion" : "5.1.2 (swiftlang-1100.0.278 clang-1100.0.33.9)"
+      "hash" : "e41194eca3d9e38b1716c885abf8d6fd6b8b3de103b91315903dd5b5e43201ce",
+      "swiftToolchainVersion" : "5.2 (swiftlang-1103.0.32.1 clang-1103.0.32.29)"
+    },
+    {
+      "name" : "RxRelay",
+      "hash" : "3797112c78ef1e651d141404159ac0099c02c2347590271e29955eb87589b78c",
+      "swiftToolchainVersion" : "5.2 (swiftlang-1103.0.32.1 clang-1103.0.32.29)"
+    },
+    {
+      "name" : "RxBlocking",
+      "hash" : "f595f0a6fdd8c74649f4ffc5148d99ff4d980633cea368bd209c4440f6f96aa1",
+      "swiftToolchainVersion" : "5.2 (swiftlang-1103.0.32.1 clang-1103.0.32.29)"
     },
     {
       "name" : "RxSwift",
-      "hash" : "8e79ea500aeb1ef4626caf10601c47610caf49d416157abdea18893718ac0678",
-      "swiftToolchainVersion" : "5.1.2 (swiftlang-1100.0.278 clang-1100.0.33.9)"
+      "hash" : "8503dd110c967566a3deef6282e9ead37b47e4d941cbd282a788083274cf8edd",
+      "swiftToolchainVersion" : "5.2 (swiftlang-1103.0.32.1 clang-1103.0.32.29)"
     }
   ]
 }
