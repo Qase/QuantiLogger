@@ -110,34 +110,6 @@ class FileLoggerManager {
         return archive
     }
 
-    func getArchivedFileSize(fileUrl: URL?) -> Int? {
-        guard let archive = createArchive(fileName: "tmp_archive.zip") else {
-            print("\(#function) - failed to open the archive for update.")
-            return nil
-        }
-
-        do {
-            guard let url = fileUrl else {
-                return nil
-            }
-            var urlVar = url
-            urlVar.deleteLastPathComponent()
-            try archive.addEntry(with: url.lastPathComponent, relativeTo: urlVar, compressionMethod: .deflate)
-        } catch let error {
-            print("\(#function) - failed to add a log file to the archive with error \(error).")
-            return nil
-        }
-
-        do {
-            let resources = try archive.url.resourceValues(forKeys: [.fileSizeKey])
-            let fileSize = resources.fileSize
-
-            return fileSize
-        } catch {
-            return nil
-        }
-    }
-
     // Zip file size (in bytes)
     var archivedLogFilesSize: Int? {
         do {
