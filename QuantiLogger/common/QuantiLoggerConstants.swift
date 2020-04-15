@@ -18,7 +18,7 @@ public struct QuantiLoggerConstants {
     }
 
     struct FileLogger {
-        static let logFileRecordSeparator = "<-- QLog -->"
+        static let logFileRecordSeparator = "[QLog]"
     }
 
     public struct FileLoggerTableViewDatasource {
