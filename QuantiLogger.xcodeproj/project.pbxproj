@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		5B07491423A0F46B00887C7C /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B07490B23A0F2A100887C7C /* RxSwift.framework */; };
-		5B07491523A0F46B00887C7C /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5B07490B23A0F2A100887C7C /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5B16551B1EE585E0000D4652 /* SystemLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B16551A1EE585E0000D4652 /* SystemLogger.swift */; };
 		5B1E989E20974F9000855C80 /* MetaInformationLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1E989D20974F9000855C80 /* MetaInformationLogger.swift */; };
 		5B1E989F20976BD800855C80 /* MetaInformationLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1E989D20974F9000855C80 /* MetaInformationLogger.swift */; };
@@ -130,20 +129,6 @@
 			remoteInfo = QuantiLoggerExample;
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		5B07491223A0F36200887C7C /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				5B07491523A0F46B00887C7C /* RxSwift.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		5B07490B23A0F2A100887C7C /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/Mac/RxSwift.framework; sourceTree = SOURCE_ROOT; };
@@ -599,7 +584,6 @@
 				6C5DF0CE22C0E96600271501 /* Frameworks */,
 				6C5DF0D122C0E96600271501 /* Headers */,
 				6C5DF0D322C0E96600271501 /* Resources */,
-				5B07491223A0F36200887C7C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -723,7 +707,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint autocorrect\n    echo \"Hi\"\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "if which swiftlint >/dev/null; then\n    #swiftlint autocorrect\n    echo \"Hi\"\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 		9C30BA1B239EA7280046008F /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
