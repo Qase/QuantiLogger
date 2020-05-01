@@ -120,15 +120,10 @@ class QuantiLoggerTests: XCTestCase {
         }
         
         let linesOfContent = _contentOfLogFile.components(separatedBy: .newlines)
-        XCTAssertEqual(QuantiLoggerConstants.FileLogger.logFileRecordSeparator, linesOfContent[0])
-        XCTAssertNotNil(linesOfContent[1].range(of: "^\\[ERROR \\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}]$", options: .regularExpression))
-        XCTAssertNotNil(linesOfContent[2].range(of: "^.* - .* - line \\d+: Error message$", options: .regularExpression))
-        XCTAssertEqual(linesOfContent[3], "")
-        XCTAssertEqual(QuantiLoggerConstants.FileLogger.logFileRecordSeparator, linesOfContent[4])
-        XCTAssertNotNil(linesOfContent[5].range(of: "^\\[INFO \\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}]$", options: .regularExpression))
-        XCTAssertNotNil(linesOfContent[6].range(of: "^.* - .* - line \\d+: Info message$", options: .regularExpression))
-    
-        
+
+        XCTAssertNotNil(linesOfContent[0].range(of: "^\\[.*] \\[ERROR \\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}] .* - .* - line \\d+: Error message$", options: .regularExpression))
+        XCTAssertNotNil(linesOfContent[1].range(of: "^\\[.*] \\[INFO \\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}] .* - .* - line \\d+: Info message$", options: .regularExpression))
+
         // Delete the log file
         fileLoggerManager.deleteLogFile(at: _currentLogFileUrl)
     }

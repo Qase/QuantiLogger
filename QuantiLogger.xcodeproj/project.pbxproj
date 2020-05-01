@@ -113,6 +113,7 @@
 		D32E65A720D15A7100698F3E /* JSONParseable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32E659D20D15A7100698F3E /* JSONParseable.swift */; };
 		D3405D501F4C494200A1987F /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3405D4F1F4C494200A1987F /* DateHelper.swift */; };
 		D3A03D141F4AD5D300B0F50C /* QuantiLoggerPerformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A03D131F4AD5D300B0F50C /* QuantiLoggerPerformanceTests.swift */; };
+		FFF2456F24472F5B0028F625 /* Substring+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF2456E24472F5B0028F625 /* Substring+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -209,6 +210,7 @@
 		D32E659D20D15A7100698F3E /* JSONParseable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONParseable.swift; sourceTree = "<group>"; };
 		D3405D4F1F4C494200A1987F /* DateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		D3A03D131F4AD5D300B0F50C /* QuantiLoggerPerformanceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuantiLoggerPerformanceTests.swift; sourceTree = "<group>"; };
+		FFF2456E24472F5B0028F625 /* Substring+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Substring+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -322,6 +324,7 @@
 		5B35E3601DC0EF1A00C7E679 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				FFF2456E24472F5B0028F625 /* Substring+.swift */,
 				5B164FBE23BDF65700A5F4E6 /* Date+.swift */,
 				5B164FC123BDF67800A5F4E6 /* Observable+.swift */,
 			);
@@ -792,6 +795,7 @@
 				D3405D501F4C494200A1987F /* DateHelper.swift in Sources */,
 				5B35E35E1DC0C87300C7E679 /* FileLoggerManager.swift in Sources */,
 				5BA6AB04226F42BA00FBB047 /* Archive+Reading.swift in Sources */,
+				FFF2456F24472F5B0028F625 /* Substring+.swift in Sources */,
 				5B3641A31DBFAC810034EF68 /* Level.swift in Sources */,
 				5BAF4F241DC8DA35000379A4 /* QuantiLoggerConstants.swift in Sources */,
 				D32E65A020D15A7100698F3E /* BaseApi.swift in Sources */,

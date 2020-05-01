@@ -262,7 +262,7 @@ class FileLoggerManager {
 
         refreshCurrentLogFileStatus()
 
-        let contentToAppend = "\(QuantiLoggerConstants.FileLogger.logFileRecordSeparator)\n\(messageHeader)\n\(message)\n\n"
+        let contentToAppend = "\(QuantiLoggerConstants.FileLogger.logFileRecordSeparator) \(messageHeader) \(message)\n"
 
         currentWritableFileHandle?.seekToEndOfFile()
         if let _contentToAppend = contentToAppend.data(using: .utf8) {
@@ -313,14 +313,18 @@ class FileLoggerManager {
         var arrayOflogFileRecords = _logFileContent.components(separatedBy: QuantiLoggerConstants.FileLogger.logFileRecordSeparator)
         arrayOflogFileRecords.remove(at: 0)
         let logFileRecords = arrayOflogFileRecords.map { (logFileRecordInString) -> LogFileRecord in
-            let trimmedLogFileRecordInString = logFileRecordInString.trimmingCharacters(in: .newlines)
-            var arrayOfLogFileRecordLines = trimmedLogFileRecordInString.components(separatedBy: .newlines)
 
-            let header = arrayOfLogFileRecordLines[0]
-            arrayOfLogFileRecordLines.remove(at: 0)
-            let body = arrayOfLogFileRecordLines.reduce("", { (logBody, logBodyLine) -> String in
-                "\(logBody)\(logBodyLine)\n"
-            })
+            let headerTrimmed = logFileRecordInString
+                .prefix(while: { $0 != "]"})
+                .dropFirst()
+
+            let header = headerTrimmed.asString() + "]"
+
+            let body = logFileRecordInString
+                .suffix(from: headerTrimmed.endIndex)
+                .dropFirst(2)
+                .asString()
+
             return LogFileRecord(header: header, body: body)
         }
 
