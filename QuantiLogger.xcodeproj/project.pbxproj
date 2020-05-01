@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5B07491423A0F46B00887C7C /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B07490B23A0F2A100887C7C /* RxSwift.framework */; };
-		5B07491523A0F46B00887C7C /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5B07490B23A0F2A100887C7C /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5B164FBB23BDF34F00A5F4E6 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B07490B23A0F2A100887C7C /* RxSwift.framework */; };
+		5B164FBC23BDF34F00A5F4E6 /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5B07490B23A0F2A100887C7C /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5B164FBF23BDF65700A5F4E6 /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B164FBE23BDF65700A5F4E6 /* Date+.swift */; };
+		5B164FC023BDF65700A5F4E6 /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B164FBE23BDF65700A5F4E6 /* Date+.swift */; };
+		5B164FC223BDF67800A5F4E6 /* Observable+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B164FC123BDF67800A5F4E6 /* Observable+.swift */; };
+		5B164FC323BDF67800A5F4E6 /* Observable+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B164FC123BDF67800A5F4E6 /* Observable+.swift */; };
 		5B16551B1EE585E0000D4652 /* SystemLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B16551A1EE585E0000D4652 /* SystemLogger.swift */; };
 		5B1E989E20974F9000855C80 /* MetaInformationLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1E989D20974F9000855C80 /* MetaInformationLogger.swift */; };
 		5B1E989F20976BD800855C80 /* MetaInformationLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1E989D20974F9000855C80 /* MetaInformationLogger.swift */; };
@@ -39,7 +43,6 @@
 		5BA6AB09226F42BA00FBB047 /* Archive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA6AAFB226F42BA00FBB047 /* Archive.swift */; };
 		5BAF4F241DC8DA35000379A4 /* QuantiLoggerConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAF4F231DC8DA35000379A4 /* QuantiLoggerConstants.swift */; };
 		5BDA79CD1DBFB6CF00930ABA /* ConsoleLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDA79CC1DBFB6CF00930ABA /* ConsoleLogger.swift */; };
-		5BEBBB191DC9EAC20055E453 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEBBB181DC9EAC20055E453 /* DateExtension.swift */; };
 		5BF451381FF568A500E18215 /* ApplicationCallbackLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF451371FF568A500E18215 /* ApplicationCallbackLogger.swift */; };
 		5BF957021F5ECF1C00F88F9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF957011F5ECF1C00F88F9B /* AppDelegate.swift */; };
 		5BF957091F5ECF1C00F88F9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BF957081F5ECF1C00F88F9B /* Assets.xcassets */; };
@@ -48,7 +51,6 @@
 		5BF957311F5ED1E100F88F9B /* LogListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF957301F5ED1E100F88F9B /* LogListTableViewController.swift */; };
 		5BF957331F5ED1F500F88F9B /* SendLogFilesViaMailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF957321F5ED1F500F88F9B /* SendLogFilesViaMailViewController.swift */; };
 		5BF957391F5ED37500F88F9B /* QuantiLoggerConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAF4F231DC8DA35000379A4 /* QuantiLoggerConstants.swift */; };
-		5BF9573A1F5ED37900F88F9B /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEBBB181DC9EAC20055E453 /* DateExtension.swift */; };
 		5BF9573B1F5ED37B00F88F9B /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3405D4F1F4C494200A1987F /* DateHelper.swift */; };
 		5BF9573C1F5ED38300F88F9B /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3641A21DBFAC810034EF68 /* Level.swift */; };
 		5BF9573D1F5ED38500F88F9B /* LogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3641A61DBFAD5D0034EF68 /* LogManager.swift */; };
@@ -68,7 +70,6 @@
 		6C5DF0AF22C0E96600271501 /* Data+Serialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA6AAF8226F42B900FBB047 /* Data+Serialization.swift */; };
 		6C5DF0B022C0E96600271501 /* JSONSerializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32E659A20D15A6E00698F3E /* JSONSerializable.swift */; };
 		6C5DF0B122C0E96600271501 /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3641A41DBFACF80034EF68 /* Logging.swift */; };
-		6C5DF0B222C0E96600271501 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEBBB181DC9EAC20055E453 /* DateExtension.swift */; };
 		6C5DF0B322C0E96600271501 /* HTTPURLResponse+logDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32E659720D15A6B00698F3E /* HTTPURLResponse+logDescription.swift */; };
 		6C5DF0B422C0E96600271501 /* Data+Compression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA6AAF6226F42B900FBB047 /* Data+Compression.swift */; };
 		6C5DF0B522C0E96600271501 /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32E659420D15A6900698F3E /* JSONParser.swift */; };
@@ -132,13 +133,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		5B07491223A0F36200887C7C /* Embed Frameworks */ = {
+		5B164FBD23BDF34F00A5F4E6 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				5B07491523A0F46B00887C7C /* RxSwift.framework in Embed Frameworks */,
+				5B164FBC23BDF34F00A5F4E6 /* RxSwift.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -147,6 +148,8 @@
 
 /* Begin PBXFileReference section */
 		5B07490B23A0F2A100887C7C /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/Mac/RxSwift.framework; sourceTree = SOURCE_ROOT; };
+		5B164FBE23BDF65700A5F4E6 /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
+		5B164FC123BDF67800A5F4E6 /* Observable+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Observable+.swift"; sourceTree = "<group>"; };
 		5B16551A1EE585E0000D4652 /* SystemLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemLogger.swift; sourceTree = "<group>"; };
 		5B1E989D20974F9000855C80 /* MetaInformationLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetaInformationLogger.swift; sourceTree = "<group>"; };
 		5B2782511DC9F72A00525431 /* FileLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileLogger.swift; sourceTree = "<group>"; };
@@ -171,7 +174,6 @@
 		5BA6AAFB226F42BA00FBB047 /* Archive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Archive.swift; sourceTree = "<group>"; };
 		5BAF4F231DC8DA35000379A4 /* QuantiLoggerConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuantiLoggerConstants.swift; sourceTree = "<group>"; };
 		5BDA79CC1DBFB6CF00930ABA /* ConsoleLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsoleLogger.swift; sourceTree = "<group>"; };
-		5BEBBB181DC9EAC20055E453 /* DateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		5BF451371FF568A500E18215 /* ApplicationCallbackLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCallbackLogger.swift; sourceTree = "<group>"; };
 		5BF956FF1F5ECF1C00F88F9B /* QuantiLoggerExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuantiLoggerExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BF957011F5ECF1C00F88F9B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -247,7 +249,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B07491423A0F46B00887C7C /* RxSwift.framework in Frameworks */,
+				5B164FBB23BDF34F00A5F4E6 /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,7 +322,8 @@
 		5B35E3601DC0EF1A00C7E679 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				5BEBBB181DC9EAC20055E453 /* DateExtension.swift */,
+				5B164FBE23BDF65700A5F4E6 /* Date+.swift */,
+				5B164FC123BDF67800A5F4E6 /* Observable+.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -599,7 +602,7 @@
 				6C5DF0CE22C0E96600271501 /* Frameworks */,
 				6C5DF0D122C0E96600271501 /* Headers */,
 				6C5DF0D322C0E96600271501 /* Resources */,
-				5B07491223A0F36200887C7C /* Embed Frameworks */,
+				5B164FBD23BDF34F00A5F4E6 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -768,8 +771,8 @@
 				5BA6AB02226F42BA00FBB047 /* Data+Serialization.swift in Sources */,
 				D32E65A420D15A7100698F3E /* JSONSerializable.swift in Sources */,
 				5B3641A51DBFACF90034EF68 /* Logging.swift in Sources */,
-				5BEBBB191DC9EAC20055E453 /* DateExtension.swift in Sources */,
 				D32E65A120D15A7100698F3E /* HTTPURLResponse+logDescription.swift in Sources */,
+				5B164FBF23BDF65700A5F4E6 /* Date+.swift in Sources */,
 				5BA6AAFE226F42BA00FBB047 /* Data+Compression.swift in Sources */,
 				D32E659E20D15A7100698F3E /* JSONParser.swift in Sources */,
 				5BDA79CD1DBFB6CF00930ABA /* ConsoleLogger.swift in Sources */,
@@ -785,6 +788,7 @@
 				D32E65A220D15A7100698F3E /* WebLoggerApi.swift in Sources */,
 				5BA3645B1DD0EC160017F9EB /* FileLoggerTableViewDatasource.swift in Sources */,
 				5BA6AAFC226F42BA00FBB047 /* Archive+Writing.swift in Sources */,
+				5B164FC223BDF67800A5F4E6 /* Observable+.swift in Sources */,
 				D3405D501F4C494200A1987F /* DateHelper.swift in Sources */,
 				5B35E35E1DC0C87300C7E679 /* FileLoggerManager.swift in Sources */,
 				5BA6AB04226F42BA00FBB047 /* Archive+Reading.swift in Sources */,
@@ -817,7 +821,6 @@
 				5BF957451F5ED3A100F88F9B /* FileLoggerManager.swift in Sources */,
 				5BF957311F5ED1E100F88F9B /* LogListTableViewController.swift in Sources */,
 				5BF957431F5ED39C00F88F9B /* FileLoggerTableViewDatasource.swift in Sources */,
-				5BF9573A1F5ED37900F88F9B /* DateExtension.swift in Sources */,
 				5BF9573F1F5ED38D00F88F9B /* Logging.swift in Sources */,
 				5B1E989F20976BD800855C80 /* MetaInformationLogger.swift in Sources */,
 				5BA6AAFF226F42BA00FBB047 /* Data+Compression.swift in Sources */,
@@ -861,7 +864,6 @@
 				6C5DF0B022C0E96600271501 /* JSONSerializable.swift in Sources */,
 				6C5DF0DD22C0EED600271501 /* ApplicationCallbackLogger.swift in Sources */,
 				6C5DF0B122C0E96600271501 /* Logging.swift in Sources */,
-				6C5DF0B222C0E96600271501 /* DateExtension.swift in Sources */,
 				6C5DF0B322C0E96600271501 /* HTTPURLResponse+logDescription.swift in Sources */,
 				6C5DF0B422C0E96600271501 /* Data+Compression.swift in Sources */,
 				6C5DF0B522C0E96600271501 /* JSONParser.swift in Sources */,
@@ -870,6 +872,7 @@
 				6C5DF0B822C0E96600271501 /* SystemLogger.swift in Sources */,
 				6C5DF0B922C0E96600271501 /* ApiError.swift in Sources */,
 				6C5DF0BA22C0E96600271501 /* JSONParseable.swift in Sources */,
+				5B164FC023BDF65700A5F4E6 /* Date+.swift in Sources */,
 				6C5DF0BB22C0E96600271501 /* FileLogger.swift in Sources */,
 				6C5DF0BC22C0E96600271501 /* FileManager+ZIP.swift in Sources */,
 				6C5DF0BE22C0E96600271501 /* Archive.swift in Sources */,
@@ -882,6 +885,7 @@
 				6C5DF0C622C0E96600271501 /* Level.swift in Sources */,
 				6C5DF0C722C0E96600271501 /* QuantiLoggerConstants.swift in Sources */,
 				6C5DF0C822C0E96600271501 /* BaseApi.swift in Sources */,
+				5B164FC323BDF67800A5F4E6 /* Observable+.swift in Sources */,
 				6C5DF0CA22C0E96600271501 /* MetaInformationLogger.swift in Sources */,
 				6C5DF0CC22C0E96600271501 /* HttpMethod.swift in Sources */,
 				6C5DF0CD22C0E96600271501 /* LogFileRecord.swift in Sources */,
