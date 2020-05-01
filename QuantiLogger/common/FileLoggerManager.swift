@@ -88,6 +88,11 @@ class FileLoggerManager {
 
     // Url of the zip file containing all log files.
     var archivedLogFilesUrl: URL? {
+        return archivedLogFiles?.url
+    }
+
+    // Zip file containing log files
+    var archivedLogFiles: Archive? {
         guard let _logDirUrl = logDirUrl else {
             print("\(#function) - logDirUrl is nil.")
             return nil
@@ -131,7 +136,7 @@ class FileLoggerManager {
             return nil
         }
 
-        return archive.url
+        return archive
     }
 
     private init() {
