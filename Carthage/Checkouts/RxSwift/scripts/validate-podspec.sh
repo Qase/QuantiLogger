@@ -16,9 +16,17 @@ function cleanup {
 trap cleanup EXIT
 
 if [[ ! -z "${TRAVIS}" ]]; then
-    gem install cocoapods --pre --no-document --quiet;
-    pod repo update;
-fi;
+    bundle install
+    COCOAPODS_REPO_COUNT=`bundle exec pod repo list --count-only | cut -c 1`
+
+    if [[ $COCOAPODS_REPO_COUNT == "0" ]]; then
+        # No repo spec yet, we have to set it up
+        bundle exec pod setup
+    else
+        # We have some remote repo (cached or otherwise), so we can simply update it 
+        bundle exec pod repo update
+    fi
+fi
 
 VERSION=`cat RxSwift.podspec | grep -E "s.version\s+=" | cut -d '"' -f 2`
 ROOTS=(8/5/5 3/c/1 9/2/4 a/b/1 2/e/c)
@@ -48,7 +56,11 @@ popd
 function validate() {
     local PODSPEC=$1
 
-    pod lib lint $PODSPEC --verbose --no-clean "${SWIFT_VERSION}"
+    validate=(pod lib lint $PODSPEC --verbose --no-clean ${arg} "${SWIFT_VERSION}")
+    if [ $TARGET = "RxCocoa" ]; then
+      validate+=(--allow-warnings)
+    fi
+    echo "${validate[@]}"
 }
 
 for TARGET_ITERATOR in ${TARGETS[@]}
