@@ -56,7 +56,7 @@ class FileLoggerManager {
     }
 
     var currentLogFileUrl: URL? {
-        return logDirUrl?.appendingPathComponent("\(currentLogFileNumber)").appendingPathExtension("log")
+        logDirUrl?.appendingPathComponent("\(currentLogFileNumber)").appendingPathExtension("log")
     }
 
     private var currentWritableFileHandle: FileHandle? {
@@ -88,7 +88,7 @@ class FileLoggerManager {
 
     // Url of the zip file containing all log files.
     var archivedLogFilesUrl: URL? {
-        return archivedLogFiles?.url
+        archivedLogFiles?.url
     }
 
     // Zip file containing log files
