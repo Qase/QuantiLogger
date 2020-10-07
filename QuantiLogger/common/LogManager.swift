@@ -118,12 +118,14 @@ public class LogManager {
 	}
 
     /// Method to export all log files if there are any.
-    public func exportLogFiles() -> [Archive?] {
+    public func exportLogFiles() -> Archive? {
         serialLoggingQueue.sync {
             dispatchPrecondition(condition: .onQueue(self.serialLoggingQueue))
 
-            return self.loggers.compactMap { $0 as? FileLogger }
-                .map { $0.archivedLogFiles }
+            return self.loggers
+                .compactMap { $0 as? FileLogger }
+                .compactMap { $0.archivedLogFiles }
+                .first
         }
     }
 

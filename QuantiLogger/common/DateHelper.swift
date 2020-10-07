@@ -14,7 +14,7 @@ struct DateHelper {
         let formatter = DateFormatter()
 
         formatter.locale = Locale.current
-        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss.SSS"
         return formatter
     }()
 
