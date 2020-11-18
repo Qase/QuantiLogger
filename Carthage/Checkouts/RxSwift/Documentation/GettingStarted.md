@@ -443,18 +443,27 @@ let subscription1 = counter
     .subscribe(onNext: { n in
         print("First \(n)")
     })
+    
+print("Subscribed")
+
 let subscription2 = counter
     .subscribe(onNext: { n in
         print("Second \(n)")
     })
+    
+print("Subscribed")
 
 Thread.sleep(forTimeInterval: 0.5)
 
 subscription1.dispose()
 
+print("Disposed")
+
 Thread.sleep(forTimeInterval: 0.5)
 
 subscription2.dispose()
+
+print("Disposed")
 
 print("Ended ----")
 ```
@@ -539,7 +548,6 @@ First 3
 Second 3
 First 4
 Second 4
-First 5
 Second 5
 Second 6
 Second 7

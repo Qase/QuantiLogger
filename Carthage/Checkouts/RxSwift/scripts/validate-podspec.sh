@@ -9,13 +9,13 @@ ESCAPED_SOURCE=$(pwd | sed -E "s/\//\\\\\//g")
 function cleanup {
   pushd ~/.cocoapods/repos/master
   git clean -d -f
-  git reset master --hard
+  git reset main --hard
   popd
 }
 
 trap cleanup EXIT
 
-if [[ ! -z "${TRAVIS}" ]]; then
+if [[ ! -z "${CI}" ]]; then
     bundle install
     COCOAPODS_REPO_COUNT=`bundle exec pod repo list --count-only | cut -c 1`
 
