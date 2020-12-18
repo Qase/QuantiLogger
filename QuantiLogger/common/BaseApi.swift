@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import RxSwift
 
 class BaseApi: NSObject {
 	let session: URLSession = URLSession(configuration: URLSessionConfiguration.default)
