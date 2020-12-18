@@ -6,6 +6,8 @@
 //  Copyright © 2016 quanti. All rights reserved.
 //
 
+#if os(iOS)
+
 import UIKit
 
 open class FileLoggerTableViewDatasource: NSObject, UITableViewDataSource {
@@ -59,3 +61,5 @@ open class FileLoggerTableViewDatasource: NSObject, UITableViewDataSource {
     }
 
 }
+
+#endif

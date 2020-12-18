@@ -6,6 +6,8 @@
 //  Copyright © 2016 quanti. All rights reserved.
 //
 
+#if os(iOS)
+
 import UIKit
 
 class FileLoggerTableViewCell: UITableViewCell {
@@ -58,3 +60,5 @@ class FileLoggerTableViewCell: UITableViewCell {
     }
 
 }
+
+#endif

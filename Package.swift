@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
     name: "QuantiLogger",
     platforms: [
-        .iOS(.v12) //, .macOS(.v10_12)
+        .iOS(.v12), .macOS(.v10_12)
     ],
     products: [
         // Products define the executables and libraries produced by a package, and make them visible to other packages.
@@ -24,16 +24,8 @@ let package = Package(
                 dependencies: [.product(name: "RxCocoa", package: "RxSwift"),
                                .product(name: "RxSwift", package: "RxSwift")],
                 path: "QuantiLogger",
-                sources: ["ios", "common"]
-                )
+                exclude: ["ios/Info.plist", "mac/InfoMac.plist"]
+        ),
     ],
     swiftLanguageVersions: [.v5]
 )
-
-var sourses: [String] {
-    #if os(iOS)
-    return ["common", "ios"]
-    #else
-    return ["common"]
-    #endif
-}

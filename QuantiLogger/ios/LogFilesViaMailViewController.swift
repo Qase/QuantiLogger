@@ -6,6 +6,8 @@
 //  Copyright © 2016 quanti. All rights reserved.
 //
 
+#if os(iOS)
+
 import UIKit
 import MessageUI
 
@@ -37,3 +39,5 @@ public class LogFilesViaMailViewController: MFMailComposeViewController {
         }
     }
 }
+
+#endif
