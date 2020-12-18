@@ -20,25 +20,20 @@ let package = Package(
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
         // Targets can depend on other targets in this package, and on products in packages which this package depends on.
-        .quantiLogger
+        .target(name: "QuantiLogger",
+                dependencies: [.product(name: "RxCocoa", package: "RxSwift"),
+                               .product(name: "RxSwift", package: "RxSwift")],
+                path: "QuantiLogger",
+                sources: sourses
+                )
     ],
     swiftLanguageVersions: [.v5]
 )
 
-extension Target {
-    static var quantiLogger: Target {
+var sourses: [String] {
     #if os(iOS)
-      return Target.target(name: "QuantiLogger",
-                           dependencies: [.product(name: "RxCocoa", package: "RxSwift"),
-                                          .product(name: "RxSwift", package: "RxSwift")],
-                           path: "QuantiLogger",
-                           sources: ["common", "ios"])
+    return ["common", "ios"]
     #else
-      return Target.target(name: "QuantiLogger",
-                           dependencies: [.product(name: "RxCocoa", package: "RxSwift"),
-                                          .product(name: "RxSwift", package: "RxSwift")],
-                           path: "QuantiLogger",
-                           sources: ["common"])
+    return ["common"]
     #endif
-  }
 }
