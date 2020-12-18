@@ -10,7 +10,7 @@
 
 import UIKit
 
-class FileLoggerTableViewCell: UITableViewCell {
+public class FileLoggerTableViewCell: UITableViewCell {
 
     var logFileRecord: LogFileRecord? {
         didSet {

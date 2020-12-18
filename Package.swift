@@ -12,7 +12,7 @@ let package = Package(
         // Products define the executables and libraries produced by a package, and make them visible to other packages.
         .library(
             name: "QuantiLogger",
-            targets: ["QuantiLogger"]),
+            targets: ["QuantiLogger", "QuantiLoggerExample"]),
     ],
     dependencies: [
         .package(url: "https://github.com/ReactiveX/RxSwift.git", .exact("6.0.0-rc.2"))
@@ -26,6 +26,15 @@ let package = Package(
                 path: "QuantiLogger",
                 exclude: ["ios/Info.plist", "mac/InfoMac.plist"]
         ),
+        .target(name: "QuantiLoggerExample",
+                dependencies: [.product(name: "RxCocoa", package: "RxSwift"),
+                               .product(name: "RxSwift", package: "RxSwift"),
+                               .target(name: "QuantiLogger")],
+                path: "QuantiLoggerExample"
+        ),
+        .testTarget(name: "QuantiLoggerTests",
+                    dependencies: [.target(name: "QuantiLogger")],
+                    path: "QuantiLoggerTests")
     ],
     swiftLanguageVersions: [.v5]
 )

@@ -6,7 +6,10 @@
 //  Copyright © 2016 quanti. All rights reserved.
 //
 
+#if os(iOS)
+
 import UIKit
+import QuantiLogger
 
 class LogListTableViewController: UIViewController {
     private let refreshControl = UIRefreshControl()
@@ -61,4 +64,4 @@ extension LogListTableViewController: UITableViewDelegate {
     }
 }
 
-
+#endif

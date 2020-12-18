@@ -46,7 +46,6 @@
 		5BF451381FF568A500E18215 /* ApplicationCallbackLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF451371FF568A500E18215 /* ApplicationCallbackLogger.swift */; };
 		5BF957021F5ECF1C00F88F9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF957011F5ECF1C00F88F9B /* AppDelegate.swift */; };
 		5BF957091F5ECF1C00F88F9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BF957081F5ECF1C00F88F9B /* Assets.xcassets */; };
-		5BF957221F5ECF1D00F88F9B /* QuantiLoggerExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF957211F5ECF1D00F88F9B /* QuantiLoggerExampleUITests.swift */; };
 		5BF9572F1F5ED18D00F88F9B /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF9572E1F5ED18D00F88F9B /* MainTabBarController.swift */; };
 		5BF957311F5ED1E100F88F9B /* LogListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF957301F5ED1E100F88F9B /* LogListTableViewController.swift */; };
 		5BF957331F5ED1F500F88F9B /* SendLogFilesViaMailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF957321F5ED1F500F88F9B /* SendLogFilesViaMailViewController.swift */; };
@@ -181,8 +180,6 @@
 		5BF957081F5ECF1C00F88F9B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5BF9570D1F5ECF1C00F88F9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5BF9571D1F5ECF1D00F88F9B /* QuantiLoggerExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuantiLoggerExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5BF957211F5ECF1D00F88F9B /* QuantiLoggerExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuantiLoggerExampleUITests.swift; sourceTree = "<group>"; };
-		5BF957231F5ECF1D00F88F9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5BF9572E1F5ED18D00F88F9B /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		5BF957301F5ED1E100F88F9B /* LogListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogListTableViewController.swift; sourceTree = "<group>"; };
 		5BF957321F5ED1F500F88F9B /* SendLogFilesViaMailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendLogFilesViaMailViewController.swift; sourceTree = "<group>"; };
@@ -337,7 +334,6 @@
 				5B36418A1DBFA4650034EF68 /* QuantiLogger */,
 				5B3641951DBFA4650034EF68 /* QuantiLoggerTests */,
 				5BF957001F5ECF1C00F88F9B /* QuantiLoggerExample */,
-				5BF957201F5ECF1D00F88F9B /* QuantiLoggerExampleUITests */,
 				5B3641891DBFA4650034EF68 /* Products */,
 				D3920BE7206D2BAE0054FE9F /* Frameworks */,
 			);
@@ -430,15 +426,6 @@
 				5BF9572D1F5ECF3F00F88F9B /* SupportingFiles */,
 			);
 			path = QuantiLoggerExample;
-			sourceTree = "<group>";
-		};
-		5BF957201F5ECF1D00F88F9B /* QuantiLoggerExampleUITests */ = {
-			isa = PBXGroup;
-			children = (
-				5BF957211F5ECF1D00F88F9B /* QuantiLoggerExampleUITests.swift */,
-				5BF957231F5ECF1D00F88F9B /* Info.plist */,
-			);
-			path = QuantiLoggerExampleUITests;
 			sourceTree = "<group>";
 		};
 		5BF9572D1F5ECF3F00F88F9B /* SupportingFiles */ = {
@@ -640,7 +627,6 @@
 					};
 					5BF956FE1F5ECF1C00F88F9B = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = 8JH59DJ45H;
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
@@ -853,7 +839,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5BF957221F5ECF1D00F88F9B /* QuantiLoggerExampleUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
