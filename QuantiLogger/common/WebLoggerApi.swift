@@ -25,6 +25,6 @@ extension WebLoggerApi: WebLoggerApiType {
     func send(_ logBatch: LogEntryBatch) -> Completable {
         let request = ApiFactory.buildRequest(baseUrl: url, pathComponent: "log", method: .post, withJsonBody: logBatch.jsonData)
 
-        return ApiFactory.noData(for: request, in: session).ignoreElements().asCompletable()
+        return ApiFactory.noData(for: request, in: session).ignoreElements()
     }
 }
