@@ -25,12 +25,6 @@ let package = Package(
                                .product(name: "RxSwift", package: "RxSwift")],
                 path: "QuantiLogger"
         ),
-//        .target(name: "QuantiLoggerExample",
-//                dependencies: [.product(name: "RxCocoa", package: "RxSwift"),
-//                               .product(name: "RxSwift", package: "RxSwift"),
-//                               .target(name: "QuantiLogger")],
-//                path: "QuantiLoggerExample"
-//        ),
         .testTarget(name: "QuantiLoggerTests",
                     dependencies: [.target(name: "QuantiLogger")],
                     path: "QuantiLoggerTests")
