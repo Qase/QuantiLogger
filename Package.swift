@@ -15,7 +15,7 @@ let package = Package(
             targets: ["QuantiLogger", "QuantiLoggerExample"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/ReactiveX/RxSwift.git", .exact("6.0.0-rc.2"))
+        .package(url: "https://github.com/ReactiveX/RxSwift.git", .upToNextMajor(from: "5.0.0"))
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
