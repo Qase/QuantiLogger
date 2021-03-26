@@ -16,8 +16,10 @@ class FileLoggerManager {
     let logDirUrl: URL? = {
         do {
             let fileManager = FileManager.default
-            let documentDirUrl = try fileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
-            let _logDirUrl = documentDirUrl.appendingPathComponent("logs")
+            let documentDirUrl = try fileManager.containerURL(forSecurityApplicationGroupIdentifier: "group.quanti.swift.NN-mobile-communicator")
+            guard let _logDirUrl = documentDirUrl?.appendingPathComponent("logs") else {
+                return nil
+            }
             if !fileManager.fileExists(atPath: _logDirUrl.path) {
                 try fileManager.createDirectory(at: _logDirUrl, withIntermediateDirectories: true, attributes: nil)
             }
@@ -56,7 +58,11 @@ class FileLoggerManager {
     }
 
     var currentLogFileUrl: URL? {
-        return logDirUrl?.appendingPathComponent("\(currentLogFileNumber)").appendingPathExtension("log")
+        logDirUrl?.appendingPathComponent("\(currentLogFileNumber)").appendingPathExtension("log")
+    }
+
+    var currentLogExtensionFileUrl: URL? {
+        logDirUrl?.appendingPathComponent("extension").appendingPathExtension("log")
     }
 
     private var currentWritableFileHandle: FileHandle? {
@@ -88,7 +94,7 @@ class FileLoggerManager {
 
     // Url of the zip file containing all log files.
     var archivedLogFilesUrl: URL? {
-        return archivedLogFiles?.url
+        archivedLogFiles?.url
     }
 
     // Zip file containing log files
