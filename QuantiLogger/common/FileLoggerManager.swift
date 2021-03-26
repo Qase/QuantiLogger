@@ -277,7 +277,7 @@ class FileLoggerManager {
             currentWritableFileHandle?.write(_contentToAppend)
         }
     }
-    
+
     func writeToExtensionLogFile(message: String, withMessageHeader messageHeader: String, onLevel level: Level) {
         print("QLog writeToExtensionLogFile")
         print("QLog url: \(currentLogExtensionFileUrl!)")
@@ -286,7 +286,7 @@ class FileLoggerManager {
         refreshCurrentLogFileStatus()
 
         let contentToAppend = "ggggggggggggggggggggggggggggggggggggggg\n"
-        
+
         let writableFileHandle = try! FileHandle(forWritingTo: currentLogExtensionFileUrl!)
 
         writableFileHandle.seekToEndOfFile()

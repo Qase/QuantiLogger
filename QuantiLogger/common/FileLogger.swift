@@ -36,6 +36,10 @@ public class FileLogger: Logging {
         fileLoggerManager.writeToLogFile(message: message, withMessageHeader: messageHeader(forLevel: level), onLevel: level)
     }
 
+    public func logExt(_ message: String, onLevel level: Level) {
+        fileLoggerManager.writeToExtensionLogFile(message: message, withMessageHeader: messageHeader(forLevel: level), onLevel: level)
+    }
+
 	public func deleteAllLogFiles() {
 		fileLoggerManager.deleteAllLogFiles()
 	}
