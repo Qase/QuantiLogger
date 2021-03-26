@@ -23,7 +23,7 @@ class FileLoggerManager {
             if !fileManager.fileExists(atPath: _logDirUrl.path) {
                 try fileManager.createDirectory(at: _logDirUrl, withIntermediateDirectories: true, attributes: nil)
             }
-            print("File log directory: \(_logDirUrl).")
+            print("QLog File log directory: \(_logDirUrl).")
 
             return _logDirUrl
         } catch let error {
@@ -207,12 +207,14 @@ class FileLoggerManager {
     /// - Parameter fileUrlToAdd: fileName of the log file to be added
     private func createLogFile(at fileUrlToAdd: URL) {
         if FileManager.default.fileExists(atPath: fileUrlToAdd.path) {
+            print("QLog exist")
             return
         }
 
         if !FileManager.default.createFile(atPath: fileUrlToAdd.path, contents: nil) {
             assertionFailure("Creating new log file failed.")
         }
+        print("QLog created file")
     }
 
     /// Method to open a new file descriptor and assign it to currentWritableFileHandle
@@ -273,6 +275,23 @@ class FileLoggerManager {
         currentWritableFileHandle?.seekToEndOfFile()
         if let _contentToAppend = contentToAppend.data(using: .utf8) {
             currentWritableFileHandle?.write(_contentToAppend)
+        }
+    }
+    
+    func writeToExtensionLogFile(message: String, withMessageHeader messageHeader: String, onLevel level: Level) {
+        print("QLog writeToExtensionLogFile")
+        print("QLog url: \(currentLogExtensionFileUrl!)")
+        print("QLog ext url: \(currentLogExtensionFileUrl!)")
+        createLogFile(at: currentLogExtensionFileUrl!)
+        refreshCurrentLogFileStatus()
+
+        let contentToAppend = "ggggggggggggggggggggggggggggggggggggggg\n"
+        
+        let writableFileHandle = try! FileHandle(forWritingTo: currentLogExtensionFileUrl!)
+
+        writableFileHandle.seekToEndOfFile()
+        if let _contentToAppend = contentToAppend.data(using: .utf8) {
+            writableFileHandle.write(_contentToAppend)
         }
     }
 
