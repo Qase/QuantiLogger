@@ -30,6 +30,25 @@ class FileLoggerManager {
         }
     }()
 
+    let extLogDirUrl: URL? = {
+        do {
+            let fileManager = FileManager.default
+            let documentDirUrl = fileManager.containerURL(forSecurityApplicationGroupIdentifier: "group.quanti.swift.NN-mobile-communicator")
+            guard let _logDirUrl = documentDirUrl?.appendingPathComponent("logs") else {
+                return nil
+            }
+            if !fileManager.fileExists(atPath: _logDirUrl.path) {
+                try fileManager.createDirectory(at: _logDirUrl, withIntermediateDirectories: true, attributes: nil)
+            }
+            print("QLog File log directory: \(_logDirUrl).")
+
+            return _logDirUrl
+        } catch let error {
+            assertionFailure("Failed to create log directory within init() with error: \(error).")
+            return nil
+        }
+    }()
+
     private(set) var currentLogFileNumber: Int = 0 {
         didSet {
             // Check if currentLogFileNumber got updated, if not - do nothing, thus keep the currentWritableFileHandle opened
@@ -60,7 +79,7 @@ class FileLoggerManager {
     }
 
     var currentLogExtensionFileUrl: URL? {
-        logDirUrl?.appendingPathComponent("extension").appendingPathExtension("log")
+        extLogDirUrl?.appendingPathComponent("extension").appendingPathExtension("log")
     }
 
     private var currentWritableFileHandle: FileHandle? {
@@ -239,10 +258,12 @@ class FileLoggerManager {
     ///
     /// - Returns: Array of log file names
     func gettingAllLogFiles() -> [URL]? {
-        guard let _logDirUrl = logDirUrl else { return nil }
-
         do {
-            let directoryContent = try FileManager.default.contentsOfDirectory(at: _logDirUrl, includingPropertiesForKeys: nil, options: [])
+            let directoryContent = try [logDirUrl, extLogDirUrl]
+                .compactMap { $0 }
+                .flatMap {
+                    try FileManager.default.contentsOfDirectory(at: $0, includingPropertiesForKeys: nil, options: [])
+                }
             let logFiles = directoryContent.filter({ (file) -> Bool in
                 file.pathExtension == "log"
             })
