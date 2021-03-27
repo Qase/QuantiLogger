@@ -60,7 +60,7 @@ class FileLoggerManager {
     }
 
     var currentLogExtensionFileUrl: URL? {
-        logDirUrl?.appendingPathComponent("extension-\(currentLogFileNumber)").appendingPathExtension("log")
+        logDirUrl?.appendingPathComponent("extension").appendingPathExtension("log")
     }
 
     private var currentWritableFileHandle: FileHandle? {
