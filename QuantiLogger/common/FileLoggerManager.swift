@@ -16,10 +16,8 @@ class FileLoggerManager {
     let logDirUrl: URL? = {
         do {
             let fileManager = FileManager.default
-            let documentDirUrl = try fileManager.containerURL(forSecurityApplicationGroupIdentifier: "group.quanti.swift.NN-mobile-communicator")
-            guard let _logDirUrl = documentDirUrl?.appendingPathComponent("logs") else {
-                return nil
-            }
+            let documentDirUrl = try fileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+            let _logDirUrl = documentDirUrl.appendingPathComponent("logs")
             if !fileManager.fileExists(atPath: _logDirUrl.path) {
                 try fileManager.createDirectory(at: _logDirUrl, withIntermediateDirectories: true, attributes: nil)
             }
@@ -62,7 +60,7 @@ class FileLoggerManager {
     }
 
     var currentLogExtensionFileUrl: URL? {
-        logDirUrl?.appendingPathComponent("extension").appendingPathExtension("log")
+        logDirUrl?.appendingPathComponent("extension-\(currentLogFileNumber)").appendingPathExtension("log")
     }
 
     private var currentWritableFileHandle: FileHandle? {
@@ -279,15 +277,14 @@ class FileLoggerManager {
     }
 
     func writeToExtensionLogFile(message: String, withMessageHeader messageHeader: String, onLevel level: Level) {
-        print("QLog writeToExtensionLogFile")
-        print("QLog url: \(currentLogExtensionFileUrl!)")
-        print("QLog ext url: \(currentLogExtensionFileUrl!)")
-        createLogFile(at: currentLogExtensionFileUrl!)
         refreshCurrentLogFileStatus()
 
-        let contentToAppend = "ggggggggggggggggggggggggggggggggggggggg\n"
+        let contentToAppend = "\(QuantiLoggerConstants.FileLogger.logFileRecordSeparator) \(messageHeader) \(message)\n"
 
-        let writableFileHandle = try! FileHandle(forWritingTo: currentLogExtensionFileUrl!)
+        guard let url = currentLogExtensionFileUrl,
+              let writableFileHandle = try? FileHandle(forWritingTo: url) else {
+            return
+        }
 
         writableFileHandle.seekToEndOfFile()
         if let _contentToAppend = contentToAppend.data(using: .utf8) {
