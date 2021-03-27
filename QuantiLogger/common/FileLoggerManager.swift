@@ -279,12 +279,14 @@ class FileLoggerManager {
     }
 
     func writeToExtensionLogFile(message: String, withMessageHeader messageHeader: String, onLevel level: Level) {
-        guard let url = currentLogExtensionFileUrl,
-              let writableFileHandle = try? FileHandle(forWritingTo: url) else {
+        guard let url = currentLogExtensionFileUrl else {
+            return
+        }
+        createLogFile(at: url)
+        guard let writableFileHandle = try? FileHandle(forWritingTo: url) else {
             return
         }
 
-        createLogFile(at: url)
         refreshCurrentLogFileStatus()
 
         let contentToAppend = "---------------\n"
