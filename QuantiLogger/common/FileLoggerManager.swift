@@ -16,10 +16,8 @@ class FileLoggerManager {
     let logDirUrl: URL? = {
         do {
             let fileManager = FileManager.default
-            let documentDirUrl = fileManager.containerURL(forSecurityApplicationGroupIdentifier: "group.quanti.swift.NN-mobile-communicator")
-            guard let _logDirUrl = documentDirUrl?.appendingPathComponent("logs") else {
-                return nil
-            }
+            let documentDirUrl = try fileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+            let _logDirUrl = documentDirUrl.appendingPathComponent("logs")
             if !fileManager.fileExists(atPath: _logDirUrl.path) {
                 try fileManager.createDirectory(at: _logDirUrl, withIntermediateDirectories: true, attributes: nil)
             }
