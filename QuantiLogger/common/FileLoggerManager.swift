@@ -281,7 +281,7 @@ class FileLoggerManager {
     func writeToExtensionLogFile(message: String, withMessageHeader messageHeader: String, onLevel level: Level) {
         refreshCurrentLogFileStatus()
 
-        let contentToAppend = "\(QuantiLoggerConstants.FileLogger.logFileRecordSeparator) \(messageHeader) \(message)\n"
+        let contentToAppend = "---------------\n"
 
         guard let url = currentLogExtensionFileUrl,
               let writableFileHandle = try? FileHandle(forWritingTo: url) else {
