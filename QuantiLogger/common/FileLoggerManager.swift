@@ -78,7 +78,7 @@ class FileLoggerManager {
         logDirUrl?.appendingPathComponent("\(currentLogFileNumber)").appendingPathExtension("log")
     }
 
-    var currentLogExtensionFileUrl: URL? {
+    var logExtensionFileUrl: URL? {
         extLogDirUrl?.appendingPathComponent("extension").appendingPathExtension("log")
     }
 
@@ -224,14 +224,12 @@ class FileLoggerManager {
     /// - Parameter fileUrlToAdd: fileName of the log file to be added
     private func createLogFile(at fileUrlToAdd: URL) {
         if FileManager.default.fileExists(atPath: fileUrlToAdd.path) {
-            print("QLog exist")
             return
         }
 
         if !FileManager.default.createFile(atPath: fileUrlToAdd.path, contents: nil) {
             assertionFailure("Creating new log file failed.")
         }
-        print("QLog created file")
     }
 
     /// Method to open a new file descriptor and assign it to currentWritableFileHandle
@@ -298,17 +296,15 @@ class FileLoggerManager {
     }
 
     func writeToExtensionLogFile(message: String, withMessageHeader messageHeader: String, onLevel level: Level) {
-        guard let url = currentLogExtensionFileUrl else {
+        guard let logExtensionFileUrl = logExtensionFileUrl else {
             return
         }
-        createLogFile(at: url)
-        guard let writableFileHandle = try? FileHandle(forWritingTo: url) else {
+        createLogFile(at: logExtensionFileUrl)
+        guard let writableFileHandle = try? FileHandle(forWritingTo: logExtensionFileUrl) else {
             return
         }
 
-        refreshCurrentLogFileStatus()
-
-        let contentToAppend = "---------------\n"
+        let contentToAppend = "\(QuantiLoggerConstants.FileLogger.logFileRecordSeparator) \(messageHeader) \(message)\n"
 
         writableFileHandle.seekToEndOfFile()
         if let _contentToAppend = contentToAppend.data(using: .utf8) {
