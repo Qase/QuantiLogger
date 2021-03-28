@@ -10,7 +10,7 @@ import Foundation
 
 /// Pre-built logger that logs to a single or multiple files within dedicated log dir.
 public class FileLogger: Logging {
-    private let fileLoggerManager = FileLoggerManager.shared
+    private let fileLoggerManager: FileLoggerManager
 
     /// Property to set a number of log files that can be used for loging.
     public var numOfLogFiles: Int = 4 {
@@ -30,7 +30,9 @@ public class FileLogger: Logging {
 
 	public var levels: [Level] = [.info]
 
-	public init() {}
+	public init(subsystem: String? = nil) {
+        fileLoggerManager = FileLoggerManager(subsystem: subsystem)
+    }
 
     public func log(_ message: String, onLevel level: Level) {
         fileLoggerManager.writeToLogFile(message: message, withMessageHeader: messageHeader(forLevel: level), onLevel: level)

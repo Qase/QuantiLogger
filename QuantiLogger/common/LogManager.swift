@@ -19,6 +19,14 @@ public func QLog(_ message: String, onLevel level: Level, inFile file: String = 
 	LogManager.shared.log("\(theFileName) - \(function) - line \(line): \(message)", onLevel: level)
 }
 
+public func QLogExtension(_ message: String, onLevel level: Level, inFile file: String = #file, inFunction function: String = #function, onLine line: Int = #line) {
+    guard let fileLogger: FileLogger = LogManager.shared.logger() else {
+        return
+    }
+    let theFileName = (file as NSString).lastPathComponent
+    fileLogger.logExt("\(theFileName) - \(function) - line \(line): \(message)", onLevel: level)
+}
+
 /// Logging concurrency types
 ///
 /// - syncSerial: logging executed synchronously towards the main thread. All loggers log serially one by one within a dedicated queue

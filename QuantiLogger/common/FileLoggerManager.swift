@@ -21,7 +21,6 @@ class FileLoggerManager {
             if !fileManager.fileExists(atPath: _logDirUrl.path) {
                 try fileManager.createDirectory(at: _logDirUrl, withIntermediateDirectories: true, attributes: nil)
             }
-            print("QLog File log directory: \(_logDirUrl).")
 
             return _logDirUrl
         } catch let error {
@@ -30,17 +29,19 @@ class FileLoggerManager {
         }
     }()
 
-    let extLogDirUrl: URL? = {
+    private lazy var extLogDirUrl: URL? = {
         do {
+            guard let subsystem = subsystem else {
+                return nil
+            }
             let fileManager = FileManager.default
-            let documentDirUrl = fileManager.containerURL(forSecurityApplicationGroupIdentifier: "group.quanti.swift.NN-mobile-communicator")
-            guard let _logDirUrl = documentDirUrl?.appendingPathComponent("logs") else {
+            let dirUrl = fileManager.containerURL(forSecurityApplicationGroupIdentifier: subsystem)
+            guard let _logDirUrl = dirUrl?.appendingPathComponent("logs") else {
                 return nil
             }
             if !fileManager.fileExists(atPath: _logDirUrl.path) {
                 try fileManager.createDirectory(at: _logDirUrl, withIntermediateDirectories: true, attributes: nil)
             }
-            print("QLog File log directory: \(_logDirUrl).")
 
             return _logDirUrl
         } catch let error {
@@ -48,6 +49,8 @@ class FileLoggerManager {
             return nil
         }
     }()
+
+    private let subsystem: String?
 
     private(set) var currentLogFileNumber: Int = 0 {
         didSet {
@@ -162,7 +165,8 @@ class FileLoggerManager {
         return archive
     }
 
-    private init() {
+    init(subsystem: String? = nil) {
+        self.subsystem = subsystem
         if let _dateOfLastLog = UserDefaults.standard.object(forKey: QuantiLoggerConstants.UserDefaultsKeys.dateOfLastLog) as? Date {
             dateOfLastLog = _dateOfLastLog
         } else {
