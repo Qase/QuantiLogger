@@ -21,6 +21,7 @@ class FileLoggerManager {
             if !fileManager.fileExists(atPath: _logDirUrl.path) {
                 try fileManager.createDirectory(at: _logDirUrl, withIntermediateDirectories: true, attributes: nil)
             }
+            print("File log directory: \(_logDirUrl).")
 
             return _logDirUrl
         } catch let error {
@@ -42,10 +43,11 @@ class FileLoggerManager {
             if !fileManager.fileExists(atPath: _logDirUrl.path) {
                 try fileManager.createDirectory(at: _logDirUrl, withIntermediateDirectories: true, attributes: nil)
             }
+            print("File log extension directory: \(_logDirUrl).")
 
             return _logDirUrl
         } catch let error {
-            assertionFailure("Failed to create log directory within init() with error: \(error).")
+            assertionFailure("Failed to create log extension directory within init() with error: \(error).")
             return nil
         }
     }()
