@@ -30,6 +30,10 @@ public class FileLogger: Logging {
 
 	public var levels: [Level] = [.info]
 
+    /// FileLogger initializer
+    ///
+    /// - Parameters:
+    ///   - subsystem: suit name of the application. Must be passed to create logs from app extensions.
 	public init(subsystem: String? = nil) {
         fileLoggerManager = FileLoggerManager(subsystem: subsystem)
     }

@@ -19,6 +19,12 @@ public func QLog(_ message: String, onLevel level: Level, inFile file: String = 
 	LogManager.shared.log("\(theFileName) - \(function) - line \(line): \(message)", onLevel: level)
 }
 
+/// Global method that handles logging in app extensions. Once the LogManager is set and FileManager logger is registered somewhere
+/// at the beginning of the extension, this method can be called throughout the whole extension project in order to log. Logs are created using FileManager and stored in separate file "extension.log". Important when initializing FileManager to pass suit name of the application.
+///
+/// - Parameters:
+///   - message: String logging message
+///   - level: Level of the logging message
 public func QLogExtension(_ message: String, onLevel level: Level, inFile file: String = #file, inFunction function: String = #function, onLine line: Int = #line) {
     guard let fileLogger: FileLogger = LogManager.shared.logger() else {
         return

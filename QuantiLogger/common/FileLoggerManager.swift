@@ -167,7 +167,6 @@ class FileLoggerManager {
 
     init(subsystem: String? = nil) {
         self.subsystem = subsystem
-        print("QLog \(subsystem)")
         if let _dateOfLastLog = UserDefaults.standard.object(forKey: QuantiLoggerConstants.UserDefaultsKeys.dateOfLastLog) as? Date {
             dateOfLastLog = _dateOfLastLog
         } else {
@@ -301,7 +300,6 @@ class FileLoggerManager {
     }
 
     func writeToExtensionLogFile(message: String, withMessageHeader messageHeader: String, onLevel level: Level) {
-        print("QLog \(logExtensionFileUrl) \(subsystem)")
         guard let logExtensionFileUrl = logExtensionFileUrl else {
             return
         }
