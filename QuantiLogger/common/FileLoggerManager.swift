@@ -13,7 +13,11 @@ class FileLoggerManager {
     /// The class is used as a Singleton, thus should be accesed via instance property !!!
     static let shared = FileLoggerManager()
 
-    let logDirUrl: URL? = {
+    lazy var logDirUrl: URL? = {
+        suiteName == nil ? appLogDirUrl : extLogDirUrl
+    }()
+
+    private let appLogDirUrl: URL? = {
         do {
             let fileManager = FileManager.default
             let documentDirUrl = try fileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
@@ -32,11 +36,11 @@ class FileLoggerManager {
 
     private lazy var extLogDirUrl: URL? = {
         do {
-            guard let subsystem = subsystem else {
+            guard let suiteName = suiteName else {
                 return nil
             }
             let fileManager = FileManager.default
-            let dirUrl = fileManager.containerURL(forSecurityApplicationGroupIdentifier: subsystem)
+            let dirUrl = fileManager.containerURL(forSecurityApplicationGroupIdentifier: suiteName)
             guard let _logDirUrl = dirUrl?.appendingPathComponent("logs") else {
                 return nil
             }
@@ -52,7 +56,7 @@ class FileLoggerManager {
         }
     }()
 
-    private let subsystem: String?
+    private let suiteName: String?
 
     private(set) var currentLogFileNumber: Int = 0 {
         didSet {
@@ -80,11 +84,9 @@ class FileLoggerManager {
     }
 
     var currentLogFileUrl: URL? {
-        logDirUrl?.appendingPathComponent("\(currentLogFileNumber)").appendingPathExtension("log")
-    }
-
-    var logExtensionFileUrl: URL? {
-        extLogDirUrl?.appendingPathComponent("extension").appendingPathExtension("log")
+        suiteName == nil ?
+            logDirUrl?.appendingPathComponent("\(currentLogFileNumber)").appendingPathExtension("log") :
+            extLogDirUrl?.appendingPathComponent("extension").appendingPathExtension("log")
     }
 
     private var currentWritableFileHandle: FileHandle? {
@@ -167,8 +169,8 @@ class FileLoggerManager {
         return archive
     }
 
-    init(subsystem: String? = nil) {
-        self.subsystem = subsystem
+    init(suiteName: String? = nil) {
+        self.suiteName = suiteName
         if let _dateOfLastLog = UserDefaults.standard.object(forKey: QuantiLoggerConstants.UserDefaultsKeys.dateOfLastLog) as? Date {
             dateOfLastLog = _dateOfLastLog
         } else {
@@ -263,7 +265,7 @@ class FileLoggerManager {
     /// - Returns: Array of log file names
     func gettingAllLogFiles() -> [URL]? {
         do {
-            let directoryContent = try [logDirUrl, extLogDirUrl]
+            let directoryContent = try [logDirUrl]
                 .compactMap { $0 }
                 .flatMap {
                     try FileManager.default.contentsOfDirectory(at: $0, includingPropertiesForKeys: nil, options: [])
@@ -302,7 +304,7 @@ class FileLoggerManager {
     }
 
     func writeToExtensionLogFile(message: String, withMessageHeader messageHeader: String, onLevel level: Level) {
-        guard let logExtensionFileUrl = logExtensionFileUrl else {
+        guard let logExtensionFileUrl = currentLogFileUrl else {
             return
         }
         createLogFile(at: logExtensionFileUrl)
