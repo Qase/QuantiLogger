@@ -137,7 +137,7 @@ class FileLoggerManager {
             logDirectories.append(extensionDirectory)
         }
 
-        guard let allLogFiles = gettingAllLogFiles(directories: logDirectories), allLogFiles.count > 0 else {
+        guard let allLogFiles = gettingAllLogFiles(suiteName: suiteName), allLogFiles.count > 0 else {
             print("\(#function) - no log files.")
             return nil
         }
@@ -195,7 +195,7 @@ class FileLoggerManager {
                 .appendingPathComponent("logs")
             logDirectories.append(extensionDirectory)
         }
-        guard let aLogFiles = gettingAllLogFiles(directories: logDirectories) else { return }
+        guard let aLogFiles = gettingAllLogFiles(suiteName: suiteName) else { return }
 
         aLogFiles.forEach { (aLogFileUrl) in
             deleteLogFile(at: aLogFileUrl)
@@ -254,12 +254,19 @@ class FileLoggerManager {
 
     /// Method to get all log file names from dedicated log folder. These files are detected by its ".log" suffix.
     ///
-    /// - Parameter directories: directories that contain logs
+    /// - Parameters:
+    ///   - subsystem: suit name of the application. Must be passed to also get logs from app extensions.
     ///
     /// - Returns: Array of log file names
-    func gettingAllLogFiles(directories: [URL?]) -> [URL]? {
+    func gettingAllLogFiles(suiteName: String? = nil) -> [URL]? {
+        var logDirectories = [logDirUrl]
+        if let suiteName = suiteName {
+            let extensionDirectory = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: suiteName)?
+                .appendingPathComponent("logs")
+            logDirectories.append(extensionDirectory)
+        }
         do {
-            let directoryContent = try directories
+            let directoryContent = try logDirectories
                 .compactMap { $0 }
                 .flatMap {
                     try FileManager.default.contentsOfDirectory(at: $0, includingPropertiesForKeys: nil, options: [])

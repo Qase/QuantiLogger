@@ -110,7 +110,7 @@ public class LogManager {
 	/// Method to delete all log files if there are any.
     ///
     /// - Parameters:
-    ///   - subsystem: suit name of the application. Must be passed to delete as well logs from app extensions.
+    ///   - subsystem: suit name of the application. Must be passed to also delete logs from app extensions.
     public func deleteAllLogFiles(suiteName: String? = nil) {
 		serialLoggingQueue.async {
 			dispatchPrecondition(condition: .onQueue(self.serialLoggingQueue))
