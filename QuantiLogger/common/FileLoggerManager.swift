@@ -14,14 +14,16 @@ class FileLoggerManager {
     static let shared = FileLoggerManager()
 
     lazy var logDirUrl: URL? = {
-        suiteName == nil ? appLogDirUrl : extLogDirUrl
-    }()
-
-    private let appLogDirUrl: URL? = {
         do {
             let fileManager = FileManager.default
-            let documentDirUrl = try fileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
-            let _logDirUrl = documentDirUrl.appendingPathComponent("logs")
+            var dirUrl: URL
+            if let suiteName = suiteName,
+               let url = fileManager.containerURL(forSecurityApplicationGroupIdentifier: suiteName) {
+                dirUrl = url
+            } else {
+                dirUrl = try fileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+            }
+            let _logDirUrl = dirUrl.appendingPathComponent("logs")
             if !fileManager.fileExists(atPath: _logDirUrl.path) {
                 try fileManager.createDirectory(at: _logDirUrl, withIntermediateDirectories: true, attributes: nil)
             }
@@ -30,28 +32,6 @@ class FileLoggerManager {
             return _logDirUrl
         } catch let error {
             assertionFailure("Failed to create log directory within init() with error: \(error).")
-            return nil
-        }
-    }()
-
-    private lazy var extLogDirUrl: URL? = {
-        do {
-            guard let suiteName = suiteName else {
-                return nil
-            }
-            let fileManager = FileManager.default
-            let dirUrl = fileManager.containerURL(forSecurityApplicationGroupIdentifier: suiteName)
-            guard let _logDirUrl = dirUrl?.appendingPathComponent("logs") else {
-                return nil
-            }
-            if !fileManager.fileExists(atPath: _logDirUrl.path) {
-                try fileManager.createDirectory(at: _logDirUrl, withIntermediateDirectories: true, attributes: nil)
-            }
-            print("File log extension directory: \(_logDirUrl).")
-
-            return _logDirUrl
-        } catch let error {
-            assertionFailure("Failed to create log extension directory within init() with error: \(error).")
             return nil
         }
     }()
@@ -86,7 +66,7 @@ class FileLoggerManager {
     var currentLogFileUrl: URL? {
         suiteName == nil ?
             logDirUrl?.appendingPathComponent("\(currentLogFileNumber)").appendingPathExtension("log") :
-            extLogDirUrl?.appendingPathComponent("extension").appendingPathExtension("log")
+            logDirUrl?.appendingPathComponent("extension").appendingPathExtension("log")
     }
 
     private var currentWritableFileHandle: FileHandle? {
@@ -116,21 +96,21 @@ class FileLoggerManager {
         }
     }
 
-    // Url of the zip file containing all log files.
-    var archivedLogFilesUrl: URL? {
-        archivedLogFiles?.url
-    }
-
-    // Zip file containing log files
-    var archivedLogFiles: Archive? {
+    func getArchivedLogFiles(suiteName: String?) -> Archive? {
         guard let _logDirUrl = logDirUrl else {
             print("\(#function) - logDirUrl is nil.")
             return nil
         }
 
         let archiveUrl = _logDirUrl.appendingPathComponent("log_files_archive.zip")
+        var logDirectories = [logDirUrl]
+        if let suiteName = suiteName {
+            let extensionDirectory = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: suiteName)?
+                .appendingPathComponent("logs")
+            logDirectories.append(extensionDirectory)
+        }
 
-        guard let allLogFiles = gettingAllLogFiles(), allLogFiles.count > 0 else {
+        guard let allLogFiles = gettingAllLogFiles(directories: logDirectories), allLogFiles.count > 0 else {
             print("\(#function) - no log files.")
             return nil
         }
@@ -202,8 +182,8 @@ class FileLoggerManager {
     }
 
     /// Method to remove all log files from dedicated log folder. These files are detected by its ".log" suffix.
-    func deleteAllLogFiles() {
-        guard let aLogFiles = gettingAllLogFiles() else { return }
+    func deleteAllLogFiles(suiteName: String? = nil) {
+        guard let aLogFiles = gettingAllLogFiles(directories: []) else { return }
 
         aLogFiles.forEach { (aLogFileUrl) in
             deleteLogFile(at: aLogFileUrl)
@@ -263,9 +243,9 @@ class FileLoggerManager {
     /// Method to get all log file names from dedicated log folder. These files are detected by its ".log" suffix.
     ///
     /// - Returns: Array of log file names
-    func gettingAllLogFiles() -> [URL]? {
+    func gettingAllLogFiles(directories: [URL?]) -> [URL]? {
         do {
-            let directoryContent = try [logDirUrl]
+            let directoryContent = try directories
                 .compactMap { $0 }
                 .flatMap {
                     try FileManager.default.contentsOfDirectory(at: $0, includingPropertiesForKeys: nil, options: [])
@@ -300,23 +280,6 @@ class FileLoggerManager {
         currentWritableFileHandle?.seekToEndOfFile()
         if let _contentToAppend = contentToAppend.data(using: .utf8) {
             currentWritableFileHandle?.write(_contentToAppend)
-        }
-    }
-
-    func writeToExtensionLogFile(message: String, withMessageHeader messageHeader: String, onLevel level: Level) {
-        guard let logExtensionFileUrl = currentLogFileUrl else {
-            return
-        }
-        createLogFile(at: logExtensionFileUrl)
-        guard let writableFileHandle = try? FileHandle(forWritingTo: logExtensionFileUrl) else {
-            return
-        }
-
-        let contentToAppend = "\(QuantiLoggerConstants.FileLogger.logFileRecordSeparator) \(messageHeader) \(message)\n"
-
-        writableFileHandle.seekToEndOfFile()
-        if let _contentToAppend = contentToAppend.data(using: .utf8) {
-            writableFileHandle.write(_contentToAppend)
         }
     }
 

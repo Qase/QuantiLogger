@@ -25,7 +25,7 @@ public class LogFilesViaMailViewController: MFMailComposeViewController {
     }
 
     private func addLogFilesViaAttachments() {
-        guard let _logFilesUrls = FileLoggerManager.shared.gettingAllLogFiles() else { return }
+        guard let _logFilesUrls = FileLoggerManager.shared.gettingAllLogFiles(directories: [FileLoggerManager.shared.logDirUrl]) else { return }
         for logFileUrl in _logFilesUrls {
             guard let logFileContent = FileLoggerManager.shared.readingContentFromLogFile(at: logFileUrl) else {
                 break

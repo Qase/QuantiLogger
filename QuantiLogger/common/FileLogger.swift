@@ -19,15 +19,6 @@ public class FileLogger: Logging {
         }
     }
 
-    // Url of the zip file containing all log files.
-    public var archivedLogFilesUrl: URL? {
-        fileLoggerManager.archivedLogFilesUrl
-    }
-
-    public var archivedLogFiles: Archive? {
-        fileLoggerManager.archivedLogFiles
-    }
-
 	public var levels: [Level] = [.info]
 
     /// FileLogger initializer
@@ -42,12 +33,11 @@ public class FileLogger: Logging {
         fileLoggerManager.writeToLogFile(message: message, withMessageHeader: messageHeader(forLevel: level), onLevel: level)
     }
 
-    public func logExt(_ message: String, onLevel level: Level) {
-        fileLoggerManager.writeToExtensionLogFile(message: message, withMessageHeader: messageHeader(forLevel: level), onLevel: level)
-    }
-
-	public func deleteAllLogFiles() {
-		fileLoggerManager.deleteAllLogFiles()
+	public func deleteAllLogFiles(suiteName: String? = nil) {
+        fileLoggerManager.deleteAllLogFiles(suiteName: suiteName)
 	}
 
+    public func getArchivedLogFiles(suiteName: String? = nil) -> Archive? {
+        fileLoggerManager.getArchivedLogFiles(suiteName: suiteName)
+    }
 }
