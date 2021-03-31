@@ -64,10 +64,9 @@ class FileLoggerManager {
     }
 
     var currentLogFileUrl: URL? {
-        print("QLog \(currentLogFileNumber)")
-        return suiteName == nil ?
+        suiteName == nil ?
             logDirUrl?.appendingPathComponent("\(currentLogFileNumber)").appendingPathExtension("log") :
-            logDirUrl?.appendingPathComponent("11extension\(currentLogFileNumber)").appendingPathExtension("log")
+            logDirUrl?.appendingPathComponent("extension-\(currentLogFileNumber)").appendingPathExtension("log")
     }
 
     private var currentWritableFileHandle: FileHandle? {
@@ -242,6 +241,8 @@ class FileLoggerManager {
     }
 
     /// Method to get all log file names from dedicated log folder. These files are detected by its ".log" suffix.
+    ///
+    /// - Parameter directories: directories that contain logs
     ///
     /// - Returns: Array of log file names
     func gettingAllLogFiles(directories: [URL?]) -> [URL]? {

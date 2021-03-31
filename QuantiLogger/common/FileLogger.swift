@@ -33,10 +33,18 @@ public class FileLogger: Logging {
         fileLoggerManager.writeToLogFile(message: message, withMessageHeader: messageHeader(forLevel: level), onLevel: level)
     }
 
+    /// Delete all logs
+    ///
+    /// - Parameters:
+    ///   - subsystem: suit name of the application. Must be passed to delete logs from app extensions.
 	public func deleteAllLogFiles(suiteName: String? = nil) {
         fileLoggerManager.deleteAllLogFiles(suiteName: suiteName)
 	}
 
+    /// Get archive that contains logs
+    ///
+    /// - Parameters:
+    ///   - subsystem: suit name of the application. Must be passed to add logs from app extensions to archive.
     public func getArchivedLogFiles(suiteName: String? = nil) -> Archive? {
         fileLoggerManager.getArchivedLogFiles(suiteName: suiteName)
     }
