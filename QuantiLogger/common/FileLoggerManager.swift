@@ -64,9 +64,10 @@ class FileLoggerManager {
     }
 
     var currentLogFileUrl: URL? {
-        suiteName == nil ?
+        print("QLog \(currentLogFileNumber)")
+        return suiteName == nil ?
             logDirUrl?.appendingPathComponent("\(currentLogFileNumber)").appendingPathExtension("log") :
-            logDirUrl?.appendingPathComponent("extension\(currentLogFileNumber)").appendingPathExtension("log")
+            logDirUrl?.appendingPathComponent("11extension\(currentLogFileNumber)").appendingPathExtension("log")
     }
 
     private var currentWritableFileHandle: FileHandle? {
