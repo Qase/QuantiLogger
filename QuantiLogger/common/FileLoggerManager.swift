@@ -66,7 +66,7 @@ class FileLoggerManager {
     var currentLogFileUrl: URL? {
         suiteName == nil ?
             logDirUrl?.appendingPathComponent("\(currentLogFileNumber)").appendingPathExtension("log") :
-            logDirUrl?.appendingPathComponent("extension").appendingPathExtension("log")
+            logDirUrl?.appendingPathComponent("extension\(currentLogFileNumber)").appendingPathExtension("log")
     }
 
     private var currentWritableFileHandle: FileHandle? {
