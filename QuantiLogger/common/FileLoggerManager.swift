@@ -116,7 +116,7 @@ class FileLoggerManager {
             UserDefaults.standard.set(numOfLogFiles, forKey: QuantiLoggerConstants.UserDefaultsKeys.numOfLogFiles)
         }
     }
-    
+
     /// Get archive that contains logs
     ///
     /// - Parameters:
@@ -130,12 +130,6 @@ class FileLoggerManager {
         }
 
         let archiveUrl = _logDirUrl.appendingPathComponent("log_files_archive.zip")
-        var logDirectories = [logDirUrl]
-        if let suiteName = suiteName {
-            let extensionDirectory = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: suiteName)?
-                .appendingPathComponent("logs")
-            logDirectories.append(extensionDirectory)
-        }
 
         guard let allLogFiles = gettingAllLogFiles(suiteName: suiteName), allLogFiles.count > 0 else {
             print("\(#function) - no log files.")
@@ -189,12 +183,6 @@ class FileLoggerManager {
 
     /// Method to remove all log files from dedicated log folder. These files are detected by its ".log" suffix.
     func deleteAllLogFiles(suiteName: String? = nil) {
-        var logDirectories = [logDirUrl]
-        if let suiteName = suiteName {
-            let extensionDirectory = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: suiteName)?
-                .appendingPathComponent("logs")
-            logDirectories.append(extensionDirectory)
-        }
         guard let aLogFiles = gettingAllLogFiles(suiteName: suiteName) else { return }
 
         aLogFiles.forEach { (aLogFileUrl) in
