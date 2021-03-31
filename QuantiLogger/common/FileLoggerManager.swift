@@ -96,6 +96,33 @@ class FileLoggerManager {
         }
     }
 
+    init(suiteName: String? = nil) {
+        self.suiteName = suiteName
+        if let _dateOfLastLog = UserDefaults.standard.object(forKey: QuantiLoggerConstants.UserDefaultsKeys.dateOfLastLog) as? Date {
+            dateOfLastLog = _dateOfLastLog
+        } else {
+            UserDefaults.standard.set(dateOfLastLog, forKey: QuantiLoggerConstants.UserDefaultsKeys.dateOfLastLog)
+        }
+
+        if let _currentLogFileNumber = UserDefaults.standard.object(forKey: QuantiLoggerConstants.UserDefaultsKeys.currentLogFileNumber) as? Int {
+            currentLogFileNumber = _currentLogFileNumber
+        } else {
+            UserDefaults.standard.set(currentLogFileNumber, forKey: QuantiLoggerConstants.UserDefaultsKeys.currentLogFileNumber)
+        }
+
+        if let _numOfLogFiles = UserDefaults.standard.object(forKey: QuantiLoggerConstants.UserDefaultsKeys.numOfLogFiles) as? Int {
+            numOfLogFiles = _numOfLogFiles
+        } else {
+            UserDefaults.standard.set(numOfLogFiles, forKey: QuantiLoggerConstants.UserDefaultsKeys.numOfLogFiles)
+        }
+    }
+    
+    /// Get archive that contains logs
+    ///
+    /// - Parameters:
+    ///   - subsystem: suit name of the application. Must be passed to add logs from app extensions to archive.
+    ///
+    /// - Returns: compressed archive with logs
     func getArchivedLogFiles(suiteName: String?) -> Archive? {
         guard let _logDirUrl = logDirUrl else {
             print("\(#function) - logDirUrl is nil.")
@@ -149,27 +176,6 @@ class FileLoggerManager {
         return archive
     }
 
-    init(suiteName: String? = nil) {
-        self.suiteName = suiteName
-        if let _dateOfLastLog = UserDefaults.standard.object(forKey: QuantiLoggerConstants.UserDefaultsKeys.dateOfLastLog) as? Date {
-            dateOfLastLog = _dateOfLastLog
-        } else {
-            UserDefaults.standard.set(dateOfLastLog, forKey: QuantiLoggerConstants.UserDefaultsKeys.dateOfLastLog)
-        }
-
-        if let _currentLogFileNumber = UserDefaults.standard.object(forKey: QuantiLoggerConstants.UserDefaultsKeys.currentLogFileNumber) as? Int {
-            currentLogFileNumber = _currentLogFileNumber
-        } else {
-            UserDefaults.standard.set(currentLogFileNumber, forKey: QuantiLoggerConstants.UserDefaultsKeys.currentLogFileNumber)
-        }
-
-        if let _numOfLogFiles = UserDefaults.standard.object(forKey: QuantiLoggerConstants.UserDefaultsKeys.numOfLogFiles) as? Int {
-            numOfLogFiles = _numOfLogFiles
-        } else {
-            UserDefaults.standard.set(numOfLogFiles, forKey: QuantiLoggerConstants.UserDefaultsKeys.numOfLogFiles)
-        }
-    }
-
     /// Method to reset properties that control the correct flow of storing log files.
     /// - "currentLogFileNumber" represents the current logging file number
     /// - "dateTimeOfLastLog" represents the last date the logger was used
@@ -183,7 +189,13 @@ class FileLoggerManager {
 
     /// Method to remove all log files from dedicated log folder. These files are detected by its ".log" suffix.
     func deleteAllLogFiles(suiteName: String? = nil) {
-        guard let aLogFiles = gettingAllLogFiles(directories: []) else { return }
+        var logDirectories = [logDirUrl]
+        if let suiteName = suiteName {
+            let extensionDirectory = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: suiteName)?
+                .appendingPathComponent("logs")
+            logDirectories.append(extensionDirectory)
+        }
+        guard let aLogFiles = gettingAllLogFiles(directories: logDirectories) else { return }
 
         aLogFiles.forEach { (aLogFileUrl) in
             deleteLogFile(at: aLogFileUrl)

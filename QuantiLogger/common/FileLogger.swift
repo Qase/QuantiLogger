@@ -36,7 +36,7 @@ public class FileLogger: Logging {
     /// Delete all logs
     ///
     /// - Parameters:
-    ///   - subsystem: suit name of the application. Must be passed to delete logs from app extensions.
+    ///   - subsystem: suit name of the application. Must be passed to delete as well  logs from app extensions.
 	public func deleteAllLogFiles(suiteName: String? = nil) {
         fileLoggerManager.deleteAllLogFiles(suiteName: suiteName)
 	}
@@ -44,7 +44,9 @@ public class FileLogger: Logging {
     /// Get archive that contains logs
     ///
     /// - Parameters:
-    ///   - subsystem: suit name of the application. Must be passed to add logs from app extensions to archive.
+    ///   - subsystem: suit name of the application. Must be passed to add as well logs from app extensions to archive.
+    ///
+    /// - Returns: compressed archive with logs
     public func getArchivedLogFiles(suiteName: String? = nil) -> Archive? {
         fileLoggerManager.getArchivedLogFiles(suiteName: suiteName)
     }
