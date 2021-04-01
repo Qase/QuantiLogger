@@ -253,12 +253,15 @@ class FileLoggerManager {
                 .appendingPathComponent("logs")
             logDirectories.append(extensionDirectory)
         }
+        print("QLog 1 \(logDirUrl)")
+        print("QLog 2 \(logDirectories)")
         do {
             let directoryContent = try logDirectories
                 .compactMap { $0 }
                 .flatMap {
                     try FileManager.default.contentsOfDirectory(at: $0, includingPropertiesForKeys: nil, options: [])
                 }
+            print("QLog 3 \(directoryContent)")
             let logFiles = directoryContent.filter({ (file) -> Bool in
                 file.pathExtension == "log"
             })
