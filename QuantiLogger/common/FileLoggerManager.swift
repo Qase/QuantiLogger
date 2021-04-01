@@ -248,11 +248,10 @@ class FileLoggerManager {
     /// - Returns: Array of log file names
     func gettingAllLogFiles(suiteName: String? = nil) -> [URL]? {
         var logDirectories = [logDirUrl]
-        if let suiteName = suiteName {
-            let extensionDirectory = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: suiteName)?
-                .appendingPathComponent("logs")
-            logDirectories.append(extensionDirectory)
-        }
+        if let suiteName = suiteName,
+           let extensionDirectory = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: suiteName)?.appendingPathComponent("logs"), FileManager.default.fileExists(atPath: extensionDirectory.path) {
+                logDirectories.append(extensionDirectory)
+            }
         print("QLog 1 \(logDirUrl)")
         print("QLog 2 \(logDirectories)")
         do {
