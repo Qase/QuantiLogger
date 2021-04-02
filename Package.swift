@@ -6,19 +6,14 @@ import PackageDescription
 let package = Package(
     name: "QuantiLogger",
     platforms: [
-        .iOS(.v11),
-        .macOS(.v10_12)
+        .iOS(.v11)
     ],
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
             name: "QuantiLogger",
             targets: ["QuantiLogger"]
-        ),
-        .library(
-            name: "QuantiLoggerMac",
-            targets: ["QuantiLoggerMac"]
-        ),
+        )
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -32,26 +27,10 @@ let package = Package(
             dependencies: ["Zip"],
             path: "QuantiLogger/"
         ),
-        .target(
-            name: "QuantiLoggerMac",
-            dependencies: ["Zip"],
-            path: "QuantiLogger/"
-        ),
         .testTarget(
             name: "QuantiLoggerTests",
-            dependencies: ["Zip", QuantiLogger"],
-            path: "QuantiLoggerTests/"
-        ),
-        .target(
-            name: "QuantiLoggerExample",
             dependencies: ["Zip", "QuantiLogger"],
-            path: "QuantiLoggerExample/"
-        ),
-        .target(
-            name: "QuantiLoggerExampleUITests",
-            dependencies: ["Zip", "QuantiLogger", QuantiLoggerExample"],
-            path: "QuantiLoggerExampleUITests/"
+            path: "QuantiLoggerTests/"
         )
-
     ]
 )
