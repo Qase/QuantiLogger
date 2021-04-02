@@ -51,6 +51,8 @@
 		63E27A9C2617593700F2C94B /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B164FBE23BDF65700A5F4E6 /* Date+.swift */; };
 		63E27AA12617594100F2C94B /* Substring+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF2456E24472F5B0028F625 /* Substring+.swift */; };
 		63E27B1D26178BA800F2C94B /* Zip in Frameworks */ = {isa = PBXBuildFile; productRef = 63E27B1C26178BA800F2C94B /* Zip */; };
+		63E27B452617999000F2C94B /* Zip in Frameworks */ = {isa = PBXBuildFile; productRef = 63E27B442617999000F2C94B /* Zip */; };
+		63E27B5F26179A1F00F2C94B /* Zip in Frameworks */ = {isa = PBXBuildFile; productRef = 63E27B5E26179A1F00F2C94B /* Zip */; };
 		6C07CA8522CA6C740009203A /* LogFilesViaMailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C07CA8422CA6C730009203A /* LogFilesViaMailViewController.swift */; };
 		6C5DF0AD22C0E96600271501 /* WebLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32E659220D15A5C00698F3E /* WebLogger.swift */; };
 		6C5DF0AE22C0E96600271501 /* URLRequest+logDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32E659C20D15A7000698F3E /* URLRequest+logDescription.swift */; };
@@ -196,6 +198,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63E27B5F26179A1F00F2C94B /* Zip in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,6 +213,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63E27B452617999000F2C94B /* Zip in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,6 +301,7 @@
 				5BF957001F5ECF1C00F88F9B /* QuantiLoggerExample */,
 				5BF957201F5ECF1D00F88F9B /* QuantiLoggerExampleUITests */,
 				5B3641891DBFA4650034EF68 /* Products */,
+				63E27B432617999000F2C94B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -402,6 +407,13 @@
 			path = ../ios;
 			sourceTree = "<group>";
 		};
+		63E27B432617999000F2C94B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D32E659020D1541300698F3E /* WebLogger */ = {
 			isa = PBXGroup;
 			children = (
@@ -503,6 +515,9 @@
 			dependencies = (
 			);
 			name = QuantiLoggerExample;
+			packageProductDependencies = (
+				63E27B5E26179A1F00F2C94B /* Zip */,
+			);
 			productName = QuantiLoggerExample;
 			productReference = 5BF956FF1F5ECF1C00F88F9B /* QuantiLoggerExample.app */;
 			productType = "com.apple.product-type.application";
@@ -541,6 +556,9 @@
 			dependencies = (
 			);
 			name = QuantiLoggerMac;
+			packageProductDependencies = (
+				63E27B442617999000F2C94B /* Zip */,
+			);
 			productName = QuantiLogger;
 			productReference = 6C5DF0D722C0E96600271501 /* QuantiLoggerMac.framework */;
 			productType = "com.apple.product-type.framework";
@@ -955,7 +973,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -991,7 +1009,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1066,6 +1084,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				DEVELOPMENT_TEAM = 8JH59DJ45H;
 				INFOPLIST_FILE = QuantiLoggerExample/Info.plist;
@@ -1085,6 +1104,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				DEVELOPMENT_TEAM = 8JH59DJ45H;
 				INFOPLIST_FILE = QuantiLoggerExample/Info.plist;
@@ -1173,7 +1193,7 @@
 					"@loader_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.quanti.swift.QuantiLoggerMac;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1210,6 +1230,7 @@
 					"@loader_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.quanti.swift.QuantiLoggerMac;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1292,6 +1313,16 @@
 
 /* Begin XCSwiftPackageProductDependency section */
 		63E27B1C26178BA800F2C94B /* Zip */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 63E27B1B26178BA800F2C94B /* XCRemoteSwiftPackageReference "Zip" */;
+			productName = Zip;
+		};
+		63E27B442617999000F2C94B /* Zip */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 63E27B1B26178BA800F2C94B /* XCRemoteSwiftPackageReference "Zip" */;
+			productName = Zip;
+		};
+		63E27B5E26179A1F00F2C94B /* Zip */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 63E27B1B26178BA800F2C94B /* XCRemoteSwiftPackageReference "Zip" */;
 			productName = Zip;
