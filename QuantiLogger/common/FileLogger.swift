@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Zip
 
 /// Pre-built logger that logs to a single or multiple files within dedicated log dir.
 public class FileLogger: Logging {
@@ -27,9 +28,9 @@ public class FileLogger: Logging {
         fileLoggerManager.archivedLogFilesUrl
     }
 
-    public var archivedLogFiles: Archive? {
-        fileLoggerManager.archivedLogFiles
-    }
+//    public var archivedLogFiles: Archive? {
+//        fileLoggerManager.archivedLogFiles
+//    }
 
 	public var levels: [Level] = [.info]
 

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Zip
 
 /// LogFileManager manages all necessary operations for FileLogger.
 class FileLoggerManager {
@@ -86,29 +87,29 @@ class FileLoggerManager {
         }
     }
 
-    private func createArchive(fileName: String) -> Archive? {
-        guard let logDirUrl = logDirUrl else {
-            print("\(#function) - logDirUrl is nil.")
-            return nil
-        }
-        let archiveUrl = logDirUrl.appendingPathComponent(fileName)
-
-        do {
-            let fileManager = FileManager.default
-            try fileManager.removeItem(atPath: archiveUrl.path)
-        } catch {}
-
-        guard Archive(url: archiveUrl, accessMode: .create) != nil else {
-            print("\(#function) - failed to create the archive.")
-            return nil
-        }
-
-        guard let archive = Archive(url: archiveUrl, accessMode: .update) else {
-            print("\(#function) - failed to open the archive for update.")
-            return nil
-        }
-        return archive
-    }
+//    private func createArchiveURL(fileName: String) -> Archive? {
+//        guard let logDirUrl = logDirUrl else {
+//            print("\(#function) - logDirUrl is nil.")
+//            return nil
+//        }
+//        let archiveUrl = logDirUrl.appendingPathComponent(fileName)
+//
+//        do {
+//            let fileManager = FileManager.default
+//            try fileManager.removeItem(atPath: archiveUrl.path)
+//        } catch {}
+//
+//        guard Archive(url: archiveUrl, accessMode: .create) != nil else {
+//            print("\(#function) - failed to create the archive.")
+//            return nil
+//        }
+//
+//        guard let archive = Archive(url: archiveUrl, accessMode: .update) else {
+//            print("\(#function) - failed to open the archive for update.")
+//            return nil
+//        }
+//        return archive
+//    }
 
     // Zip file size (in bytes)
     var archivedLogFilesSize: Int? {
@@ -121,18 +122,18 @@ class FileLoggerManager {
         }
     }
 
-    // Url of the zip file containing all log files.
-    var archivedLogFilesUrl: URL? {
-        archivedLogFiles?.url
-    }
+//    // Url of the zip file containing all log files.
+//    var archivedLogFilesUrl: URL? {
+//        archivedLogFiles
+//    }
 
     // Zip file containing log files
-    var archivedLogFiles: Archive? {
+    var archivedLogFilesUrl: URL? {
         // Open newly created archive for update
-        guard let archive = createArchive(fileName: "log_files_archive.zip") else {
-            print("\(#function) - failed to open the archive for update.")
-            return nil
-        }
+//        guard let archive = createArchive(fileName: "log_files_archive.zip") else {
+//            print("\(#function) - failed to open the archive for update.")
+//            return nil
+//        }
 
         // Get all log files to the archive
         guard let allLogFiles = gettingAllLogFiles(), allLogFiles.count > 0 else {
@@ -140,19 +141,26 @@ class FileLoggerManager {
             return nil
         }
 
-        // Add all log files to the archive
+//        // Add all log files to the archive
+//        do {
+//            try allLogFiles.forEach { logFileUrl in
+//                var logFileUrlVar = logFileUrl
+//                logFileUrlVar.deleteLastPathComponent()
+//                try archive.addEntry(with: logFileUrl.lastPathComponent, relativeTo: logFileUrlVar, compressionMethod: .deflate)
+//            }
+//        } catch let error {
+//            print("\(#function) - failed to add a log file to the archive with error \(error).")
+//            return nil
+//        }
+
+//        return archive
+
         do {
-            try allLogFiles.forEach { logFileUrl in
-                var logFileUrlVar = logFileUrl
-                logFileUrlVar.deleteLastPathComponent()
-                try archive.addEntry(with: logFileUrl.lastPathComponent, relativeTo: logFileUrlVar, compressionMethod: .deflate)
-            }
+            return try Zip.quickZipFiles(allLogFiles, fileName: "log_files_archive.zip")
         } catch let error {
-            print("\(#function) - failed to add a log file to the archive with error \(error).")
+            print("\(#function) - failed to zip log files with error: \(error).")
             return nil
         }
-
-        return archive
     }
 
     private init() {
