@@ -504,7 +504,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5B36419C1DBFA4650034EF68 /* Build configuration list for PBXNativeTarget "QuantiLogger" */;
 			buildPhases = (
-				D3405D511F4C7CB700A1987F /* ShellScript */,
+				D3405D511F4C7CB700A1987F /* Swiftlint */,
 				5B3641831DBFA4650034EF68 /* Sources */,
 				5B3641841DBFA4650034EF68 /* Frameworks */,
 				5B3641851DBFA4650034EF68 /* Headers */,
@@ -541,7 +541,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5BF957241F5ECF1D00F88F9B /* Build configuration list for PBXNativeTarget "QuantiLoggerExample" */;
 			buildPhases = (
-				9C30BA1B239EA7280046008F /* ShellScript */,
+				9C30BA1B239EA7280046008F /* Swiftlint */,
 				5BF956FB1F5ECF1C00F88F9B /* Sources */,
 				5BF956FC1F5ECF1C00F88F9B /* Frameworks */,
 				5BF956FD1F5ECF1C00F88F9B /* Resources */,
@@ -577,7 +577,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6C5DF0D422C0E96600271501 /* Build configuration list for PBXNativeTarget "QuantiLoggerMac" */;
 			buildPhases = (
-				6C5DF0AA22C0E96600271501 /* ShellScript */,
+				6C5DF0AA22C0E96600271501 /* Swiftlint */,
 				6C5DF0AB22C0E96600271501 /* Sources */,
 				6C5DF0CE22C0E96600271501 /* Frameworks */,
 				6C5DF0D122C0E96600271501 /* Headers */,
@@ -695,20 +695,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		6C5DF0AA22C0E96600271501 /* ShellScript */ = {
+		6C5DF0AA22C0E96600271501 /* Swiftlint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
+			name = Swiftlint;
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint autocorrect\n    echo \"Hi\"\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
-		9C30BA1B239EA7280046008F /* ShellScript */ = {
+		9C30BA1B239EA7280046008F /* Swiftlint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -717,6 +718,7 @@
 			);
 			inputPaths = (
 			);
+			name = Swiftlint;
 			outputFileListPaths = (
 			);
 			outputPaths = (
@@ -725,13 +727,14 @@
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint autocorrect\n    echo \"Hi\"\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
-		D3405D511F4C7CB700A1987F /* ShellScript */ = {
+		D3405D511F4C7CB700A1987F /* Swiftlint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
+			name = Swiftlint;
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1031,7 +1034,7 @@
 				);
 				INFOPLIST_FILE = QuantiLogger/ios/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.quanti.swift.QuantiLogger;
@@ -1062,7 +1065,7 @@
 				);
 				INFOPLIST_FILE = QuantiLogger/ios/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.quanti.swift.QuantiLogger;
 				PRODUCT_NAME = "$(TARGET_NAME)";
