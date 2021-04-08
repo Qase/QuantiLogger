@@ -10,7 +10,7 @@ import Foundation
 
 /// Pre-built logger that logs to a single or multiple files within dedicated log dir.
 public class FileLogger: Logging {
-    private let fileLoggerManager = FileLoggerManager.shared
+    private let fileLoggerManager: FileLoggerManager
 
     /// Property to set a number of log files that can be used for loging.
     public var numOfLogFiles: Int = 4 {
@@ -19,25 +19,35 @@ public class FileLogger: Logging {
         }
     }
 
-    // Url of the zip file containing all log files.
-    public var archivedLogFilesUrl: URL? {
-        return fileLoggerManager.archivedLogFilesUrl
-    }
-
-    public var archivedLogFiles: Archive? {
-        return fileLoggerManager.archivedLogFiles
-    }
-
 	public var levels: [Level] = [.info]
 
-	public init() {}
+    /// FileLogger initializer
+    ///
+    /// - Parameters:
+    ///   - subsystem: suit name of the application. Must be passed to create logs from app extensions.
+	public init(suiteName: String? = nil) {
+        fileLoggerManager = FileLoggerManager(suiteName: suiteName)
+    }
 
     public func log(_ message: String, onLevel level: Level) {
         fileLoggerManager.writeToLogFile(message: message, withMessageHeader: messageHeader(forLevel: level), onLevel: level)
     }
 
-	public func deleteAllLogFiles() {
-		fileLoggerManager.deleteAllLogFiles()
+    /// Delete all logs
+    ///
+    /// - Parameters:
+    ///   - subsystem: suit name of the application. Must be passed to also delete logs from app extensions.
+	public func deleteAllLogFiles(suiteName: String? = nil) {
+        fileLoggerManager.deleteAllLogFiles(suiteName: suiteName)
 	}
 
+    /// Get archive that contains logs
+    ///
+    /// - Parameters:
+    ///   - subsystem: suit name of the application. Must be passed to also add logs from app extensions to archive.
+    ///
+    /// - Returns: compressed archive with logs
+    public func getArchivedLogFiles(suiteName: String? = nil) -> Archive? {
+        fileLoggerManager.getArchivedLogFiles(suiteName: suiteName)
+    }
 }

@@ -11,7 +11,7 @@ import RxSwift
 
 extension Observable {
     func qDebug(_ message: String) -> Observable {
-        return self.do(onNext: { element in
+        self.do(onNext: { element in
             LogManager.shared.log("\(message) -> Event next(\(element))", onLevel: .debug)
         }, onError: { error in
             LogManager.shared.log("\(message) -> Event error(\(error))", onLevel: .debug)

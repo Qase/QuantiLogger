@@ -13,11 +13,17 @@ class FileLoggerManager {
     /// The class is used as a Singleton, thus should be accesed via instance property !!!
     static let shared = FileLoggerManager()
 
-    let logDirUrl: URL? = {
+    lazy var logDirUrl: URL? = {
         do {
             let fileManager = FileManager.default
-            let documentDirUrl = try fileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
-            let _logDirUrl = documentDirUrl.appendingPathComponent("logs")
+            var dirUrl: URL
+            if let suiteName = suiteName,
+               let url = fileManager.containerURL(forSecurityApplicationGroupIdentifier: suiteName) {
+                dirUrl = url
+            } else {
+                dirUrl = try fileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+            }
+            let _logDirUrl = dirUrl.appendingPathComponent("logs")
             if !fileManager.fileExists(atPath: _logDirUrl.path) {
                 try fileManager.createDirectory(at: _logDirUrl, withIntermediateDirectories: true, attributes: nil)
             }
@@ -29,6 +35,8 @@ class FileLoggerManager {
             return nil
         }
     }()
+
+    private let suiteName: String?
 
     private(set) var currentLogFileNumber: Int = 0 {
         didSet {
@@ -56,7 +64,9 @@ class FileLoggerManager {
     }
 
     var currentLogFileUrl: URL? {
-        return logDirUrl?.appendingPathComponent("\(currentLogFileNumber)").appendingPathExtension("log")
+        suiteName == nil ?
+            logDirUrl?.appendingPathComponent("\(currentLogFileNumber)").appendingPathExtension("log") :
+            logDirUrl?.appendingPathComponent("extension-\(currentLogFileNumber)").appendingPathExtension("log")
     }
 
     private var currentWritableFileHandle: FileHandle? {
@@ -86,13 +96,34 @@ class FileLoggerManager {
         }
     }
 
-    // Url of the zip file containing all log files.
-    var archivedLogFilesUrl: URL? {
-        return archivedLogFiles?.url
+    init(suiteName: String? = nil) {
+        self.suiteName = suiteName
+        if let _dateOfLastLog = UserDefaults.standard.object(forKey: QuantiLoggerConstants.UserDefaultsKeys.dateOfLastLog) as? Date {
+            dateOfLastLog = _dateOfLastLog
+        } else {
+            UserDefaults.standard.set(dateOfLastLog, forKey: QuantiLoggerConstants.UserDefaultsKeys.dateOfLastLog)
+        }
+
+        if let _currentLogFileNumber = UserDefaults.standard.object(forKey: QuantiLoggerConstants.UserDefaultsKeys.currentLogFileNumber) as? Int {
+            currentLogFileNumber = _currentLogFileNumber
+        } else {
+            UserDefaults.standard.set(currentLogFileNumber, forKey: QuantiLoggerConstants.UserDefaultsKeys.currentLogFileNumber)
+        }
+
+        if let _numOfLogFiles = UserDefaults.standard.object(forKey: QuantiLoggerConstants.UserDefaultsKeys.numOfLogFiles) as? Int {
+            numOfLogFiles = _numOfLogFiles
+        } else {
+            UserDefaults.standard.set(numOfLogFiles, forKey: QuantiLoggerConstants.UserDefaultsKeys.numOfLogFiles)
+        }
     }
 
-    // Zip file containing log files
-    var archivedLogFiles: Archive? {
+    /// Get archive that contains logs
+    ///
+    /// - Parameters:
+    ///   - subsystem: suit name of the application. Must be passed to add logs from app extensions to archive.
+    ///
+    /// - Returns: compressed archive with logs
+    func getArchivedLogFiles(suiteName: String?) -> Archive? {
         guard let _logDirUrl = logDirUrl else {
             print("\(#function) - logDirUrl is nil.")
             return nil
@@ -100,7 +131,7 @@ class FileLoggerManager {
 
         let archiveUrl = _logDirUrl.appendingPathComponent("log_files_archive.zip")
 
-        guard let allLogFiles = gettingAllLogFiles(), allLogFiles.count > 0 else {
+        guard let allLogFiles = gettingAllLogFiles(suiteName: suiteName), allLogFiles.count > 0 else {
             print("\(#function) - no log files.")
             return nil
         }
@@ -139,26 +170,6 @@ class FileLoggerManager {
         return archive
     }
 
-    private init() {
-        if let _dateOfLastLog = UserDefaults.standard.object(forKey: QuantiLoggerConstants.UserDefaultsKeys.dateOfLastLog) as? Date {
-            dateOfLastLog = _dateOfLastLog
-        } else {
-            UserDefaults.standard.set(dateOfLastLog, forKey: QuantiLoggerConstants.UserDefaultsKeys.dateOfLastLog)
-        }
-
-        if let _currentLogFileNumber = UserDefaults.standard.object(forKey: QuantiLoggerConstants.UserDefaultsKeys.currentLogFileNumber) as? Int {
-            currentLogFileNumber = _currentLogFileNumber
-        } else {
-            UserDefaults.standard.set(currentLogFileNumber, forKey: QuantiLoggerConstants.UserDefaultsKeys.currentLogFileNumber)
-        }
-
-        if let _numOfLogFiles = UserDefaults.standard.object(forKey: QuantiLoggerConstants.UserDefaultsKeys.numOfLogFiles) as? Int {
-            numOfLogFiles = _numOfLogFiles
-        } else {
-            UserDefaults.standard.set(numOfLogFiles, forKey: QuantiLoggerConstants.UserDefaultsKeys.numOfLogFiles)
-        }
-    }
-
     /// Method to reset properties that control the correct flow of storing log files.
     /// - "currentLogFileNumber" represents the current logging file number
     /// - "dateTimeOfLastLog" represents the last date the logger was used
@@ -171,8 +182,8 @@ class FileLoggerManager {
     }
 
     /// Method to remove all log files from dedicated log folder. These files are detected by its ".log" suffix.
-    func deleteAllLogFiles() {
-        guard let aLogFiles = gettingAllLogFiles() else { return }
+    func deleteAllLogFiles(suiteName: String? = nil) {
+        guard let aLogFiles = gettingAllLogFiles(suiteName: suiteName) else { return }
 
         aLogFiles.forEach { (aLogFileUrl) in
             deleteLogFile(at: aLogFileUrl)
@@ -231,12 +242,22 @@ class FileLoggerManager {
 
     /// Method to get all log file names from dedicated log folder. These files are detected by its ".log" suffix.
     ///
+    /// - Parameters:
+    ///   - subsystem: suit name of the application. Must be passed to also get logs from app extensions.
+    ///
     /// - Returns: Array of log file names
-    func gettingAllLogFiles() -> [URL]? {
-        guard let _logDirUrl = logDirUrl else { return nil }
-
+    func gettingAllLogFiles(suiteName: String? = nil) -> [URL]? {
+        var logDirectories = [logDirUrl]
+        if let suiteName = suiteName,
+           let extensionDirectory = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: suiteName)?.appendingPathComponent("logs"), FileManager.default.fileExists(atPath: extensionDirectory.path) {
+                logDirectories.append(extensionDirectory)
+            }
         do {
-            let directoryContent = try FileManager.default.contentsOfDirectory(at: _logDirUrl, includingPropertiesForKeys: nil, options: [])
+            let directoryContent = try logDirectories
+                .compactMap { $0 }
+                .flatMap {
+                    try FileManager.default.contentsOfDirectory(at: $0, includingPropertiesForKeys: nil, options: [])
+                }
             let logFiles = directoryContent.filter({ (file) -> Bool in
                 file.pathExtension == "log"
             })

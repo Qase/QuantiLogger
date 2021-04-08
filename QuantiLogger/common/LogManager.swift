@@ -59,7 +59,7 @@ public class LogManager {
 	///
 	/// - Returns: the logger if exists, nil otherwise
 	public func logger<T: Logging>() -> T? {
-		return loggers.compactMap { $0 as? T }.first
+		loggers.compactMap { $0 as? T }.first
 	}
 
     /// Method to register a new custom or pre-build logger.
@@ -108,12 +108,15 @@ public class LogManager {
     }
 
 	/// Method to delete all log files if there are any.
-	public func deleteAllLogFiles() {
+    ///
+    /// - Parameters:
+    ///   - subsystem: suit name of the application. Must be passed to also delete logs from app extensions.
+    public func deleteAllLogFiles(suiteName: String? = nil) {
 		serialLoggingQueue.async {
 			dispatchPrecondition(condition: .onQueue(self.serialLoggingQueue))
 
 			self.loggers.compactMap { $0 as? FileLogger }
-				.forEach { $0.deleteAllLogFiles() }
+				.forEach { $0.deleteAllLogFiles(suiteName: suiteName) }
 		}
 	}
 
