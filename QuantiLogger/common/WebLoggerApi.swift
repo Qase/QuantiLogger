@@ -24,7 +24,7 @@ class WebLoggerApi: BaseApi {
 extension WebLoggerApi: WebLoggerApiType {
     func send(_ logBatch: LogEntryBatch) -> Completable {
         let request = ApiFactory.buildRequest(baseUrl: url, pathComponent: "log", method: .post, withJsonBody: logBatch.jsonData)
-//        print("QLog \(request?.url) \(String(data: logBatch.jsonData, encoding: .utf8))")
+        print("QLog \(request?.url) \(String(data: logBatch.jsonData, encoding: .utf8))")
 
         return ApiFactory.noData(for: request, in: session).ignoreElements()
     }
