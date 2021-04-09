@@ -80,6 +80,8 @@ public class WebLogger: Logging {
                 sessionName: String = UUID().uuidString,
                 sizeOfBatch: Int = 5,
                 timeSpan: RxTimeInterval = .seconds(4)) {
+        
+        print("QLog 111 \(serverUrl) \(apiPath)")
 
         let serverUrlHasScheme = serverUrl.starts(with: "http://") || serverUrl.starts(with: "https://")
         self.api = WebLoggerApi(url: (serverUrlHasScheme ? "" : "http://") + serverUrl + apiPath)
