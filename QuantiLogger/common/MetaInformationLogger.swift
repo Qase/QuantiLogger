@@ -100,11 +100,11 @@ class MetaInformationLogger {
 		}
 
         if dataToLog.contains(.cpuName) {
-            data[MetaInformationType.language.rawValue] = UIDevice.current.cpuName
+            data[MetaInformationType.cpuName.rawValue] = UIDevice.current.cpuName
         }
 
         if dataToLog.contains(.cpuSpeed) {
-            data[MetaInformationType.language.rawValue] = UIDevice.current.cpuSpeed
+            data[MetaInformationType.cpuSpeed.rawValue] = UIDevice.current.cpuSpeed
         }
 
 		return data
