@@ -25,12 +25,17 @@ let package = Package(
         .target(
             name: "QuantiLogger",
             dependencies: ["Zip"],
-            path: "QuantiLogger/"
+            path: "QuantiLogger/",
+            exclude: [
+                "ios/Info.plist",
+                "mac/InfoMac.plist"
+            ]
         ),
         .testTarget(
             name: "QuantiLoggerTests",
             dependencies: ["Zip", "QuantiLogger"],
-            path: "QuantiLoggerTests/"
+            path: "QuantiLoggerTests/",
+            exclude: [ "Info.plist" ]
         )
     ]
 )
