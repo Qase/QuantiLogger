@@ -11,7 +11,7 @@ import Foundation
 import UIKit
 #endif
 
-public enum MetaInformationType: String {
+public enum MetaInformationType: String, CaseIterable {
 	case identifier = "CFBundleIdentifier"
 	case compiler = "DTCompiler"
 	case version = "CFBundleShortVersionString"
@@ -20,9 +20,8 @@ public enum MetaInformationType: String {
 	case currentOSVersion = "CurrentOSVersion"
 	case upTime = "UpTime"
 	case language = "Language"
-
-	static let allValues: [MetaInformationType] = [.identifier, .compiler, .version, .buildNumber,
-												   .modelType, .currentOSVersion, .upTime, .language]
+    case cpuName = "CPUName"
+    case cpuSpeed = "CPUSpeed"
 }
 
 protocol MetaInformationLoggerDelegate: class {
@@ -100,11 +99,19 @@ class MetaInformationLogger {
 			data[MetaInformationType.language.rawValue] = _value
 		}
 
+        if dataToLog.contains(.cpuName) {
+            data[MetaInformationType.cpuName.rawValue] = UIDevice.current.cpuName
+        }
+
+        if dataToLog.contains(.cpuSpeed) {
+            data[MetaInformationType.cpuSpeed.rawValue] = UIDevice.current.cpuSpeed
+        }
+
 		return data
 	}
 
 	func log(_ dataToLog: [MetaInformationType], onLevel level: Level) {
-		let _dataToLog = dataToLog.count == 0 ? MetaInformationType.allValues : dataToLog
+		let _dataToLog = dataToLog.count == 0 ? MetaInformationType.allCases : dataToLog
 
 		delegate?.logMetaInformation("Meta information: \(values(for: _dataToLog))", onLevel: level)
 	}
