@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5B164FBB23BDF34F00A5F4E6 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B07490B23A0F2A100887C7C /* RxSwift.framework */; };
+		551952E7263AEFDF00765950 /* RxSwift.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 551952E2263AEFDF00765950 /* RxSwift.xcframework */; };
+		551952EB263AF0B900765950 /* RxCocoa.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 551952E3263AEFDF00765950 /* RxCocoa.xcframework */; };
+		551952EE263AF0D200765950 /* RxRelay.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 551952E5263AEFDF00765950 /* RxRelay.xcframework */; };
 		5B164FBF23BDF65700A5F4E6 /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B164FBE23BDF65700A5F4E6 /* Date+.swift */; };
 		5B164FC023BDF65700A5F4E6 /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B164FBE23BDF65700A5F4E6 /* Date+.swift */; };
 		5B164FC223BDF67800A5F4E6 /* Observable+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B164FC123BDF67800A5F4E6 /* Observable+.swift */; };
@@ -95,10 +97,6 @@
 		6C5DF0DD22C0EED600271501 /* ApplicationCallbackLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF451371FF568A500E18215 /* ApplicationCallbackLogger.swift */; };
 		6C5DF0E322C103F600271501 /* QuantiLoggerMac.h in Headers */ = {isa = PBXBuildFile; fileRef = 6CA969E222C0E4FC009185F6 /* QuantiLoggerMac.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6CF70E3922CB6AA60058D080 /* LogFilesViaMailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C07CA8422CA6C730009203A /* LogFilesViaMailViewController.swift */; };
-		9C6F8ECC23A0EE170098FA4C /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C6F8ECB23A0EE170098FA4C /* RxCocoa.framework */; platformFilter = ios; };
-		9C6F8ED023A0EE240098FA4C /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C6F8ECF23A0EE240098FA4C /* RxSwift.framework */; platformFilter = ios; };
-		9C6F8ED523A0F0210098FA4C /* RxTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C6F8ED123A0EE2B0098FA4C /* RxTest.framework */; };
-		9C6F8ED723A0F02B0098FA4C /* RxRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C6F8ECD23A0EE1E0098FA4C /* RxRelay.framework */; };
 		D32E659320D15A5C00698F3E /* WebLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32E659220D15A5C00698F3E /* WebLogger.swift */; };
 		D32E659E20D15A7100698F3E /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32E659420D15A6900698F3E /* JSONParser.swift */; };
 		D32E659F20D15A7100698F3E /* ApiFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32E659520D15A6A00698F3E /* ApiFactory.swift */; };
@@ -136,7 +134,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5B07490B23A0F2A100887C7C /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/Mac/RxSwift.framework; sourceTree = SOURCE_ROOT; };
+		551952E1263AEFDF00765950 /* RxTest.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = RxTest.xcframework; path = Carthage/Build/RxTest.xcframework; sourceTree = SOURCE_ROOT; };
+		551952E2263AEFDF00765950 /* RxSwift.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = RxSwift.xcframework; path = Carthage/Build/RxSwift.xcframework; sourceTree = SOURCE_ROOT; };
+		551952E3263AEFDF00765950 /* RxCocoa.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = RxCocoa.xcframework; path = Carthage/Build/RxCocoa.xcframework; sourceTree = SOURCE_ROOT; };
+		551952E4263AEFDF00765950 /* RxBlocking.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = RxBlocking.xcframework; path = Carthage/Build/RxBlocking.xcframework; sourceTree = SOURCE_ROOT; };
+		551952E5263AEFDF00765950 /* RxRelay.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = RxRelay.xcframework; path = Carthage/Build/RxRelay.xcframework; sourceTree = SOURCE_ROOT; };
 		5B164FBE23BDF65700A5F4E6 /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
 		5B164FC123BDF67800A5F4E6 /* Observable+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Observable+.swift"; sourceTree = "<group>"; };
 		5B16551A1EE585E0000D4652 /* SystemLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemLogger.swift; sourceTree = "<group>"; };
@@ -179,12 +181,6 @@
 		6C5DF0D722C0E96600271501 /* QuantiLoggerMac.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = QuantiLoggerMac.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CA969E222C0E4FC009185F6 /* QuantiLoggerMac.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = QuantiLoggerMac.h; path = mac/QuantiLoggerMac.h; sourceTree = "<group>"; };
 		6CA969E322C0E4FC009185F6 /* InfoMac.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = InfoMac.plist; path = mac/InfoMac.plist; sourceTree = "<group>"; };
-		9C6F8EC923A0EE0F0098FA4C /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = SOURCE_ROOT; };
-		9C6F8ECB23A0EE170098FA4C /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = SOURCE_ROOT; };
-		9C6F8ECD23A0EE1E0098FA4C /* RxRelay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxRelay.framework; path = Carthage/Build/iOS/RxRelay.framework; sourceTree = SOURCE_ROOT; };
-		9C6F8ECF23A0EE240098FA4C /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = SOURCE_ROOT; };
-		9C6F8ED123A0EE2B0098FA4C /* RxTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxTest.framework; path = Carthage/Build/iOS/RxTest.framework; sourceTree = SOURCE_ROOT; };
-		9C6F8ED323A0EE300098FA4C /* RxAtomic.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxAtomic.framework; path = Carthage/Build/iOS/RxAtomic.framework; sourceTree = SOURCE_ROOT; };
 		D32E659220D15A5C00698F3E /* WebLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebLogger.swift; sourceTree = "<group>"; };
 		D32E659420D15A6900698F3E /* JSONParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
 		D32E659520D15A6A00698F3E /* ApiFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiFactory.swift; sourceTree = "<group>"; };
@@ -206,8 +202,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9C6F8ED023A0EE240098FA4C /* RxSwift.framework in Frameworks */,
-				9C6F8ECC23A0EE170098FA4C /* RxCocoa.framework in Frameworks */,
+				551952EE263AF0D200765950 /* RxRelay.xcframework in Frameworks */,
+				551952E7263AEFDF00765950 /* RxSwift.xcframework in Frameworks */,
+				551952EB263AF0B900765950 /* RxCocoa.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -215,9 +212,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9C6F8ED523A0F0210098FA4C /* RxTest.framework in Frameworks */,
 				5B27824A1DC9F1AD00525431 /* QuantiLogger.framework in Frameworks */,
-				9C6F8ED723A0F02B0098FA4C /* RxRelay.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,7 +234,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B164FBB23BDF34F00A5F4E6 /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -460,13 +454,11 @@
 		D3920BE7206D2BAE0054FE9F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5B07490B23A0F2A100887C7C /* RxSwift.framework */,
-				9C6F8ED323A0EE300098FA4C /* RxAtomic.framework */,
-				9C6F8ED123A0EE2B0098FA4C /* RxTest.framework */,
-				9C6F8ECF23A0EE240098FA4C /* RxSwift.framework */,
-				9C6F8ECD23A0EE1E0098FA4C /* RxRelay.framework */,
-				9C6F8ECB23A0EE170098FA4C /* RxCocoa.framework */,
-				9C6F8EC923A0EE0F0098FA4C /* RxBlocking.framework */,
+				551952E4263AEFDF00765950 /* RxBlocking.xcframework */,
+				551952E3263AEFDF00765950 /* RxCocoa.xcframework */,
+				551952E5263AEFDF00765950 /* RxRelay.xcframework */,
+				551952E2263AEFDF00765950 /* RxSwift.xcframework */,
+				551952E1263AEFDF00765950 /* RxTest.xcframework */,
 				5BA6AAF4226F429400FBB047 /* Zip */,
 			);
 			name = Frameworks;
