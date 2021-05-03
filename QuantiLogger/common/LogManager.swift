@@ -120,6 +120,17 @@ public class LogManager {
 		}
 	}
 
+    /// Method to export all log files if there are any.
+    public func exportLogFiles() -> [Archive] {
+        serialLoggingQueue.sync {
+            dispatchPrecondition(condition: .onQueue(self.serialLoggingQueue))
+
+            return self.loggers
+                .compactMap { $0 as? FileLogger }
+                .compactMap { $0.getArchivedLogFiles() }
+        }
+    }
+
 	/// Method to set specific application's callbacks to be logged and a level to be logged on.
 	/// If array of callbacks set nil, none of the application's callbacks will be logged.
 	/// If array of callbacks set an emty array, all of the application's callbacks will be logged.
