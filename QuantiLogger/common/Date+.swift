@@ -10,7 +10,7 @@ import Foundation
 
 extension Date {
 
-    /// Method to return String in format: "yyyy-MM-dd HH:mm:ss" from Date instance.
+    /// Method to return String in format: "yyyy-MM-dd HH:mm:ss.SSS" from Date instance.
     ///
     /// - Returns: String
     public func toFullDateTimeString() -> String {
@@ -22,5 +22,12 @@ extension Date {
     /// - Returns: String
     public func toFullDateString() -> String {
         DateHelper.toFullDateString(from: self)
+    }
+    
+    /// Method to return String in format: "MM-dd HH:mm:ss.SSS" from Date instance.
+    ///
+    /// - Returns: String
+    public func toShortenedDateString() -> String {
+        DateHelper.toShortenedDateTimeString(from: self)
     }
 }

@@ -283,7 +283,7 @@ class FileLoggerManager {
 
         refreshCurrentLogFileStatus()
 
-        let contentToAppend = "\(QuantiLoggerConstants.FileLogger.logFileRecordSeparator) \(messageHeader) \(message)\n"
+        let contentToAppend = "\(messageHeader) \(message)\n"
 
         currentWritableFileHandle?.seekToEndOfFile()
         if let _contentToAppend = contentToAppend.data(using: .utf8) {
@@ -328,11 +328,13 @@ class FileLoggerManager {
     /// - Parameter fileUrlToRead: fileName of a log file to parse
     /// - Returns: array of LogFileRecord instances
     func gettingRecordsFromLogFile(at fileUrlToRead: URL) -> [LogFileRecord]? {
-        let logFileContent = readingContentFromLogFile(at: fileUrlToRead)
-        guard let _logFileContent = logFileContent else { return nil }
 
-        var arrayOflogFileRecords = _logFileContent.components(separatedBy: QuantiLoggerConstants.FileLogger.logFileRecordSeparator)
+        guard let logFileContent = readingContentFromLogFile(at: fileUrlToRead) else { return nil }
+
+        var arrayOflogFileRecords = logFileContent.components(separatedBy: QuantiLoggerConstants.FileLogger.logFileRecordSeparator)
+        
         arrayOflogFileRecords.remove(at: 0)
+        
         let logFileRecords = arrayOflogFileRecords.map { (logFileRecordInString) -> LogFileRecord in
 
             let headerTrimmed = logFileRecordInString

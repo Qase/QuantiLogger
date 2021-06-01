@@ -14,7 +14,7 @@ struct DateHelper {
         let formatter = DateFormatter()
 
         formatter.locale = Locale.current
-        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss.SSS"
         return formatter
     }()
 
@@ -25,6 +25,14 @@ struct DateHelper {
         formatter.dateFormat = "yyyy-MM-dd"
         return formatter
     }()
+    
+    static let shortenedDateTimeFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+
+        formatter.locale = Locale.current
+        formatter.dateFormat = "MM-dd HH:mm:ss.SSS"
+        return formatter
+    }()
 
     static func toFullDateTimeString(from date: Date) -> String {
         DateHelper.dateTimeFormatter.string(from: date)
@@ -32,5 +40,9 @@ struct DateHelper {
 
     static func toFullDateString(from date: Date) -> String {
         DateHelper.dateFormatter.string(from: date)
+    }
+    
+    static func toShortenedDateTimeString(from date: Date) -> String {
+        DateHelper.shortenedDateTimeFormatter.string(from: date)
     }
 }
