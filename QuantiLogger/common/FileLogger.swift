@@ -47,7 +47,7 @@ public class FileLogger: Logging {
     ///   - subsystem: suit name of the application. Must be passed to also add logs from app extensions to archive.
     ///
     /// - Returns: compressed archive with logs
-    public func getArchivedLogFiles(suiteName: String? = nil) -> Archive? {
-        fileLoggerManager.getArchivedLogFiles(suiteName: suiteName)
+    public func getArchivedLogFiles(suiteName: String? = nil, archiveName: String? = nil) -> Archive? {
+        fileLoggerManager.getArchivedLogFiles(suiteName: suiteName, archiveName: archiveName)
     }
 }

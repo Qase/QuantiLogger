@@ -123,13 +123,13 @@ class FileLoggerManager {
     ///   - subsystem: suit name of the application. Must be passed to add logs from app extensions to archive.
     ///
     /// - Returns: compressed archive with logs
-    func getArchivedLogFiles(suiteName: String?) -> Archive? {
-        guard let _logDirUrl = logDirUrl else {
+    func getArchivedLogFiles(suiteName: String?, archiveName: String?) -> Archive? {
+        guard let logDirUrl = logDirUrl else {
             print("\(#function) - logDirUrl is nil.")
             return nil
         }
 
-        let archiveUrl = _logDirUrl.appendingPathComponent("log_files_archive.zip")
+        let archiveUrl = logDirUrl.appendingPathComponent(archiveName ?? "log_files_archive.zip")
 
         guard let allLogFiles = gettingAllLogFiles(suiteName: suiteName), allLogFiles.count > 0 else {
             print("\(#function) - no log files.")
