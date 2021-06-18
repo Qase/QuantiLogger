@@ -128,19 +128,22 @@ class FileLoggerManager {
             print("\(#function) - logDirUrl is nil.")
             return nil
         }
+        
+        let archiveDirUrl = logDirUrl.appendingPathComponent("archive")
+        
+        do {
+            try FileManager.default.removeItem(at: archiveDirUrl) // Remove old archive if exists
+            try FileManager.default.createDirectory(at: archiveDirUrl, withIntermediateDirectories: true, attributes: nil)
+            print("Archive log directory: \(archiveDirUrl).")
+        } catch let error {
+            print("\(#function) - failed to remove old / create new archive file with error \(error).")
+        }
 
-        let archiveUrl = logDirUrl.appendingPathComponent(archiveName ?? "log_files_archive.zip")
+        let archiveUrl = archiveDirUrl.appendingPathComponent(archiveName ?? "log_files_archive.zip")
 
         guard let allLogFiles = gettingAllLogFiles(suiteName: suiteName), allLogFiles.count > 0 else {
             print("\(#function) - no log files.")
             return nil
-        }
-
-        // Remove old archive if exists
-        do {
-            try FileManager.default.removeItem(at: archiveUrl)
-        } catch let error {
-            print("\(#function) - failed to remove old archive file with error \(error).")
         }
 
         // Create new archive
