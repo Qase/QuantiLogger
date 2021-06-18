@@ -128,15 +128,23 @@ class FileLoggerManager {
             print("\(#function) - logDirUrl is nil.")
             return nil
         }
-        
+
         let archiveDirUrl = logDirUrl.appendingPathComponent("archive")
-        
+
+        // Remove old archive if exists
         do {
-            try FileManager.default.removeItem(at: archiveDirUrl) // Remove old archive if exists
+            if FileManager.default.fileExists(atPath: archiveDirUrl.path) {
+                try FileManager.default.removeItem(at: archiveDirUrl)
+            }
+        } catch let error {
+            print("\(#function) - failed to remove old archive file with error \(error).")
+        }
+
+        do {
             try FileManager.default.createDirectory(at: archiveDirUrl, withIntermediateDirectories: true, attributes: nil)
             print("Archive log directory: \(archiveDirUrl).")
         } catch let error {
-            print("\(#function) - failed to remove old / create new archive file with error \(error).")
+            print("\(#function) - failed to create new archive file with error \(error).")
         }
 
         let archiveUrl = archiveDirUrl.appendingPathComponent(archiveName ?? "log_files_archive.zip")
@@ -335,9 +343,9 @@ class FileLoggerManager {
         guard let logFileContent = readingContentFromLogFile(at: fileUrlToRead) else { return nil }
 
         var arrayOflogFileRecords = logFileContent.components(separatedBy: QuantiLoggerConstants.FileLogger.logFileRecordSeparator)
-        
+
         arrayOflogFileRecords.remove(at: 0)
-        
+
         let logFileRecords = arrayOflogFileRecords.map { (logFileRecordInString) -> LogFileRecord in
 
             let headerTrimmed = logFileRecordInString

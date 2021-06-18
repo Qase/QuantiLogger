@@ -23,7 +23,7 @@ extension Date {
     public func toFullDateString() -> String {
         DateHelper.toFullDateString(from: self)
     }
-    
+
     /// Method to return String in format: "MM-dd HH:mm:ss.SSS" from Date instance.
     ///
     /// - Returns: String
