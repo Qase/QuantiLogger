@@ -8,6 +8,7 @@
 [![Maintainer: Martin](https://img.shields.io/badge/Maintains-Martin-blue.svg)](mailto:martin.troup@quanti.cz)
 [![Qase: QuantiLogger](https://img.shields.io/badge/Qase-QuantiLogger-ff69b4.svg)](https://github.com/Qase/QuantiLogger)
 
+⚠️ **QuantiLogger is deprecated, please use and further maintain [Logger](https://github.com/Qase/swift-logger) instead.** ⚠️
 
 # QuantiLogger
 QuantiLogger is a super lightweight logging library for iOS development in Swift. It provides a few pre-built loggers including native os_log or a file logger. It also provides an interface for creating custom loggers.
